@@ -291,6 +291,17 @@ def main() -> int:
         erros.append(err)
         g = {}
 
+    cls_p = pasta / "02-json" / "classificacao.json"
+    cls = json.loads(cls_p.read_text(encoding="utf-8"))["questoes"] if cls_p.exists() else {}
+    itens_ed = {i["id"]: i for d_ in (edital["disciplinas"] if edital else []) for i in d_["itens"]}
+
+    def trilha(item_id):
+        out_, atual_, guard_ = [], item_id, 0
+        while atual_ and atual_ in itens_ed and guard_ < 12:
+            out_.append(atual_)
+            atual_, guard_ = itens_ed[atual_]["pai"], guard_ + 1
+        return list(reversed(out_))
+
     out, pend_total = [], {}
     for q in qs:
         n = q["numero"]
@@ -326,8 +337,25 @@ def main() -> int:
             classif["disciplinaIds"] = d["ids"]
         elif ids_de(d):
             classif["disciplinaId"] = ids_de(d)[0]
+        rid = f"Q{meta['codigoProva']:02d}{n:04d}"
+        cl_q = cls.get(rid)
+        if cl_q:
+            classif["classificacaoStatus"] = cl_q["status"]
+            classif["classificacaoMetodo"] = cl_q.get("metodo")
+            classif["classificacaoScore"] = cl_q.get("score")
+            if cl_q.get("editalItemId") in itens_ed:
+                it_ = itens_ed[cl_q["editalItemId"]]
+                classif["editalItemId"] = it_["id"]
+                classif["editalItem"] = it_["numero"]
+                classif["assunto"] = it_["texto"].strip().rstrip(".;:").strip()
+                classif["editalItemTrilha"] = trilha(it_["id"])
+            pend = [x for x in pend if x != "classificar_assunto"]
+            if cl_q["status"] == "sugerida":
+                pend.append("confirmar_assunto")
+            elif cl_q["status"] == "indeterminada":
+                pend.append("classificar_assunto")
         reg = {
-            "id": f"Q{meta['codigoProva']:02d}{n:04d}",
+            "id": rid,
             "schemaVersion": "3.0",
             "tipo": "MultiplaEscolha",
             "enunciado": enun,

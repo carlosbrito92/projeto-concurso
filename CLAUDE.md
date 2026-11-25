@@ -67,6 +67,15 @@ Regras do pipeline:
 - **Nunca inventar** lei, artigo, súmula, prazo ou data. Sem fonte, o campo é `null` e o item fica `status: "rascunho"`.
 - Trecho literal de fonte: curto (≤ 25 palavras). Lei e jurisprudência são fonte preferencial (texto público).
 
+## Classificação por assunto (item do edital)
+
+Cada questão aponta para um item do edital do seu concurso (`classificacao.editalItemId`, ex.: `D09:5.5.2`; `editalItemTrilha` traz a cadeia até a raiz). Fonte da verdade: `conteudo/provas/<slug>/02-json/classificacao.json` (só ids, versionado) e `classificacao-manual.json` (decisões por revisão assistida, só ids, versionado, tem prioridade). Comando: `python3 -I pipeline/classificar_questoes.py conteudo/provas/<slug>` e depois `prova_para_json.py`.
+- **Estados:** `sugerida` (IA), `indeterminada` (assunto `null`, candidatos registrados) e `confirmada` (**só humano define; o script nunca sobrescreve**). Nenhuma classificação feita por IA conta como confirmada.
+- **Métodos:** `tfidf-lexical-v1` (TF-IDF por disciplina) e `manual-ia-v1` (leitura da questão contra os itens do edital). A pendência `confirmar_assunto` some só com a confirmação humana.
+- **Precisão medida por amostragem manual** (não por gabarito oficial, que não existe): o léxico acerta cerca de 65–70% das que consigo julgar; erra mais em Português, em casos narrativos e em itens genéricos. Por isso as de Português, Raciocínio e as indeterminadas foram revisadas à mão, mas isso também é sugestão.
+- **Granularidade:** depende do edital. Amazonas (itens por frase) e Maranhão (Informática com 3 itens) classificam grosso; MG-2024 e MG-2014 (hierárquicos) classificam fino.
+- O `revisao-classificacao.csv` (ignorado pelo Git, contém texto) existe só para a revisão humana.
+
 ## Dois tipos de questão
 
 | `origem.tipo` | O que é | Cuidado |

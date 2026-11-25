@@ -1,0 +1,1966 @@
+{
+  "schemaVersion": "1.0",
+  "prova": "pc-am-fgv-2021-investigador-t1",
+  "edital": "pc-am-fgv-2021",
+  "limiares": {
+    "score": 0.12,
+    "margem": 0.03
+  },
+  "questoes": {
+    "Q020001": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:2",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:2",
+          "score": null
+        },
+        {
+          "id": "D01:9",
+          "score": 0.1783
+        },
+        {
+          "id": "D01:3",
+          "score": 0.096
+        }
+      ],
+      "lexicalSugeriu": "D01:9"
+    },
+    "Q020002": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:1",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:1",
+          "score": null
+        },
+        {
+          "id": "D01:10",
+          "score": 0.073
+        },
+        {
+          "id": "D01:9",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D01:1"
+    },
+    "Q020003": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:4",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:4",
+          "score": null
+        },
+        {
+          "id": "D01:9",
+          "score": 0.1316
+        },
+        {
+          "id": "D01:10",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D01:9"
+    },
+    "Q020004": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:1",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:1",
+          "score": null
+        },
+        {
+          "id": "D01:10",
+          "score": 0.1599
+        },
+        {
+          "id": "D01:4",
+          "score": 0.1084
+        }
+      ],
+      "lexicalSugeriu": "D01:10"
+    },
+    "Q020005": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:9",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:9",
+          "score": null
+        },
+        {
+          "id": "D01:3",
+          "score": 0.2347
+        },
+        {
+          "id": "D01:4",
+          "score": 0.0491
+        }
+      ],
+      "lexicalSugeriu": "D01:3"
+    },
+    "Q020006": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:1",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:1",
+          "score": null
+        },
+        {
+          "id": "D01:10",
+          "score": 0.1768
+        },
+        {
+          "id": "D01:9",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D01:10"
+    },
+    "Q020007": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:1",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:1",
+          "score": null
+        },
+        {
+          "id": "D01:10",
+          "score": 0.0
+        },
+        {
+          "id": "D01:9",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D01:1"
+    },
+    "Q020008": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:4",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:4",
+          "score": null
+        },
+        {
+          "id": "D01:9",
+          "score": 0.146
+        },
+        {
+          "id": "D01:10",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D01:9"
+    },
+    "Q020009": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:9",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:9",
+          "score": null
+        },
+        {
+          "id": "D01:10",
+          "score": 0.0964
+        },
+        {
+          "id": "D01:4",
+          "score": 0.0758
+        }
+      ],
+      "lexicalSugeriu": "D01:9"
+    },
+    "Q020010": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D01"
+      ],
+      "editalItemId": "D01:4",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D01:4",
+          "score": null
+        },
+        {
+          "id": "D01:2",
+          "score": 0.1294
+        },
+        {
+          "id": "D01:3",
+          "score": 0.1174
+        }
+      ],
+      "lexicalSugeriu": "D01:2"
+    },
+    "Q020011": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D04"
+      ],
+      "editalItemId": "D04:1",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D04:1",
+          "score": null
+        },
+        {
+          "id": "D04:10",
+          "score": 0.0
+        },
+        {
+          "id": "D04:9",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D04:1"
+    },
+    "Q020012": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D04"
+      ],
+      "editalItemId": "D04:3",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D04:3",
+          "score": null
+        },
+        {
+          "id": "D04:10",
+          "score": 0.0
+        },
+        {
+          "id": "D04:9",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D04:10"
+    },
+    "Q020013": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D04"
+      ],
+      "editalItemId": "D04:7",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D04:7",
+          "score": null
+        },
+        {
+          "id": "D04:10",
+          "score": 0.0
+        },
+        {
+          "id": "D04:9",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D04:10"
+    },
+    "Q020014": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D04"
+      ],
+      "editalItemId": "D04:6",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D04:6",
+          "score": null
+        },
+        {
+          "id": "D04:10",
+          "score": 0.0
+        },
+        {
+          "id": "D04:9",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D04:10"
+    },
+    "Q020015": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D04"
+      ],
+      "editalItemId": "D04:9",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D04:9",
+          "score": null
+        },
+        {
+          "id": "D04:2",
+          "score": 0.2204
+        },
+        {
+          "id": "D04:6",
+          "score": 0.152
+        }
+      ],
+      "lexicalSugeriu": "D04:2"
+    },
+    "Q020016": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D02",
+        "D03"
+      ],
+      "editalItemId": "D02:1",
+      "score": 0.2816,
+      "margem": 0.0895,
+      "candidatos": [
+        {
+          "id": "D02:1",
+          "score": 0.2816
+        },
+        {
+          "id": "D03:1",
+          "score": 0.1922
+        },
+        {
+          "id": "D03:2",
+          "score": 0.1843
+        }
+      ]
+    },
+    "Q020017": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D02",
+        "D03"
+      ],
+      "editalItemId": "D02:4",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D02:4",
+          "score": null
+        },
+        {
+          "id": "D03:3",
+          "score": 0.187
+        },
+        {
+          "id": "D02:3",
+          "score": 0.1446
+        }
+      ],
+      "lexicalSugeriu": "D02:4"
+    },
+    "Q020018": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D02",
+        "D03"
+      ],
+      "editalItemId": "D03:1",
+      "score": 0.3949,
+      "margem": 0.2082,
+      "candidatos": [
+        {
+          "id": "D03:1",
+          "score": 0.3949
+        },
+        {
+          "id": "D03:3",
+          "score": 0.1866
+        },
+        {
+          "id": "D03:2",
+          "score": 0.1514
+        }
+      ]
+    },
+    "Q020019": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D02",
+        "D03"
+      ],
+      "editalItemId": "D03:2",
+      "score": 0.3377,
+      "margem": 0.2384,
+      "candidatos": [
+        {
+          "id": "D03:2",
+          "score": 0.3377
+        },
+        {
+          "id": "D03:1",
+          "score": 0.0993
+        },
+        {
+          "id": "D03:3",
+          "score": 0.0751
+        }
+      ]
+    },
+    "Q020020": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D02",
+        "D03"
+      ],
+      "editalItemId": "D03:3",
+      "score": 0.2624,
+      "margem": 0.0994,
+      "candidatos": [
+        {
+          "id": "D03:3",
+          "score": 0.2624
+        },
+        {
+          "id": "D03:2",
+          "score": 0.163
+        },
+        {
+          "id": "D02:1",
+          "score": 0.097
+        }
+      ]
+    },
+    "Q020021": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D05"
+      ],
+      "editalItemId": "D05:12",
+      "score": 0.2814,
+      "margem": 0.0359,
+      "candidatos": [
+        {
+          "id": "D05:12",
+          "score": 0.2814
+        },
+        {
+          "id": "D05:7",
+          "score": 0.2455
+        },
+        {
+          "id": "D05:5",
+          "score": 0.2416
+        }
+      ]
+    },
+    "Q020022": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D05"
+      ],
+      "editalItemId": "D05:18",
+      "score": 0.8503,
+      "margem": 0.7361,
+      "candidatos": [
+        {
+          "id": "D05:18",
+          "score": 0.8503
+        },
+        {
+          "id": "D05:17",
+          "score": 0.1142
+        },
+        {
+          "id": "D05:4",
+          "score": 0.0921
+        }
+      ]
+    },
+    "Q020023": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D05"
+      ],
+      "editalItemId": "D05:2",
+      "score": 0.1974,
+      "margem": 0.0375,
+      "candidatos": [
+        {
+          "id": "D05:2",
+          "score": 0.1974
+        },
+        {
+          "id": "D05:23",
+          "score": 0.1599
+        },
+        {
+          "id": "D05:3",
+          "score": 0.1512
+        }
+      ]
+    },
+    "Q020024": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D05"
+      ],
+      "editalItemId": "D05:5",
+      "score": 0.3075,
+      "margem": 0.0743,
+      "candidatos": [
+        {
+          "id": "D05:5",
+          "score": 0.3075
+        },
+        {
+          "id": "D05:7",
+          "score": 0.2333
+        },
+        {
+          "id": "D05:2",
+          "score": 0.2079
+        }
+      ]
+    },
+    "Q020025": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D05"
+      ],
+      "editalItemId": "D05:10",
+      "score": 0.3477,
+      "margem": 0.1505,
+      "candidatos": [
+        {
+          "id": "D05:10",
+          "score": 0.3477
+        },
+        {
+          "id": "D05:8",
+          "score": 0.1972
+        },
+        {
+          "id": "D05:4",
+          "score": 0.1339
+        }
+      ]
+    },
+    "Q020026": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:1",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D06:1",
+          "score": null
+        },
+        {
+          "id": "D06:6",
+          "score": 0.0
+        },
+        {
+          "id": "D06:5",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D06:6"
+    },
+    "Q020027": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:2",
+      "score": 0.3498,
+      "margem": 0.3498,
+      "candidatos": [
+        {
+          "id": "D06:2",
+          "score": 0.3498
+        },
+        {
+          "id": "D06:6",
+          "score": 0.0
+        },
+        {
+          "id": "D06:5",
+          "score": 0.0
+        }
+      ]
+    },
+    "Q020028": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:3",
+      "score": 0.5907,
+      "margem": 0.3447,
+      "candidatos": [
+        {
+          "id": "D06:3",
+          "score": 0.5907
+        },
+        {
+          "id": "D06:5",
+          "score": 0.2459
+        },
+        {
+          "id": "D06:2",
+          "score": 0.1089
+        }
+      ]
+    },
+    "Q020029": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:4",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D06:4",
+          "score": null
+        },
+        {
+          "id": "D06:6",
+          "score": 0.3269
+        },
+        {
+          "id": "D06:3",
+          "score": 0.3187
+        }
+      ],
+      "lexicalSugeriu": "D06:6"
+    },
+    "Q020030": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:5",
+      "score": 0.2119,
+      "margem": 0.0631,
+      "candidatos": [
+        {
+          "id": "D06:5",
+          "score": 0.2119
+        },
+        {
+          "id": "D06:3",
+          "score": 0.1488
+        },
+        {
+          "id": "D06:4",
+          "score": 0.0662
+        }
+      ]
+    },
+    "Q020031": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:4",
+      "score": 0.28,
+      "margem": 0.1313,
+      "candidatos": [
+        {
+          "id": "D06:4",
+          "score": 0.28
+        },
+        {
+          "id": "D06:6",
+          "score": 0.1486
+        },
+        {
+          "id": "D06:3",
+          "score": 0.1186
+        }
+      ]
+    },
+    "Q020032": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:5",
+      "score": 0.4461,
+      "margem": 0.2294,
+      "candidatos": [
+        {
+          "id": "D06:5",
+          "score": 0.4461
+        },
+        {
+          "id": "D06:3",
+          "score": 0.2167
+        },
+        {
+          "id": "D06:4",
+          "score": 0.1319
+        }
+      ]
+    },
+    "Q020033": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:6",
+      "score": 0.1659,
+      "margem": 0.1659,
+      "candidatos": [
+        {
+          "id": "D06:6",
+          "score": 0.1659
+        },
+        {
+          "id": "D06:5",
+          "score": 0.0
+        },
+        {
+          "id": "D06:4",
+          "score": 0.0
+        }
+      ]
+    },
+    "Q020034": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:6",
+      "score": 0.2938,
+      "margem": 0.1179,
+      "candidatos": [
+        {
+          "id": "D06:6",
+          "score": 0.2938
+        },
+        {
+          "id": "D06:1",
+          "score": 0.1758
+        },
+        {
+          "id": "D06:4",
+          "score": 0.1007
+        }
+      ]
+    },
+    "Q020035": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D06"
+      ],
+      "editalItemId": "D06:6",
+      "score": 0.3093,
+      "margem": 0.1427,
+      "candidatos": [
+        {
+          "id": "D06:6",
+          "score": 0.3093
+        },
+        {
+          "id": "D06:4",
+          "score": 0.1665
+        },
+        {
+          "id": "D06:3",
+          "score": 0.0472
+        }
+      ]
+    },
+    "Q020036": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:2",
+      "score": 0.295,
+      "margem": 0.1307,
+      "candidatos": [
+        {
+          "id": "D07:2",
+          "score": 0.295
+        },
+        {
+          "id": "D07:12",
+          "score": 0.1643
+        },
+        {
+          "id": "D07:9",
+          "score": 0.1206
+        }
+      ]
+    },
+    "Q020037": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:2",
+      "score": 0.5597,
+      "margem": 0.2389,
+      "candidatos": [
+        {
+          "id": "D07:2",
+          "score": 0.5597
+        },
+        {
+          "id": "D07:9",
+          "score": 0.3208
+        },
+        {
+          "id": "D07:1",
+          "score": 0.1547
+        }
+      ]
+    },
+    "Q020038": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:9",
+      "score": 0.314,
+      "margem": 0.1001,
+      "candidatos": [
+        {
+          "id": "D07:9",
+          "score": 0.314
+        },
+        {
+          "id": "D07:12",
+          "score": 0.2139
+        },
+        {
+          "id": "D07:2",
+          "score": 0.1313
+        }
+      ]
+    },
+    "Q020039": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:10",
+      "score": 0.46,
+      "margem": 0.293,
+      "candidatos": [
+        {
+          "id": "D07:10",
+          "score": 0.46
+        },
+        {
+          "id": "D07:9",
+          "score": 0.167
+        },
+        {
+          "id": "D07:7",
+          "score": 0.1177
+        }
+      ]
+    },
+    "Q020040": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:5",
+      "score": 0.1869,
+      "margem": 0.0765,
+      "candidatos": [
+        {
+          "id": "D07:5",
+          "score": 0.1869
+        },
+        {
+          "id": "D07:7",
+          "score": 0.1104
+        },
+        {
+          "id": "D07:6",
+          "score": 0.0721
+        }
+      ]
+    },
+    "Q020041": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:7",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D07:7",
+          "score": null
+        },
+        {
+          "id": "D07:10",
+          "score": 0.1522
+        },
+        {
+          "id": "D07:12",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D07:7"
+    },
+    "Q020042": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:10",
+      "score": 0.4282,
+      "margem": 0.1959,
+      "candidatos": [
+        {
+          "id": "D07:10",
+          "score": 0.4282
+        },
+        {
+          "id": "D07:7",
+          "score": 0.2323
+        },
+        {
+          "id": "D07:12",
+          "score": 0.1215
+        }
+      ]
+    },
+    "Q020043": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:11",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D07:11",
+          "score": null
+        },
+        {
+          "id": "D07:6",
+          "score": 0.2023
+        },
+        {
+          "id": "D07:7",
+          "score": 0.1912
+        }
+      ],
+      "lexicalSugeriu": "D07:6"
+    },
+    "Q020044": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:4",
+      "score": 0.2875,
+      "margem": 0.172,
+      "candidatos": [
+        {
+          "id": "D07:4",
+          "score": 0.2875
+        },
+        {
+          "id": "D07:7",
+          "score": 0.1155
+        },
+        {
+          "id": "D07:6",
+          "score": 0.1081
+        }
+      ]
+    },
+    "Q020045": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D07"
+      ],
+      "editalItemId": "D07:12",
+      "score": 0.731,
+      "margem": 0.5318,
+      "candidatos": [
+        {
+          "id": "D07:12",
+          "score": 0.731
+        },
+        {
+          "id": "D07:8",
+          "score": 0.1992
+        },
+        {
+          "id": "D07:4",
+          "score": 0.1378
+        }
+      ]
+    },
+    "Q020046": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:14",
+      "score": 0.1749,
+      "margem": 0.0341,
+      "candidatos": [
+        {
+          "id": "D08:14",
+          "score": 0.1749
+        },
+        {
+          "id": "D08:13",
+          "score": 0.1408
+        },
+        {
+          "id": "D08:12",
+          "score": 0.0
+        }
+      ]
+    },
+    "Q020047": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:1",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D08:1",
+          "score": null
+        },
+        {
+          "id": "D08:14",
+          "score": 0.2565
+        },
+        {
+          "id": "D08:6",
+          "score": 0.1896
+        }
+      ],
+      "lexicalSugeriu": "D08:14"
+    },
+    "Q020048": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:1",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D08:1",
+          "score": null
+        },
+        {
+          "id": "D08:2",
+          "score": 0.3876
+        },
+        {
+          "id": "D08:9",
+          "score": 0.3502
+        }
+      ],
+      "lexicalSugeriu": "D08:2"
+    },
+    "Q020049": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:1",
+      "score": 0.3367,
+      "margem": 0.107,
+      "candidatos": [
+        {
+          "id": "D08:1",
+          "score": 0.3367
+        },
+        {
+          "id": "D08:14",
+          "score": 0.2297
+        },
+        {
+          "id": "D08:2",
+          "score": 0.1981
+        }
+      ]
+    },
+    "Q020050": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:2",
+      "score": 0.4506,
+      "margem": 0.1765,
+      "candidatos": [
+        {
+          "id": "D08:2",
+          "score": 0.4506
+        },
+        {
+          "id": "D08:3",
+          "score": 0.2741
+        },
+        {
+          "id": "D08:1",
+          "score": 0.2325
+        }
+      ]
+    },
+    "Q020051": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:1",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D08:1",
+          "score": null
+        },
+        {
+          "id": "D08:7",
+          "score": 0.2957
+        },
+        {
+          "id": "D08:14",
+          "score": 0.2778
+        }
+      ],
+      "lexicalSugeriu": "D08:7"
+    },
+    "Q020052": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:14",
+      "score": 0.443,
+      "margem": 0.1722,
+      "candidatos": [
+        {
+          "id": "D08:14",
+          "score": 0.443
+        },
+        {
+          "id": "D08:7",
+          "score": 0.2708
+        },
+        {
+          "id": "D08:6",
+          "score": 0.1876
+        }
+      ]
+    },
+    "Q020053": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:2",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D08:2",
+          "score": null
+        },
+        {
+          "id": "D08:7",
+          "score": 0.2298
+        },
+        {
+          "id": "D08:14",
+          "score": 0.0
+        }
+      ],
+      "lexicalSugeriu": "D08:7"
+    },
+    "Q020054": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:6",
+      "score": 0.4013,
+      "margem": 0.0839,
+      "candidatos": [
+        {
+          "id": "D08:6",
+          "score": 0.4013
+        },
+        {
+          "id": "D08:14",
+          "score": 0.3174
+        },
+        {
+          "id": "D08:7",
+          "score": 0.3044
+        }
+      ]
+    },
+    "Q020055": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D08"
+      ],
+      "editalItemId": "D08:14",
+      "score": 0.3808,
+      "margem": 0.1217,
+      "candidatos": [
+        {
+          "id": "D08:14",
+          "score": 0.3808
+        },
+        {
+          "id": "D08:9",
+          "score": 0.2591
+        },
+        {
+          "id": "D08:13",
+          "score": 0.2424
+        }
+      ]
+    },
+    "Q020056": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:9",
+      "score": 0.6804,
+      "margem": 0.3439,
+      "candidatos": [
+        {
+          "id": "D09:9",
+          "score": 0.6804
+        },
+        {
+          "id": "D09:53",
+          "score": 0.3365
+        },
+        {
+          "id": "D09:29",
+          "score": 0.2826
+        }
+      ]
+    },
+    "Q020057": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:28",
+      "score": 0.4644,
+      "margem": 0.0626,
+      "candidatos": [
+        {
+          "id": "D09:28",
+          "score": 0.4644
+        },
+        {
+          "id": "D09:27",
+          "score": 0.4018
+        },
+        {
+          "id": "D09:32",
+          "score": 0.3115
+        }
+      ]
+    },
+    "Q020058": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:14",
+      "score": 0.4132,
+      "margem": 0.1064,
+      "candidatos": [
+        {
+          "id": "D09:14",
+          "score": 0.4132
+        },
+        {
+          "id": "D09:8",
+          "score": 0.3069
+        },
+        {
+          "id": "D09:16",
+          "score": 0.2658
+        }
+      ]
+    },
+    "Q020059": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:46",
+      "score": 0.4727,
+      "margem": 0.0339,
+      "candidatos": [
+        {
+          "id": "D09:46",
+          "score": 0.4727
+        },
+        {
+          "id": "D09:53",
+          "score": 0.4388
+        },
+        {
+          "id": "D09:19",
+          "score": 0.3726
+        }
+      ]
+    },
+    "Q020060": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:18",
+      "score": 0.4759,
+      "margem": 0.1173,
+      "candidatos": [
+        {
+          "id": "D09:18",
+          "score": 0.4759
+        },
+        {
+          "id": "D09:19",
+          "score": 0.3586
+        },
+        {
+          "id": "D09:2",
+          "score": 0.3352
+        }
+      ]
+    },
+    "Q020061": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:49",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D09:49",
+          "score": null
+        },
+        {
+          "id": "D09:32",
+          "score": 0.4471
+        },
+        {
+          "id": "D09:53",
+          "score": 0.2253
+        }
+      ],
+      "lexicalSugeriu": "D09:32"
+    },
+    "Q020062": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:9",
+      "score": 0.4459,
+      "margem": 0.0986,
+      "candidatos": [
+        {
+          "id": "D09:9",
+          "score": 0.4459
+        },
+        {
+          "id": "D09:32",
+          "score": 0.3472
+        },
+        {
+          "id": "D09:4",
+          "score": 0.287
+        }
+      ]
+    },
+    "Q020063": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:20",
+      "score": 0.6002,
+      "margem": 0.3104,
+      "candidatos": [
+        {
+          "id": "D09:20",
+          "score": 0.6002
+        },
+        {
+          "id": "D09:6",
+          "score": 0.2898
+        },
+        {
+          "id": "D09:27",
+          "score": 0.2745
+        }
+      ]
+    },
+    "Q020064": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:19",
+      "score": 0.4091,
+      "margem": 0.1332,
+      "candidatos": [
+        {
+          "id": "D09:19",
+          "score": 0.4091
+        },
+        {
+          "id": "D09:18",
+          "score": 0.2759
+        },
+        {
+          "id": "D09:14",
+          "score": 0.2549
+        }
+      ]
+    },
+    "Q020065": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:25",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D09:25",
+          "score": null
+        },
+        {
+          "id": "D09:29",
+          "score": 0.5838
+        },
+        {
+          "id": "D09:54",
+          "score": 0.1796
+        }
+      ],
+      "lexicalSugeriu": "D09:29"
+    },
+    "Q020066": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:29",
+      "score": 0.6338,
+      "margem": 0.3784,
+      "candidatos": [
+        {
+          "id": "D09:29",
+          "score": 0.6338
+        },
+        {
+          "id": "D09:54",
+          "score": 0.2554
+        },
+        {
+          "id": "D09:27",
+          "score": 0.1774
+        }
+      ]
+    },
+    "Q020067": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:29",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D09:29",
+          "score": null
+        },
+        {
+          "id": "D09:42",
+          "score": 0.4613
+        },
+        {
+          "id": "D09:41",
+          "score": 0.3146
+        }
+      ],
+      "lexicalSugeriu": "D09:29"
+    },
+    "Q020068": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:29",
+      "score": 0.4681,
+      "margem": 0.0808,
+      "candidatos": [
+        {
+          "id": "D09:29",
+          "score": 0.4681
+        },
+        {
+          "id": "D09:53",
+          "score": 0.3873
+        },
+        {
+          "id": "D09:41",
+          "score": 0.2883
+        }
+      ]
+    },
+    "Q020069": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:42",
+      "score": 0.6621,
+      "margem": 0.3356,
+      "candidatos": [
+        {
+          "id": "D09:42",
+          "score": 0.6621
+        },
+        {
+          "id": "D09:29",
+          "score": 0.3265
+        },
+        {
+          "id": "D09:41",
+          "score": 0.3075
+        }
+      ]
+    },
+    "Q020070": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D09"
+      ],
+      "editalItemId": "D09:35",
+      "score": 0.397,
+      "margem": 0.1271,
+      "candidatos": [
+        {
+          "id": "D09:35",
+          "score": 0.397
+        },
+        {
+          "id": "D09:39",
+          "score": 0.2698
+        },
+        {
+          "id": "D09:29",
+          "score": 0.2698
+        }
+      ]
+    },
+    "Q020071": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:8",
+      "score": 0.6061,
+      "margem": 0.3558,
+      "candidatos": [
+        {
+          "id": "D10:8",
+          "score": 0.6061
+        },
+        {
+          "id": "D10:18",
+          "score": 0.2503
+        },
+        {
+          "id": "D10:15",
+          "score": 0.1573
+        }
+      ]
+    },
+    "Q020072": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:6",
+      "score": 0.4689,
+      "margem": 0.1662,
+      "candidatos": [
+        {
+          "id": "D10:6",
+          "score": 0.4689
+        },
+        {
+          "id": "D10:17",
+          "score": 0.3028
+        },
+        {
+          "id": "D10:18",
+          "score": 0.2648
+        }
+      ]
+    },
+    "Q020073": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:9",
+      "score": 0.5675,
+      "margem": 0.2796,
+      "candidatos": [
+        {
+          "id": "D10:9",
+          "score": 0.5675
+        },
+        {
+          "id": "D10:18",
+          "score": 0.2879
+        },
+        {
+          "id": "D10:1",
+          "score": 0.1638
+        }
+      ]
+    },
+    "Q020074": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:7",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D10:7",
+          "score": null
+        },
+        {
+          "id": "D10:18",
+          "score": 0.5925
+        },
+        {
+          "id": "D10:15",
+          "score": 0.3113
+        }
+      ],
+      "lexicalSugeriu": "D10:18"
+    },
+    "Q020075": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:13",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D10:13",
+          "score": null
+        },
+        {
+          "id": "D10:6",
+          "score": 0.2907
+        },
+        {
+          "id": "D10:18",
+          "score": 0.2821
+        }
+      ],
+      "lexicalSugeriu": "D10:13"
+    },
+    "Q020076": {
+      "status": "sugerida",
+      "metodo": "manual-ia-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:14",
+      "score": null,
+      "margem": null,
+      "candidatos": [
+        {
+          "id": "D10:14",
+          "score": null
+        },
+        {
+          "id": "D10:8",
+          "score": 0.3546
+        },
+        {
+          "id": "D10:15",
+          "score": 0.3483
+        }
+      ],
+      "lexicalSugeriu": "D10:14"
+    },
+    "Q020077": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:16",
+      "score": 0.4423,
+      "margem": 0.0458,
+      "candidatos": [
+        {
+          "id": "D10:16",
+          "score": 0.4423
+        },
+        {
+          "id": "D10:18",
+          "score": 0.3965
+        },
+        {
+          "id": "D10:17",
+          "score": 0.2936
+        }
+      ]
+    },
+    "Q020078": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:15",
+      "score": 0.6503,
+      "margem": 0.2308,
+      "candidatos": [
+        {
+          "id": "D10:15",
+          "score": 0.6503
+        },
+        {
+          "id": "D10:5",
+          "score": 0.4195
+        },
+        {
+          "id": "D10:18",
+          "score": 0.2467
+        }
+      ]
+    },
+    "Q020079": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:19",
+      "score": 0.5926,
+      "margem": 0.347,
+      "candidatos": [
+        {
+          "id": "D10:19",
+          "score": 0.5926
+        },
+        {
+          "id": "D10:18",
+          "score": 0.2456
+        },
+        {
+          "id": "D10:13",
+          "score": 0.2178
+        }
+      ]
+    },
+    "Q020080": {
+      "status": "sugerida",
+      "metodo": "tfidf-lexical-v1",
+      "disciplinaIds": [
+        "D10"
+      ],
+      "editalItemId": "D10:18",
+      "score": 0.7878,
+      "margem": 0.451,
+      "candidatos": [
+        {
+          "id": "D10:18",
+          "score": 0.7878
+        },
+        {
+          "id": "D10:15",
+          "score": 0.3368
+        },
+        {
+          "id": "D10:6",
+          "score": 0.2481
+        }
+      ]
+    }
+  }
+}

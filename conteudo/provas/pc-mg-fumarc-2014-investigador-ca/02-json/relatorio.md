@@ -2,7 +2,7 @@
 
 - Questões: 60 | anuladas: 0 (nenhuma)
 - Distribuição do gabarito: A=15, B=15, C=15, D=15, E=0
-- Pendências para revisão humana: {'gabarito_preliminar': 60, 'verificar_vigencia': 60, 'classificar_assunto': 60, 'formatacao': 1, 'imagem': 3}
+- Pendências para revisão humana: {'gabarito_preliminar': 60, 'verificar_vigencia': 60, 'confirmar_assunto': 60, 'formatacao': 1, 'imagem': 3}
 - Questão discursiva: não há
 - AVISO: gabarito 'oficial' não confirmado como DEFINITIVO; respostas e anulações podem ter mudado após os recursos
 - AVISO: prova antiga; conferir a vigência da legislação antes de ativar qualquer questão jurídica

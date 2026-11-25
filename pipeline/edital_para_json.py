@@ -20,7 +20,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 MARCA_PAGINA = re.compile(r"<!-- p\.(\d+)(?: col\.[EDU])? -->\n+")
 # Itens do Anexo sempre têm ao menos 2 níveis (1.1, 3.4.3...); aceita qualquer início de texto
 # (maiúscula, minúscula, parêntese), pois há itens como "5.5.2. natureza" e "8.11 (In)visibilidade".
-TOKEN_ITEM = re.compile(r'(?<![\w./,])(\d+(?:\.\d+)+)\.?\s+(?=\S)')
+TOKEN_ITEM = re.compile(r'(?<![\w./,])(\d+(?:\.\d+)+)(?:\.?\s+(?=\S)|\.(?=[A-ZÀ-Ú]))')  # aceita '5.6.1.1.Powerpoint' (ponto colado)
 CABECALHO_DISC = re.compile(r"^(\d{1,2})\.\s+([A-ZÀ-Ú][A-ZÀ-Ú0-9 ,\-–/ÇÃÕ]+)$", re.M)
 # nome normalizado e palavra-chave esperada, na ordem do edital
 NOMES = [
@@ -180,6 +180,8 @@ def main_cfg(pasta: Path, meta: dict) -> int:
                 bib, texto = texto[mm.start():].strip(), texto[:mm.start()].strip()
                 break
         modo = d.get("modo", "auto")
+        if modo != "hierarquico":  # parêntese de título ("(COM EXCEÇÃO DOS CARGOS DE LEGISTA)") não é item do programa
+            texto = re.sub(r"^\([^)]*\)\s*", "", texto.lstrip())
         num = d.get("numero", k + 1)
         if modo == "hierarquico":
             its, numeracao = itens_hier(texto, num), "edital"

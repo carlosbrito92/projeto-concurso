@@ -2,7 +2,7 @@
 
 - Questões: 70 | anuladas: 1 (Q59)
 - Distribuição do gabarito: A=12, B=17, C=15, D=12, E=13
-- Pendências para revisão humana: {'imagem': 3, 'classificar_assunto': 70, 'formatacao': 3, 'tabela': 1}
+- Pendências para revisão humana: {'imagem': 3, 'confirmar_assunto': 70, 'formatacao': 3, 'tabela': 1}
 - Questão discursiva: não há
 
 ## Por disciplina (observado na prova)

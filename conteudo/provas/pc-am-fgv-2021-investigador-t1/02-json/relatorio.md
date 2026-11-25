@@ -2,7 +2,7 @@
 
 - Questões: 80 | anuladas: 1 (Q24)
 - Distribuição do gabarito: A=13, B=14, C=14, D=19, E=19
-- Pendências para revisão humana: {'imagem': 2, 'classificar_assunto': 80, 'tabela': 1}
+- Pendências para revisão humana: {'imagem': 2, 'confirmar_assunto': 80, 'tabela': 1}
 - Questão discursiva: presente (fora do banco de questões)
 
 ## Por disciplina (observado na prova)

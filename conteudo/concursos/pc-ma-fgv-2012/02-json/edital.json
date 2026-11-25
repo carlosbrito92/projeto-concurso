@@ -220,48 +220,27 @@
       "nome": "Noções de Informática",
       "questoes": 10,
       "peso": 0.142857,
-      "numeracaoItens": "sintetica",
+      "numeracaoItens": "edital",
       "bibliografiaBruta": null,
       "itens": [
         {
           "id": "D03:1",
           "numero": "1",
-          "texto": "(COM EXCEÇÃO DOS CARGOS DE LEGISTA) 1.",
+          "texto": "Componentes de um computador: hardware e software.",
           "pai": null,
           "pagina": 25
         },
         {
           "id": "D03:2",
           "numero": "2",
-          "texto": "Componentes de um computador: hardware e software. 2.",
+          "texto": "Arquitetura básica de computadores: unidade central, memória: tipos e tamanhos.",
           "pai": null,
           "pagina": 25
         },
         {
           "id": "D03:3",
           "numero": "3",
-          "texto": "Arquitetura básica de computadores: unidade central, memória: tipos e tamanhos. 3.",
-          "pai": null,
-          "pagina": 25
-        },
-        {
-          "id": "D03:4",
-          "numero": "4",
-          "texto": "Periféricos: impressoras, drivers de disco fixo (Winchester), disquete, CD-ROM.",
-          "pai": null,
-          "pagina": 25
-        },
-        {
-          "id": "D03:5",
-          "numero": "5",
-          "texto": "Uso do teclado, uso do mouse, janelas e seus botões, diretórios e arquivos (uso do Windows Explorer): tipos de arquivos, localização, criação, cópia e remoção de arquivos, cópias de arquivos para outros dispositivos e cópias de segurança, uso da lixeira para remover e recuperar arquivos, uso da ajuda do Windows.",
-          "pai": null,
-          "pagina": 25
-        },
-        {
-          "id": "D03:6",
-          "numero": "6",
-          "texto": "Uso do Word for Windows: entrando e corrigindo texto, definindo formato de páginas: margens, orientação, numeração, cabeçalho e rodapé definindo estilo do texto: fonte, tamanho, negrito,itálico e sublinhado, impressão de documentos: visualizando a página a ser impressa, uso do corretor ortográfico, criação de textos em colunas, criação de tabelas, criação e inserção de figuras no texto.",
+          "texto": "Periféricos: impressoras, drivers de disco fixo (Winchester), disquete, CD-ROM. Uso do teclado, uso do mouse, janelas e seus botões, diretórios e arquivos (uso do Windows Explorer): tipos de arquivos, localização, criação, cópia e remoção de arquivos, cópias de arquivos para outros dispositivos e cópias de segurança, uso da lixeira para remover e recuperar arquivos, uso da ajuda do Windows. Uso do Word for Windows: entrando e corrigindo texto, definindo formato de páginas: margens, orientação, numeração, cabeçalho e rodapé definindo estilo do texto: fonte, tamanho, negrito,itálico e sublinhado, impressão de documentos: visualizando a página a ser impressa, uso do corretor ortográfico, criação de textos em colunas, criação de tabelas, criação e inserção de figuras no texto.",
           "pai": null,
           "pagina": 25
         }
@@ -746,9 +725,7 @@
       ]
     }
   ],
-  "avisos": [
-    "D03: o edital não numera os itens; numeração sintética por frase (granularidade limitada)"
-  ],
+  "avisos": [],
   "grupos": [
     {
       "nome": "Noções de Direito Constitucional, Administrativo, Penal e Processual Penal",
