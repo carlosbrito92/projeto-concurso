@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura do edital (schema v1)",
+  "type": "object",
+  "required": ["schemaVersion", "concurso", "prova", "fonte", "disciplinas"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "concurso": {
+      "type": "object",
+      "required": ["slug", "orgao", "uf", "banca", "cargo", "edital", "ano"],
+      "additionalProperties": false,
+      "properties": {
+        "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "orgao": { "type": "string" },
+        "uf": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "banca": { "type": "string" },
+        "cargo": { "type": "string" },
+        "edital": { "type": "string", "description": "Ex.: 04/2024" },
+        "ano": { "type": "integer" },
+        "vagas": { "type": ["integer", "null"] }
+      }
+    },
+    "prova": {
+      "type": "object",
+      "required": ["totalQuestoes", "alternativas", "pontosPorQuestao", "fonteItem"],
+      "additionalProperties": false,
+      "properties": {
+        "totalQuestoes": { "type": "integer" },
+        "alternativas": { "type": "integer" },
+        "pontosPorQuestao": { "type": "number" },
+        "notaMinimaObjetiva": { "type": ["number", "null"] },
+        "duracaoMinimaHoras": { "type": ["number", "null"] },
+        "duracaoMaximaHoras": { "type": ["number", "null"] },
+        "dataProvavel": { "type": ["string", "null"], "description": "AAAA-MM-DD, como consta no edital (data provável)" },
+        "fonteItem": { "type": "string", "description": "Item do edital que define a prova, ex.: 4.1.5" }
+      }
+    },
+    "fonte": {
+      "type": "object",
+      "required": ["arquivo", "sha256", "paginasAnexoConteudo"],
+      "additionalProperties": false,
+      "properties": {
+        "arquivo": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "paginasAnexoConteudo": { "type": "array", "items": { "type": "integer" }, "minItems": 1 }
+      }
+    },
+    "disciplinas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "modulo", "numero", "tituloLiteral", "nome", "questoes", "peso", "itens"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^D[0-9]{2}$" },
+          "modulo": { "enum": ["basicos", "especificos"] },
+          "numero": { "type": "integer" },
+          "tituloLiteral": { "type": "string", "description": "Exatamente como no edital (inclusive erros de grafia)" },
+          "nome": { "type": "string", "description": "Nome normalizado para exibição" },
+          "questoes": { "type": "integer", "minimum": 0 },
+          "peso": { "type": "number", "minimum": 0, "maximum": 1 },
+          "itens": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "numero", "texto", "pai", "pagina"],
+              "additionalProperties": false,
+              "properties": {
+                "id": { "type": "string", "pattern": "^D[0-9]{2}:[0-9]+(\\.[0-9]+)*$" },
+                "numero": { "type": "string", "pattern": "^[0-9]+(\\.[0-9]+)*$" },
+                "texto": { "type": "string", "minLength": 1 },
+                "pai": { "type": ["string", "null"] },
+                "pagina": { "type": "integer", "description": "Página do PDF (base 1)" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "avisos": { "type": "array", "items": { "type": "string" } }
+  }
+}

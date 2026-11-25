@@ -1,0 +1,2545 @@
+{
+  "schemaVersion": "1.0",
+  "concurso": {
+    "slug": "pc-mg-fgv-2024",
+    "orgao": "Polícia Civil do Estado de Minas Gerais",
+    "uf": "MG",
+    "banca": "FGV",
+    "cargo": "Investigador de Polícia I",
+    "edital": "04/2024",
+    "ano": 2024,
+    "vagas": 165
+  },
+  "prova": {
+    "totalQuestoes": 70,
+    "alternativas": 5,
+    "pontosPorQuestao": 1.0,
+    "notaMinimaObjetiva": 35.0,
+    "duracaoMinimaHoras": 2,
+    "duracaoMaximaHoras": 4,
+    "dataProvavel": "2025-01-26",
+    "fonteItem": "4.1.5"
+  },
+  "fonte": {
+    "arquivo": "edital-04-2024.pdf",
+    "sha256": "746ac8d87bb04fe8523400d666e814c465c35f2a091f6134e2c551e3b14ba3b2",
+    "paginasAnexoConteudo": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ]
+  },
+  "disciplinas": [
+    {
+      "id": "D01",
+      "modulo": "basicos",
+      "numero": 1,
+      "tituloLiteral": "LÍNGUA PORTUGUESA",
+      "nome": "Língua Portuguesa",
+      "questoes": 10,
+      "peso": 0.142857,
+      "itens": [
+        {
+          "id": "D01:1.1",
+          "numero": "1.1",
+          "texto": "Interpretação e compreensão de textos:",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.1.1",
+          "numero": "1.1.1",
+          "texto": "Identificação de tipos textuais: narrativo, descritivo e dissertativo;",
+          "pai": "D01:1.1",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.1.2",
+          "numero": "1.1.2",
+          "texto": "Critérios de textualidade: coerência e coesão;",
+          "pai": "D01:1.1",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.1.3",
+          "numero": "1.1.3",
+          "texto": "Recursos de construção textual: fonológicos, morfológicos, sintáticos e semânticos;",
+          "pai": "D01:1.1",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.1.4",
+          "numero": "1.1.4",
+          "texto": "Gêneros textuais da Redação Oficial;",
+          "pai": "D01:1.1",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.1.4.1",
+          "numero": "1.1.4.1",
+          "texto": "Princípios gerais;",
+          "pai": "D01:1.1.4",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.1.4.2",
+          "numero": "1.1.4.2",
+          "texto": "Uso dos pronomes de tratamento;",
+          "pai": "D01:1.1.4",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.1.4.3",
+          "numero": "1.1.4.3",
+          "texto": "Estrutura interna dos gêneros: ofício, memorando, requerimento, relatório, parecer.",
+          "pai": "D01:1.1.4",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.2",
+          "numero": "1.2",
+          "texto": "Conhecimentos linguísticos:",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.2.1",
+          "numero": "1.2.1",
+          "texto": "Conhecimentos gramaticais conforme padrão formal da língua;",
+          "pai": "D01:1.2",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.2.2",
+          "numero": "1.2.2",
+          "texto": "Princípios gerais de leitura e produção de texto. Intertextualidade. Tipos de discurso. Vozes discursivas: citação, paródia, alusão, paráfrase, epígrafe;",
+          "pai": "D01:1.2",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.2.3",
+          "numero": "1.2.3",
+          "texto": "Semântica: construção de sentido; sinonímia, antonímia, homonímia, paronímia, polissemia; denotação e conotação; figuras de linguagem;",
+          "pai": "D01:1.2",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.2.4",
+          "numero": "1.2.4",
+          "texto": "Pontuação e efeitos de sentido;",
+          "pai": "D01:1.2",
+          "pagina": 42
+        },
+        {
+          "id": "D01:1.2.5",
+          "numero": "1.2.5",
+          "texto": "Sintaxe: oração, período, termos das orações; articulação das orações: coordenação e subordinação; concordância verbal e nominal; regência verbal e nominal.",
+          "pai": "D01:1.2",
+          "pagina": 42
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "modulo": "basicos",
+      "numero": 2,
+      "tituloLiteral": "RACIOCÍNIO LÓGICO-MATEMÁTICO",
+      "nome": "Raciocínio Lógico-Matemático",
+      "questoes": 6,
+      "peso": 0.085714,
+      "itens": [
+        {
+          "id": "D02:2.1",
+          "numero": "2.1",
+          "texto": "Lógica: proposições, conectivos, equivalências lógicas, quantificadores e predicados.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.2",
+          "numero": "2.2",
+          "texto": "Conjuntos e suas operações, diagramas.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.3",
+          "numero": "2.3",
+          "texto": "Números inteiros, racionais e reais e suas operações, porcentagem e juros.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.4",
+          "numero": "2.4",
+          "texto": "Proporcionalidade direta e inversa.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.5",
+          "numero": "2.5",
+          "texto": "Medidas de comprimento, área, volume, massa e tempo.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.6",
+          "numero": "2.6",
+          "texto": "Estrutura lógica de relações arbitrárias entre pessoas, lugares, objetos ou eventos fictícios; dedução de novas informações das relações fornecidas e avaliação das condições usadas para estabelecer a estrutura daquelas relações.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.7",
+          "numero": "2.7",
+          "texto": "Compreensão e análise da lógica de uma situação, utilizando as funções intelectuais: raciocínio verbal, raciocínio matemático, raciocínio sequencial, orientação espacial e temporal, formação de conceitos, discriminação de elementos.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.8",
+          "numero": "2.8",
+          "texto": "Compreensão de dados apresentados em gráficos e tabelas.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.9",
+          "numero": "2.9",
+          "texto": "Raciocínio lógico envolvendo problemas aritméticos, geométricos e matriciais.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.10",
+          "numero": "2.10",
+          "texto": "Problemas de contagem e noções de probabilidade.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.11",
+          "numero": "2.11",
+          "texto": "Geometria básica: ângulos, triângulos, polígonos, distâncias, proporcionalidade, perímetro e área.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.12",
+          "numero": "2.12",
+          "texto": "Noções de estatística: média, moda, mediana e desvio padrão.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.13",
+          "numero": "2.13",
+          "texto": "Plano cartesiano: sistema de coordenadas, distância.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D02:2.14",
+          "numero": "2.14",
+          "texto": "Problemas de lógica e raciocínio.",
+          "pai": null,
+          "pagina": 42
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "modulo": "basicos",
+      "numero": 3,
+      "tituloLiteral": "INFORMÁTICA BÁSICA",
+      "nome": "Informática Básica",
+      "questoes": 8,
+      "peso": 0.114286,
+      "itens": [
+        {
+          "id": "D03:3.1",
+          "numero": "3.1",
+          "texto": "Equipamentos e Sistemas Operacionais Windows 10 e Linux.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.1.1",
+          "numero": "3.1.1",
+          "texto": "Arquitetura básica de computadores.",
+          "pai": "D03:3.1",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.1.2",
+          "numero": "3.1.2",
+          "texto": "Principais periféricos.",
+          "pai": "D03:3.1",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.1.3",
+          "numero": "3.1.3",
+          "texto": "Mídias para armazenamento de dados.",
+          "pai": "D03:3.1",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.1.4",
+          "numero": "3.1.4",
+          "texto": "Conceitos gerais de sistemas operacionais.",
+          "pai": "D03:3.1",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.2",
+          "numero": "3.2",
+          "texto": "Manipulação de arquivos em sistemas Windows 10 e Linux.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.2.1",
+          "numero": "3.2.1",
+          "texto": "Arquivos: conceito, tipos, nomes e extensões mais comuns.",
+          "pai": "D03:3.2",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.2.2",
+          "numero": "3.2.2",
+          "texto": "Estrutura de diretórios e rotas.",
+          "pai": "D03:3.2",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.2.3",
+          "numero": "3.2.3",
+          "texto": "Cópia e movimentação de arquivos.",
+          "pai": "D03:3.2",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.2.4",
+          "numero": "3.2.4",
+          "texto": "Atalhos.",
+          "pai": "D03:3.2",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.2.5",
+          "numero": "3.2.5",
+          "texto": "Permissões de arquivos e diretórios.",
+          "pai": "D03:3.2",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.3",
+          "numero": "3.3",
+          "texto": "Conceitos básicos de redes de computadores.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.3.1",
+          "numero": "3.3.1",
+          "texto": "Endereçamento TCP/IP, IPv4, IPv6",
+          "pai": "D03:3.3",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.3.2",
+          "numero": "3.3.2",
+          "texto": "Tecnologias de redes com fio e sem fio",
+          "pai": "D03:3.3",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.3.3",
+          "numero": "3.3.3",
+          "texto": "Topologias, protocolos, máscaras de rede, gateway, DNS, DHCP.",
+          "pai": "D03:3.3",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.3.4",
+          "numero": "3.3.4",
+          "texto": "Hubs, repetidores, bridges e comutadores (switches)",
+          "pai": "D03:3.3",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.3.5",
+          "numero": "3.3.5",
+          "texto": "Gerenciamento de redes (SNMP).",
+          "pai": "D03:3.3",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.3.6",
+          "numero": "3.3.6",
+          "texto": "Contas, grupos de usuários, compartilhamento de recursos e permissões de arquivos em ambiente Windows 10 e Linux.",
+          "pai": "D03:3.3",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.4",
+          "numero": "3.4",
+          "texto": "Conceitos básicos e modos de utilização de tecnologias, ferramentas, aplicativos e procedimentos associados à internet e intranet.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.4.1",
+          "numero": "3.4.1",
+          "texto": "Tipos de URL.",
+          "pai": "D03:3.4",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.4.2",
+          "numero": "3.4.2",
+          "texto": "Tipos de domínio.",
+          "pai": "D03:3.4",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.4.3",
+          "numero": "3.4.3",
+          "texto": "Navegador Google Chrome 93.x ou superior.",
+          "pai": "D03:3.4",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.4.4",
+          "numero": "3.4.4",
+          "texto": "Protocolos da camada de aplicação.",
+          "pai": "D03:3.4",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.4.5",
+          "numero": "3.4.5",
+          "texto": "Cookies.",
+          "pai": "D03:3.4",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.4.6",
+          "numero": "3.4.6",
+          "texto": "Privacidade e segurança.",
+          "pai": "D03:3.4",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.4.7",
+          "numero": "3.4.7",
+          "texto": "Configuração de proxy.",
+          "pai": "D03:3.4",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.4.8",
+          "numero": "3.4.8",
+          "texto": "Marco civil da internet",
+          "pai": "D03:3.4",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.5",
+          "numero": "3.5",
+          "texto": "Correio eletrônico.",
+          "pai": null,
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.5.1",
+          "numero": "3.5.1",
+          "texto": "Endereços de e-mail.",
+          "pai": "D03:3.5",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.5.2",
+          "numero": "3.5.2",
+          "texto": "Campos de uma mensagem.",
+          "pai": "D03:3.5",
+          "pagina": 42
+        },
+        {
+          "id": "D03:3.5.3",
+          "numero": "3.5.3",
+          "texto": "Organização de mensagens em pastas.",
+          "pai": "D03:3.5",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.5.4",
+          "numero": "3.5.4",
+          "texto": "Backup e compactação dos emails.",
+          "pai": "D03:3.5",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.5.5",
+          "numero": "3.5.5",
+          "texto": "Envio, resposta, encaminhamento, recebimento de e-mails e anexos.",
+          "pai": "D03:3.5",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.5.6",
+          "numero": "3.5.6",
+          "texto": "Endereços e formas de endereçamento de correio eletrônico, webmail, Microsoft Outlook 2016.",
+          "pai": "D03:3.5",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.5.7",
+          "numero": "3.5.7",
+          "texto": "Garantindo o sigilo e a autenticidade de um e-mail através de criptografia PGP, chaves públicas e privadas.",
+          "pai": "D03:3.5",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.6",
+          "numero": "3.6",
+          "texto": "Conceitos e principais recursos de editores de textos, planilhas eletrônicas e editores de apresentações Microsoft Office 2016 e LibreOffice 7.1.6.",
+          "pai": null,
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.6.1",
+          "numero": "3.6.1",
+          "texto": "Powerpoint e Impress: estrutura básica de apresentações, edição e formatação, criação de apresentações, configuração da aparência da apresentação, impressão de apresentações, multimídia, desenho e clipart, uso da barra de ferramentas, atalhos e menus.",
+          "pai": "D03:3.6",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.6.2",
+          "numero": "3.6.2",
+          "texto": "Word e Writer: estrutura básica dos documentos; operações com arquivos, criação e uso de modelos; edição e formatação de textos; cabeçalhos e rodapé; parágrafos; fontes; colunas; marcadores simbólicos e numéricos; tabelas e texto multicolunados; configuração de páginas e impressão; ortografia e gramática; controle de quebras; numeração de páginas; legendas; índices; inserção de objetos; campos predefinidos, caixas de texto e caracteres especiais; desenhos e cliparts; uso da barra de ferramentas, régua, janelas, atalhos e menus; mala direta e proteção de documentos.",
+          "pai": "D03:3.6",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.6.3",
+          "numero": "3.6.3",
+          "texto": "Excell e Calc: estrutura básica das planilhas, conceitos de células, linhas, colunas, pastas e gráficos, elaboração de tabelas e gráficos, uso de fórmulas, funções e macros, impressão, inserção de objetos, campos predefinidos, controle de quebras, numeração de páginas, obtenção de dados externos, classificação, uso da barra de ferramentas, atalhos e menus.",
+          "pai": "D03:3.6",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.7",
+          "numero": "3.7",
+          "texto": "Segurança",
+          "pai": null,
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.7.1",
+          "numero": "3.7.1",
+          "texto": "Tipos de vírus, Cavalos de Tróia, Malwares, Worms, Spyware, Phishing, Pharming, Ransomwares, Spam.",
+          "pai": "D03:3.7",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.7.2",
+          "numero": "3.7.2",
+          "texto": "Riscos de segurança no uso de correio eletrônico e internet.",
+          "pai": "D03:3.7",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.7.3",
+          "numero": "3.7.3",
+          "texto": "Backup de arquivos digitais em mídias de armazenamento, drives virtuais e pastas compartilhadas na rede.",
+          "pai": "D03:3.7",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.7.4",
+          "numero": "3.7.4",
+          "texto": "Segurança digital, ataques e crimes cibernéticos, LGPD, vazamento de informações",
+          "pai": "D03:3.7",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.8",
+          "numero": "3.8",
+          "texto": "Certificação digital",
+          "pai": null,
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.8.1",
+          "numero": "3.8.1",
+          "texto": "Conceitos e legislação.",
+          "pai": "D03:3.8",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.8.2",
+          "numero": "3.8.2",
+          "texto": "Tipos de certificados digitais.",
+          "pai": "D03:3.8",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.8.3",
+          "numero": "3.8.3",
+          "texto": "Aplicativos de segurança.",
+          "pai": "D03:3.8",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.8.4",
+          "numero": "3.8.4",
+          "texto": "Criptografia PGP.",
+          "pai": "D03:3.8",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.8.4.1",
+          "numero": "3.8.4.1",
+          "texto": "Chaves públicas e privadas.",
+          "pai": "D03:3.8.4",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.8.4.2",
+          "numero": "3.8.4.2",
+          "texto": "Consulta e envio de chaves públicas a um servidor de chaves utilizando interface web ou aplicativos próprios.",
+          "pai": "D03:3.8.4",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.8.5",
+          "numero": "3.8.5",
+          "texto": "Infraestrutura de Chaves Públicas Brasileira – ICP-Brasil",
+          "pai": "D03:3.8",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.9",
+          "numero": "3.9",
+          "texto": "Software livre",
+          "pai": null,
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.9.1",
+          "numero": "3.9.1",
+          "texto": "Conceito, distribuição e modificação.",
+          "pai": "D03:3.9",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.9.2",
+          "numero": "3.9.2",
+          "texto": "Licenças BSD, GPLv2 e GPLv3.",
+          "pai": "D03:3.9",
+          "pagina": 43
+        },
+        {
+          "id": "D03:3.9.3",
+          "numero": "3.9.3",
+          "texto": "Diretrizes para Distribuições de Sistemas Livres (GNU FSDG).",
+          "pai": "D03:3.9",
+          "pagina": 43
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "modulo": "basicos",
+      "numero": 4,
+      "tituloLiteral": "LEI ORGÂNICA DA POLÍCIA CIVIL DO ESTADO DE MINAS GERAIS",
+      "nome": "Lei Orgânica da PCMG",
+      "questoes": 6,
+      "peso": 0.085714,
+      "itens": [
+        {
+          "id": "D04:4.1",
+          "numero": "4.1",
+          "texto": "Lei Estadual n.º 5.406, de 16 de dezembro de 1969:",
+          "pai": null,
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1",
+          "numero": "4.1.1",
+          "texto": "Livro V - Estatuto do servidor policial",
+          "pai": "D04:4.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1",
+          "numero": "4.1.1.1",
+          "texto": "Título XVII - Regime Disciplinar",
+          "pai": "D04:4.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.1",
+          "numero": "4.1.1.1.1",
+          "texto": "Capítulo I - Transgressões Disciplinares",
+          "pai": "D04:4.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.1.1",
+          "numero": "4.1.1.1.1.1",
+          "texto": "Seção I – Classificação",
+          "pai": "D04:4.1.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.1.2",
+          "numero": "4.1.1.1.1.2",
+          "texto": "Seção II - Causas e Circunstâncias que Influem no Julgamento",
+          "pai": "D04:4.1.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.2",
+          "numero": "4.1.1.1.2",
+          "texto": "Capítulo II – Penalidades",
+          "pai": "D04:4.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.3",
+          "numero": "4.1.1.1.3",
+          "texto": "Capítulo III - Competência para Imposição de Penalidades",
+          "pai": "D04:4.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.4",
+          "numero": "4.1.1.1.4",
+          "texto": "Capítulo IV - Prisão Administrativa e Suspensão Preventiva",
+          "pai": "D04:4.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.5",
+          "numero": "4.1.1.1.5",
+          "texto": "Capítulo V - Procedimento Administrativo",
+          "pai": "D04:4.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.5.1",
+          "numero": "4.1.1.1.5.1",
+          "texto": "Seção I - Instauração do Processo",
+          "pai": "D04:4.1.1.1.5",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.5.2",
+          "numero": "4.1.1.1.5.2",
+          "texto": "Seção II - Sindicância",
+          "pai": "D04:4.1.1.1.5",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.5.3",
+          "numero": "4.1.1.1.5.3",
+          "texto": "Seção III - Comissões Processantes Permanentes",
+          "pai": "D04:4.1.1.1.5",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.6",
+          "numero": "4.1.1.1.6",
+          "texto": "Capítulo VI - Atos e Termos Processuais",
+          "pai": "D04:4.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.7",
+          "numero": "4.1.1.1.7",
+          "texto": "Capítulo VII - Processo por Abandono de Cargo ou Função",
+          "pai": "D04:4.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.1.1.1.8",
+          "numero": "4.1.1.1.8",
+          "texto": "Capítulo VIII - Revisão de Processo Administrativo",
+          "pai": "D04:4.1.1.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2",
+          "numero": "4.2",
+          "texto": "Lei Complementar Estadual n.º 129, de 08 de novembro de 2013",
+          "pai": null,
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.1",
+          "numero": "4.2.1",
+          "texto": "Título I - Disposições Gerais",
+          "pai": "D04:4.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.1.1",
+          "numero": "4.2.1.1",
+          "texto": "Capítulo I - Disposições Preliminares",
+          "pai": "D04:4.2.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.1.2",
+          "numero": "4.2.1.2",
+          "texto": "Capítulo II - Da Competência",
+          "pai": "D04:4.2.1",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2",
+          "numero": "4.2.2",
+          "texto": "Título II – Da Organização",
+          "pai": "D04:4.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.1",
+          "numero": "4.2.2.1",
+          "texto": "Capítulo I - Da Estrutura Orgânica",
+          "pai": "D04:4.2.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.2",
+          "numero": "4.2.2.2",
+          "texto": "Capítulo II - Da Administração Superior",
+          "pai": "D04:4.2.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.2.1",
+          "numero": "4.2.2.2.1",
+          "texto": "Seção I - Da Chefia da PCMG",
+          "pai": "D04:4.2.2.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.2.2",
+          "numero": "4.2.2.2.2",
+          "texto": "Seção II - Da Chefia Adjunta da PCMG",
+          "pai": "D04:4.2.2.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.2.3",
+          "numero": "4.2.2.2.3",
+          "texto": "Seção III - Do Conselho Superior da PCMG",
+          "pai": "D04:4.2.2.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.2.3.1",
+          "numero": "4.2.2.2.3.1",
+          "texto": "Subseção I - Do Órgão Especial",
+          "pai": "D04:4.2.2.2.3",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.2.3.2",
+          "numero": "4.2.2.2.3.2",
+          "texto": "Subseção II - Da Câmara Disciplinar",
+          "pai": "D04:4.2.2.2.3",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.2.3.3",
+          "numero": "4.2.2.2.3.3",
+          "texto": "Subseção III - Da Câmara de Planejamento e Orçamento",
+          "pai": "D04:4.2.2.2.3",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.2.4",
+          "numero": "4.2.2.2.4",
+          "texto": "Seção IV - Da Corregedoria-Geral de Polícia Civil",
+          "pai": "D04:4.2.2.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.3",
+          "numero": "4.2.2.3",
+          "texto": "Capítulo III - Da Administração",
+          "pai": "D04:4.2.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.3.1",
+          "numero": "4.2.2.3.1",
+          "texto": "Seção I - Do Gabinete da Chefia da PCMG",
+          "pai": "D04:4.2.2.3",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.3.2",
+          "numero": "4.2.2.3.2",
+          "texto": "Seção II - Da Academia de Polícia Civil",
+          "pai": "D04:4.2.2.3",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.3.3",
+          "numero": "4.2.2.3.3",
+          "texto": "Seção IV - Da Superintendência de Investigação e Polícia Judiciária",
+          "pai": "D04:4.2.2.3",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.3.4",
+          "numero": "4.2.2.3.4",
+          "texto": "Seção V - Da Superintendência de Informações e Inteligência Policial",
+          "pai": "D04:4.2.2.3",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.3.5",
+          "numero": "4.2.2.3.5",
+          "texto": "Seção VI - Da Superintendência de Polícia Técnico-Científica",
+          "pai": "D04:4.2.2.3",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.2.3.6",
+          "numero": "4.2.2.3.6",
+          "texto": "Seção VII - da Superintendência de Planejamento, Gestão e Finanças",
+          "pai": "D04:4.2.2.3",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.3",
+          "numero": "4.2.3",
+          "texto": "Título III - Do Estatuto dos Policiais Civis",
+          "pai": "D04:4.2",
+          "pagina": 43
+        },
+        {
+          "id": "D04:4.2.3.1",
+          "numero": "4.2.3.1",
+          "texto": "Capítulo I - Das Prerrogativas",
+          "pai": "D04:4.2.3",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.2",
+          "numero": "4.2.3.2",
+          "texto": "Capítulo II - Dos Direitos",
+          "pai": "D04:4.2.3",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.2.1",
+          "numero": "4.2.3.2.1",
+          "texto": "Seção I - Dos Direitos dos Policiais Civis",
+          "pai": "D04:4.2.3.2",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.2.2",
+          "numero": "4.2.3.2.2",
+          "texto": "Seção II - Das Indenizações e das Gratificações",
+          "pai": "D04:4.2.3.2",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.3",
+          "numero": "4.2.3.3",
+          "texto": "Capítulo III - Da Remoção",
+          "pai": "D04:4.2.3",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.4",
+          "numero": "4.2.3.4",
+          "texto": "Capítulo IV - Do Regime de Trabalho do Policial Civil",
+          "pai": "D04:4.2.3",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.5",
+          "numero": "4.2.3.5",
+          "texto": "Capítulo V - Das Licenças, dos Afastamentos e das Disponibilidades",
+          "pai": "D04:4.2.3",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.5.1",
+          "numero": "4.2.3.5.1",
+          "texto": "Seção I - Das Licenças",
+          "pai": "D04:4.2.3.5",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.5.2",
+          "numero": "4.2.3.5.2",
+          "texto": "Seção II - Dos Afastamentos e das Disponibilidades",
+          "pai": "D04:4.2.3.5",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.6",
+          "numero": "4.2.3.6",
+          "texto": "Capítulo VI - Da Aposentadoria, dos Proventos e da Pensão Especial",
+          "pai": "D04:4.2.3",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.6.1",
+          "numero": "4.2.3.6.1",
+          "texto": "Seção I - Da Aposentadoria",
+          "pai": "D04:4.2.3.6",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.6.2",
+          "numero": "4.2.3.6.2",
+          "texto": "Seção II - Dos Proventos",
+          "pai": "D04:4.2.3.6",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.3.6.3",
+          "numero": "4.2.3.6.3",
+          "texto": "Seção III - Da Pensão Especial",
+          "pai": "D04:4.2.3.6",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.4",
+          "numero": "4.2.4",
+          "texto": "Título IV - Das Carreiras Policiais Civis",
+          "pai": "D04:4.2",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.4.1",
+          "numero": "4.2.4.1",
+          "texto": "Capítulo I - Disposições Gerais",
+          "pai": "D04:4.2.4",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.4.2",
+          "numero": "4.2.4.2",
+          "texto": "Capítulo II - Do Ingresso",
+          "pai": "D04:4.2.4",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.4.3",
+          "numero": "4.2.4.3",
+          "texto": "Capítulo III - Do Estágio Probatório",
+          "pai": "D04:4.2.4",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.4.4",
+          "numero": "4.2.4.4",
+          "texto": "Capítulo IV - Do Desenvolvimento na Carreira",
+          "pai": "D04:4.2.4",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.4.5",
+          "numero": "4.2.4.5",
+          "texto": "Capítulo V - Do Adicional de Desempenho",
+          "pai": "D04:4.2.4",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.5",
+          "numero": "4.2.5",
+          "texto": "Título V - Disposições Finais",
+          "pai": "D04:4.2",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.6",
+          "numero": "4.2.6",
+          "texto": "Anexo I (a que se refere o art. 77 da Lei Complementar nº129, de 8 de novembro de 2013)",
+          "pai": "D04:4.2",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.7",
+          "numero": "4.2.7",
+          "texto": "Anexo II (a que se refere o § 1º do art. 79 da Lei Complementar nº 129, de 8 de novembro de 2013)",
+          "pai": "D04:4.2",
+          "pagina": 44
+        },
+        {
+          "id": "D04:4.2.8",
+          "numero": "4.2.8",
+          "texto": "Anexo III (a que se refere o art. 108 da Lei Complementar nº 129, de 8 de novembro de 2013).",
+          "pai": "D04:4.2",
+          "pagina": 44
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "modulo": "especificos",
+      "numero": 1,
+      "tituloLiteral": "NOÇÕES DE DIREITO ADMINISTRATIVO",
+      "nome": "Noções de Direito Administrativo",
+      "questoes": 6,
+      "peso": 0.085714,
+      "itens": [
+        {
+          "id": "D05:1.1.1",
+          "numero": "1.1.1",
+          "texto": "Administração Pública.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.1.1",
+          "numero": "1.1.1.1",
+          "texto": "Conceito e princípios.",
+          "pai": "D05:1.1.1",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.1.2",
+          "numero": "1.1.1.2",
+          "texto": "Administração pública direta e indireta.",
+          "pai": "D05:1.1.1",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.2",
+          "numero": "1.1.2",
+          "texto": "Agentes públicos.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.2.1",
+          "numero": "1.1.2.1",
+          "texto": "Conceito.",
+          "pai": "D05:1.1.2",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.2.2",
+          "numero": "1.1.2.2",
+          "texto": "Classificação (espécie).",
+          "pai": "D05:1.1.2",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.2.3",
+          "numero": "1.1.2.3",
+          "texto": "Cargo Público, emprego público e função pública.",
+          "pai": "D05:1.1.2",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.2.4",
+          "numero": "1.1.2.4",
+          "texto": "Direitos e deveres.",
+          "pai": "D05:1.1.2",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.2.5",
+          "numero": "1.1.2.5",
+          "texto": "Responsabilidade administrativa, civil e penal.",
+          "pai": "D05:1.1.2",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.3",
+          "numero": "1.1.3",
+          "texto": "Lei 8.429/92 e alterações (Lei de improbidade administrativa).",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.4",
+          "numero": "1.1.4",
+          "texto": "Poderes da Administração Pública:",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.4.1",
+          "numero": "1.1.4.1",
+          "texto": "Poder hierárquico.",
+          "pai": "D05:1.1.4",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.4.2",
+          "numero": "1.1.4.2",
+          "texto": "Poder Disciplinar.",
+          "pai": "D05:1.1.4",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.4.3",
+          "numero": "1.1.4.3",
+          "texto": "Poder Regulamentar.",
+          "pai": "D05:1.1.4",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.4.4",
+          "numero": "1.1.4.4",
+          "texto": "Poder de Polícia.",
+          "pai": "D05:1.1.4",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.5",
+          "numero": "1.1.5",
+          "texto": "Fatos e atos administrativos:",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.5.1",
+          "numero": "1.1.5.1",
+          "texto": "Conceito.",
+          "pai": "D05:1.1.5",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.5.2",
+          "numero": "1.1.5.2",
+          "texto": "Requisitos do ato administrativo.",
+          "pai": "D05:1.1.5",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.5.3",
+          "numero": "1.1.5.3",
+          "texto": "Atributos do ato administrativo.",
+          "pai": "D05:1.1.5",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.5.4",
+          "numero": "1.1.5.4",
+          "texto": "Classificação.",
+          "pai": "D05:1.1.5",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.5.5",
+          "numero": "1.1.5.5",
+          "texto": "Revogação e anulação.",
+          "pai": "D05:1.1.5",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.6",
+          "numero": "1.1.6",
+          "texto": "Serviços públicos:",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.6.1",
+          "numero": "1.1.6.1",
+          "texto": "Conceito.",
+          "pai": "D05:1.1.6",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.6.2",
+          "numero": "1.1.6.2",
+          "texto": "Princípios.",
+          "pai": "D05:1.1.6",
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.7",
+          "numero": "1.1.7",
+          "texto": "Responsabilidade civil do Estado.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D05:1.1.8",
+          "numero": "1.1.8",
+          "texto": "Regime jurídico administrativo.",
+          "pai": null,
+          "pagina": 44
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "modulo": "especificos",
+      "numero": 2,
+      "tituloLiteral": "NOÇÕES DE DIREITO CONSTITUCIONAL",
+      "nome": "Noções de Direito Constitucional",
+      "questoes": 6,
+      "peso": 0.085714,
+      "itens": [
+        {
+          "id": "D06:2.1",
+          "numero": "2.1",
+          "texto": "Conceito.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.2",
+          "numero": "2.2",
+          "texto": "Princípios Fundamentais.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.3",
+          "numero": "2.3",
+          "texto": "Direitos e Garantias Fundamentais.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.4",
+          "numero": "2.4",
+          "texto": "Direitos Individuais.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.5",
+          "numero": "2.5",
+          "texto": "Direitos Coletivos.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.6",
+          "numero": "2.6",
+          "texto": "Direitos Sociais.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.7",
+          "numero": "2.7",
+          "texto": "O Estado.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.7.1",
+          "numero": "2.7.1",
+          "texto": "Conceito.",
+          "pai": "D06:2.7",
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.7.2",
+          "numero": "2.7.2",
+          "texto": "Elementos que compõem o Estado.",
+          "pai": "D06:2.7",
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.7.3",
+          "numero": "2.7.3",
+          "texto": "Finalidade do Estado.",
+          "pai": "D06:2.7",
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.7.4",
+          "numero": "2.7.4",
+          "texto": "Organização do Estado",
+          "pai": "D06:2.7",
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.8",
+          "numero": "2.8",
+          "texto": "Funções essenciais à Justiça.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D06:2.9",
+          "numero": "2.9",
+          "texto": "Da Defesa do Estado e das Instituições Democráticas.",
+          "pai": null,
+          "pagina": 44
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "modulo": "especificos",
+      "numero": 3,
+      "tituloLiteral": "NOÇÕES DE DIREITO PENAL",
+      "nome": "Noções de Direito Penal",
+      "questoes": 5,
+      "peso": 0.071429,
+      "itens": [
+        {
+          "id": "D07:3.1",
+          "numero": "3.1",
+          "texto": "Princípios penais constitucionais.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.2",
+          "numero": "3.2",
+          "texto": "Tempo e lugar do crime.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.3",
+          "numero": "3.3",
+          "texto": "Contagem de prazo.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.4",
+          "numero": "3.4",
+          "texto": "Conceito de crime e seus elementos.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.5",
+          "numero": "3.5",
+          "texto": "Concurso de pessoas:",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.5.1",
+          "numero": "3.5.1",
+          "texto": "Autoria.",
+          "pai": "D07:3.5",
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.5.2",
+          "numero": "3.5.2",
+          "texto": "Participação.",
+          "pai": "D07:3.5",
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.6",
+          "numero": "3.6",
+          "texto": "Ação penal",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.6.1",
+          "numero": "3.6.1",
+          "texto": "Classificação.",
+          "pai": "D07:3.6",
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.6.2",
+          "numero": "3.6.2",
+          "texto": "Condições.",
+          "pai": "D07:3.6",
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.7",
+          "numero": "3.7",
+          "texto": "Dos crimes em espécie:",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.7.1",
+          "numero": "3.7.1",
+          "texto": "Crimes contra a pessoa.",
+          "pai": "D07:3.7",
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.7.2",
+          "numero": "3.7.2",
+          "texto": "Crimes contra o patrimônio.",
+          "pai": "D07:3.7",
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.7.3",
+          "numero": "3.7.3",
+          "texto": "Crimes contra a dignidade sexual.",
+          "pai": "D07:3.7",
+          "pagina": 44
+        },
+        {
+          "id": "D07:3.7.4",
+          "numero": "3.7.4",
+          "texto": "Crimes contra a Administração Pública.",
+          "pai": "D07:3.7",
+          "pagina": 44
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "modulo": "especificos",
+      "numero": 4,
+      "tituloLiteral": "NOÇÕES DE DIREITO PROCESSUAL PENAL",
+      "nome": "Noções de Direito Processual Penal",
+      "questoes": 5,
+      "peso": 0.071429,
+      "itens": [
+        {
+          "id": "D08:4.1",
+          "numero": "4.1",
+          "texto": "Direitos e garantias processuais penais.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D08:4.2",
+          "numero": "4.2",
+          "texto": "Investigação criminal policial- Inquérito Policial (artigos 4° ao 23° do CPP).",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D08:4.3",
+          "numero": "4.3",
+          "texto": "Ação Penal (artigos 24º ao 62º do CPP);",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D08:4.4",
+          "numero": "4.4",
+          "texto": "Prisão cautelar:",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D08:4.4.1",
+          "numero": "4.4.1",
+          "texto": "Prisão em flagrante: Tipos e espécies de flagrante.",
+          "pai": "D08:4.4",
+          "pagina": 44
+        },
+        {
+          "id": "D08:4.5",
+          "numero": "4.5",
+          "texto": "Teoria geral da prova penal.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D08:4.5.1",
+          "numero": "4.5.1",
+          "texto": "Cadeia de custódia.",
+          "pai": "D08:4.5",
+          "pagina": 44
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "modulo": "especificos",
+      "numero": 5,
+      "tituloLiteral": "LEGISLAÇÃO PENAL E PROCESSUAL EXTRAVAGANTE",
+      "nome": "Legislação Penal e Processual Extravagante",
+      "questoes": 4,
+      "peso": 0.057143,
+      "itens": [
+        {
+          "id": "D09:5.1",
+          "numero": "5.1",
+          "texto": "Legislação Penal:",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.1.1",
+          "numero": "5.1.1",
+          "texto": "Princípios básicos.",
+          "pai": "D09:5.1",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.1.2",
+          "numero": "5.1.2",
+          "texto": "Aplicação da lei penal.",
+          "pai": "D09:5.1",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.1.3",
+          "numero": "5.1.3",
+          "texto": "A lei penal no tempo e no espaço.",
+          "pai": "D09:5.1",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.1.4",
+          "numero": "5.1.4",
+          "texto": "Tempo e lugar do crime.",
+          "pai": "D09:5.1",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.1.5",
+          "numero": "5.1.5",
+          "texto": "Territorialidade e extraterritorialidade da lei penal.",
+          "pai": "D09:5.1",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2",
+          "numero": "5.2",
+          "texto": "Crimes.",
+          "pai": null,
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.1",
+          "numero": "5.2.1",
+          "texto": "Classificação.",
+          "pai": "D09:5.2",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.2",
+          "numero": "5.2.2",
+          "texto": "O fato típico e seus elementos.",
+          "pai": "D09:5.2",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.3",
+          "numero": "5.2.3",
+          "texto": "Crime consumado e tentado.",
+          "pai": "D09:5.2",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.4",
+          "numero": "5.2.4",
+          "texto": "Desistência voluntária e arrependimento eficaz.",
+          "pai": "D09:5.2",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.5",
+          "numero": "5.2.5",
+          "texto": "Crimes impossíveis.",
+          "pai": "D09:5.2",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.6",
+          "numero": "5.2.6",
+          "texto": "Dolo e culpa.",
+          "pai": "D09:5.2",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.7",
+          "numero": "5.2.7",
+          "texto": "Erro.",
+          "pai": "D09:5.2",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.8",
+          "numero": "5.2.8",
+          "texto": "Ilicitude e causas de exclusão.",
+          "pai": "D09:5.2",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.9",
+          "numero": "5.2.9",
+          "texto": "Excesso punível.",
+          "pai": "D09:5.2",
+          "pagina": 44
+        },
+        {
+          "id": "D09:5.2.10",
+          "numero": "5.2.10",
+          "texto": "Culpabilidade.",
+          "pai": "D09:5.2",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.2.11",
+          "numero": "5.2.11",
+          "texto": "Concurso de pessoas.",
+          "pai": "D09:5.2",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.2.12",
+          "numero": "5.2.12",
+          "texto": "Concurso de crimes.",
+          "pai": "D09:5.2",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.3",
+          "numero": "5.3",
+          "texto": "Pena: espécies e aplicação.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.3.1",
+          "numero": "5.3.1",
+          "texto": "Extinção da punibilidade.",
+          "pai": "D09:5.3",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.4",
+          "numero": "5.4",
+          "texto": "Crimes em Espécie: Crimes contra a pessoa;",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.4.1",
+          "numero": "5.4.1",
+          "texto": "Crimes contra o patrimônio;",
+          "pai": "D09:5.4",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.4.2",
+          "numero": "5.4.2",
+          "texto": "Crimes contra a Propriedade Imaterial;",
+          "pai": "D09:5.4",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.4.3",
+          "numero": "5.4.3",
+          "texto": "Crimes contra a Dignidade Sexual;",
+          "pai": "D09:5.4",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.4.4",
+          "numero": "5.4.4",
+          "texto": "Crimes contra a Incolumidade Pública;",
+          "pai": "D09:5.4",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.4.5",
+          "numero": "5.4.5",
+          "texto": "Crimes contra a Paz Pública;",
+          "pai": "D09:5.4",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.4.6",
+          "numero": "5.4.6",
+          "texto": "Crimes contra a Fé Pública;",
+          "pai": "D09:5.4",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.4.7",
+          "numero": "5.4.7",
+          "texto": "Crimes contra a Administração Pública.",
+          "pai": "D09:5.4",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5",
+          "numero": "5.5",
+          "texto": "Inquérito policial:",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.1",
+          "numero": "5.5.1",
+          "texto": "Histórico;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.2",
+          "numero": "5.5.2",
+          "texto": "natureza;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.3",
+          "numero": "5.5.3",
+          "texto": "conceito;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.4",
+          "numero": "5.5.4",
+          "texto": "finalidade;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.5",
+          "numero": "5.5.5",
+          "texto": "características;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.6",
+          "numero": "5.5.6",
+          "texto": "fundamento;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.7",
+          "numero": "5.5.7",
+          "texto": "titularidade;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.8",
+          "numero": "5.5.8",
+          "texto": "grau de cognição;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.9",
+          "numero": "5.5.9",
+          "texto": "valor probatório;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.10",
+          "numero": "5.5.10",
+          "texto": "formas de instauração;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.11",
+          "numero": "5.5.11",
+          "texto": "notitia criminis;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.12",
+          "numero": "5.5.12",
+          "texto": "delatio criminis;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.13",
+          "numero": "5.5.13",
+          "texto": "procedimentos investigativos;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.14",
+          "numero": "5.5.14",
+          "texto": "indiciamento;",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.5.15",
+          "numero": "5.5.15",
+          "texto": "garantias do investigado; conclusão.",
+          "pai": "D09:5.5",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6",
+          "numero": "5.6",
+          "texto": "Prova.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.1",
+          "numero": "5.6.1",
+          "texto": "Preservação de local de crime.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.2",
+          "numero": "5.6.2",
+          "texto": "Requisitos e ônus da prova.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.3",
+          "numero": "5.6.3",
+          "texto": "Nulidade da prova.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.4",
+          "numero": "5.6.4",
+          "texto": "Documentos de prova.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.5",
+          "numero": "5.6.5",
+          "texto": "Reconhecimento de pessoas e coisas.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.6",
+          "numero": "5.6.6",
+          "texto": "Acareação.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.7",
+          "numero": "5.6.7",
+          "texto": "Indícios.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.8",
+          "numero": "5.6.8",
+          "texto": "Busca e apreensão.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.9",
+          "numero": "5.6.9",
+          "texto": "Restrição de liberdade.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.10",
+          "numero": "5.6.10",
+          "texto": "Prisão em flagrante.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.11",
+          "numero": "5.6.11",
+          "texto": "Prisão preventiva.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.12",
+          "numero": "5.6.12",
+          "texto": "Liberdade Provisória.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.6.13",
+          "numero": "5.6.13",
+          "texto": "Cautelares diversas.",
+          "pai": "D09:5.6",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7",
+          "numero": "5.7",
+          "texto": "Legislação Extravagante:",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.1",
+          "numero": "5.7.1",
+          "texto": "Leis penais e processuais penais especiais: Lei nº 7.210/1984 e suas alterações (Execução Penal);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.2",
+          "numero": "5.7.2",
+          "texto": "Lei nº 8.072/1990 e suas alterações (Lei de Crimes Hediondos);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.3",
+          "numero": "5.7.3",
+          "texto": "Lei nº 8.137/1990 e suas alterações (Crimes contra a ordem econômica e tributária e as relações de consumo);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.4",
+          "numero": "5.7.4",
+          "texto": "Lei nº 9.296/1996 e suas alterações (Lei de Interceptação Telefônica);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.5",
+          "numero": "5.7.5",
+          "texto": "Lei nº 9.503/1997 e suas alterações (CTB);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.6",
+          "numero": "5.7.6",
+          "texto": "Lei nº 10.826/2003 e suas alterações (Estatuto do Desarmamento);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.7",
+          "numero": "5.7.7",
+          "texto": "Lei nº 11.340/2006 e suas alterações (Lei Maria da Penha);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.8",
+          "numero": "5.7.8",
+          "texto": "Lei nº 11.343/2006 e suas alterações (LAD);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.9",
+          "numero": "5.7.9",
+          "texto": "Lei nº 12.850/2013 e suas alterações (Crime Organizado);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.10",
+          "numero": "5.7.10",
+          "texto": "Lei nº 13.869/2019 e suas alterações (Lei de Abuso de Autoridade);",
+          "pai": "D09:5.7",
+          "pagina": 45
+        },
+        {
+          "id": "D09:5.7.11",
+          "numero": "5.7.11",
+          "texto": "Lei nº 13.964/2019 e suas alterações (Pacote Anticrime).",
+          "pai": "D09:5.7",
+          "pagina": 45
+        }
+      ]
+    },
+    {
+      "id": "D10",
+      "modulo": "especificos",
+      "numero": 6,
+      "tituloLiteral": "NOÇÕES DE DIREITOS HUMANOS",
+      "nome": "Noções de Direitos Humanos",
+      "questoes": 4,
+      "peso": 0.057143,
+      "itens": [
+        {
+          "id": "D10:6.1",
+          "numero": "6.1",
+          "texto": "Teoria Geral dos Direitos Humanos.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D10:6.2",
+          "numero": "6.2",
+          "texto": "O processo histórico de construção e afirmação dos Direitos Humanos.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D10:6.3",
+          "numero": "6.3",
+          "texto": "A estrutura normativa do sistema global e do sistema interamericano de proteção dos Direitos Humanos.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D10:6.4",
+          "numero": "6.4",
+          "texto": "A Constituição da República Federativa do Brasil de 1988 e os Tratados Internacionais de Proteção dos Direitos Humanos.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D10:6.5",
+          "numero": "6.5",
+          "texto": "Democracia, cidadania e Direitos Humanos.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D10:6.6",
+          "numero": "6.6",
+          "texto": "Direitos Humanos, minorias e grupos vulneráveis: mulheres, idosos, crianças e adolescentes, povos indígenas e comunidades tradicionais, pessoa com deficiência, LGBTQIA+, refugiados.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D10:6.7",
+          "numero": "6.7",
+          "texto": "Política Nacional de Direitos Humanos.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D10:6.8",
+          "numero": "6.8",
+          "texto": "Educação e cultura em Direitos Humanos.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D10:6.9",
+          "numero": "6.9",
+          "texto": "Agenda 2030 e os Objetivos de Desenvolvimento Sustentável.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D10:6.10",
+          "numero": "6.10",
+          "texto": "Segurança pública e Direitos Humanos.",
+          "pai": null,
+          "pagina": 45
+        }
+      ]
+    },
+    {
+      "id": "D11",
+      "modulo": "especificos",
+      "numero": 7,
+      "tituloLiteral": "NOÇÕES DE MEDICINA LEGAL",
+      "nome": "Noções de Medicina Legal",
+      "questoes": 5,
+      "peso": 0.071429,
+      "itens": [
+        {
+          "id": "D11:7.1",
+          "numero": "7.1",
+          "texto": "Perícias e Peritos.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.1.1",
+          "numero": "7.1.1",
+          "texto": "Documentos médico-legais.",
+          "pai": "D11:7.1",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.1.2",
+          "numero": "7.1.2",
+          "texto": "Quesitos oficiais.",
+          "pai": "D11:7.1",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.1.3",
+          "numero": "7.1.3",
+          "texto": "Perícias médicas.",
+          "pai": "D11:7.1",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.1.4",
+          "numero": "7.1.4",
+          "texto": "Ética médica e pericial.",
+          "pai": "D11:7.1",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.1.5",
+          "numero": "7.1.5",
+          "texto": "Legislação sobre perícias médico-legais.",
+          "pai": "D11:7.1",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.2",
+          "numero": "7.2",
+          "texto": "Antropologia Médico-legal.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.2.1",
+          "numero": "7.2.1",
+          "texto": "Identidade e identificação.",
+          "pai": "D11:7.2",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.2.2",
+          "numero": "7.2.2",
+          "texto": "Identificação judiciária.",
+          "pai": "D11:7.2",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.3",
+          "numero": "7.3",
+          "texto": "Traumatologia Médico-legal.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.3.1",
+          "numero": "7.3.1",
+          "texto": "Lesões corporais sob o ponto de vista jurídico.",
+          "pai": "D11:7.3",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.3.2",
+          "numero": "7.3.2",
+          "texto": "Energias de Ordem Mecânica.",
+          "pai": "D11:7.3",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.3.3",
+          "numero": "7.3.3",
+          "texto": "Energias de Ordem Química, cáusticos e venenos, embriaguez, toxicomanias.",
+          "pai": "D11:7.3",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.3.4",
+          "numero": "7.3.4",
+          "texto": "Energias de Ordem Física: Efeitos da temperatura, eletricidade, pressão atmosférica, radiações, luz e som.",
+          "pai": "D11:7.3",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.3.5",
+          "numero": "7.3.5",
+          "texto": "Energias de Ordem Físico-Química: Asfixias em geral. Asfixias em espécie: por gases irrespiráveis, por monóxido de carbono, por sufocação direta, por sufocação indireta, por afogamento, por enforcamento, por estrangulamento, por esganadura, por soterramento e por confinamento.",
+          "pai": "D11:7.3",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.3.6",
+          "numero": "7.3.6",
+          "texto": "Energias de Ordem Biodinâmica e Mistas.",
+          "pai": "D11:7.3",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.4",
+          "numero": "7.4",
+          "texto": "Tanatologia Médico-legal.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.4.1",
+          "numero": "7.4.1",
+          "texto": "Tanatognose e cronotanatognose.",
+          "pai": "D11:7.4",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.4.2",
+          "numero": "7.4.2",
+          "texto": "Fenômenos cadavéricos.",
+          "pai": "D11:7.4",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.4.3",
+          "numero": "7.4.3",
+          "texto": "Necropsia, necroscopia.",
+          "pai": "D11:7.4",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.4.4",
+          "numero": "7.4.4",
+          "texto": "Exumação.",
+          "pai": "D11:7.4",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.4.5",
+          "numero": "7.4.5",
+          "texto": "\"Causa mortis\".",
+          "pai": "D11:7.4",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.4.6",
+          "numero": "7.4.6",
+          "texto": "Morte natural e morte violenta.",
+          "pai": "D11:7.4",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.4.7",
+          "numero": "7.4.7",
+          "texto": "Direitos sobre o cadáver.",
+          "pai": "D11:7.4",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.5",
+          "numero": "7.5",
+          "texto": "Sexologia Médico-legal.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.5.1",
+          "numero": "7.5.1",
+          "texto": "Crimes contra a dignidade sexual e provas periciais.",
+          "pai": "D11:7.5",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.5.2",
+          "numero": "7.5.2",
+          "texto": "Gravidez, parto, puerpério, aborto, infanticídio.",
+          "pai": "D11:7.5",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.5.3",
+          "numero": "7.5.3",
+          "texto": "Reprodução assistida.",
+          "pai": "D11:7.5",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.5.4",
+          "numero": "7.5.4",
+          "texto": "Transtornos da sexualidade e da identidade sexual.",
+          "pai": "D11:7.5",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.6",
+          "numero": "7.6",
+          "texto": "Psicopatologia Médico-legal.",
+          "pai": null,
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.6.1",
+          "numero": "7.6.1",
+          "texto": "Imputabilidade penal e capacidade civil.",
+          "pai": "D11:7.6",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.6.2",
+          "numero": "7.6.2",
+          "texto": "Limite e modificadores da responsabilidade penal e capacidade civil.",
+          "pai": "D11:7.6",
+          "pagina": 45
+        },
+        {
+          "id": "D11:7.6.3",
+          "numero": "7.6.3",
+          "texto": "Repercussões médico-legais dos distúrbios psíquicos.",
+          "pai": "D11:7.6",
+          "pagina": 46
+        },
+        {
+          "id": "D11:7.6.4",
+          "numero": "7.6.4",
+          "texto": "Simulação, dissimulação e supersimulação.",
+          "pai": "D11:7.6",
+          "pagina": 46
+        },
+        {
+          "id": "D11:7.6.5",
+          "numero": "7.6.5",
+          "texto": "Embriaguez alcoólica.",
+          "pai": "D11:7.6",
+          "pagina": 46
+        },
+        {
+          "id": "D11:7.6.6",
+          "numero": "7.6.6",
+          "texto": "Alcoolismo.",
+          "pai": "D11:7.6",
+          "pagina": 46
+        },
+        {
+          "id": "D11:7.6.7",
+          "numero": "7.6.7",
+          "texto": "Aspectos jurídicos.",
+          "pai": "D11:7.6",
+          "pagina": 46
+        },
+        {
+          "id": "D11:7.6.8",
+          "numero": "7.6.8",
+          "texto": "Toxicofilias.",
+          "pai": "D11:7.6",
+          "pagina": 46
+        }
+      ]
+    },
+    {
+      "id": "D12",
+      "modulo": "especificos",
+      "numero": 8,
+      "tituloLiteral": "NOÇÕES DE CRIMONOLOGIA",
+      "nome": "Noções de Criminologia",
+      "questoes": 5,
+      "peso": 0.071429,
+      "itens": [
+        {
+          "id": "D12:8.1",
+          "numero": "8.1",
+          "texto": "Criminologia como ciência empírica e interdisciplinar: conceito, objeto, método, sistema e funções da criminologia.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.2",
+          "numero": "8.2",
+          "texto": "Fundamentos históricos e filosóficos da Criminologia: precursores, Iluminismo e as primeiras escolas sociológicas. Marcos científicos da Criminologia. A escola liberal clássica do Direito Penal e a Criminologia positivista.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.3",
+          "numero": "8.3",
+          "texto": "A Moderna Criminologia científica: modelos teóricos explicativos do comportamento criminal. Biologia criminal, Psicologia Criminal e Sociologia Criminal.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.4",
+          "numero": "8.4",
+          "texto": "Teoria Estrutural-Funcionalista do desvio e da anomia.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.5",
+          "numero": "8.5",
+          "texto": "Teoria das Subculturas Criminais.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.6",
+          "numero": "8.6",
+          "texto": "Do “Labeling Approach” a uma criminologia crítica.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.7",
+          "numero": "8.7",
+          "texto": "Sistema penal e reprodução da realidade social.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.8",
+          "numero": "8.8",
+          "texto": "Cárcere e marginalidade social.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.9",
+          "numero": "8.9",
+          "texto": "Modelo consensual de Justiça Criminal.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.10",
+          "numero": "8.10",
+          "texto": "Criminologia do reconhecimento e dignidade da pessoa humana.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.11",
+          "numero": "8.11",
+          "texto": "(In)visibilidade, reconhecimento e as fontes da violência na comunidade política democrática.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.12",
+          "numero": "8.12",
+          "texto": "A genealogia do imaginário punitivo moderno entre regulação e emancipação",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.13",
+          "numero": "8.13",
+          "texto": "Criminologia, (in)visibilidade e reconhecimento.",
+          "pai": null,
+          "pagina": 46
+        },
+        {
+          "id": "D12:8.14",
+          "numero": "8.14",
+          "texto": "Criminologia, policiamento e segurança pública no século XXI.",
+          "pai": null,
+          "pagina": 46
+        }
+      ]
+    }
+  ],
+  "avisos": [
+    "D03: token '7.1.6' ignorado (não é item da disciplina): ...ffice 2016 e LibreOffice 7.1.6. 3.6.1. Powerpoi...",
+    "D12: título literal do edital tem erro de grafia ('NOÇÕES DE CRIMONOLOGIA'); mantido em tituloLiteral"
+  ]
+}

@@ -6,9 +6,19 @@ Plataforma **comercial** em que o concurseiro gera provas de estudo, responde, e
 
 ## Estado atual
 
-Repositório recém-criado. Piloto: **Polícia Civil × FGV**. O autor vai trazer o edital em PDF e executar o fluxo completo PDF → MD → JSON.
+Piloto: **Polícia Civil de Minas Gerais × FGV**, Edital nº 04/2024, cargo **Investigador de Polícia I** (slug `pc-mg-fgv-2024`). Prova de 70 questões objetivas A–E, 1 ponto cada, mínimo de 35 acertos (edital item 4.1.5 a 4.1.7).
 
-**Em aberto (perguntar antes de assumir):** UF/órgão da Polícia Civil do piloto, cargo(s) e ano do edital.
+Feito no piloto:
+- `01-md/edital-04-2024.md`: edital completo em Markdown, com `<!-- p.N -->` por página (N = página do PDF).
+- `02-json/edital.json`: estrutura do Anexo I (12 disciplinas, 339 itens, pesos pelo nº de questões), validada por `schemas/edital.schema.json`.
+
+Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. Próximas fontes: texto das leis citadas no Anexo I, provas anteriores da FGV/PCMG e perfil da banca.
+
+Comandos (a partir da raiz):
+```bash
+python3 -I pipeline/pdf_para_md.py conteudo/concursos/<slug>/00-origem/<edital>.pdf conteudo/concursos/<slug>/01-md/<edital>.md
+python3 -I pipeline/edital_para_json.py conteudo/concursos/<slug>
+```
 
 ## Stack
 
