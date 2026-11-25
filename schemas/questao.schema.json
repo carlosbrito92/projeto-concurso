@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Questão (schema v3)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "schemaVersion", "tipo", "enunciado", "classificacao", "origem", "direitos", "revisao", "status"],
+    "additionalProperties": false,
+    "properties": {
+      "id": { "type": "string", "pattern": "^Q[0-9]{6}$" },
+      "schemaVersion": { "const": "3.0" },
+      "tipo": { "enum": ["MultiplaEscolha", "CertoErrado", "AfirmacoesCombinadas", "VerdadeiroFalso"] },
+      "estiloBanca": { "type": "string" },
+      "dificuldade": { "enum": ["Baixa", "Media", "Alta"] },
+      "dificuldadeStatus": { "enum": ["Estimada", "Calibrada"] },
+      "peso": { "type": "integer", "minimum": 1, "maximum": 5, "default": 1 },
+      "textoApoio": { "type": ["string", "null"] },
+      "enunciado": { "type": "string", "minLength": 1 },
+      "afirmacoes": {
+        "type": "array",
+        "minItems": 2,
+        "items": {
+          "type": "object",
+          "required": ["id", "texto", "verdadeira"],
+          "additionalProperties": false,
+          "properties": {
+            "id": { "enum": ["I", "II", "III", "IV", "V", "VI"] },
+            "texto": { "type": "string" },
+            "verdadeira": { "type": "boolean" },
+            "conhecimentoId": { "type": "string", "pattern": "^K[0-9]{6}$" }
+          }
+        }
+      },
+      "alternativas": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 5,
+        "items": { "type": "string" }
+      },
+      "correta": { "type": "integer", "minimum": 0, "description": "Índice base 0 da alternativa correta" },
+      "gabaritoCertoErrado": { "type": "boolean" },
+      "classificacao": {
+        "type": "object",
+        "required": ["disciplina", "assunto"],
+        "additionalProperties": false,
+        "properties": {
+          "disciplina": { "type": "string" },
+          "assunto": { "type": "string" },
+          "editalItem": { "type": ["string", "null"], "description": "Numeração do item no edital" },
+          "conhecimentoId": { "type": "string", "pattern": "^K[0-9]{6}$" }
+        }
+      },
+      "concurso": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "carreira": { "type": "string" },
+          "orgao": { "type": "string" },
+          "banca": { "type": "string" },
+          "ano": { "type": "integer" },
+          "cargo": { "type": "string" }
+        }
+      },
+      "fundamentacao": {
+        "type": ["object", "null"],
+        "required": ["fonte"],
+        "additionalProperties": false,
+        "properties": {
+          "fonte": { "type": "string", "description": "Ex.: CP, art. 121, §2º" },
+          "trechoLiteral": { "type": ["string", "null"] },
+          "url": { "type": ["string", "null"] },
+          "vigenteEm": { "type": ["string", "null"], "description": "AAAA-MM" }
+        }
+      },
+      "comentario": { "type": ["string", "null"], "description": "Explicação exibida após responder" },
+      "origem": {
+        "type": "object",
+        "required": ["tipo"],
+        "additionalProperties": false,
+        "properties": {
+          "tipo": { "enum": ["prova_real", "autoral_ia"] },
+          "pdfSha256": { "type": ["string", "null"] },
+          "pagina": { "type": ["integer", "null"] },
+          "questaoNumero": { "type": ["integer", "null"] },
+          "modelo": { "type": ["string", "null"], "description": "Modelo de IA que gerou (se autoral_ia)" },
+          "promptVersao": { "type": ["string", "null"] },
+          "baseadaEm": { "type": "array", "items": { "type": "string", "pattern": "^K[0-9]{6}$" } }
+        }
+      },
+      "direitos": {
+        "type": "object",
+        "required": ["status"],
+        "additionalProperties": false,
+        "properties": {
+          "status": { "enum": ["pendente_juridico", "liberada", "nao_aplicavel"] },
+          "nota": { "type": ["string", "null"] }
+        }
+      },
+      "revisao": {
+        "type": "object",
+        "required": ["status"],
+        "additionalProperties": false,
+        "properties": {
+          "status": { "enum": ["automatico", "revisado", "rejeitado"] },
+          "por": { "type": ["string", "null"] },
+          "em": { "type": ["string", "null"] }
+        }
+      },
+      "anulada": { "type": "boolean", "default": false },
+      "gabaritoOficial": { "type": "boolean", "default": false },
+      "grupoEquivalencia": { "type": "string" },
+      "status": { "enum": ["rascunho", "ativa", "inativa", "em_revisao"] }
+    },
+    "allOf": [
+      {
+        "if": { "properties": { "tipo": { "const": "CertoErrado" } } },
+        "then": { "required": ["gabaritoCertoErrado"] }
+      },
+      {
+        "if": { "properties": { "tipo": { "enum": ["MultiplaEscolha", "AfirmacoesCombinadas"] } } },
+        "then": { "required": ["alternativas", "correta"] }
+      },
+      {
+        "if": { "properties": { "tipo": { "const": "AfirmacoesCombinadas" } } },
+        "then": { "required": ["afirmacoes"] }
+      },
+      {
+        "if": { "properties": { "origem": { "properties": { "tipo": { "const": "autoral_ia" } } } } },
+        "then": { "required": ["fundamentacao"], "properties": { "fundamentacao": { "type": "object" } } }
+      }
+    ]
+  }
+}

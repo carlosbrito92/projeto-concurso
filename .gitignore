@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.env*
+!.env.example
+__pycache__/
+.venv/
+.DS_Store
+
+# PDFs de origem (direito autoral): só o sha256 vai para o manifest
+conteudo/concursos/*/00-origem/*
+!conteudo/concursos/*/00-origem/.gitkeep
