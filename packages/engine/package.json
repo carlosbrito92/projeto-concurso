@@ -1,0 +1,16 @@
+{
+  "name": "@concurso/engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Motor puro (sem DOM e sem I/O) de seleção, simulado, correção e relatório.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "node --test \"test/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.7",
+    "typescript": "~5.9"
+  }
+}

@@ -20,7 +20,8 @@ Feito no piloto:
   - `pc-mg-fumarc-2014-investigador-ca`: 60 questões, 4 alternativas, banca **FUMARC** (não entra no perfil da FGV), "gabarito oficial" não confirmado como definitivo, prova de 2014.
   O texto das questões fica **fora do Git** (regra abaixo); o repo versiona só código, `meta.json`, `relatorio.md` e os editais.
 
-Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. Perfis de banca gerados (`conteudo/bancas/fgv.json`, `fumarc.json`). Próximas fontes: texto das leis citadas nos Anexos I (ver `ctresb/leis`, a avaliar), mais provas por banca e classificação de cada questão em um item do edital.
+Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. `packages/engine` (TypeScript, 38 testes): seleção por peso do edital e rodízio de assuntos, simulado com snapshot, correção, relatório (disciplina, assunto com agregação hierárquica, foco, caderno de erros, acumulado entre simulados) e avisos de vigência. Ver `packages/engine/README.md`.
+- Perfis de banca gerados (`conteudo/bancas/fgv.json`, `fumarc.json`). Próximas fontes: texto das leis citadas nos Anexos I (ver `ctresb/leis`, a avaliar), mais provas por banca e classificação de cada questão em um item do edital.
 
 Comandos (a partir da raiz):
 ```bash
@@ -118,7 +119,7 @@ A geração por IA deve imitar o **estilo medido** da banca-alvo, jamais copiar 
 
 ## Regras de código
 
-- **Correção no servidor.** O gabarito nunca vai ao navegador antes de a resposta ser enviada.
+- **Correção no servidor.** O gabarito nunca vai ao navegador antes de a resposta ser enviada (`paraCliente` do motor usa lista branca; não montar payload à mão).
 - Motor (`packages/engine`) sem DOM e sem I/O. Seleção determinística por semente; testes obrigatórios.
 - RLS ligada em toda tabela com dado de usuário. Toda migração nova é revisada com os advisors do Supabase.
 - Segredos só em variáveis de ambiente (Vercel/Supabase/Clerk). Nunca em Git.
