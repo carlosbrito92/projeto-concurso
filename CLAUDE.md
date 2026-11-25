@@ -21,6 +21,7 @@ Feito no piloto:
   O texto das questões fica **fora do Git** (regra abaixo); o repo versiona só código, `meta.json`, `relatorio.md` e os editais.
 
 Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. `packages/engine` (TypeScript, 38 testes): seleção por peso do edital e rodízio de assuntos, simulado com snapshot, correção, relatório (disciplina, assunto com agregação hierárquica, foco, caderno de erros, acumulado entre simulados) e avisos de vigência. Ver `packages/engine/README.md`.
+- `supabase/migrations`: esquema do banco (conteúdo + dados do aluno) com RLS; `supabase/tests/test_rls.py` (27 testes de segurança, validados por mutação); `pipeline/seed_banco.py` (carga idempotente com trava de host). Ver `supabase/README.md`. **Ainda não aplicado em projeto Supabase real.**
 - Perfis de banca gerados (`conteudo/bancas/fgv.json`, `fumarc.json`). Próximas fontes: texto das leis citadas nos Anexos I (ver `ctresb/leis`, a avaliar), mais provas por banca e classificação de cada questão em um item do edital.
 
 Comandos (a partir da raiz):
@@ -33,6 +34,10 @@ python3 -I pipeline/prova_para_json.py conteudo/provas/<slug>
 python3 -I pipeline/pdf_para_md.py conteudo/concursos/<slug>/00-origem/<edital>.pdf conteudo/concursos/<slug>/01-md/<edital>.md
 python3 -I pipeline/edital_para_json.py conteudo/concursos/<slug>
 ```
+
+## Pendências do autor (fora do alcance do Claude)
+
+- [ ] **CI no GitHub Actions** — a configurar pelo autor, em casa, com acesso às permissões do repositório (o ambiente do Claude não consegue criar workflows). Escopo previsto: `npm ci && npm run typecheck && npm test` em `packages/engine`; `pip install -r pipeline/requirements.txt` e rodar os scripts do pipeline em modo de validação sobre fixtures sintéticas (as provas reais não estão no Git); lint/validação das migrações SQL. Até lá, os testes só rodam localmente.
 
 ## Stack
 
@@ -121,6 +126,7 @@ A geração por IA deve imitar o **estilo medido** da banca-alvo, jamais copiar 
 
 - **Correção no servidor.** O gabarito nunca vai ao navegador antes de a resposta ser enviada (`paraCliente` do motor usa lista branca; não montar payload à mão).
 - Motor (`packages/engine`) sem DOM e sem I/O. Seleção determinística por semente; testes obrigatórios.
+- `questao`, `questao_gabarito`, `prova` e `simulado_gabarito` **não têm política para o navegador**: o aluno só enxerga questões dentro dos próprios simulados. Não criar política de leitura nelas.
 - RLS ligada em toda tabela com dado de usuário. Toda migração nova é revisada com os advisors do Supabase.
 - Segredos só em variáveis de ambiente (Vercel/Supabase/Clerk). Nunca em Git.
 - Dados pessoais de aluno: coletar o mínimo (LGPD). Estatísticas só do próprio usuário.
