@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { Show, UserButton } from "@clerk/nextjs";
 import { modoDemo } from "@/lib/ambiente";
 import { Marca } from "./Marca";
 import { NavLink } from "./NavLink";
@@ -23,8 +23,8 @@ export function Cabecalho() {
               <small>usuário: demo</small>
             ) : (
               <>
-                <SignedIn><UserButton /></SignedIn>
-                <SignedOut><Link href="/sign-in">Entrar</Link></SignedOut>
+                <Show when="signed-in"><UserButton /></Show>
+                <Show when="signed-out"><Link href="/sign-in">Entrar</Link></Show>
               </>
             )}
           </nav>
