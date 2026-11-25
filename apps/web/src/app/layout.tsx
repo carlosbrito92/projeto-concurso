@@ -12,8 +12,21 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, colorScheme: "light dark" };
 
+// As cores do Clerk vêm dos mesmos tokens do app (claro/escuro), para o cartão de login acompanhar o tema do aparelho.
 const aparenciaClerk = {
-  variables: { colorPrimary: "#0a0a0a", colorBackground: "#efeeec", colorText: "#0a0a0a", fontFamily: "ui-monospace, Menlo, Consolas, monospace", borderRadius: "0px" },
+  variables: {
+    colorPrimary: "var(--primario)",
+    colorTextOnPrimaryBackground: "var(--primario-texto)",
+    colorBackground: "var(--superficie)",
+    colorText: "var(--texto)",
+    colorTextSecondary: "var(--texto-suave)",
+    colorInputBackground: "var(--fundo)",
+    colorInputText: "var(--texto)",
+    colorNeutral: "var(--texto)",
+    colorDanger: "var(--perigo)",
+    fontFamily: "ui-monospace, Menlo, Consolas, monospace",
+    borderRadius: "0px",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
