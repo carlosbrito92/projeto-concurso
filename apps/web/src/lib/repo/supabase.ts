@@ -99,8 +99,8 @@ export function criarRepoSupabase(getToken: () => Promise<string | null>): Repos
 
   return {
     async listarConcursos(): Promise<ConcursoResumo[]> {
-      const r = ok(await u().from("concurso").select("slug,orgao,banca,cargo,ano,edital,total_questoes").order("ano", { ascending: false }), "concursos") ?? [];
-      return r.map((c) => ({ slug: c.slug, orgao: c.orgao, banca: c.banca, cargo: c.cargo, ano: c.ano, edital: c.edital, totalQuestoes: c.total_questoes }));
+      const r = ok(await u().from("concurso").select("slug,orgao,uf,area,banca,cargo,ano,edital,total_questoes").order("ano", { ascending: false }), "concursos") ?? [];
+      return r.map((c) => ({ slug: c.slug, area: c.area, uf: c.uf, orgao: c.orgao, banca: c.banca, cargo: c.cargo, ano: c.ano, edital: c.edital, totalQuestoes: c.total_questoes }));
     },
 
     async obterEdital(slug): Promise<Edital | null> {

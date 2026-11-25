@@ -198,6 +198,19 @@ textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
 @keyframes pulsar { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 .esqueleto, .carregando-pulso { animation: pulsar 1.4s var(--entra) infinite; }
 
+/* ---- seletor de concursos (catálogo por área) ---- */
+.catalogo { border-top: 1px dashed var(--linha); padding-top: var(--e3); }
+.catalogo summary { cursor: pointer; font-weight: 700; }
+.catalogo-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e1); }
+.catalogo-item { display: flex; gap: var(--e3); align-items: flex-start; padding: var(--e2) var(--e3); border: 1px solid transparent; text-decoration: none; }
+.catalogo-item:hover { background: var(--primario); color: var(--primario-texto); }
+.catalogo-item[aria-current="page"] { background: var(--selecionado); color: var(--selecionado-texto); }
+.catalogo-item small { color: inherit; opacity: 0.85; }
+.catalogo-marca { flex: none; font-weight: 700; }
+.catalogo [role="status"] { margin-top: var(--e3); }
+.catalogo section + section { margin-top: var(--e4); }
+.catalogo h3 { margin-bottom: var(--e2); }
+
 /* ---- reporte de problema na questão ---- */
 .reporte { border: 1px dashed var(--linha); padding: var(--e3) var(--e4); max-width: 72ch; }
 .reporte summary { cursor: pointer; }

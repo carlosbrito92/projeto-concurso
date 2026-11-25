@@ -2,6 +2,8 @@ import Link from "next/link";
 import { FormNovoSimulado } from "@/components/FormNovoSimulado";
 import { Barra } from "@/components/Barra";
 import { Aviso } from "@/components/Aviso";
+import { SeletorConcurso } from "@/components/SeletorConcurso";
+import { nomeDaArea } from "@/lib/areas";
 import { usuarioAtualId } from "@/lib/auth";
 import { usandoPoliticaDeTeste } from "@/lib/ambiente";
 import { dataCurta, pct, rotuloNivel } from "@/lib/formatar";
@@ -40,20 +42,11 @@ export default async function Painel({ searchParams }: { searchParams: Promise<{
         )}
       </div>
 
-      {concursos.length > 1 && (
-        <nav aria-label="Concurso" className="linha">
-          <span className="rotulo" style={{ margin: 0 }}>Concurso</span>
-          {concursos.map((x) => (
-            <Link key={x.slug} href={`/painel?c=${x.slug}`} aria-current={x.slug === atual.slug ? "page" : undefined} className="btn btn-fantasma" style={{ minHeight: 0, padding: "var(--e1) var(--e2)" }}>
-              {x.orgao} {x.ano}
-            </Link>
-          ))}
-        </nav>
-      )}
-
-      <section className="painel" aria-labelledby="sec-concurso">
+      <section className="painel pilha-p" aria-labelledby="sec-concurso">
+        <span className="rotulo" style={{ margin: 0 }}>Concurso · {nomeDaArea(atual.area)}</span>
         <h2 id="sec-concurso" className="titulo-sec">{atual.cargo}</h2>
-        <p className="suave" style={{ marginBottom: 0 }}>{atual.orgao}, banca {atual.banca}, edital {atual.edital}. Prova com {atual.totalQuestoes} questões.</p>
+        <p className="suave" style={{ marginBottom: 0 }}>{atual.orgao} ({atual.uf}), banca {atual.banca}, edital {atual.edital}. Prova com {atual.totalQuestoes} questões.</p>
+        {concursos.length > 1 && <SeletorConcurso concursos={concursos} atualSlug={atual.slug} abertoInicial={!c} />}
       </section>
 
       <div className="grade">

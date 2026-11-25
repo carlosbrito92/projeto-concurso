@@ -43,6 +43,8 @@ e2e/fluxo-demo.cjs      teste de navegador (Playwright) do fluxo completo em mod
 npm run typecheck && npm test            # tipos e testes do serviço
 DEMO=1 APP_ENV=dev npm run dev & node e2e/fluxo-demo.cjs ./capturas   # navegador
 node e2e/reportes-demo.cjs ./capturas <pasta-com-axe-core>              # reportes do aluno + /admin (claro e escuro, axe)
+node e2e/registro-demo.cjs ./capturas <pasta-com-axe-core>              # registro de alterações (servidor limpo)
+node e2e/seletor-demo.cjs ./capturas <pasta-com-axe-core>               # seletor de concursos por área
 ```
 Auditoria de acessibilidade (axe, WCAG A/AA + boas práticas) nas 6 telas × 2 temas: 0 violações de contraste ou rótulo.
 

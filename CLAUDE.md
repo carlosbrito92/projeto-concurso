@@ -56,6 +56,13 @@ python3 -I pipeline/edital_para_json.py conteudo/concursos/<slug>
 - **Registro de alterações** (`registro_alteracao`, página `/novidades`): somente leitura para o aluno; só o servidor inclui; imutável (gatilho barra UPDATE/DELETE/TRUNCATE). O aluno lê só `id, criado_em, tipo, titulo, resumo, concurso_slug` (nunca autor nem questão). O admin publica em `/admin/registro` (`novidade`, `conteudo`, `correcao`); `questao_retirada` é automático (gerado por `resolver_reporte`, sem a justificativa interna). Texto de aluno: nunca enunciado, gabarito nem justificativa.
 - Próximo (combinado): `conhecimento` (`KNOW###`) com fonte e vigência para explicar o gabarito.
 
+## Catálogo de concursos (seletor do painel)
+
+- Cada concurso tem uma **área** (`concurso.area`, slug; vem de `meta.json` → `edital.json` v1.1 → `seed_banco.py`). Concurso novo **precisa** de `"area"` no `meta.json` (ex.: `seguranca-publica`, `justica`, `fiscal`, `administrativa`, `saude`...). O rótulo e a ordem das áreas ficam em `apps/web/src/lib/areas.ts`; área sem rótulo aparece com o nome derivado do slug (nova área não exige migração).
+- O painel mostra o concurso escolhido (com a área) e, em "Trocar concurso", o catálogo **agrupado por área** (mais recentes primeiro). Acima de 8 concursos entram busca (sem acento) e filtros por área, UF e banca. Federal usa `uf = "BR"`. Lógica pura e testada em `lib/catalogo.ts`.
+- A demonstração local carrega os 4 editais reais e 5 entradas **rotuladas "(demonstração)"** em outras áreas só para exercitar o seletor; elas não existem fora do modo demonstração.
+- `seed_banco.py` **nunca reverte** uma questão retirada pelo admin (`status = 'inativa'`): recarregar conteúdo preserva a retirada.
+
 ## Stack
 
 | Camada | Escolha | Observação |

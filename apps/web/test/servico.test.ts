@@ -43,7 +43,7 @@ test("o que vai à tela da prova não contém gabarito nem comentário", async (
 test("com questões reais pendentes de direitos, o aluno recebe uma mensagem clara (nada vaza)", async () => {
   const { edital } = carregarEditalDoRepo(CONCURSO_DEMO);
   const pendentes = gerarQuestoesDemo(edital).map((q) => ({ ...q, direitos: { status: "pendente_juridico" as const }, status: "rascunho" as const, revisao: { status: "automatico" as const } }));
-  const repo = criarRepoMemoria({ concursos: [{ resumo: { slug: CONCURSO_DEMO, orgao: "o", banca: "b", cargo: "c", ano: 2024, edital: "e", totalQuestoes: 70 }, edital, pool: pendentes }] });
+  const repo = criarRepoMemoria({ concursos: [{ resumo: { slug: CONCURSO_DEMO, area: "seguranca-publica", uf: "MG", orgao: "o", banca: "b", cargo: "c", ano: 2024, edital: "e", totalQuestoes: 70 }, edital, pool: pendentes }] });
   await assert.rejects(criarSimulado(repo, "u1", pedido(), POLITICA_PADRAO, ctx()), (e: unknown) => e instanceof ErroDeNegocio && /Ainda não há questões liberadas/.test(e.message));
   // a política de desenvolvimento (só ambiente de teste) as libera
   assert.ok(await criarSimulado(repo, "u1", pedido(), POLITICA_DESENVOLVIMENTO, ctx()));

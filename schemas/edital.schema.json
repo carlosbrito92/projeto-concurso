@@ -12,7 +12,7 @@
   "additionalProperties": false,
   "properties": {
     "schemaVersion": {
-      "const": "1.0"
+      "const": "1.1"
     },
     "concurso": {
       "type": "object",
@@ -20,6 +20,7 @@
         "slug",
         "orgao",
         "uf",
+        "area",
         "banca",
         "cargo",
         "edital",
@@ -37,6 +38,11 @@
         "uf": {
           "type": "string",
           "pattern": "^[A-Z]{2}$"
+        },
+        "area": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Área do concurso (ex.: seguranca-publica, justica, fiscal). Agrupa o seletor de concursos; o rótulo fica no app."
         },
         "banca": {
           "type": "string"

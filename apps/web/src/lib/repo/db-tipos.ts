@@ -10,7 +10,7 @@ export interface Database {
   public: {
     Tables: {
       banca_perfil: Tab<{ banca: string; amostra: Json; medidas: Json; atualizado_em: string }, "atualizado_em">;
-      concurso: Tab<{ slug: string; orgao: string; uf: string; banca: string; cargo: string; edital: string; ano: number; vagas: number | null; total_questoes: number; alternativas: number; pontos_por_questao: number; nota_minima: number | null; data_provavel: string | null; criado_em: string }, "vagas" | "pontos_por_questao" | "nota_minima" | "data_provavel" | "criado_em">;
+      concurso: Tab<{ slug: string; orgao: string; uf: string; area: string; banca: string; cargo: string; edital: string; ano: number; vagas: number | null; total_questoes: number; alternativas: number; pontos_por_questao: number; nota_minima: number | null; data_provavel: string | null; criado_em: string }, "area" | "vagas" | "pontos_por_questao" | "nota_minima" | "data_provavel" | "criado_em">;
       disciplina: Tab<{ concurso_slug: string; id: string; modulo: string | null; numero: number; titulo_literal: string; nome: string; questoes: number | null; peso: number | null; numeracao_itens: string | null; bibliografia_bruta: string | null }, "modulo" | "questoes" | "peso" | "numeracao_itens" | "bibliografia_bruta">;
       grupo_edital: Tab<{ concurso_slug: string; nome: string; questoes: number; disciplinas: string[] }>;
       item_edital: Tab<{ concurso_slug: string; id: string; disciplina_id: string; numero: string; texto: string; pai: string | null; pagina: number; ordem: number }, "pai">;

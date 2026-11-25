@@ -1,9 +1,10 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "concurso": {
     "slug": "pc-ma-fgv-2012",
     "orgao": "Governo do Estado do Maranhão (SEGEP)",
     "uf": "MA",
+    "area": "seguranca-publica",
     "banca": "FGV",
     "cargo": "Investigador de Polícia",
     "edital": "02/2012 (retificado em 06/09/2013)",

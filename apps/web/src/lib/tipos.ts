@@ -4,6 +4,9 @@ export type StatusSimulado = "em_andamento" | "finalizado" | "abandonado";
 
 export interface ConcursoResumo {
   slug: string;
+  /** Identificador da área (ver lib/areas.ts). */
+  area: string;
+  uf: string;
   orgao: string;
   banca: string;
   cargo: string;

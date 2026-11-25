@@ -234,7 +234,7 @@ def main_cfg(pasta: Path, meta: dict) -> int:
     if sha != meta["fonte"]["sha256"]:
         erros.append("sha256 do PDF difere do meta.json")
     paginas = sorted({p for p, _ in corpo})
-    saida = {"schemaVersion": "1.0", "concurso": meta["concurso"],
+    saida = {"schemaVersion": "1.1", "concurso": meta["concurso"],
              "prova": {"totalQuestoes": total, "alternativas": meta["prova"]["alternativas"],
                        "pontosPorQuestao": meta["prova"]["pontosPorQuestao"],
                        "notaMinimaObjetiva": meta["prova"].get("notaMinimaObjetiva"),
@@ -375,7 +375,7 @@ def main() -> int:
         erros.append("sha256 do PDF difere do meta.json")
 
     saida = {
-        "schemaVersion": "1.0",
+        "schemaVersion": "1.1",
         "concurso": meta["concurso"],
         "prova": {
             "totalQuestoes": total, "alternativas": alts, "pontosPorQuestao": pontos,

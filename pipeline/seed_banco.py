@@ -36,7 +36,9 @@ JSONB = {"amostra", "medidas", "alternativas", "imagens", "fundamentacao"}  # co
 def sql_upsert(tabela: str, pk: list[str], linha: dict) -> tuple[str, dict]:
     cols = list(linha)
     marcas = ", ".join(f"%({c})s" for c in cols)
-    sets = ", ".join(f"{c} = excluded.{c}" for c in cols if c not in pk)
+    # Questão retirada pelo administrador (status 'inativa') nunca volta por recarga de conteúdo.
+    sets = ", ".join((f"status = case when public.{tabela}.status = 'inativa' then 'inativa' else excluded.status end" if (tabela == "questao" and c == "status") else f"{c} = excluded.{c}")
+                     for c in cols if c not in pk)
     sql = f"insert into public.{tabela} ({', '.join(cols)}) values ({marcas}) on conflict ({', '.join(pk)}) do " + (f"update set {sets}" if sets else "nothing")
     params = {c: (json.dumps(v, ensure_ascii=False) if c in JSONB and isinstance(v, (dict, list)) else v) for c, v in linha.items()}
     return sql, params
@@ -59,7 +61,7 @@ def montar() -> tuple[list[dict], dict, list[str]]:
         c, pv = ed["concurso"], ed["prova"]
         slug = c["slug"]
         concursos[slug] = ed
-        add("concurso", ["slug"], {"slug": slug, "orgao": c["orgao"], "uf": c["uf"], "banca": c["banca"], "cargo": c["cargo"], "edital": c["edital"], "ano": c["ano"],
+        add("concurso", ["slug"], {"slug": slug, "orgao": c["orgao"], "uf": c["uf"], "area": c.get("area", "outras"), "banca": c["banca"], "cargo": c["cargo"], "edital": c["edital"], "ano": c["ano"],
                                    "vagas": c.get("vagas"), "total_questoes": pv["totalQuestoes"], "alternativas": pv["alternativas"],
                                    "pontos_por_questao": pv["pontosPorQuestao"], "nota_minima": pv.get("notaMinimaObjetiva"), "data_provavel": pv.get("dataProvavel")})
         for d in ed["disciplinas"]:
@@ -146,14 +148,29 @@ def aplicar_rest(cmds: list[dict], base: str, chave: str) -> None:
             print(f"  {tab}: {len(lote)}")
         lote = []
 
+    # Questões retiradas pelo administrador (status 'inativa') nunca voltam por recarga de conteúdo.
+    inativas = set()
+    for k in range(0, 10**6, 1000):
+        r = urllib.request.Request(f"{base}/rest/v1/questao?select=id&status=eq.inativa&order=id&limit=1000&offset={k}", headers={"apikey": chave})
+        with urllib.request.urlopen(r, timeout=60) as resp:
+            lote_ids = [x["id"] for x in json.loads(resp.read())]
+        inativas.update(lote_ids)
+        if len(lote_ids) < 1000:
+            break
+    if inativas:
+        print(f"  preservando {len(inativas)} questão(ões) retirada(s) pelo administrador")
+
     status: dict[str, list[str]] = {}
     for c in cmds:
         if "status" in c:
-            status.setdefault(c["status"], []).append(c["id"])
+            if c["id"] not in inativas:
+                status.setdefault(c["status"], []).append(c["id"])
             continue
         if c["t"] != tab:
             descarrega()
             tab, pk = c["t"], c["pk"]
+        if c["t"] == "questao" and c["linha"]["id"] in inativas:
+            c = {**c, "linha": {**c["linha"], "status": "inativa"}}
         lote.append(c["linha"])
     descarrega()
     for alvo, ids in status.items():  # só depois de os gabaritos existirem (gatilho do banco)
@@ -206,7 +223,7 @@ def main() -> int:
         with conn.transaction():
             for c in cmds:
                 if "status" in c:
-                    conn.execute("update public.questao set status = %(s)s where id = %(id)s", {"s": c["status"], "id": c["id"]})
+                    conn.execute("update public.questao set status = %(s)s where id = %(id)s and status <> 'inativa'", {"s": c["status"], "id": c["id"]})
                 else:
                     sql, params = sql_upsert(c["t"], c["pk"], c["linha"])
                     conn.execute(sql, params)

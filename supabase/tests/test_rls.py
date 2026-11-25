@@ -421,6 +421,26 @@ class RegistroDeAlteracoes(Base):
             self.assertEqual(c.execute("select count(*) from registro_alteracao").fetchone()[0], antes)
 
 
+class AreaDoConcurso(Base):
+    def test_area_padrao_e_formato(self):
+        self.assertEqual(self.admin.execute("select area from concurso where slug = 'c1'").fetchone()[0], "outras")
+        for invalida in ("Seguranca Publica", "seguranca_publica", "-x", "x-", "", "A"):
+            with self.subTest(area=invalida):
+                with self.assertRaises(E.CheckViolation):
+                    self.admin.execute("update concurso set area = %s where slug = 'c1'", (invalida,))
+        self.admin.execute("update concurso set area = 'seguranca-publica' where slug = 'c1'")
+        self.assertEqual(self.admin.execute("select area from concurso where slug = 'c1'").fetchone()[0], "seguranca-publica")
+        self.admin.execute("update concurso set area = 'outras' where slug = 'c1'")
+
+    def test_aluno_le_a_area_mas_nao_altera(self):
+        with self.como("authenticated", "user_A") as c:
+            self.assertEqual(c.execute("select area from concurso where slug = 'c1'").fetchone()[0], "outras")
+        self.negado("authenticated", "user_A", "update concurso set area = 'justica' where slug = 'c1'")
+        with self.como("anon") as c:
+            with self.assertRaises(E.InsufficientPrivilege):
+                c.execute("select area from concurso")
+
+
 class Lgpd(Base):
     def test_aluno_nao_chama_apagar_dados(self):
         with self.como("authenticated", "user_A") as c:
