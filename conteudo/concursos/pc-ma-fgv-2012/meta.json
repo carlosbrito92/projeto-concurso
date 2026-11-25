@@ -1,0 +1,99 @@
+{
+  "concurso": {
+    "slug": "pc-ma-fgv-2012",
+    "orgao": "Governo do Estado do Maranhão (SEGEP)",
+    "uf": "MA",
+    "banca": "FGV",
+    "cargo": "Investigador de Polícia",
+    "edital": "02/2012 (retificado em 06/09/2013)",
+    "ano": 2012,
+    "vagas": null
+  },
+  "prova": {
+    "totalQuestoes": 70,
+    "alternativas": 5,
+    "pontosPorQuestao": 1,
+    "notaMinimaObjetiva": null,
+    "duracaoMinimaHoras": null,
+    "duracaoMaximaHoras": null,
+    "dataProvavel": null,
+    "fonteItem": "8.1.5 (Tabela I)"
+  },
+  "fonte": {
+    "pdf": "edital-02-2012.pdf",
+    "md": "edital-02-2012.md",
+    "sha256": "e7d683ab644a335febb43f5642123c33be2b5f2176747f952cf2c1b490f9e1d8"
+  },
+  "anexo": {
+    "de": "ANEXO I",
+    "ate": "ANEXO II",
+    "ignorarLinhas": [
+      "NÍVEL SUPERIOR (DISCIPLINAS ESPECÍFICAS PARA OS CARGOS",
+      "POLÍCIA)",
+      "NOÇÕES DE DIREITO:"
+    ],
+    "disciplinas": [
+      {
+        "nome": "Língua Portuguesa",
+        "inicio": "LÍNGUA PORTUGUESA",
+        "questoes": 15,
+        "modulo": "basicos"
+      },
+      {
+        "nome": "Raciocínio Lógico-Quantitativo",
+        "inicio": "RACIOCINIO LÓGICO-QUANTITATIVO",
+        "questoes": 10,
+        "modulo": "basicos"
+      },
+      {
+        "nome": "Noções de Informática",
+        "inicio": "NOÇÕES DE INFORMÁTICA",
+        "questoes": 10,
+        "modulo": "basicos"
+      },
+      {
+        "nome": "Legislação Específica",
+        "inicio": "LEGISLAÇÃO ESPECÍFICA",
+        "questoes": 5,
+        "modulo": "basicos"
+      },
+      {
+        "nome": "Direito Constitucional",
+        "inicio": "DIREITO CONSTITUCIONAL:",
+        "questoes": null,
+        "modulo": "especificos"
+      },
+      {
+        "nome": "Direito Administrativo",
+        "inicio": "DIREITO ADMINISTRATIVO:",
+        "questoes": null,
+        "modulo": "especificos"
+      },
+      {
+        "nome": "Direito Penal",
+        "inicio": "DIREITO PENAL:",
+        "questoes": null,
+        "modulo": "especificos"
+      },
+      {
+        "nome": "Direito Processual Penal",
+        "inicio": "DIREITO PROCESSUAL PENAL:",
+        "questoes": null,
+        "modulo": "especificos",
+        "ate": "NÍVEL SUPERIOR (DISCIPLINAS ESPECÍFICAS PARA O CARGO"
+      }
+    ],
+    "grupos": [
+      {
+        "nome": "Noções de Direito Constitucional, Administrativo, Penal e Processual Penal",
+        "questoes": 30,
+        "disciplinas": [
+          "Direito Constitucional",
+          "Direito Administrativo",
+          "Direito Penal",
+          "Direito Processual Penal"
+        ]
+      }
+    ]
+  }
+}

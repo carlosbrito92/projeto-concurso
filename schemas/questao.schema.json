@@ -148,6 +148,15 @@
             "type": "string",
             "pattern": "^D[0-9]{2}$",
             "description": "Id da disciplina em edital.json do concurso"
+          },
+          "disciplinaIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^D[0-9]{2}$"
+            },
+            "minItems": 2,
+            "description": "Quando a disciplina da prova cobre mais de uma do edital"
           }
         }
       },
@@ -381,8 +390,10 @@
             "coluna": {
               "enum": [
                 "E",
-                "D"
-              ]
+                "D",
+                "U"
+              ],
+              "description": "E/D = colunas; U = página de coluna única"
             },
             "bbox": {
               "type": "string"

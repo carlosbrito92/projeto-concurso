@@ -1,0 +1,107 @@
+{
+  "concurso": {
+    "slug": "pc-am-fgv-2021",
+    "orgao": "Polícia Civil do Estado do Amazonas",
+    "uf": "AM",
+    "banca": "FGV",
+    "cargo": "Investigador de Polícia – 4ª Classe",
+    "edital": "02/2021",
+    "ano": 2021,
+    "vagas": 200
+  },
+  "prova": {
+    "totalQuestoes": 80,
+    "alternativas": 5,
+    "pontosPorQuestao": 1,
+    "notaMinimaObjetiva": null,
+    "duracaoMinimaHoras": null,
+    "duracaoMaximaHoras": null,
+    "dataProvavel": null,
+    "fonteItem": "8.8"
+  },
+  "fonte": {
+    "pdf": "edital-02-2021.pdf",
+    "md": "edital-02-2021.md",
+    "sha256": "a04e10303ff7b452373df0ea6e5f03ed58d04cd6336c04b609ecb049f0ba0d79"
+  },
+  "anexo": {
+    "de": "INVESTIGADOR DE POLÍCIA CIVIL",
+    "ate": "ESCRIVÃO DE POLÍCIA CIVIL",
+    "ignorarLinhas": [
+      "CONHECIMENTOS BÁSICOS",
+      "CONHECIMENTOS ESPECÍFICOS"
+    ],
+    "disciplinas": [
+      {
+        "nome": "Língua Portuguesa",
+        "inicio": "LÍNGUA PORTUGUESA",
+        "questoes": 10,
+        "modulo": "basicos"
+      },
+      {
+        "nome": "Geografia do Amazonas",
+        "inicio": "GEOGRAFIA DO AMAZONAS",
+        "questoes": null,
+        "modulo": "basicos"
+      },
+      {
+        "nome": "História do Amazonas",
+        "inicio": "HISTÓRIA DO AMAZONAS",
+        "questoes": null,
+        "modulo": "basicos"
+      },
+      {
+        "nome": "Raciocínio Lógico-Matemático",
+        "inicio": "RACIOCÍNIO LÓGICO-MATEMÁTICO",
+        "questoes": 5,
+        "modulo": "basicos"
+      },
+      {
+        "nome": "Noções de Informática",
+        "inicio": "NOÇÕES DE INFORMÁTICA",
+        "questoes": 5,
+        "modulo": "basicos"
+      },
+      {
+        "nome": "Noções de Administração",
+        "inicio": "NOÇÕES DE ADMINISTRAÇÃO",
+        "questoes": 10,
+        "modulo": "especificos"
+      },
+      {
+        "nome": "Noções de Contabilidade",
+        "inicio": "NOÇÕES DE CONTABILIDADE",
+        "questoes": 10,
+        "modulo": "especificos"
+      },
+      {
+        "nome": "Noções de Direito Constitucional",
+        "inicio": "NOÇÕES DE DIREITO CONSTITUCIONAL",
+        "questoes": 10,
+        "modulo": "especificos"
+      },
+      {
+        "nome": "Noções de Direito Penal, Processual Penal e Legislação Extravagante",
+        "inicio": "NOÇÕES DE DIREITO PENAL, PROCESSUAL PENAL E LEGISLAÇÃO EXTRAVAGANTE",
+        "questoes": 15,
+        "modulo": "especificos"
+      },
+      {
+        "nome": "Noções de Direito Administrativo",
+        "inicio": "NOÇÕES DE DIREITO ADMINISTRATIVO",
+        "questoes": 10,
+        "modulo": "especificos"
+      }
+    ],
+    "grupos": [
+      {
+        "nome": "Geografia do Amazonas e História do Amazonas",
+        "questoes": 5,
+        "disciplinas": [
+          "Geografia do Amazonas",
+          "História do Amazonas"
+        ]
+      }
+    ]
+  }
+}

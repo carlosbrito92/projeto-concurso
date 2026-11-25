@@ -1,0 +1,995 @@
+{
+  "schemaVersion": "1.0",
+  "concurso": {
+    "slug": "pc-mg-fumarc-2014",
+    "orgao": "Polícia Civil do Estado de Minas Gerais",
+    "uf": "MG",
+    "banca": "FUMARC",
+    "cargo": "Investigador de Polícia",
+    "edital": "01/2014",
+    "ano": 2014,
+    "vagas": 1000
+  },
+  "prova": {
+    "totalQuestoes": 60,
+    "alternativas": 4,
+    "pontosPorQuestao": 1,
+    "notaMinimaObjetiva": null,
+    "duracaoMinimaHoras": 2,
+    "duracaoMaximaHoras": 4,
+    "dataProvavel": null,
+    "fonteItem": "4.3"
+  },
+  "fonte": {
+    "arquivo": "edital-01-2014.pdf",
+    "sha256": "a5611e2676251c751c4ac906e56cd3154f978ea64fce7190efd26f35c79f792b",
+    "paginasAnexoConteudo": [
+      11,
+      12
+    ]
+  },
+  "disciplinas": [
+    {
+      "id": "D01",
+      "modulo": null,
+      "numero": 1,
+      "tituloLiteral": "1. PROGRAMA DE LÍNGUA PORTUGUESA",
+      "nome": "Língua Portuguesa",
+      "questoes": 20,
+      "peso": 0.333333,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": "Bibliografia Sugerida: AZEREDO, José Carlos de. Gramática Houaiss da língua portuguesa. 3. ed. São Paulo: Publifolha, 2010. BRASIL. Presidência da República. Manual de Redação da Presidência da República. 2. ed. rev. e atual. Brasília: Presidência da República, 2002. Disponível em: http://www.planalto.gov.br/ccivil_03/manual/ManualRedPR2aEd.PD F Acesso em março 2014 MINAS GERAIS. Governo do Estado. Manual de Redação Oficial. Coordenação Luciana Reis de Melo. Belo Horizonte, 2012. Disponível em: http://www.mg.gov.br/governomg/portal/c/governomg/governo/acoes- do-governo/516363-manual-de-redacao-oficial/5794/5040 Acesso março/2014. NICOLA, José de. Gramática da palavra, da frase, do texto. São Paulo: Scipione, 2010. SACCONI, Luiz Antônio. Nossa gramática completa: teoria e pratica. São Paulo: Nova Geração, 2011.",
+      "itens": [
+        {
+          "id": "D01:1.1",
+          "numero": "1.1",
+          "texto": "Interpretação e compreensão de textos.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.1.1",
+          "numero": "1.1.1",
+          "texto": "Identificação de tipos textuais: narrativo, descritivo e dissertativo.",
+          "pai": "D01:1.1",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.1.2",
+          "numero": "1.1.2",
+          "texto": "Critérios de textualidade: coerência e coesão.",
+          "pai": "D01:1.1",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.1.3",
+          "numero": "1.1.3",
+          "texto": "Recursos de construção textual: fonológicos, morfológicos, sintáticos e semânticos.",
+          "pai": "D01:1.1",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.1.4",
+          "numero": "1.1.4",
+          "texto": "Gêneros textuais da Redação Oficial.",
+          "pai": "D01:1.1",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.1.4.1",
+          "numero": "1.1.4.1",
+          "texto": "Princípios gerais.",
+          "pai": "D01:1.1.4",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.1.4.2",
+          "numero": "1.1.4.2",
+          "texto": "Uso dos pronomes de tratamento.",
+          "pai": "D01:1.1.4",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.1.4.3",
+          "numero": "1.1.4.3",
+          "texto": "Estrutura interna dos gêneros: ofício, memorando, requerimento, relatório, parecer.",
+          "pai": "D01:1.1.4",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.2",
+          "numero": "1.2",
+          "texto": "Conhecimentos linguísticos.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.2.1",
+          "numero": "1.2.1",
+          "texto": "Conhecimentos gramaticais de acordo com o padrão culto da língua.",
+          "pai": "D01:1.2",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.2.2",
+          "numero": "1.2.2",
+          "texto": "Princípios gerais de leitura e produção de texto. Intertextualidade. Tipos de discurso. Vozes discursivas: citação, paródia, alusão, paráfrase, epígrafe.",
+          "pai": "D01:1.2",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.2.3",
+          "numero": "1.2.3",
+          "texto": "Semântica: construção de sentido; sinonímia, antonímia, homonímia, paronímia, polissemia; denotação e conotação; figuras de linguagem.",
+          "pai": "D01:1.2",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.2.4",
+          "numero": "1.2.4",
+          "texto": "Pontuação e efeitos de sentido.",
+          "pai": "D01:1.2",
+          "pagina": 11
+        },
+        {
+          "id": "D01:1.2.5",
+          "numero": "1.2.5",
+          "texto": "Sintaxe: oração, período, termos das orações; articulação das orações: coordenação e subordinação; concordância verbal e nominal; regência verbal e nominal.",
+          "pai": "D01:1.2",
+          "pagina": 11
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "modulo": null,
+      "numero": 2,
+      "tituloLiteral": "2. PROGRAMA DE NOÇÕES DE DIREITO",
+      "nome": "Noções de Direito",
+      "questoes": 10,
+      "peso": 0.166667,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": "Bibliografia sugerida: FARIA, Edimur Ferreira de. Curso de Direito Administrativo Positivo. 7. ed. Belo Horizonte: Del Rey, 2011. MARTINS, Sérgio Pinto. Instituições de Direito Público e Privado. 11. ed. São Paulo: Ed. Atlas, 2011. MORAES, Alexandre de. Direito Constitucional. 27. ed. São Paulo: Editora Atlas 2011. Constituição da República Federativa do Brasil de 1988- ATUALIZADA.",
+      "itens": [
+        {
+          "id": "D02:2.1",
+          "numero": "2.1",
+          "texto": "Direito: Conceito e Características.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.1.1",
+          "numero": "2.1.1",
+          "texto": "Fontes do Direito",
+          "pai": "D02:2.1",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.1.2",
+          "numero": "2.1.2",
+          "texto": "Ramos do Direito",
+          "pai": "D02:2.1",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.2",
+          "numero": "2.2",
+          "texto": "Princípios do Direito: Norma e Regra",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.3",
+          "numero": "2.3",
+          "texto": "Direito Privado.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.3.1",
+          "numero": "2.3.1",
+          "texto": "Personalidade jurídica",
+          "pai": "D02:2.3",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.3.2",
+          "numero": "2.3.2",
+          "texto": "Capacidade jurídica",
+          "pai": "D02:2.3",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.3.3",
+          "numero": "2.3.3",
+          "texto": "Pessoa jurídica",
+          "pai": "D02:2.3",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.3.4",
+          "numero": "2.3.4",
+          "texto": "Responsabilidade",
+          "pai": "D02:2.3",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.3.4.1",
+          "numero": "2.3.4.1",
+          "texto": "Fato jurídico",
+          "pai": "D02:2.3.4",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.3.4.1.1",
+          "numero": "2.3.4.1.1",
+          "texto": "Negócios jurídicos: erro, dolo, culpa e coação",
+          "pai": "D02:2.3.4.1",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.4",
+          "numero": "2.4",
+          "texto": "Direito Público.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.4.1",
+          "numero": "2.4.1",
+          "texto": "Estado",
+          "pai": "D02:2.4",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.4.2.1",
+          "numero": "2.4.2.1",
+          "texto": "O Estado e seus elementos",
+          "pai": "D02:2.4",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.4.2.2",
+          "numero": "2.4.2.2",
+          "texto": "Finalidade do Estado",
+          "pai": "D02:2.4",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.5",
+          "numero": "2.5",
+          "texto": "Constituição Federal",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.6",
+          "numero": "2.6",
+          "texto": "Direitos Fundamentais",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.6.1.1",
+          "numero": "2.6.1.1",
+          "texto": "Direitos Individuais",
+          "pai": "D02:2.6",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.6.1.2",
+          "numero": "2.6.1.2",
+          "texto": "Direitos Coletivos",
+          "pai": "D02:2.6",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.6.1.3",
+          "numero": "2.6.1.3",
+          "texto": "Direitos Sociais",
+          "pai": "D02:2.6",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.7",
+          "numero": "2.7",
+          "texto": "Direito Administrativo: Fontes e Princípios",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.7.1",
+          "numero": "2.7.1",
+          "texto": "Administração pública",
+          "pai": "D02:2.7",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.7.2",
+          "numero": "2.7.2",
+          "texto": "Responsabilidade civil do Estado",
+          "pai": "D02:2.7",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.7.3",
+          "numero": "2.7.3",
+          "texto": "Poder de Polícia",
+          "pai": "D02:2.7",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.7.4",
+          "numero": "2.7.4",
+          "texto": "Agentes Públicos e Serviços Públicos",
+          "pai": "D02:2.7",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.8",
+          "numero": "2.8",
+          "texto": "Atos Administrativos",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.8.1",
+          "numero": "2.8.1",
+          "texto": "Agente, objeto e finalidade.",
+          "pai": "D02:2.8",
+          "pagina": 11
+        },
+        {
+          "id": "D02:2.8.2",
+          "numero": "2.8.2",
+          "texto": "Controle dos atos administrativos",
+          "pai": "D02:2.8",
+          "pagina": 11
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "modulo": null,
+      "numero": 3,
+      "tituloLiteral": "3. PROGRAMA DE DIREITOS HUMANOS",
+      "nome": "Direitos Humanos",
+      "questoes": 10,
+      "peso": 0.166667,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": "Referência Bibliográfica: PIOVESAN, Flávia. Direitos Humanos e o Direito Constitucional Internacional. São Paulo: Saraiva, 2012. Constituição da República Federativa do Brasil de 1988- ATUALIZADA.",
+      "itens": [
+        {
+          "id": "D03:3.1",
+          "numero": "3.1",
+          "texto": "A Constituição brasileira de 1988.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.2",
+          "numero": "3.2",
+          "texto": "A Constituição brasileira de 1988 e os Tratados Internacionais de Proteção dos Direitos Humanos.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.3",
+          "numero": "3.3",
+          "texto": "O Sistema Internacional de Proteção dos Direitos Humanos.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.4",
+          "numero": "3.4",
+          "texto": "O Sistema Internacional de Proteção dos Direitos Humanos e a Redefinição da Cidadania no Brasil.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.5",
+          "numero": "3.5",
+          "texto": "A Constituição brasileira de 1988: Dos princípios fundamentais.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.6",
+          "numero": "3.6",
+          "texto": "A Constituição brasileira de 1988: Dos Direitos e Garantias Fundamentais.",
+          "pai": null,
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.6.1",
+          "numero": "3.6.1",
+          "texto": "Dos direitos e deveres individuais e coletivos.",
+          "pai": "D03:3.6",
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.6.2",
+          "numero": "3.6.2",
+          "texto": "Dos direitos sociais.",
+          "pai": "D03:3.6",
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.6.3",
+          "numero": "3.6.3",
+          "texto": "Da nacionalidade.",
+          "pai": "D03:3.6",
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.6.4",
+          "numero": "3.6.4",
+          "texto": "Dos direitos políticos.",
+          "pai": "D03:3.6",
+          "pagina": 11
+        },
+        {
+          "id": "D03:3.6.5",
+          "numero": "3.6.5",
+          "texto": "Dos partidos políticos.",
+          "pai": "D03:3.6",
+          "pagina": 12
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "modulo": null,
+      "numero": 4,
+      "tituloLiteral": "4. PROGRAMA DE NOÇÕES DE MEDICINA LEGAL",
+      "nome": "Noções de Medicina Legal",
+      "questoes": 10,
+      "peso": 0.166667,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": "Bibliografia indicada: FRANÇA, Medicina Legal. 9ª ed., Editora Guanabara Koogan Ltda, 2011.",
+      "itens": [
+        {
+          "id": "D04:4.1",
+          "numero": "4.1",
+          "texto": "Perícias e Peritos.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.1.1",
+          "numero": "4.1.1",
+          "texto": "Documentos médico-legais.",
+          "pai": "D04:4.1",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.1.2",
+          "numero": "4.1.2",
+          "texto": "Quesitos oficiais.",
+          "pai": "D04:4.1",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.1.3",
+          "numero": "4.1.3",
+          "texto": "Perícias médicas.",
+          "pai": "D04:4.1",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.1.4",
+          "numero": "4.1.4",
+          "texto": "Legislação sobre perícias médico-legais.",
+          "pai": "D04:4.1",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.2",
+          "numero": "4.2",
+          "texto": "Traumatologia Médico-legal.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.2.1",
+          "numero": "4.2.1",
+          "texto": "Lesões corporais sob o ponto de vista jurídico.",
+          "pai": "D04:4.2",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.2.2",
+          "numero": "4.2.2",
+          "texto": "Energias de Ordem Mecânica.",
+          "pai": "D04:4.2",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.2.3",
+          "numero": "4.2.3",
+          "texto": "Energias de Ordem Química, cáusticos e venenos, embriaguez, toxicomanias.",
+          "pai": "D04:4.2",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.2.4",
+          "numero": "4.2.4",
+          "texto": "Energias de Ordem Física: Efeitos da temperatura, eletricidade, pressão atmosférica, radiações, luz e som.",
+          "pai": "D04:4.2",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.2.5",
+          "numero": "4.2.5",
+          "texto": "Energias de Ordem Físico-Química: Asfixias em geral. Asfixias em espécie: por gases irrespiráveis, por monóxido de carbono, por sufocação direta, por sufocação indireta, por afogamento, por enforcamento, por estrangulamento, por esganadura, por soterramento e por confinamento.",
+          "pai": "D04:4.2",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.3",
+          "numero": "4.3",
+          "texto": "Tanatologia Médico-legal.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.3.1",
+          "numero": "4.3.1",
+          "texto": "Tanatognose e cronotanatognose.",
+          "pai": "D04:4.3",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.3.2",
+          "numero": "4.3.2",
+          "texto": "Fenômenos cadavéricos.",
+          "pai": "D04:4.3",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.3.3",
+          "numero": "4.3.3",
+          "texto": "Necropsia, necroscopia.",
+          "pai": "D04:4.3",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.3.4",
+          "numero": "4.3.4",
+          "texto": "Exumação.",
+          "pai": "D04:4.3",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.3.5",
+          "numero": "4.3.5",
+          "texto": "\"Causa mortis\".",
+          "pai": "D04:4.3",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.3.6",
+          "numero": "4.3.6",
+          "texto": "Morte natural e morte violenta.",
+          "pai": "D04:4.3",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.4",
+          "numero": "4.4",
+          "texto": "Sexologia Médico-legal.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.4.1",
+          "numero": "4.4.1",
+          "texto": "Crimes contra a dignidade sexual e provas periciais.",
+          "pai": "D04:4.4",
+          "pagina": 12
+        },
+        {
+          "id": "D04:4.4.2",
+          "numero": "4.4.2",
+          "texto": "Aborto e infanticídio.",
+          "pai": "D04:4.4",
+          "pagina": 12
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "modulo": null,
+      "numero": 5,
+      "tituloLiteral": "5. PROGRAMA DE NOÇÕES DE INFORMÁTICA",
+      "nome": "Noções de Informática",
+      "questoes": 10,
+      "peso": 0.166667,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": "Bibliografia sugerida: CAPRON, H. L. Introdução à Informática. Campus. COSTA, E. A. BrOffice.org da Teoria a Prática. Brasport. MANZANO, J. A. N. G. BrOffice.org 2.0 - Guia Prático de Aplicação. Érica. MINAS GERAIS. Assembléia Legislativa. Manual do BrOffice Calc Versão 2.0 Curso Básico. www.almg.gov.br/publicacoes/openoffice/Manual%20Calc.pdf MINAS GERAIS. Assembléia Legislativa. Manual do BrOffice Writer Versão 2.0 Curso Básico. www.almg.gov.br/publicacoes/openoffice/Manual%20Writer.pdf MORIMOTO, C. E. Linux, Entendendo o Sistema. versão digital disponível em http://www.guiadohardware.net/livros/entendendo/ OKAMURA, F. R. H. Curso Introdutório ao uso do P.G.P. Rede Nacional de Pesquisa. Documento RNP/REF/0181 disponível para download em http://www.rnp.br/_arquivo/documentos/ref0181.pdf. PEREIRA, E. F. e REHDER, W. S. Internet - Guia Prático. Viena. RABELO, J. Introdução à Informática e Windows XP. Ciência Moderna. SILVA, G.M. Guia Foca GNU/Linux. versão digital disponível em http://focalinux.cipsga.org.br/gol.html TANENBAUM, A. S. Sistemas Operacionais Modernos. Pearson Education do Brasil Ltda VOLPI, M. M. Assinatura Digital: Aspectos Técnicos, Práticos e Legais. Axcel Books",
+      "itens": [
+        {
+          "id": "D05:5.1",
+          "numero": "5.1",
+          "texto": "Equipamentos e Sistemas Operacionais Windows e Linux.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.1.1",
+          "numero": "5.1.1",
+          "texto": "Arquitetura básica de computadores.",
+          "pai": "D05:5.1",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.1.2",
+          "numero": "5.1.2",
+          "texto": "Principais periféricos.",
+          "pai": "D05:5.1",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.1.3",
+          "numero": "5.1.3",
+          "texto": "Mídias para armazenamento de dados.",
+          "pai": "D05:5.1",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.1.4",
+          "numero": "5.1.4",
+          "texto": "Conceitos gerais de sistemas operacionais.",
+          "pai": "D05:5.1",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.2",
+          "numero": "5.2",
+          "texto": "Manipulação de arquivos em sistemas Windows e Linux.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.2.1",
+          "numero": "5.2.1",
+          "texto": "Arquivos: conceito, tipos, nomes e extensões mais comuns.",
+          "pai": "D05:5.2",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.2.2",
+          "numero": "5.2.2",
+          "texto": "Estrutura de diretórios e rotas.",
+          "pai": "D05:5.2",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.2.3",
+          "numero": "5.2.3",
+          "texto": "Cópia e movimentação de arquivos.",
+          "pai": "D05:5.2",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.2.4",
+          "numero": "5.2.4",
+          "texto": "Atalhos.",
+          "pai": "D05:5.2",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.2.5",
+          "numero": "5.2.5",
+          "texto": "Permissões de arquivos e diretórios.",
+          "pai": "D05:5.2",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.3",
+          "numero": "5.3",
+          "texto": "Conceitos básicos de redes locais.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.3.1",
+          "numero": "5.3.1",
+          "texto": "Endereçamento TCP/IP.",
+          "pai": "D05:5.3",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.3.2",
+          "numero": "5.3.2",
+          "texto": "Mascara de rede.",
+          "pai": "D05:5.3",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.3.3",
+          "numero": "5.3.3",
+          "texto": "Gateway.",
+          "pai": "D05:5.3",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.3.4",
+          "numero": "5.3.4",
+          "texto": "DNS.",
+          "pai": "D05:5.3",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.3.5",
+          "numero": "5.3.5",
+          "texto": "Autenticação e login.",
+          "pai": "D05:5.3",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.3.6",
+          "numero": "5.3.6",
+          "texto": "Contas e grupos de usuários em ambiente Windows e Linux.",
+          "pai": "D05:5.3",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.3.7",
+          "numero": "5.3.7",
+          "texto": "Compartilhamento de recursos e permissões de leitura e escrita de arquivos e pastas na rede Windows.",
+          "pai": "D05:5.3",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.4",
+          "numero": "5.4",
+          "texto": "Conceitos básicos e modos de utilização de tecnologias, ferramentas, aplicativos e procedimentos associados à Internet e intranet.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.4.1",
+          "numero": "5.4.1",
+          "texto": "Tipos de URL.",
+          "pai": "D05:5.4",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.4.2",
+          "numero": "5.4.2",
+          "texto": "Tipos de domínio.",
+          "pai": "D05:5.4",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.4.3",
+          "numero": "5.4.3",
+          "texto": "Navegador Mozilla Firefox.",
+          "pai": "D05:5.4",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.4.4",
+          "numero": "5.4.4",
+          "texto": "Aplicações.",
+          "pai": "D05:5.4",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.4.5",
+          "numero": "5.4.5",
+          "texto": "Cookies.",
+          "pai": "D05:5.4",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.4.6",
+          "numero": "5.4.6",
+          "texto": "Segurança.",
+          "pai": "D05:5.4",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.4.7",
+          "numero": "5.4.7",
+          "texto": "Controles Active X. Plugins.",
+          "pai": "D05:5.4",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.4.8",
+          "numero": "5.4.8",
+          "texto": "Configuração de proxy.",
+          "pai": "D05:5.4",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.5",
+          "numero": "5.5",
+          "texto": "Correio eletrônico.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.5.1",
+          "numero": "5.5.1",
+          "texto": "Endereços de e-mail.",
+          "pai": "D05:5.5",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.5.2",
+          "numero": "5.5.2",
+          "texto": "Campos de uma mensagem.",
+          "pai": "D05:5.5",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.5.3",
+          "numero": "5.5.3",
+          "texto": "Organização de mensagens em pastas.",
+          "pai": "D05:5.5",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.5.4",
+          "numero": "5.5.4",
+          "texto": "Backup e compactação dos emails.",
+          "pai": "D05:5.5",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.5.5",
+          "numero": "5.5.5",
+          "texto": "Envio, resposta, encaminhamento e recebimento de emails, anexos.",
+          "pai": "D05:5.5",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.5.6",
+          "numero": "5.5.6",
+          "texto": "Endereços e formas de endereçamento de correio eletrônico, webmail, Outlook Express, Mozilla Thunderbird.",
+          "pai": "D05:5.5",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.5.7",
+          "numero": "5.5.7",
+          "texto": "Garantindo o sigilo e a autenticidade de um email através de criptografia PGP, chaves públicas e privadas.",
+          "pai": "D05:5.5",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.6",
+          "numero": "5.6",
+          "texto": "Ferramentas de automação de escritório.",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.6.1",
+          "numero": "5.6.1",
+          "texto": "Conceitos e principais recursos de editores de textos, planilhas eletrônicas e editores de apresentações Microsoft Office e BrOffice.org 5.6.1.1.Powerpoint e Impress: estrutura básica de apresentações, edição e formatação, criação de apresentações, configuração da aparência da apresentação, impressão de apresentações, multimídia, desenho e clipart, uso da barra de ferramentas, atalhos e menus.",
+          "pai": "D05:5.6",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.6.1.2",
+          "numero": "5.6.1.2",
+          "texto": "Word e Writer: estrutura básica dos documentos; operações com arquivos, criação e uso de modelos; edição e formatação de textos; cabeçalhos e rodapé; parágrafos; fontes; colunas; marcadores simbólicos e numéricos; tabelas e texto multicolunados; configuração de páginas e impressão; ortografia e gramática; controle de quebras; numeração de páginas; legendas; índices; inserção de objetos; campos predefinidos, caixas de texto e caracteres especiais; desenhos e cliparts; uso da barra de ferramentas, régua, janelas, atalhos e menus; mala direta e proteção de documentos.",
+          "pai": "D05:5.6.1",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.6.1.3",
+          "numero": "5.6.1.3",
+          "texto": "Excell e Calc: estrutura básica das planilhas, conceitos de células, linhas, colunas, pastas e gráficos, elaboração de tabelas e gráficos, uso de fórmulas, funções e macros, impressão, inserção de objetos, campos predefinidos, controle de quebras, numeração de páginas, obtenção de dados externos, classificação, uso da barra de ferramentas, atalhos e menus.",
+          "pai": "D05:5.6.1",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.7",
+          "numero": "5.7",
+          "texto": "Segurança",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.7.1",
+          "numero": "5.7.1",
+          "texto": "Tipos de vírus, cavalos de Tróia, worms, spyware, phishing, pharming, spam.",
+          "pai": "D05:5.7",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.7.2",
+          "numero": "5.7.2",
+          "texto": "Riscos de segurança no uso de correio eletrônico e internet.",
+          "pai": "D05:5.7",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.7.3",
+          "numero": "5.7.3",
+          "texto": "Backup de arquivos digitais em mídias de armazenamento, drives virtuais e pastas compartilhadas na rede.",
+          "pai": "D05:5.7",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.8",
+          "numero": "5.8",
+          "texto": "Certificação digital",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.8.1",
+          "numero": "5.8.1",
+          "texto": "Conceitos e legislação.",
+          "pai": "D05:5.8",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.8.2",
+          "numero": "5.8.2",
+          "texto": "Aplicativos de segurança.",
+          "pai": "D05:5.8",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.8.3",
+          "numero": "5.8.3",
+          "texto": "Criptografia PGP.",
+          "pai": "D05:5.8",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.8.3.1",
+          "numero": "5.8.3.1",
+          "texto": "Chaves públicas e privadas.",
+          "pai": "D05:5.8.3",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.8.3.2",
+          "numero": "5.8.3.2",
+          "texto": "Consulta e envio de chaves públicas a um servidor de chaves utilizando interface web ou aplicativos próprios.",
+          "pai": "D05:5.8.3",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.9",
+          "numero": "5.9",
+          "texto": "Software livre",
+          "pai": null,
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.9.1",
+          "numero": "5.9.1",
+          "texto": "Conceito, distribuição e modificação.",
+          "pai": "D05:5.9",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.9.2",
+          "numero": "5.9.2",
+          "texto": "Licenças GPLv2 e GPLv3.",
+          "pai": "D05:5.9",
+          "pagina": 12
+        },
+        {
+          "id": "D05:5.9.3",
+          "numero": "5.9.3",
+          "texto": "Planejamento Estratégico do Comitê Técnico de Implementação do Software Livre no Governo Federal.",
+          "pai": "D05:5.9",
+          "pagina": 12
+        }
+      ]
+    }
+  ],
+  "avisos": []
+}

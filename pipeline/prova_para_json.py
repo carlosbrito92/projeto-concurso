@@ -26,7 +26,11 @@ RE_IMAGEM = re.compile(r"^<!-- IMAGEM p\.(\d+) col\.([EDU]) bbox=([\d,]+) -->$")
 RE_ALT = re.compile(r"^\(([A-E])\)\s*(.*)$")
 RE_NUM = re.compile(r"^\d{1,2}$")
 RE_NUM_INLINE = re.compile(r"^(\d{1,2})\.\s+(.*)$")
-RE_TEXTO_COMPART = re.compile(r"^Textos? para as questões (\d+) (?:a|e) (\d+)$")
+RE_TEXTO_COMPART = [
+    re.compile(r"^Textos? para as questões (\d+) (?:a|e) (\d+)$"),            # FGV (MA)
+    re.compile(r"^TEXTO\s*\d*\s*:.*questões de (\d+) (?:a|e) (\d+)\.?$"),     # FUMARC
+]
+RE_QUESTAO = re.compile(r"^QUESTÃO\s+(\d{1,2})$")
 VISUAL = re.compile(r"\b(charge|gráfico|figura|tirinha|cartaz|infográfico|mapa)\b", re.I)
 FORMATACAO = re.compile(r"sublinhad|grifad|destacad|em negrito|negrito|itálic|em itálico|trecho em", re.I)
 LINHA_TABELA = re.compile(r"^\S+(\s+[\d.,%]+){2,}$|^(\S+\s+){1,3}[\d.,]+\s+[\d.,]+$")
@@ -69,9 +73,10 @@ def casar(linhas, i, seq):
     return all(linhas[i + k][0] != "IMG" and linhas[i + k][2] == seq[k] for k in range(len(seq)))
 
 
-def parse_prova(md: str, titulos, modulos, marcador_fim, inline=False):
+def parse_prova(md: str, titulos, modulos, marcador_fim, inline=False, n_alt=5, estilo=None):
     """titulos: [(linhas_do_titulo, chave)] na ordem da prova.
     inline: o número da questão vem no começo do enunciado ("01. Observe...").
+    estilo "questao": marcador em linha própria "QUESTÃO 04". n_alt: nº de alternativas (A-D = 4).
     Textos compartilhados ("Texto para as questões 09 a 12") ficam num bloco `apoio` e são
     anexados a cada questão da faixa. Retorna (questoes, ordem_disciplinas, discursiva)."""
     linhas = list(ler_linhas(md))
@@ -90,8 +95,8 @@ def parse_prova(md: str, titulos, modulos, marcador_fim, inline=False):
             i += 1
             continue
         pag, col, t = item
-        pronta = atual is None or len(atual["alts"]) == 5
-        if marcador_fim and t == marcador_fim and atual is not None and len(atual["alts"]) == 5:
+        pronta = atual is None or len(atual["alts"]) == n_alt
+        if marcador_fim and t == marcador_fim and atual is not None and len(atual["alts"]) == n_alt:
             discursiva = [x[2] for x in linhas[i:] if x[0] != "IMG"]
             break
         achou = False
@@ -111,14 +116,18 @@ def parse_prova(md: str, titulos, modulos, marcador_fim, inline=False):
                 break
         if achou:
             continue
-        m = RE_TEXTO_COMPART.match(t)
+        m = next((r.match(t) for r in RE_TEXTO_COMPART if r.match(t)), None)
         if m and pronta:
             apoio = {"de": int(m.group(1)), "ate": int(m.group(2)), "linhas": [], "imagens": [], "iniciada": False}
             i += 1
             continue
         inicio = None
         if pronta:
-            if inline:
+            if estilo == "questao":
+                mq = RE_QUESTAO.match(t)
+                if mq and int(mq.group(1)) == esperado:
+                    inicio = ""
+            elif inline:
                 mi = RE_NUM_INLINE.match(t)
                 if mi and int(mi.group(1)) == esperado:
                     inicio = mi.group(2)
@@ -140,7 +149,7 @@ def parse_prova(md: str, titulos, modulos, marcador_fim, inline=False):
             apoio["linhas"].append(t)
         elif atual is not None:
             m2 = RE_ALT.match(t)
-            if m2 and len(atual["alts"]) < 5 and m2.group(1) == "ABCDE"[len(atual["alts"])]:
+            if m2 and len(atual["alts"]) < n_alt and m2.group(1) == "ABCDE"[len(atual["alts"])]:
                 atual["alts"].append([m2.group(2)])
             elif atual["alts"]:
                 atual["alts"][-1].append(t)
@@ -164,6 +173,24 @@ def parse_gabarito_pares(pdf_path: Path, pagina: int, total: int):
         return None, "gabarito: número de questão repetido na página"
     if sorted(d) != list(range(1, total + 1)):
         return None, f"gabarito da página {pagina} incompleto: {len(d)} de {total}"
+    return d, None
+
+
+def parse_gabarito_espaco(pdf_path: Path, pagina: int, total: int, n_alt: int):
+    """Formato 'NN L NN L ...' (FUMARC): pares número/letra separados por espaço, em colunas."""
+    letras = "ABCDE"[:n_alt] + "*"
+    with pdfplumber.open(pdf_path) as pdf:
+        toks = (pdf.pages[pagina - 1].extract_text() or "").split()
+    d, dup = {}, False
+    for a, b in zip(toks, toks[1:]):
+        if re.fullmatch(r"\d{2}", a) and b in tuple(letras):
+            if int(a) in d:
+                dup = True
+            d[int(a)] = b
+    if dup:
+        return None, "gabarito: número de questão repetido"
+    if sorted(d) != list(range(1, total + 1)):
+        return None, f"gabarito incompleto: {len(d)} de {total}"
     return d, None
 
 
@@ -214,8 +241,12 @@ def main() -> int:
     discs = meta["disciplinas"]  # [{titulo:[linhas], nome, id?}]
     titulos = [(d["titulo"], k) for k, d in enumerate(discs)]
     qs, ordem, discursiva = parse_prova(md, titulos, meta.get("modulos", []), meta.get("marcadorFim"),
-                                        inline=meta.get("numeracao") == "inline")
+                                        inline=meta.get("numeracao") == "inline",
+                                        n_alt=meta.get("alternativas", 5), estilo=meta.get("numeracao"))
+    if not meta.get("fimEhDiscursiva", True):  # marcador de fim é só contracapa/folha de respostas
+        discursiva = []
     total = meta["totalQuestoes"]
+    n_alt = meta.get("alternativas", 5)
     if len(qs) != total:
         erros.append(f"{len(qs)} questões extraídas, esperado {total}")
     if ordem != list(range(len(discs))):
@@ -223,19 +254,36 @@ def main() -> int:
     por_disc = {}
     for q in qs:
         por_disc[q["disc"]] = por_disc.get(q["disc"], 0) + 1
+    def ids_de(d):
+        return d.get("ids") or ([d["id"]] if d.get("id") else [])
+
     if edital:
         por_id = {d["id"]: d for d in edital["disciplinas"]}
+        usados = set()
         for k, d in enumerate(discs):
-            ed = por_id.get(d.get("id"))
-            if not ed:
-                erros.append(f"disciplina '{d['nome']}' sem id válido no edital")
-            elif por_disc.get(k, 0) != ed["questoes"]:
-                erros.append(f"{d['id']} {ed['nome']}: prova tem {por_disc.get(k, 0)} questões, edital prevê {ed['questoes']}")
+            ids = ids_de(d)
+            if not ids or any(i not in por_id for i in ids):
+                erros.append(f"disciplina '{d['nome']}' sem id(s) válido(s) no edital: {ids}")
+                continue
+            usados |= set(ids)
+            qe = [por_id[i]["questoes"] for i in ids]
+            if all(x is not None for x in qe) and por_disc.get(k, 0) != sum(qe):
+                erros.append(f"{'+'.join(ids)} {d['nome']}: prova tem {por_disc.get(k, 0)} questões, edital prevê {sum(qe)}")
+        for g in edital.get("grupos", []):
+            gids = set(g["disciplinas"])
+            soma = sum(por_disc.get(k, 0) for k, d in enumerate(discs) if ids_de(d) and set(ids_de(d)) <= gids)
+            if soma != g["questoes"]:
+                erros.append(f"grupo '{g['nome']}': prova tem {soma} questões, edital prevê {g['questoes']}")
+        for i, d in por_id.items():
+            if i not in usados:
+                avisos.append(f"disciplina do edital {i} ({d['nome']}) sem correspondente na prova")
 
     gcfg = meta["fonte"]["gabarito"]
     gpdf = pasta / "00-origem" / gcfg["pdf"]
     if gcfg.get("formato") == "pares":
         g, err = parse_gabarito_pares(gpdf, gcfg["pagina"], total)
+    elif gcfg.get("formato") == "pares_espaco":
+        g, err = parse_gabarito_espaco(gpdf, gcfg.get("pagina", 1), total, n_alt)
     else:
         g, err = parse_gabarito(gpdf, gcfg["cabecalho"], total)
     definitivo = gcfg.get("situacao", "definitivo") == "definitivo"
@@ -246,8 +294,8 @@ def main() -> int:
     out, pend_total = [], {}
     for q in qs:
         n = q["numero"]
-        if len(q["alts"]) != 5:
-            erros.append(f"Q{n}: {len(q['alts'])} alternativas")
+        if len(q["alts"]) != n_alt:
+            erros.append(f"Q{n}: {len(q['alts'])} alternativas (esperado {n_alt})")
             continue
         alts = [re.sub(r"\s+", " ", " ".join(a)).strip() for a in q["alts"]]
         alt_imagem = any(not a for a in alts)  # alternativas que são ícones/figuras
@@ -274,8 +322,10 @@ def main() -> int:
         anulada = letra == "*"
         d = discs[q["disc"]]
         classif = {"disciplina": d["nome"], "assunto": None}
-        if d.get("id"):
-            classif["disciplinaId"] = d["id"]
+        if d.get("ids") and len(d["ids"]) > 1:
+            classif["disciplinaIds"] = d["ids"]
+        elif ids_de(d):
+            classif["disciplinaId"] = ids_de(d)[0]
         reg = {
             "id": f"Q{meta['codigoProva']:02d}{n:04d}",
             "schemaVersion": "3.0",
@@ -286,7 +336,7 @@ def main() -> int:
             "concurso": meta["concurso"],
             "origem": {"tipo": "prova_real", "pdfSha256": sha["prova"], "pagina": q["pagina"],
                        "questaoNumero": n, "provaSlug": meta["slug"], "caderno": meta["caderno"]["rotulo"]},
-            "direitos": {"status": "pendente_juridico", "nota": "Questão de prova real da FGV; não publicar sem liberação jurídica."},
+            "direitos": {"status": "pendente_juridico", "nota": f"Questão de prova real da {meta['concurso']['banca']}; não publicar sem liberação jurídica."},
             "revisao": {"status": "automatico", "por": None, "em": None},
             "gabaritoOficial": definitivo,
             "anulada": anulada,
@@ -335,7 +385,7 @@ def main() -> int:
            f"- Pendências para revisão humana: {pend_total}",
            f"- Questão discursiva: {'presente (fora do banco de questões)' if discursiva else 'não há'}"]
     if not definitivo:
-        rel.append("- AVISO: gabarito PRELIMINAR (antes dos recursos); respostas e anulações podem ter mudado no definitivo")
+        rel.append(f"- AVISO: gabarito '{gcfg.get('situacao')}' não confirmado como DEFINITIVO; respostas e anulações podem ter mudado após os recursos")
     if meta.get("vigenciaSuspeita"):
         rel.append("- AVISO: prova antiga; conferir a vigência da legislação antes de ativar qualquer questão jurídica")
     rel += [f"- AVISO: {a}" for a in avisos]
@@ -343,8 +393,9 @@ def main() -> int:
     for k, d in enumerate(discs):
         faixa = [q["numero"] for q in qs if q["disc"] == k]
         prev = ""
-        if edital and d.get("id"):
-            prev = f" | edital: {next(x['questoes'] for x in edital['disciplinas'] if x['id'] == d['id'])}"
+        if edital and ids_de(d):
+            qe = [x["questoes"] for x in edital["disciplinas"] if x["id"] in ids_de(d)]
+            prev = f" | edital: {sum(qe) if all(v is not None for v in qe) else 'só no grupo'}"
         rel.append(f"- {d['nome']}: {len(faixa)} questões (Q{faixa[0]}–Q{faixa[-1]}){prev}")
     for pn in ("imagem", "formatacao", "tabela"):
         nums = [r["origem"]["questaoNumero"] for r in out if pn in r["pendencias"]]

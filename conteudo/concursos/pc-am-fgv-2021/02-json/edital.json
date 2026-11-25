@@ -1,0 +1,1283 @@
+{
+  "schemaVersion": "1.0",
+  "concurso": {
+    "slug": "pc-am-fgv-2021",
+    "orgao": "Polícia Civil do Estado do Amazonas",
+    "uf": "AM",
+    "banca": "FGV",
+    "cargo": "Investigador de Polícia – 4ª Classe",
+    "edital": "02/2021",
+    "ano": 2021,
+    "vagas": 200
+  },
+  "prova": {
+    "totalQuestoes": 80,
+    "alternativas": 5,
+    "pontosPorQuestao": 1,
+    "notaMinimaObjetiva": null,
+    "duracaoMinimaHoras": null,
+    "duracaoMaximaHoras": null,
+    "dataProvavel": null,
+    "fonteItem": "8.8"
+  },
+  "fonte": {
+    "arquivo": "edital-02-2021.pdf",
+    "sha256": "a04e10303ff7b452373df0ea6e5f03ed58d04cd6336c04b609ecb049f0ba0d79",
+    "paginasAnexoConteudo": [
+      49,
+      50,
+      51
+    ]
+  },
+  "disciplinas": [
+    {
+      "id": "D01",
+      "modulo": "basicos",
+      "numero": 1,
+      "tituloLiteral": "LÍNGUA PORTUGUESA",
+      "nome": "Língua Portuguesa",
+      "questoes": 10,
+      "peso": 0.125,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D01:1",
+          "numero": "1",
+          "texto": "Elementos de construção do texto e seu sentido: gênero do texto (literário e não literário, narrativo, descritivo e argumentativo); interpretação e organização interna.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D01:2",
+          "numero": "2",
+          "texto": "Semântica: sentido e emprego dos vocábulos; campos semânticos; emprego de tempos e modos dos verbos em português.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D01:3",
+          "numero": "3",
+          "texto": "Morfologia: reconhecimento, emprego e sentido das classes gramaticais; processos de formação de palavras; mecanismos de flexão dos nomes e verbos.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D01:4",
+          "numero": "4",
+          "texto": "Sintaxe: frase, oração e período; termos da oração; processos de coordenação e subordinação; concordância nominal e verbal; transitividade e regência de nomes e verbos; padrões gerais de colocação pronominal no português; mecanismos de coesão textual.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D01:5",
+          "numero": "5",
+          "texto": "Ortografia.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D01:6",
+          "numero": "6",
+          "texto": "Acentuação gráfica.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D01:7",
+          "numero": "7",
+          "texto": "Emprego do sinal indicativo de crase.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D01:8",
+          "numero": "8",
+          "texto": "Pontuação.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D01:9",
+          "numero": "9",
+          "texto": "Reescrita de frases: substituição, deslocamento, paralelismo; variação linguística: norma culta.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D01:10",
+          "numero": "10",
+          "texto": "Observação: os itens deste programa serão considerados sob o ponto de vista textual, ou seja, deverão ser estudados sob o foco de sua participação na estruturação significativa dos textos.",
+          "pai": null,
+          "pagina": 49
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "modulo": "basicos",
+      "numero": 2,
+      "tituloLiteral": "GEOGRAFIA DO AMAZONAS",
+      "nome": "Geografia do Amazonas",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D02:1",
+          "numero": "1",
+          "texto": "A organização do espaço: a conquista e a expansão da Amazônia Colonial; a produção do espaço amazônico atual.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D02:2",
+          "numero": "2",
+          "texto": "O espaço natural: estrutura geológica e características do relevo; ecossistemas florestais e nãoflorestais; o clima; a rede hidrográfica; aproveitamento dos recursos naturais e impactos ambientais.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D02:3",
+          "numero": "3",
+          "texto": "Organização do espaço amazonense: posição geográfica; mesorregiões e microrregiões; o processo de ocupação: aspectos geopolíticos e planos de desenvolvimento regional.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D02:4",
+          "numero": "4",
+          "texto": "Aspectos socioeconômicos: ciclos econômicos e crescimento da população; dinâmica dos fluxos migratórios e problemas sociais; o extrativismo florestal (importância da biodiversidade; biodiversidade e manipulação genética para fins comerciais; ecoturismo); extrativismo mineral; concentração fundiária e conflitos pela terra; o processo de urbanização e redes urbanas; fontes de energia: potencial hidrelétrico, hidrelétricas e meio-ambiente; a produção de gás; transportes: a malha viária, importância do transporte fluvial. A Zona Franca de Manaus.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D02:5",
+          "numero": "5",
+          "texto": "Questões atuais: a questão indígena: invasão, demarcação das terras indígenas. A questão ecológica: desmatamento, queimadas, poluição das vias hídricas, alterações climáticas",
+          "pai": null,
+          "pagina": 49
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "modulo": "basicos",
+      "numero": 3,
+      "tituloLiteral": "HISTÓRIA DO AMAZONAS",
+      "nome": "História do Amazonas",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D03:1",
+          "numero": "1",
+          "texto": "COLÔNIA: 1.1. As sociedades indígenas na época da conquista: origem e distribuição das populações indígenas; Grupos linguísticos e tribais; O modo de vida e a organização dos grupos tribais; Estimativas demográficas; 1.2 Conquista e colonização: expedições do século XVI: a de Francisco de Orellana e a de Ursúa e Aguirre; ocupação militar: o forte do Presépio e a expulsão dos “estrangeiros”; Expedição de Pedro Teixeira; as bases da colonização portuguesa: as bases econômicas; organização da força de trabalho indígena; organização e funcionamento da administração do Maranhão e Grão-Pará; as ordens religiosas; conflitos internos: missionários X colonos; 1.3. Amazônia Pombalina: Portugal Metropolitano; medidas pombalinas; Governo de Mendonça Furtado; Capitania de São José do Rio Negro; Demarcações de limites: tratados de Madri e Santo Ildefonso. Extinção do Diretório dos índios: elementos históricos; Instituição dos corpos de milícias.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D03:2",
+          "numero": "2",
+          "texto": "IMPÉRIO: 2.1. Incorporação da Amazônia ao Estado Nacional Brasileiro: Província do Pará; Comarca do Rio Negro; A Cabanagem: o povo no poder: condições objetivas para a eclosão da Cabanagem; governo dos cabanos; conflitos no Amazonas; repressão imperial e o fim da Cabanagem. 2.2. Província do Amazonas: economia do Alto Amazonas na primeira metade do século XIX; Comarca do Alto Amazonas; manifestações autonomistas; criação e implantação do Estado provincial amazonense; sistema político do Amazonas no Segundo Reinado; 2.3. Economia e sociedade na Amazônia: ciclo da borracha; migração nordestina; seringal e o seringueiro; o sistema de aviamento.",
+          "pai": null,
+          "pagina": 49
+        },
+        {
+          "id": "D03:3",
+          "numero": "3",
+          "texto": "REPÚBLICA: 3.1. Fronteiras do Brasil: incorporação do Acre ao Estado Nacional Brasileiro; questão do Amapá; limites com a Guiana Inglesa. 3.2. Amazonas cosmopolita: nova situação sociopolítica; transplantação de novos conceitos culturais; cidades da borracha: Belém X Manaus; 3.3. Decadência da economia gumífera: grande crise da economia gumífera; tentativa de recuperação: “a Batalha da Borracha”; 3.4. Manaus: de “Paris dos Trópicos” a “Miami Brasileira”: situação econômica e social da cidade; Rebelião de 1924; “Era dos Interventores”; “Clube da Madrugada”; Zona Franca de Manaus.",
+          "pai": null,
+          "pagina": 49
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "modulo": "basicos",
+      "numero": 4,
+      "tituloLiteral": "RACIOCÍNIO LÓGICO-MATEMÁTICO",
+      "nome": "Raciocínio Lógico-Matemático",
+      "questoes": 5,
+      "peso": 0.0625,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D04:1",
+          "numero": "1",
+          "texto": "Lógica: proposições, valores verdadeiro/falso, conectivos “e” e “ou”, implicação, negação, proposições compostas, proposições equivalentes, tabelas-verdade.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D04:2",
+          "numero": "2",
+          "texto": "Números racionais e suas operações.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D04:3",
+          "numero": "3",
+          "texto": "Porcentagem e proporcionalidade.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D04:4",
+          "numero": "4",
+          "texto": "Conjuntos e suas operações.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D04:5",
+          "numero": "5",
+          "texto": "Diagramas lógicos.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D04:6",
+          "numero": "6",
+          "texto": "Álgebra básica: equações e sistemas do primeiro grau.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D04:7",
+          "numero": "7",
+          "texto": "Medidas de comprimento, massa, área, volume e tempo.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D04:8",
+          "numero": "8",
+          "texto": "Geometria básica: polígonos, ângulos, perímetro e área.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D04:9",
+          "numero": "9",
+          "texto": "Princípios simples de contagem e probabilidade.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D04:10",
+          "numero": "10",
+          "texto": "Problemas de raciocínio envolvendo situações do cotidiano.",
+          "pai": null,
+          "pagina": 50
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "modulo": "basicos",
+      "numero": 5,
+      "tituloLiteral": "NOÇÕES DE INFORMÁTICA",
+      "nome": "Noções de Informática",
+      "questoes": 5,
+      "peso": 0.0625,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D05:1",
+          "numero": "1",
+          "texto": "Componentes de um computador: processadores, memória e periféricos mais comuns; dispositivos de armazenagem de dados; propriedades e características.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:2",
+          "numero": "2",
+          "texto": "Arquivos digitais: documentos, planilhas, imagens, sons, vídeos; principais padrões e características.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:3",
+          "numero": "3",
+          "texto": "Arquivos PDF.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:4",
+          "numero": "4",
+          "texto": "Conhecimentos sobre sistema operacional Windows 10: conceitos gerais, principais utilitários, configurações.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:5",
+          "numero": "5",
+          "texto": "Produção e edição de documentos.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:6",
+          "numero": "6",
+          "texto": "Funções para edição, buscas, formatação, impressão e manipulação de arquivos.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:7",
+          "numero": "7",
+          "texto": "Controle de alterações, uso de senhas para proteção, formatos para gravação e integração com outros aplicativos no ambiente Windows.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:8",
+          "numero": "8",
+          "texto": "Produção e edição de planilhas.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:9",
+          "numero": "9",
+          "texto": "Funções para edição, buscas, formatação, impressão e manipulação de arquivos.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:10",
+          "numero": "10",
+          "texto": "Manipulação de fórmulas, funções e gráficos.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:11",
+          "numero": "11",
+          "texto": "Importação e exportação de dados.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:12",
+          "numero": "12",
+          "texto": "Uso de senhas para proteção, formatos para gravação e integração com outros aplicativos no ambiente Windows.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:13",
+          "numero": "13",
+          "texto": "Internet: conceitos gerais e funcionamento.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:14",
+          "numero": "14",
+          "texto": "Endereçamento de recursos.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:15",
+          "numero": "15",
+          "texto": "Navegação segura: cuidados, ameaças, uso de senhas e criptografia.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:16",
+          "numero": "16",
+          "texto": "Tokens e outros dispositivos de segurança.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:17",
+          "numero": "17",
+          "texto": "Navegadores (browsers) e suas principais funções.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:18",
+          "numero": "18",
+          "texto": "Google Chrome.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:19",
+          "numero": "19",
+          "texto": "Firefox.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:20",
+          "numero": "20",
+          "texto": "Internet Explorer: buscas, salva de páginas, cache e configurações.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:21",
+          "numero": "21",
+          "texto": "E-mail: utilização e configurações usuais.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:22",
+          "numero": "22",
+          "texto": "Transferência de arquivos e dados: upload, download, banda, velocidades de transmissão.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D05:23",
+          "numero": "23",
+          "texto": "Referência: MS OFFICE 2010 BR (ou posterior) e Libre Office 4 (ou posterior).",
+          "pai": null,
+          "pagina": 50
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "modulo": "especificos",
+      "numero": 6,
+      "tituloLiteral": "NOÇÕES DE ADMINISTRAÇÃO",
+      "nome": "Noções de Administração",
+      "questoes": 10,
+      "peso": 0.125,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D06:1",
+          "numero": "1",
+          "texto": "Aspectos gerais da Administração.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D06:2",
+          "numero": "2",
+          "texto": "Papéis e habilidades do administrador.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D06:3",
+          "numero": "3",
+          "texto": "Funções administrativas: planejamento, organização, direção e controle.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D06:4",
+          "numero": "4",
+          "texto": "Organização: princípios de organização, tipos de estrutura organizacional, centralização e descentralização; tipos de departamentalização.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D06:5",
+          "numero": "5",
+          "texto": "Controle: tipos de controle; controle por nível organizacional; ferramentas de controle.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D06:6",
+          "numero": "6",
+          "texto": "Comportamento organizacional: motivação, comprometimento organizacional, comunicação e liderança.",
+          "pai": null,
+          "pagina": 50
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "modulo": "especificos",
+      "numero": 7,
+      "tituloLiteral": "NOÇÕES DE CONTABILIDADE",
+      "nome": "Noções de Contabilidade",
+      "questoes": 10,
+      "peso": 0.125,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D07:1",
+          "numero": "1",
+          "texto": "Conceitos, objetivos e finalidades da contabilidade.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:2",
+          "numero": "2",
+          "texto": "Patrimônio: componentes, equação fundamental do patrimônio, situação líquida, representação gráfica.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:3",
+          "numero": "3",
+          "texto": "Atos e fatos administrativos: conceitos, fatos permutativos, modificativos e mistos.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:4",
+          "numero": "4",
+          "texto": "Contas: conceitos, contas de débitos, contas de créditos e saldos.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:5",
+          "numero": "5",
+          "texto": "Plano de contas: conceitos, elenco de contas, função e funcionamento das contas.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:6",
+          "numero": "6",
+          "texto": "Escrituração: conceitos, lançamentos contábeis, elementos essenciais, fórmulas de lançamentos, livros de escrituração, métodos e processos, regime de competência e regime de caixa.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:7",
+          "numero": "7",
+          "texto": "Contabilização de operações contábeis diversas: juros, descontos, tributos, aluguéis, variação monetária/ cambial, folha de pagamento, compras, vendas e provisões, depreciações e baixa de bens.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:8",
+          "numero": "8",
+          "texto": "Balancete de verificação: conceitos, modelos e técnicas de elaboração.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:9",
+          "numero": "9",
+          "texto": "Balanço patrimonial: conceitos, objetivo, composição.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:10",
+          "numero": "10",
+          "texto": "Demonstração de resultado de exercício: conceito, objetivo, composição.",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:11",
+          "numero": "11",
+          "texto": "Lei nº 6.404/1976 e suas alterações, legislação complementar e pronunciamentos do Comitê de Pronunciamentos Contábeis (CPC).",
+          "pai": null,
+          "pagina": 50
+        },
+        {
+          "id": "D07:12",
+          "numero": "12",
+          "texto": "Norma Brasileira de Contabilidade - NBC TSP - Estrutura Conceitual para Elaboração e Divulgação de Informação Contábil de Propósito Geral pelas Entidades do Setor Público, de 23 de setembro de 2016.",
+          "pai": null,
+          "pagina": 50
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "modulo": "especificos",
+      "numero": 8,
+      "tituloLiteral": "NOÇÕES DE DIREITO CONSTITUCIONAL",
+      "nome": "Noções de Direito Constitucional",
+      "questoes": 10,
+      "peso": 0.125,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D08:1",
+          "numero": "1",
+          "texto": "Direitos e garantias fundamentais: direitos e deveres individuais e coletivos; direito à vida, à liberdade, à igualdade, à segurança e à propriedade; direitos sociais; mandado de segurança, mandado de injunção, ação popular; habeas data e habeas corpus.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:2",
+          "numero": "2",
+          "texto": "Nacionalidade, cidadania e direitos políticos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:3",
+          "numero": "3",
+          "texto": "Partidos políticos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:4",
+          "numero": "4",
+          "texto": "Organização do Estado: organização político-administrativa; divisão de competências;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:5",
+          "numero": "5",
+          "texto": "União;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:6",
+          "numero": "6",
+          "texto": "Estados;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:7",
+          "numero": "7",
+          "texto": "Distrito Federal; e Municípios.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:8",
+          "numero": "8",
+          "texto": "Administração Pública: disposições gerais e servidores públicos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:9",
+          "numero": "9",
+          "texto": "Poder Executivo.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:10",
+          "numero": "10",
+          "texto": "Formas e sistemas de governo.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:11",
+          "numero": "11",
+          "texto": "Ministério Público.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:12",
+          "numero": "12",
+          "texto": "Defesa do Estado e das instituições democráticas: segurança pública.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:13",
+          "numero": "13",
+          "texto": "Ordem social: seguridade social; meio ambiente; família, criança, adolescente, jovem e idoso.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D08:14",
+          "numero": "14",
+          "texto": "Constituição do Estado do Amazonas.",
+          "pai": null,
+          "pagina": 51
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "modulo": "especificos",
+      "numero": 9,
+      "tituloLiteral": "NOÇÕES DE DIREITO PENAL, PROCESSUAL PENAL E LEGISLAÇÃO EXTRAVAGANTE",
+      "nome": "Noções de Direito Penal, Processual Penal e Legislação Extravagante",
+      "questoes": 15,
+      "peso": 0.1875,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D09:1",
+          "numero": "1",
+          "texto": "Princípios básicos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:2",
+          "numero": "2",
+          "texto": "Aplicação da lei penal.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:3",
+          "numero": "3",
+          "texto": "A lei penal no tempo e no espaço.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:4",
+          "numero": "4",
+          "texto": "Tempo e lugar do crime.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:5",
+          "numero": "5",
+          "texto": "Territorialidade e extraterritorialidade da lei penal.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:6",
+          "numero": "6",
+          "texto": "Crimes.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:7",
+          "numero": "7",
+          "texto": "Classificação.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:8",
+          "numero": "8",
+          "texto": "O fato típico e seus elementos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:9",
+          "numero": "9",
+          "texto": "Crime consumado e tentado.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:10",
+          "numero": "10",
+          "texto": "Desistência voluntária e arrependimento eficaz.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:11",
+          "numero": "11",
+          "texto": "Crimes impossíveis.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:12",
+          "numero": "12",
+          "texto": "Dolo e culpa.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:13",
+          "numero": "13",
+          "texto": "Erro.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:14",
+          "numero": "14",
+          "texto": "Ilicitude e causas de exclusão.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:15",
+          "numero": "15",
+          "texto": "Excesso punível.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:16",
+          "numero": "16",
+          "texto": "Culpabilidade.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:17",
+          "numero": "17",
+          "texto": "Concurso de pessoas.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:18",
+          "numero": "18",
+          "texto": "Concurso de crimes.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:19",
+          "numero": "19",
+          "texto": "Pena: espécies e aplicação.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:20",
+          "numero": "20",
+          "texto": "Extinção da punibilidade.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:21",
+          "numero": "21",
+          "texto": "Crimes em Espécie: Crimes contra a pessoa;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:22",
+          "numero": "22",
+          "texto": "Crimes contra o patrimônio;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:23",
+          "numero": "23",
+          "texto": "Crimes contra a Propriedade Imaterial;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:24",
+          "numero": "24",
+          "texto": "Crimes contra a Dignidade Sexual;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:25",
+          "numero": "25",
+          "texto": "Crimes contra a Incolumidade Pública;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:26",
+          "numero": "26",
+          "texto": "Crimes contra a Paz Pública;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:27",
+          "numero": "27",
+          "texto": "Crimes contra a Fé Pública;",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:28",
+          "numero": "28",
+          "texto": "Crimes contra a Administração Pública.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:29",
+          "numero": "29",
+          "texto": "Inquérito policial.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:30",
+          "numero": "30",
+          "texto": "Histórico, natureza, conceito, finalidade, características, fundamento, titularidade, grau de cognição, valor probatório, formas de instauração, notitia criminis, delatio criminis, procedimentos investigativos, indiciamento, garantias do investigado; conclusão.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:31",
+          "numero": "31",
+          "texto": "Prova.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:32",
+          "numero": "32",
+          "texto": "Preservação de local de crime.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:33",
+          "numero": "33",
+          "texto": "Requisitos e ônus da prova.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:34",
+          "numero": "34",
+          "texto": "Nulidade da prova.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:35",
+          "numero": "35",
+          "texto": "Documentos de prova.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:36",
+          "numero": "36",
+          "texto": "Reconhecimento de pessoas e coisas.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:37",
+          "numero": "37",
+          "texto": "Acareação.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:38",
+          "numero": "38",
+          "texto": "Indícios.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:39",
+          "numero": "39",
+          "texto": "Busca e apreensão.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:40",
+          "numero": "40",
+          "texto": "Restrição de liberdade.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:41",
+          "numero": "41",
+          "texto": "Prisão em flagrante.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:42",
+          "numero": "42",
+          "texto": "Prisão preventiva.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:43",
+          "numero": "43",
+          "texto": "Liberdade Provisória.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:44",
+          "numero": "44",
+          "texto": "Cautelares diversas.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:45",
+          "numero": "45",
+          "texto": "Leis penais e processuais penais especiais: Lei nº 7.210/1984 e suas alterações (Execução Penal);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:46",
+          "numero": "46",
+          "texto": "Lei nº 8.072/1990 e suas alterações (Lei de Crimes Hediondos);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:47",
+          "numero": "47",
+          "texto": "Lei nº 8.137/1990 e suas alterações (Crimes contra a ordem econômica e tributária e as relações de consumo);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:48",
+          "numero": "48",
+          "texto": "Lei nº 9.296/1996 e suas alterações (Lei de Interceptação Telefônica);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:49",
+          "numero": "49",
+          "texto": "Lei nº 9.503/1997 e suas alterações (CTB);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:50",
+          "numero": "50",
+          "texto": "Lei nº 10.826/2003 e suas alterações (Estatuto do Desarmamento);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:51",
+          "numero": "51",
+          "texto": "Lei nº 11.340/2006 e suas alterações (Lei Maria da Penha);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:52",
+          "numero": "52",
+          "texto": "Lei nº 11.343/2006 e suas alterações (LAD);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:53",
+          "numero": "53",
+          "texto": "Lei nº 12.850/2013 e suas alterações (Crime Organizado);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:54",
+          "numero": "54",
+          "texto": "Lei nº 13.869/2019 e suas alterações (Lei de Abuso de Autoridade);",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D09:55",
+          "numero": "55",
+          "texto": "Lei nº 13.964/2019 e suas alterações (Pacote Anticrime).",
+          "pai": null,
+          "pagina": 51
+        }
+      ]
+    },
+    {
+      "id": "D10",
+      "modulo": "especificos",
+      "numero": 10,
+      "tituloLiteral": "NOÇÕES DE DIREITO ADMINISTRATIVO",
+      "nome": "Noções de Direito Administrativo",
+      "questoes": 10,
+      "peso": 0.125,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D10:1",
+          "numero": "1",
+          "texto": "Estado, governo e Administração Pública: conceitos, elementos, poderes e organização; natureza, fins e princípios.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:2",
+          "numero": "2",
+          "texto": "Direito Administrativo: conceito, fontes e princípios.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:3",
+          "numero": "3",
+          "texto": "Administração direta e indireta.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:4",
+          "numero": "4",
+          "texto": "Órgãos públicos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:5",
+          "numero": "5",
+          "texto": "Agentes públicos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:6",
+          "numero": "6",
+          "texto": "Processo Administrativo.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:7",
+          "numero": "7",
+          "texto": "Poderes administrativos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:8",
+          "numero": "8",
+          "texto": "Ato administrativo.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:9",
+          "numero": "9",
+          "texto": "Serviços públicos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:10",
+          "numero": "10",
+          "texto": "Bens Públicos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:11",
+          "numero": "11",
+          "texto": "Controle da administração.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:12",
+          "numero": "12",
+          "texto": "Tribunais de Contas.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:13",
+          "numero": "13",
+          "texto": "Ministério Público.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:14",
+          "numero": "14",
+          "texto": "Improbidade Administrativa.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:15",
+          "numero": "15",
+          "texto": "Responsabilidade civil do Estado.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:16",
+          "numero": "16",
+          "texto": "Licitação.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:17",
+          "numero": "17",
+          "texto": "Contratos administrativos.",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:18",
+          "numero": "18",
+          "texto": "Estatuto da Polícia Civil do Estado do Amazonas (Lei Estadual n. 2.271/1994).",
+          "pai": null,
+          "pagina": 51
+        },
+        {
+          "id": "D10:19",
+          "numero": "19",
+          "texto": "Estatuto da Pessoa com Deficiência (Lei nº 13.146/2015).",
+          "pai": null,
+          "pagina": 51
+        }
+      ]
+    }
+  ],
+  "avisos": [
+    "D01: o edital não numera os itens; numeração sintética por frase (granularidade limitada)",
+    "D04: o edital não numera os itens; numeração sintética por frase (granularidade limitada)",
+    "D05: o edital não numera os itens; numeração sintética por frase (granularidade limitada)",
+    "D06: o edital não numera os itens; numeração sintética por frase (granularidade limitada)",
+    "D07: o edital não numera os itens; numeração sintética por frase (granularidade limitada)",
+    "D08: o edital não numera os itens; numeração sintética por frase (granularidade limitada)",
+    "D09: o edital não numera os itens; numeração sintética por frase (granularidade limitada)",
+    "D10: o edital não numera os itens; numeração sintética por frase (granularidade limitada)"
+  ],
+  "grupos": [
+    {
+      "nome": "Geografia do Amazonas e História do Amazonas",
+      "questoes": 5,
+      "disciplinas": [
+        "D02",
+        "D03"
+      ]
+    }
+  ]
+}

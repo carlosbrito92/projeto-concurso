@@ -22,56 +22,68 @@
       "nome": "Língua Portuguesa",
       "titulo": [
         "Língua Portuguesa"
-      ]
+      ],
+      "id": "D01"
     },
     {
       "nome": "Raciocínio Lógico-Matemático",
       "titulo": [
         "Raciocínio Lógico-Matemático"
-      ]
+      ],
+      "id": "D04"
     },
     {
       "nome": "História do Amazonas",
       "titulo": [
         "História do Amazonas"
+      ],
+      "ids": [
+        "D02",
+        "D03"
       ]
     },
     {
       "nome": "Noções de Informática",
       "titulo": [
         "Noções de Informática"
-      ]
+      ],
+      "id": "D05"
     },
     {
       "nome": "Noções de Administração",
       "titulo": [
         "Noções de Administração"
-      ]
+      ],
+      "id": "D06"
     },
     {
       "nome": "Noções de Contabilidade",
       "titulo": [
         "Noções de Contabilidade"
-      ]
+      ],
+      "id": "D07"
     },
     {
       "nome": "Noções de Direito Constitucional",
       "titulo": [
         "Noções de Direito Constitucional"
-      ]
+      ],
+      "id": "D08"
     },
     {
       "nome": "Direito Penal, Processual Penal e Legislação Extravagante",
       "titulo": [
         "Noções de Direito Penal, Processual",
         "Penal e Legislação Extravagante"
-      ]
+      ],
+      "id": "D09"
     },
     {
       "nome": "Noções de Direito Administrativo",
       "titulo": [
         "Noções de Direito Administrativo"
-      ]
+      ],
+      "id": "D10"
     }
   ],
   "fonte": {

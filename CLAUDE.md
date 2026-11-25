@@ -12,11 +12,13 @@ Feito no piloto:
 - `01-md/edital-04-2024.md`: edital completo em Markdown, com `<!-- p.N -->` por página (N = página do PDF).
 - `02-json/edital.json`: estrutura do Anexo I (12 disciplinas, 339 itens, pesos pelo nº de questões), validada por `schemas/edital.schema.json`.
 
-- `conteudo/provas/`: três provas reais da FGV extraídas para `questoes.json` (schema v3), todas com gabarito conferido contra o PDF:
+- `conteudo/concursos/<slug>/`: edital → `edital.json` para os 4 concursos: `pc-mg-fgv-2024`, `pc-mg-fumarc-2014`, `pc-ma-fgv-2012`, `pc-am-fgv-2021` (só o cargo de Investigador). Formatos variam: hierárquico (MG), numeração corrida (MA) e parágrafos sem numeração (AM; itens `sintetica`). O parser é guiado pelo bloco `anexo` do `meta.json` do concurso.
+- `conteudo/provas/`: quatro provas reais extraídas para `questoes.json` (schema v3), todas com gabarito conferido contra o PDF **e contagem por disciplina conferida contra o edital** (por disciplina e por grupo):
   - `pc-mg-fgv-2024-investigador-t1`: 70 questões, gabarito definitivo, Q59 anulada.
-  - `pc-am-fgv-2021-investigador-t1`: 80 questões objetivas (+ 1 discursiva fora do banco), gabarito definitivo, Q24 anulada. Sem `edital.json`: contagem por disciplina não conferida.
-  - `pc-ma-fgv-2012-investigador-t1`: 70 questões, **gabarito PRELIMINAR** (pode ter mudado após recursos) e prova de 2012: toda questão jurídica exige `verificar_vigencia`. Sem `edital.json`.
-  O texto das questões fica **fora do Git** (regra abaixo); o repo versiona só código, `meta.json` e `relatorio.md`.
+  - `pc-am-fgv-2021-investigador-t1`: 80 questões objetivas (+ 1 discursiva fora do banco), definitivo, Q24 anulada.
+  - `pc-ma-fgv-2012-investigador-t1`: 70 questões, **gabarito PRELIMINAR**, prova de 2012.
+  - `pc-mg-fumarc-2014-investigador-ca`: 60 questões, 4 alternativas, banca **FUMARC** (não entra no perfil da FGV), "gabarito oficial" não confirmado como definitivo, prova de 2014.
+  O texto das questões fica **fora do Git** (regra abaixo); o repo versiona só código, `meta.json`, `relatorio.md` e os editais.
 
 Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. Próximas fontes: texto das leis citadas no Anexo I, provas anteriores da FGV/PCMG e perfil da banca.
 
@@ -78,9 +80,17 @@ Questão de IA só é publicada se: tem `fundamentacao` com fonte real e vigente
 
 Questão anulada ou com gabarito alterado: `anulada: true`, fora da geração de provas e fora das estatísticas.
 
+## Vigência da legislação (requisito de produto)
+
+Lei muda; prova antiga pode cobrar texto já alterado ou revogado. O **aluno deve ver isso na tela**, não só o pipeline. Regras:
+- Toda questão carrega a data da prova e, quando houver, a pendência `verificar_vigencia` (prova antiga) ou `gabarito_preliminar` (gabarito não confirmado como definitivo).
+- A interface mostra, junto à questão e no relatório, um aviso claro: "Esta questão é de uma prova de <ano>; a legislação pode ter mudado. Confira a fonte vigente." Nunca esconder o aviso nem dar a resposta como certa sem ele.
+- O aviso só some quando um humano revisa a questão contra a fonte vigente (`revisao.status = "revisado"` e `fundamentacao.vigenteEm` preenchido).
+- Questões geradas por IA citam a norma e a data de vigência conferida (`fundamentacao.vigenteEm`).
+
 ## Estilo da banca (FGV)
 
-Cada banca tem um **perfil** em `conteudo/bancas/<banca>.json` (formato, nº de alternativas, penalização, tempo médio, estilos de enunciado). FGV: múltipla escolha A–E, enunciados longos e situacionais, assertivas "I, II, III" combinadas, forte uso de texto de lei e jurisprudência. A geração por IA deve imitar o **estilo**, jamais copiar enunciados reais.
+Cada banca tem um **perfil** em `conteudo/bancas/<banca>.json` (estatísticas só da própria banca: FGV e FUMARC não se misturam) (formato, nº de alternativas, penalização, tempo médio, estilos de enunciado). FGV: múltipla escolha A–E, enunciados longos e situacionais, assertivas "I, II, III" combinadas, forte uso de texto de lei e jurisprudência. A geração por IA deve imitar o **estilo**, jamais copiar enunciados reais.
 
 ## Modelo de dados (resumo)
 

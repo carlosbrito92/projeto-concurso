@@ -1,0 +1,764 @@
+{
+  "schemaVersion": "1.0",
+  "concurso": {
+    "slug": "pc-ma-fgv-2012",
+    "orgao": "Governo do Estado do Maranhão (SEGEP)",
+    "uf": "MA",
+    "banca": "FGV",
+    "cargo": "Investigador de Polícia",
+    "edital": "02/2012 (retificado em 06/09/2013)",
+    "ano": 2012,
+    "vagas": null
+  },
+  "prova": {
+    "totalQuestoes": 70,
+    "alternativas": 5,
+    "pontosPorQuestao": 1,
+    "notaMinimaObjetiva": null,
+    "duracaoMinimaHoras": null,
+    "duracaoMaximaHoras": null,
+    "dataProvavel": null,
+    "fonteItem": "8.1.5 (Tabela I)"
+  },
+  "fonte": {
+    "arquivo": "edital-02-2012.pdf",
+    "sha256": "e7d683ab644a335febb43f5642123c33be2b5f2176747f952cf2c1b490f9e1d8",
+    "paginasAnexoConteudo": [
+      25,
+      26,
+      27,
+      28,
+      29
+    ]
+  },
+  "disciplinas": [
+    {
+      "id": "D01",
+      "modulo": "basicos",
+      "numero": 1,
+      "tituloLiteral": "LÍNGUA PORTUGUESA",
+      "nome": "Língua Portuguesa",
+      "questoes": 15,
+      "peso": 0.214286,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D01:1",
+          "numero": "1",
+          "texto": "Compreensão e Interpretação de textos",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:2",
+          "numero": "2",
+          "texto": "Conhecimentos morfológicos, sintáticos e semânticos voltados para o entendimento textual.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:3",
+          "numero": "3",
+          "texto": "Equivalência e transformação de estruturas.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:4",
+          "numero": "4",
+          "texto": "Linguagem própria e figurada.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:5",
+          "numero": "5",
+          "texto": "Discurso direto e indireto.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:6",
+          "numero": "6",
+          "texto": "Sintaxe: processos de coordenação e subordinação. Emprego de tempos e modos verbais.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:7",
+          "numero": "7",
+          "texto": "Pontuação.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:8",
+          "numero": "8",
+          "texto": "Estrutura e formação de palavras; funções das classes de palavras.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:9",
+          "numero": "9",
+          "texto": "Flexão nominal e verbal.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:10",
+          "numero": "10",
+          "texto": "Pronomes: emprego, formas de tratamento e colocação.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:11",
+          "numero": "11",
+          "texto": "Concordância nominal e verbal.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:12",
+          "numero": "12",
+          "texto": "Regência nominal e verbal.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:13",
+          "numero": "13",
+          "texto": "Ocorrência de crase.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D01:14",
+          "numero": "14",
+          "texto": "Acentuação gráfica.",
+          "pai": null,
+          "pagina": 25
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "modulo": "basicos",
+      "numero": 2,
+      "tituloLiteral": "RACIOCINIO LÓGICO-QUANTITATIVO",
+      "nome": "Raciocínio Lógico-Quantitativo",
+      "questoes": 10,
+      "peso": 0.142857,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D02:1",
+          "numero": "1",
+          "texto": "Estruturas lógicas; lógica de argumentação.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D02:2",
+          "numero": "2",
+          "texto": "Diagramas lógicos.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D02:3",
+          "numero": "3",
+          "texto": "Trigonometria.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D02:4",
+          "numero": "4",
+          "texto": "Álgebra linear.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D02:5",
+          "numero": "5",
+          "texto": "Probabilidades.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D02:6",
+          "numero": "6",
+          "texto": "Combinações.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D02:7",
+          "numero": "7",
+          "texto": "Arranjos e permutação.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D02:8",
+          "numero": "8",
+          "texto": "Geometria básica. Estrutura lógica de relações arbitrárias entre pessoas, lugares, coisas ou eventos fictícios; deduzir novas informações das relações fornecidas e avaliar as condições usadas para estabelecer a estrutura daquelas relações. Nenhum conhecimento mais profundo de lógica formal ou matemática será necessário para resolver as questões de raciocínio lógico-analítico.",
+          "pai": null,
+          "pagina": 25
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "modulo": "basicos",
+      "numero": 3,
+      "tituloLiteral": "NOÇÕES DE INFORMÁTICA",
+      "nome": "Noções de Informática",
+      "questoes": 10,
+      "peso": 0.142857,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D03:1",
+          "numero": "1",
+          "texto": "(COM EXCEÇÃO DOS CARGOS DE LEGISTA) 1.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D03:2",
+          "numero": "2",
+          "texto": "Componentes de um computador: hardware e software. 2.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D03:3",
+          "numero": "3",
+          "texto": "Arquitetura básica de computadores: unidade central, memória: tipos e tamanhos. 3.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D03:4",
+          "numero": "4",
+          "texto": "Periféricos: impressoras, drivers de disco fixo (Winchester), disquete, CD-ROM.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D03:5",
+          "numero": "5",
+          "texto": "Uso do teclado, uso do mouse, janelas e seus botões, diretórios e arquivos (uso do Windows Explorer): tipos de arquivos, localização, criação, cópia e remoção de arquivos, cópias de arquivos para outros dispositivos e cópias de segurança, uso da lixeira para remover e recuperar arquivos, uso da ajuda do Windows.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D03:6",
+          "numero": "6",
+          "texto": "Uso do Word for Windows: entrando e corrigindo texto, definindo formato de páginas: margens, orientação, numeração, cabeçalho e rodapé definindo estilo do texto: fonte, tamanho, negrito,itálico e sublinhado, impressão de documentos: visualizando a página a ser impressa, uso do corretor ortográfico, criação de textos em colunas, criação de tabelas, criação e inserção de figuras no texto.",
+          "pai": null,
+          "pagina": 25
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "modulo": "basicos",
+      "numero": 4,
+      "tituloLiteral": "LEGISLAÇÃO ESPECÍFICA",
+      "nome": "Legislação Específica",
+      "questoes": 5,
+      "peso": 0.071429,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D04:1",
+          "numero": "1",
+          "texto": "Constituição do Estado do Estado do Maranhão.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D04:2",
+          "numero": "2",
+          "texto": "Lei n. 6107, de 27 de julho de 1994, que dispõe sobre os Servidores Públicos do Estado do Maranhão.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D04:3",
+          "numero": "3",
+          "texto": "Lei 8.508, de 27 de novembro de 2006.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D04:4",
+          "numero": "4",
+          "texto": "Lei 8.957, de 15 de abril de 2009.",
+          "pai": null,
+          "pagina": 25
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "modulo": "especificos",
+      "numero": 5,
+      "tituloLiteral": "DIREITO CONSTITUCIONAL:",
+      "nome": "Direito Constitucional",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D05:1",
+          "numero": "1",
+          "texto": "Poder Constituinte.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:2",
+          "numero": "2",
+          "texto": "Supremacia da Constituição e controle de constitucionalidade.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:3",
+          "numero": "3",
+          "texto": "Regimes políticos e formas de governo.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:4",
+          "numero": "4",
+          "texto": "A repartição de competência na Federação.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:5",
+          "numero": "5",
+          "texto": "Direitos e garantias fundamentais: direitos e deveres individuais e coletivos, direitos sociais, da nacionalidade, direitos políticos e dos partidos políticos.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:6",
+          "numero": "6",
+          "texto": "Organização político administrativa da União, dos Estados Federados, dos Municípios e do Distrito Federal.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:7",
+          "numero": "7",
+          "texto": "Da Administração Pública.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:8",
+          "numero": "8",
+          "texto": "Do Poder Legislativo: fundamento, atribuições e garantias de independência.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:9",
+          "numero": "9",
+          "texto": "Do Poder Executivo: forma e sistema de governo, Chefia de Estado e Chefia de Governo, atribuições e responsabilidades do Presidente da República.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:10",
+          "numero": "10",
+          "texto": "Do Poder Judiciário: fundamento, atribuições e garantias.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D05:11",
+          "numero": "11",
+          "texto": "Da Ordem Social: Disposição geral; Da seguridade social; Da educação, da cultura e do desporto; Do meio ambiente; Da família, da criança, do adolescente e do idoso; Dos índios.",
+          "pai": null,
+          "pagina": 25
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "modulo": "especificos",
+      "numero": 6,
+      "tituloLiteral": "DIREITO ADMINISTRATIVO:",
+      "nome": "Direito Administrativo",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D06:1",
+          "numero": "1",
+          "texto": "Direito Administrativo: conceito, fontes, princípios.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D06:2",
+          "numero": "2",
+          "texto": "Conceito de Estado, elementos, poderes e organização; Governo e Administração Pública: conceitos.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D06:3",
+          "numero": "3",
+          "texto": "Administração Pública: natureza, elementos, poderes e organização, natureza, fins e princípios; administração direta e indireta; planejamento, coordenação, descentralização, delegação de competência e controle.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D06:4",
+          "numero": "4",
+          "texto": "Agentes públicos: espécies e classificação; direitos, deveres e prerrogativas; cargo, emprego e funções públicas; regime jurídico único: provimento, vacância, remoção, redistribuição e substituição; direitos e vantagens; regime disciplinar; responsabilidade civil, criminal e administrativa.",
+          "pai": null,
+          "pagina": 25
+        },
+        {
+          "id": "D06:5",
+          "numero": "5",
+          "texto": "Atos administrativos: conceito e requisitos; atributos; invalidação; classificação; espécies.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D06:6",
+          "numero": "6",
+          "texto": "Poderes administrativos: poder vinculado, poder discricionário, poder hierárquico, poder disciplinar, poder regulamentar, poder de polícia.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D06:7",
+          "numero": "7",
+          "texto": "Do uso e do abuso do poder.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D06:8",
+          "numero": "8",
+          "texto": "Serviços públicos: conceito, classificação, regulamentação e controle; forma, meios e requisitos; Delegação: concessão, permissão, autorização. Controle e responsabilização da administração: controle administrativo; controle judicial; controle legislativo.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D06:9",
+          "numero": "9",
+          "texto": "Responsabilidade civil do Estado.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D06:10",
+          "numero": "10",
+          "texto": "Intervenção na Propriedade. Noções Gerais. Requisição e Ocupação.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D06:11",
+          "numero": "11",
+          "texto": "Bens Públicos.",
+          "pai": null,
+          "pagina": 26
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "modulo": "especificos",
+      "numero": 7,
+      "tituloLiteral": "DIREITO PENAL:",
+      "nome": "Direito Penal",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D07:1",
+          "numero": "1",
+          "texto": "Princípios Constitucionais do Direito Penal.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:2",
+          "numero": "2",
+          "texto": "Infração penal: elementos, espécies.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:3",
+          "numero": "3",
+          "texto": "Sujeito ativo e sujeito passivo da infração penal.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:4",
+          "numero": "4",
+          "texto": "Tipicidade, ilicitude, culpabilidade, punibilidade.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:5",
+          "numero": "5",
+          "texto": "Extinção de Punibilidade.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:6",
+          "numero": "6",
+          "texto": "Excludentes de ilicitude e de culpabilidade.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:7",
+          "numero": "7",
+          "texto": "Imputabilidade penal.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:8",
+          "numero": "8",
+          "texto": "Concurso de Pessoas.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:9",
+          "numero": "9",
+          "texto": "Penas.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:10",
+          "numero": "10",
+          "texto": "Dos crimes contra a pessoa.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:11",
+          "numero": "11",
+          "texto": "Dos crimes contra o patrimônio.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:12",
+          "numero": "12",
+          "texto": "Dos crimes contra a propriedade imaterial.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:13",
+          "numero": "13",
+          "texto": "Dos crimes contra a dignidade sexual.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:14",
+          "numero": "14",
+          "texto": "Dos crimes contra o sentimento religioso e contra o respeito aos mortos;",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:15",
+          "numero": "15",
+          "texto": "Dos crimes contra a família.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:16",
+          "numero": "16",
+          "texto": "Dos crimes contra a incolumidade pública.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:17",
+          "numero": "17",
+          "texto": "Dos crimes contra a paz pública.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:18",
+          "numero": "18",
+          "texto": "Dos crimes contra a fé pública.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D07:19",
+          "numero": "19",
+          "texto": "Dos crimes contra a Administração Pública. Leis Extravagantes: Lei da Tortura (Lei n. 9.455/97); Lei dos Entorpecentes (Lei n. 11.343/06); Lei do Abuso de Autoridade (Lei n. 4.898/65); Lei da Violência Doméstica (Lei n.11.340/06).",
+          "pai": null,
+          "pagina": 26
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "modulo": "especificos",
+      "numero": 8,
+      "tituloLiteral": "DIREITO PROCESSUAL PENAL:",
+      "nome": "Direito Processual Penal",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D08:1",
+          "numero": "1",
+          "texto": "Sistemas processuais.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:2",
+          "numero": "2",
+          "texto": "Da Investigação Criminal.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:3",
+          "numero": "3",
+          "texto": "Do inquérito policial.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:4",
+          "numero": "4",
+          "texto": "Da ação penal: espécies.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:5",
+          "numero": "5",
+          "texto": "Da jurisdição e competência.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:6",
+          "numero": "6",
+          "texto": "Das questões e processos incidentes.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:7",
+          "numero": "7",
+          "texto": "Da prova.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:8",
+          "numero": "8",
+          "texto": "Da prisão e da liberdade provisória.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:9",
+          "numero": "9",
+          "texto": "Da prisão temporária (Lei n. 7.960/89).",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:10",
+          "numero": "10",
+          "texto": "Das citações e intimações.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:11",
+          "numero": "11",
+          "texto": "Dos processos em espécie: dos processos comuns e dos processos especiais.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:12",
+          "numero": "12",
+          "texto": "Das nulidades e dos recursos em geral.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:13",
+          "numero": "13",
+          "texto": "Da execução: disposições gerais, da execução das penas em espécie, dos incidentes da execução, da execução das medidas de segurança, da graça, anistia e indulto e da reabilitação.",
+          "pai": null,
+          "pagina": 26
+        },
+        {
+          "id": "D08:14",
+          "numero": "14",
+          "texto": "Do processo e julgamento dos crimes de responsabilidade dos funcionários públicos.",
+          "pai": null,
+          "pagina": 26
+        }
+      ]
+    }
+  ],
+  "avisos": [
+    "D03: o edital não numera os itens; numeração sintética por frase (granularidade limitada)"
+  ],
+  "grupos": [
+    {
+      "nome": "Noções de Direito Constitucional, Administrativo, Penal e Processual Penal",
+      "questoes": 30,
+      "disciplinas": [
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ]
+    }
+  ]
+}

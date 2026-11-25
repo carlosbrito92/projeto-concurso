@@ -20,14 +20,41 @@ TOPO, RODAPE = 50, 785  # sobrescritos por --topo / --rodape
 IMAGEM_MIN = 20  # ignora imagens menores que isso (filetes, ícones, máscaras)
 
 
+def calha(pg):
+    """Posição x da calha (espaço vazio vertical) entre as colunas, ou None se não houver.
+    Procura o maior vão sem palavras entre 30% e 70% da largura; exige texto dos dois lados."""
+    ws = [w for w in pg.extract_words() if TOPO < w["top"] < RODAPE]
+    if not ws:
+        return None
+    ocupado = [False] * (int(pg.width) + 2)
+    for w in ws:
+        for x in range(int(w["x0"]), int(w["x1"]) + 1):
+            ocupado[x] = True
+    lo, hi = int(pg.width * 0.3), int(pg.width * 0.7)
+    melhor, atual, ini = (0, None), 0, None
+    for x in range(lo, hi):
+        if not ocupado[x]:
+            if atual == 0:
+                ini = x
+            atual += 1
+            if atual > melhor[0]:
+                melhor = (atual, ini + atual / 2)
+        else:
+            atual = 0
+    if melhor[0] < 6:
+        return None
+    x = melhor[1]
+    esq = sum(1 for w in ws if w["x1"] <= x)
+    dir_ = sum(1 for w in ws if w["x0"] >= x)
+    return x if esq >= 15 and dir_ >= 15 else None
+
+
 def colunas(pg):
-    """Duas colunas (E, D) ou, se linhas atravessam o meio da página, coluna única (U)."""
-    mid = pg.width / 2
-    cruzam = [w for w in pg.extract_words()
-              if TOPO < w["top"] < RODAPE and w["x0"] < mid - 20 and w["x1"] > mid + 20]
-    if len(cruzam) >= 5:
+    """Duas colunas (E, D) separadas pela calha real, ou coluna única (U)."""
+    x = calha(pg)
+    if x is None:
         return (("U", (0, 0, pg.width, pg.height)),)
-    return (("E", (0, 0, mid, pg.height)), ("D", (mid, 0, pg.width, pg.height)))
+    return (("E", (0, 0, x, pg.height)), ("D", (x, 0, pg.width, pg.height)))
 
 
 def converter(pdf_path: str, inicio: str = "MÓDULO I") -> tuple[str, dict]:
@@ -100,7 +127,8 @@ def main() -> int:
     print(f"-> {sys.argv[2]}")
     print(f"páginas de instruções ignoradas: {info['paginas_instrucoes']}")
     print(f"páginas descartadas (sem conteúdo de prova): {info['paginas_descartadas']}")
-    print(f"imagens decorativas ignoradas (mesma posição em >=3 páginas): {info['decorativas']}")
+    dec = info["decorativas"]
+    print(f"imagens decorativas ignoradas (mesma posição em >=3 páginas): {len(dec)}" + (f" (ex.: {dec[:3]})" if dec else ""))
     print(f"imagens marcadas: {len(info['imagens'])}")
     for p, c, b in info["imagens"]:
         print(f"  p.{p} col.{c} bbox={b}")

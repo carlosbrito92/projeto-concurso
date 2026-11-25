@@ -24,43 +24,53 @@
       "nome": "Língua Portuguesa",
       "titulo": [
         "Língua Portuguesa"
-      ]
+      ],
+      "id": "D01"
     },
     {
       "nome": "Legislação Específica",
       "titulo": [
         "Legislação Específica"
-      ]
+      ],
+      "id": "D04"
     },
     {
       "nome": "Raciocínio Lógico-Matemático",
       "titulo": [
         "Raciocínio Lógico-matemático"
-      ]
+      ],
+      "id": "D02"
     },
     {
       "nome": "Noções de Informática",
       "titulo": [
         "Noções de Informática"
-      ]
+      ],
+      "id": "D03"
     },
     {
       "nome": "Noções de Direito Constitucional",
       "titulo": [
         "Noções de Direito Constitucional"
-      ]
+      ],
+      "id": "D05"
     },
     {
       "nome": "Noções de Direito Administrativo",
       "titulo": [
         "Noções de Direito Administrativo"
-      ]
+      ],
+      "id": "D06"
     },
     {
       "nome": "Noções de Direito Penal e Processual Penal",
       "titulo": [
         "Noções de Direito Penal e",
         "Processual Penal"
+      ],
+      "ids": [
+        "D07",
+        "D08"
       ]
     }
   ],

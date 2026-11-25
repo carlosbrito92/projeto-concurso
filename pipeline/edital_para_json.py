@@ -17,7 +17,7 @@ from pathlib import Path
 import jsonschema
 
 RAIZ = Path(__file__).resolve().parent.parent
-MARCA_PAGINA = re.compile(r"<!-- p\.(\d+) -->\n\n")
+MARCA_PAGINA = re.compile(r"<!-- p\.(\d+)(?: col\.[EDU])? -->\n+")
 # Itens do Anexo sempre têm ao menos 2 níveis (1.1, 3.4.3...); aceita qualquer início de texto
 # (maiúscula, minúscula, parêntese), pois há itens como "5.5.2. natureza" e "8.11 (In)visibilidade".
 TOKEN_ITEM = re.compile(r'(?<![\w./,])(\d+(?:\.\d+)+)\.?\s+(?=\S)')
@@ -75,12 +75,202 @@ def questoes_da_prova(md: str):
     return total, alts, itens, bloco
 
 
+LIMPA_INICIO = re.compile(r"^[^\wÀ-ú]+")
+RE_PAG = re.compile(r"^<!-- p\.(\d+)(?: col\.[EDU])? -->$")
+RE_IMG = re.compile(r"^<!-- IMAGEM")
+
+
+def limpo(l: str) -> str:
+    """Remove marcadores/bullets (ex.: \\uf034) do começo da linha e espaços."""
+    return LIMPA_INICIO.sub("", l.strip()).strip()
+
+
+def itens_plano(texto: str):
+    """Numeração corrida '1. ... 2. ...' (1,2,3... em sequência). Retorna lista ou None."""
+    texto = re.sub(r"^I\.\s+", "1. ", texto.strip())  # alguns editais digitam 'I.' no lugar de '1.'
+    pos, k, marcas = 0, 1, []
+    while True:
+        m = re.compile(rf"(?<![\w./,\d]){k}\.\s+(?=\S)").search(texto, pos)
+        if not m or (k == 1 and m.start() > 3):
+            break
+        marcas.append((k, m.start(), m.end()))
+        pos, k = m.end(), k + 1
+    if len(marcas) < 3:
+        return None
+    out = []
+    for i, (n, ini, fim_tok) in enumerate(marcas):
+        fim = marcas[i + 1][1] if i + 1 < len(marcas) else len(texto)
+        out.append((str(n), texto[fim_tok:fim].strip(), ini))
+    return out
+
+
+def itens_sentencas(texto: str):
+    partes = re.split(r"(?<=[.;])\s+(?=[A-ZÀ-Ú])", texto.strip())
+    return [(str(i + 1), p.strip(), 0) for i, p in enumerate(partes) if p.strip()]
+
+
+def itens_hier(texto: str, num: int):
+    toks = [m for m in TOKEN_ITEM.finditer(texto) if m.group(1).split(".")[0] == str(num)]
+    return [(m.group(1), re.sub(r"\s+", " ", texto[m.end():(toks[i + 1].start() if i + 1 < len(toks) else len(texto))]).strip(), m.start())
+            for i, m in enumerate(toks)]
+
+
+def main_cfg(pasta: Path, meta: dict) -> int:
+    cfg = meta["anexo"]
+    erros, avisos = [], []
+    md_path = pasta / "01-md" / meta["fonte"]["md"]
+    brutas = md_path.read_text(encoding="utf-8").splitlines()
+    # (página, linha) sem marcadores de página/imagem
+    pag, linhas = 1, []
+    for b in brutas:
+        m = RE_PAG.match(b.strip())
+        if m:
+            pag = int(m.group(1))
+            continue
+        if not b.strip() or RE_IMG.match(b.strip()):
+            continue
+        linhas.append((pag, b.strip()))
+
+    def achar(txt, a=0, ocorrencia=1):
+        hits = [i for i in range(a, len(linhas)) if limpo(linhas[i][1]) == txt]
+        if len(hits) < ocorrencia:
+            return None
+        return hits[ocorrencia - 1]
+
+    i_de = achar(cfg["de"], 0, cfg.get("ocorrenciaDe", 1))
+    if i_de is None:
+        erros.append(f"início do anexo não encontrado: {cfg['de']!r}")
+        i_de = 0
+    i_ate = achar(cfg["ate"], i_de + 1) if cfg.get("ate") else len(linhas)
+    if i_ate is None:
+        erros.append(f"fim do anexo não encontrado: {cfg['ate']!r}")
+        i_ate = len(linhas)
+    ignorar = tuple(cfg.get("ignorarLinhas", []))
+    corpo = [(p, l) for p, l in linhas[i_de:i_ate]
+             if not re.fullmatch(r"\d{1,3}", l) and not any(limpo(l).startswith(x) for x in ignorar)]
+
+    # início de cada disciplina
+    starts = []
+    for k, d in enumerate(cfg["disciplinas"]):
+        idx = [i for i, (_, l) in enumerate(corpo) if limpo(l).startswith(d["inicio"]) and (not starts or i > starts[-1][0])]
+        if not idx:
+            erros.append(f"{d['nome']}: cabeçalho {d['inicio']!r} não encontrado")
+            continue
+        starts.append((idx[0], k))
+    total = meta["prova"]["totalQuestoes"]
+    disciplinas, ids = [], {}
+    for pos, (ini, k) in enumerate(starts):
+        d = cfg["disciplinas"][k]
+        fim = starts[pos + 1][0] if pos + 1 < len(starts) else len(corpo)
+        if d.get("ate"):
+            f2 = [i for i in range(ini + 1, fim) if limpo(corpo[i][1]).startswith(d["ate"])]
+            if f2:
+                fim = f2[0]
+        bloco = corpo[ini:fim]
+        resto = limpo(bloco[0][1])[len(d["inicio"]):].lstrip(": ").strip()
+        textos = ([resto] if resto else []) + [l for _, l in bloco[1:]]
+        pgs, offs, acum = [], [], 0
+        for (p, _), tx in zip(bloco[(0 if resto else 1):], textos):
+            pgs.append(p); offs.append(acum); acum += len(tx) + 1
+        texto = " ".join(textos)
+        bib = None
+        for mk in d.get("bibliografia", []):
+            mm = re.search(re.escape(mk), texto, re.I)
+            if mm:
+                bib, texto = texto[mm.start():].strip(), texto[:mm.start()].strip()
+                break
+        modo = d.get("modo", "auto")
+        num = d.get("numero", k + 1)
+        if modo == "hierarquico":
+            its, numeracao = itens_hier(texto, num), "edital"
+        else:
+            its = itens_plano(texto) if modo in ("auto", "plano") else None
+            numeracao = "edital"
+            if its is None:
+                its, numeracao = itens_sentencas(texto), "sintetica"
+        did = f"D{k + 1:02d}"
+        ids[d["nome"]] = did
+        itens, vistos = [], set()
+        for n_item, tx, off in its:
+            tx = re.sub(r"\s+", " ", tx).strip()
+            if not tx:
+                continue
+            if n_item in vistos:
+                erros.append(f"{did}: item repetido {n_item}")
+            vistos.add(n_item)
+            j = max([x for x, o in enumerate(offs) if o <= off] or [0]) if offs else 0
+            itens.append({"id": f"{did}:{n_item}", "numero": n_item, "texto": tx, "pai": None, "pagina": pgs[min(j, len(pgs) - 1)] if pgs else bloco[0][0]})
+        if modo == "hierarquico":
+            nums = {i["numero"] for i in itens}
+            for it in itens:
+                partes = it["numero"].split(".")
+                for n in range(len(partes) - 1, 0, -1):
+                    cand = ".".join(partes[:n])
+                    if cand in nums:
+                        it["pai"] = f"{did}:{cand}"
+                        break
+        if not itens:
+            erros.append(f"{did} {d['nome']}: nenhum item extraído")
+        q = d.get("questoes")
+        disciplinas.append({
+            "id": did, "modulo": d.get("modulo", "basicos"), "numero": num, "tituloLiteral": limpo(bloco[0][1])[:len(d["inicio"])],
+            "nome": d["nome"], "questoes": q, "peso": round(q / total, 6) if q is not None and total else None,
+            "numeracaoItens": numeracao, "bibliografiaBruta": bib, "itens": itens})
+        if numeracao == "sintetica":
+            avisos.append(f"{did}: o edital não numera os itens; numeração sintética por frase (granularidade limitada)")
+
+    grupos = []
+    for g in cfg.get("grupos", []):
+        gids = [ids[n] for n in g["disciplinas"] if n in ids]
+        grupos.append({"nome": g["nome"], "questoes": g["questoes"], "disciplinas": gids})
+    soma = sum(d["questoes"] for d in disciplinas if d["questoes"] is not None) + sum(g["questoes"] for g in grupos)
+    if soma != total:
+        erros.append(f"soma das questões do edital ({soma}) != total da prova ({total})")
+
+    pdf = pasta / "00-origem" / meta["fonte"]["pdf"]
+    sha = hashlib.sha256(pdf.read_bytes()).hexdigest() if pdf.exists() else meta["fonte"]["sha256"]
+    if sha != meta["fonte"]["sha256"]:
+        erros.append("sha256 do PDF difere do meta.json")
+    paginas = sorted({p for p, _ in corpo})
+    saida = {"schemaVersion": "1.0", "concurso": meta["concurso"],
+             "prova": {"totalQuestoes": total, "alternativas": meta["prova"]["alternativas"],
+                       "pontosPorQuestao": meta["prova"]["pontosPorQuestao"],
+                       "notaMinimaObjetiva": meta["prova"].get("notaMinimaObjetiva"),
+                       "duracaoMinimaHoras": meta["prova"].get("duracaoMinimaHoras"),
+                       "duracaoMaximaHoras": meta["prova"].get("duracaoMaximaHoras"),
+                       "dataProvavel": meta["prova"].get("dataProvavel"), "fonteItem": meta["prova"]["fonteItem"]},
+             "fonte": {"arquivo": meta["fonte"]["pdf"], "sha256": sha, "paginasAnexoConteudo": paginas},
+             "disciplinas": disciplinas, "avisos": avisos}
+    if grupos:
+        saida["grupos"] = grupos
+    schema = json.loads((RAIZ / "schemas" / "edital.schema.json").read_text(encoding="utf-8"))
+    try:
+        jsonschema.validate(saida, schema)
+    except jsonschema.ValidationError as e:
+        erros.append(f"schema: {e.message} em {list(e.absolute_path)}")
+    if erros:
+        print("ERROS:\n - " + "\n - ".join(erros))
+        return 1
+    (pasta / "02-json" / "edital.json").write_text(json.dumps(saida, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"OK: {len(disciplinas)} disciplinas, {sum(len(d['itens']) for d in disciplinas)} itens, {total} questões")
+    for d in disciplinas:
+        q = "--" if d["questoes"] is None else f"{d['questoes']:>2}"
+        print(f"  {d['id']} {d['nome']:<46} {q} q {len(d['itens']):>3} itens ({d['numeracaoItens']}){' +bibliografia' if d['bibliografiaBruta'] else ''}")
+    for g in grupos:
+        print(f"  grupo: {g['nome']} = {g['questoes']} q ({', '.join(g['disciplinas'])})")
+    for a in avisos:
+        print("  aviso:", a)
+    return 0
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         print(__doc__)
         return 2
     pasta = Path(sys.argv[1]).resolve()
     meta = json.loads((pasta / "meta.json").read_text(encoding="utf-8"))
+    if "anexo" in meta:
+        return main_cfg(pasta, meta)
     md_path = pasta / "01-md" / meta["fonte"]["md"]
     md = md_path.read_text(encoding="utf-8")
     erros, avisos = [], []

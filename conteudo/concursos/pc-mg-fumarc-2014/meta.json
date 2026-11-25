@@ -1,0 +1,108 @@
+{
+  "concurso": {
+    "slug": "pc-mg-fumarc-2014",
+    "orgao": "Polícia Civil do Estado de Minas Gerais",
+    "uf": "MG",
+    "banca": "FUMARC",
+    "cargo": "Investigador de Polícia",
+    "edital": "01/2014",
+    "ano": 2014,
+    "vagas": 1000
+  },
+  "prova": {
+    "totalQuestoes": 60,
+    "alternativas": 4,
+    "pontosPorQuestao": 1,
+    "notaMinimaObjetiva": null,
+    "duracaoMinimaHoras": 2,
+    "duracaoMaximaHoras": 4,
+    "dataProvavel": null,
+    "fonteItem": "4.3"
+  },
+  "fonte": {
+    "pdf": "edital-01-2014.pdf",
+    "md": "edital-01-2014.md",
+    "sha256": "a5611e2676251c751c4ac906e56cd3154f978ea64fce7190efd26f35c79f792b"
+  },
+  "anexo": {
+    "de": "ANEXO I",
+    "ate": "ANEXO II",
+    "disciplinas": [
+      {
+        "nome": "Língua Portuguesa",
+        "inicio": "1. PROGRAMA DE LÍNGUA PORTUGUESA",
+        "questoes": 20,
+        "modo": "hierarquico",
+        "numero": 1,
+        "modulo": null,
+        "bibliografia": [
+          "Bibliografia sugerida:",
+          "Bibliografia Sugerida:",
+          "Referência Bibliográfica:",
+          "Referências Bibliográficas:",
+          "Bibliografia indicada:"
+        ]
+      },
+      {
+        "nome": "Noções de Direito",
+        "inicio": "2. PROGRAMA DE NOÇÕES DE DIREITO",
+        "questoes": 10,
+        "modo": "hierarquico",
+        "numero": 2,
+        "modulo": null,
+        "bibliografia": [
+          "Bibliografia sugerida:",
+          "Bibliografia Sugerida:",
+          "Referência Bibliográfica:",
+          "Referências Bibliográficas:",
+          "Bibliografia indicada:"
+        ]
+      },
+      {
+        "nome": "Direitos Humanos",
+        "inicio": "3. PROGRAMA DE DIREITOS HUMANOS",
+        "questoes": 10,
+        "modo": "hierarquico",
+        "numero": 3,
+        "modulo": null,
+        "bibliografia": [
+          "Bibliografia sugerida:",
+          "Bibliografia Sugerida:",
+          "Referência Bibliográfica:",
+          "Referências Bibliográficas:",
+          "Bibliografia indicada:"
+        ]
+      },
+      {
+        "nome": "Noções de Medicina Legal",
+        "inicio": "4. PROGRAMA DE NOÇÕES DE MEDICINA LEGAL",
+        "questoes": 10,
+        "modo": "hierarquico",
+        "numero": 4,
+        "modulo": null,
+        "bibliografia": [
+          "Bibliografia sugerida:",
+          "Bibliografia Sugerida:",
+          "Referência Bibliográfica:",
+          "Referências Bibliográficas:",
+          "Bibliografia indicada:"
+        ]
+      },
+      {
+        "nome": "Noções de Informática",
+        "inicio": "5. PROGRAMA DE NOÇÕES DE INFORMÁTICA",
+        "questoes": 10,
+        "modo": "hierarquico",
+        "numero": 5,
+        "modulo": null,
+        "bibliografia": [
+          "Bibliografia sugerida:",
+          "Bibliografia Sugerida:",
+          "Referência Bibliográfica:",
+          "Referências Bibliográficas:",
+          "Bibliografia indicada:"
+        ]
+      }
+    ]
+  }
+}

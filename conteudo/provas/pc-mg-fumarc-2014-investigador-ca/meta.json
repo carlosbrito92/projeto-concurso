@@ -1,0 +1,75 @@
+{
+  "slug": "pc-mg-fumarc-2014-investigador-ca",
+  "codigoProva": 4,
+  "concursoSlug": "pc-mg-fumarc-2014",
+  "totalQuestoes": 60,
+  "dataAplicacao": null,
+  "alternativas": 4,
+  "numeracao": "questao",
+  "vigenciaSuspeita": true,
+  "concurso": {
+    "carreira": "Polícia Civil",
+    "orgao": "PCMG",
+    "banca": "FUMARC",
+    "ano": 2014,
+    "cargo": "Investigador de Polícia I"
+  },
+  "caderno": {
+    "tipo": "A",
+    "cor": null,
+    "rotulo": "Caderno 1 A"
+  },
+  "disciplinas": [
+    {
+      "nome": "Língua Portuguesa",
+      "titulo": [
+        "PROVA DE LÍNGUA PORTUGUESA – Cad. 1 A"
+      ],
+      "id": "D01"
+    },
+    {
+      "nome": "Noções de Direito",
+      "titulo": [
+        "PROVA DE NOÇÕES DE DIREITO – Cad. 1 A"
+      ],
+      "id": "D02"
+    },
+    {
+      "nome": "Direitos Humanos",
+      "titulo": [
+        "PROVA DE DIREITOS HUMANOS – Cad. 1 A"
+      ],
+      "id": "D03"
+    },
+    {
+      "nome": "Noções de Medicina Legal",
+      "titulo": [
+        "PROVA DE NOÇÕES DE MEDICINA LEGAL – Cad. 1 A"
+      ],
+      "id": "D04"
+    },
+    {
+      "nome": "Noções de Informática",
+      "titulo": [
+        "PROVA DE NOÇÕES DE INFORMÁTICA – Cad. 1 A"
+      ],
+      "id": "D05"
+    }
+  ],
+  "fonte": {
+    "md": "prova-caderno-a.md",
+    "prova": {
+      "pdf": "prova-caderno-a.pdf",
+      "sha256": "65c944bc880fe467e9762b2d0aa038fdf80733db0d8ad93c280b8bb22996b121"
+    },
+    "gabarito": {
+      "pdf": "gabarito-oficial.pdf",
+      "sha256": "aee66bf5e08295d4f004f257e2f215cc37666a72aec6ce06c9937ef2c706b5e2",
+      "formato": "pares_espaco",
+      "pagina": 1,
+      "situacao": "oficial"
+    }
+  },
+  "marcadorFim": "ACADEMIA DE POLÍCIA DO ESTADO DE MINAS GERAIS",
+  "fimEhDiscursiva": false
+}
