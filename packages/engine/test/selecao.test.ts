@@ -108,3 +108,12 @@ test("foco: assunto fraco do aluno recebe mais questões", () => {
   assert.ok(cnt(com.questoes, "D01:2") > cnt(com.questoes, "D01:1"));
   assert.equal(POLITICA_PADRAO.statusAceitos.includes("rascunho"), false);
 });
+
+test("prefere assuntos com questão ainda não vista: não repete enquanto houver questão nova", () => {
+  const p = pool();
+  const vistas = Object.fromEntries(p.filter((q) => q.classificacao.editalItemId === "D01:1").map((q) => [q.id, 1]));
+  const r = selecionar(p, { n: 6, seed: "nv", cotas: { D01: 6 }, vistas });
+  assert.equal(r.questoes.filter((q) => q.classificacao.editalItemId === "D01:1").length, 0, "as 6 de D01:2 são novas e bastam");
+  const todasVistas = Object.fromEntries(p.filter((q) => q.classificacao.disciplinaId === "D01").map((q) => [q.id, 1]));
+  assert.equal(selecionar(p, { n: 4, seed: "nv", cotas: { D01: 4 }, vistas: todasVistas }).questoes.length, 4, "se não há nova, repete em vez de faltar");
+});

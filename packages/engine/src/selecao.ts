@@ -137,7 +137,9 @@ function escolher(
       const livres = (porAssunto.get(chave) as Questao[]).filter((q) => !q.grupoEquivalencia || !usadosGrupos.has(q.grupoEquivalencia));
       if (livres.length === 0) continue;
       const f = Math.max(...livres.map((q) => fraqueza(q, opc.foco)));
-      const prioridade = (contagem.get(chave) ?? 0) - 2 * f;
+      // Assunto em que só restam questões que o aluno já viu fica por último (só entra se não houver alternativa).
+      const temNova = livres.some((q) => !(opc.vistas?.[q.id]));
+      const prioridade = (contagem.get(chave) ?? 0) - 2 * f + (temNova ? 0 : 1000);
       if (prioridade < melhorPrioridade) {
         melhorPrioridade = prioridade;
         melhorAssunto = chave;

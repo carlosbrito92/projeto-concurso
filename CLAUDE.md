@@ -22,6 +22,7 @@ Feito no piloto:
 
 Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. `packages/engine` (TypeScript, 38 testes): seleção por peso do edital e rodízio de assuntos, simulado com snapshot, correção, relatório (disciplina, assunto com agregação hierárquica, foco, caderno de erros, acumulado entre simulados) e avisos de vigência. Ver `packages/engine/README.md`.
 - `supabase/migrations`: esquema do banco (conteúdo + dados do aluno) com RLS; `supabase/tests/test_rls.py` (27 testes de segurança, validados por mutação); `pipeline/seed_banco.py` (carga idempotente com trava de host). Ver `supabase/README.md`. **Aplicado** num projeto Supabase real (`concurso-engine`, `sa-east-1`, plano gratuito; 3 migrações; advisors sem alerta de risco; esquema idêntico ao do banco de teste, conferido por `supabase/tests/fingerprint.sql`). **Sem conteúdo carregado ainda**; o identificador do projeto não fica no repositório (variáveis de ambiente).
+- `apps/web` (Next.js 15 + Clerk + Supabase, modo demonstração local): painel, simulado (teclado, chute, tempo, salvamento a cada resposta), correção no servidor, resultado e panorama acumulado, avisos de vigência, landing com relatório de exemplo, Termos e Privacidade (minutas). 11 testes + teste de navegador + axe sem violações. Ver `apps/web/README.md`. Nome do produto provisório: `concurso/engine`.
 - Perfis de banca gerados (`conteudo/bancas/fgv.json`, `fumarc.json`). Próximas fontes: texto das leis citadas nos Anexos I (ver `ctresb/leis`, a avaliar), mais provas por banca e classificação de cada questão em um item do edital.
 
 Comandos (a partir da raiz):
@@ -38,6 +39,13 @@ python3 -I pipeline/edital_para_json.py conteudo/concursos/<slug>
 ## Pendências do autor (fora do alcance do Claude)
 
 - [ ] **CI no GitHub Actions** — a configurar pelo autor, em casa, com acesso às permissões do repositório (o ambiente do Claude não consegue criar workflows). Escopo previsto: `npm ci && npm run typecheck && npm test` em `packages/engine`; `pip install -r pipeline/requirements.txt` e rodar os scripts do pipeline em modo de validação sobre fixtures sintéticas (as provas reais não estão no Git); lint/validação das migrações SQL. Até lá, os testes só rodam localmente.
+
+- [ ] **Termos de uso e Política de privacidade**: as páginas existem como minuta com campos `[ENTRE COLCHETES]` (controlador, CNPJ, contato, foro, planos, provedores). Preencher e passar por advogado antes de qualquer lançamento.
+- [ ] **Nome do produto** (hoje provisório, em `components/Marca.tsx`).
+- [ ] **Decisão sobre as questões do tester**: com a política padrão nenhuma questão real é servida (todas `pendente_juridico`). Para um tester num deploy privado: `APP_ENV=teste` + `POLITICA_QUESTOES=desenvolvimento` e carregar o conteúdo com `seed_banco.py`. Em produção só com questões liberadas.
+- [ ] **Webhook do Clerk `user.deleted` → `apagar_dados_usuario`** (LGPD): a função existe no banco; falta a rota que a chama.
+- [ ] **Deploy na Vercel** com as variáveis do `apps/web/.env.example` (a `SUPABASE_SECRET_KEY` deve ser uma chave `sb_secret_...` rotacionável, revogada ao fim dos testes).
+- [ ] CI deve incluir também `apps/web`: `npm run typecheck`, `npm test` e `npm run build`.
 
 ## Stack
 
@@ -102,6 +110,16 @@ Lei muda; prova antiga pode cobrar texto já alterado ou revogado. O **aluno dev
 - A interface mostra, junto à questão e no relatório, um aviso claro: "Esta questão é de uma prova de <ano>; a legislação pode ter mudado. Confira a fonte vigente." Nunca esconder o aviso nem dar a resposta como certa sem ele.
 - O aviso só some quando um humano revisa a questão contra a fonte vigente (`revisao.status = "revisado"` e `fundamentacao.vigenteEm` preenchido).
 - Questões geradas por IA citam a norma e a data de vigência conferida (`fundamentacao.vigenteEm`).
+
+## Direção visual (interface)
+
+Baseada no índice de design do autor (arquivo `design-skill.md`, fora do repositório). Sem identidade de marca definida, vale o **default ASCII**: tipografia monoespaçada, caracteres como elemento visual (`[####----]`, `( )`/`(x)`, `[!]`, `##`), **sem** ícones de biblioteca, emojis, gradientes, sombras, glassmorphism, cantos arredondados, faixa lateral colorida, "3 cards em fileira", depoimentos ou planos inventados.
+- **Paleta 1** (Alabaster `#E5E4E2`, Onyx `#0A0A0A`, Blue Slate `#536878`) em tokens semânticos (`--fundo`, `--texto`, `--primario`...). Erro = Inferno `#AA0003` (no escuro `#FF7B72`), atenção = Gold `#FFD700` com texto Onyx. Escuro **reconstruído**, não invertido. Todo par de texto conferido em WCAG AA; nunca depender só de cor (usar texto e símbolo).
+- **Tipografia:** 2 famílias (mono do sistema na interface, serifa do sistema no enunciado), escala modular 1.25 sobre 16px, medida 65ch. Espaçamento em múltiplos de 4. Grade de 4 colunas (celular) e 12 (painel/relatório).
+- **Movimento:** só com propósito (feedback de estado), 100 a 250ms, `cubic-bezier(0.2,0.8,0.2,1)` na entrada, respeitar `prefers-reduced-motion`. Sem hover de escala/elevação: hover é vídeo inverso.
+- **Estados:** todo controle tem padrão, hover, ativo, foco, desabilitado e carregando. Carregamento de página = esqueleto ASCII; botão = spinner ASCII. Erro de formulário inline, erro transitório em toast, nada de "Algo deu errado" sem dizer o quê, por quê e o que fazer. Estado vazio sempre com ação.
+- Um botão primário por tela. Landing com demonstração real do produto (relatório gerado pelo motor), nunca mock inventado.
+- Verificação obrigatória em mudança de interface: `e2e/fluxo-demo.cjs` e auditoria axe (0 violações).
 
 ## Estilo da banca
 
