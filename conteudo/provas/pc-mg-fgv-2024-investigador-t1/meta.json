@@ -24,7 +24,105 @@
     },
     "gabarito": {
       "pdf": "gabarito-definitivo.pdf",
-      "sha256": "5cf0a40ee1ee588132ce44ebf31ad9ae92dfdbf8ec6b72c1e41166b62315f444"
+      "sha256": "5cf0a40ee1ee588132ce44ebf31ad9ae92dfdbf8ec6b72c1e41166b62315f444",
+      "cabecalho": "Investigador de Polícia I – Prova Tipo 1"
     }
-  }
+  },
+  "disciplinas": [
+    {
+      "id": "D01",
+      "nome": "Língua Portuguesa",
+      "titulo": [
+        "Língua Portuguesa"
+      ]
+    },
+    {
+      "id": "D02",
+      "nome": "Raciocínio Lógico-Matemático",
+      "titulo": [
+        "Raciocínio Lógico-Matemático"
+      ]
+    },
+    {
+      "id": "D03",
+      "nome": "Informática Básica",
+      "titulo": [
+        "Informática Básica"
+      ]
+    },
+    {
+      "id": "D04",
+      "nome": "Lei Orgânica da PCMG",
+      "titulo": [
+        "Lei Orgânica da Polícia Civil do Estado de",
+        "Minas Gerais"
+      ]
+    },
+    {
+      "id": "D05",
+      "nome": "Noções de Direito Administrativo",
+      "titulo": [
+        "Noções de Direito Administrativo"
+      ]
+    },
+    {
+      "id": "D06",
+      "nome": "Noções de Direito Constitucional",
+      "titulo": [
+        "Noções de Direito Constitucional"
+      ]
+    },
+    {
+      "id": "D07",
+      "nome": "Noções de Direito Penal",
+      "titulo": [
+        "Noções de Direito Penal"
+      ]
+    },
+    {
+      "id": "D08",
+      "nome": "Noções de Direito Processual Penal",
+      "titulo": [
+        "Noções de Direito Processual Penal"
+      ]
+    },
+    {
+      "id": "D09",
+      "nome": "Legislação Penal e Processual Extravagante",
+      "titulo": [
+        "Noções de Legislação Penal e",
+        "Processual Extravagante"
+      ]
+    },
+    {
+      "id": "D10",
+      "nome": "Noções de Direitos Humanos",
+      "titulo": [
+        "Noções de Direitos Humanos"
+      ]
+    },
+    {
+      "id": "D11",
+      "nome": "Noções de Medicina Legal",
+      "titulo": [
+        "Noções de Medicina Legal"
+      ]
+    },
+    {
+      "id": "D12",
+      "nome": "Noções de Criminologia",
+      "titulo": [
+        "Noções de Criminologia"
+      ]
+    }
+  ],
+  "modulos": [
+    [
+      "MÓDULO I - CONHECIMENTOS BÁSICOS"
+    ],
+    [
+      "MÓDULO II - CONHECIMENTOS",
+      "ESPECÍFICOS"
+    ]
+  ]
 }

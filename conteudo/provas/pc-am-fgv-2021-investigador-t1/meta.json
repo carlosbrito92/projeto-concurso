@@ -1,0 +1,90 @@
+{
+  "slug": "pc-am-fgv-2021-investigador-t1",
+  "codigoProva": 2,
+  "concursoSlug": "pc-am-fgv-2021",
+  "totalQuestoes": 80,
+  "dataAplicacao": "2022-04-03",
+  "concurso": {
+    "carreira": "Polícia Civil",
+    "orgao": "PCAM",
+    "banca": "FGV",
+    "ano": 2021,
+    "cargo": "Investigador de Polícia – 4ª Classe"
+  },
+  "caderno": {
+    "tipo": 1,
+    "cor": "Branca",
+    "rotulo": "Tipo 1 - Branca"
+  },
+  "marcadorFim": "Questão Discursiva",
+  "disciplinas": [
+    {
+      "nome": "Língua Portuguesa",
+      "titulo": [
+        "Língua Portuguesa"
+      ]
+    },
+    {
+      "nome": "Raciocínio Lógico-Matemático",
+      "titulo": [
+        "Raciocínio Lógico-Matemático"
+      ]
+    },
+    {
+      "nome": "História do Amazonas",
+      "titulo": [
+        "História do Amazonas"
+      ]
+    },
+    {
+      "nome": "Noções de Informática",
+      "titulo": [
+        "Noções de Informática"
+      ]
+    },
+    {
+      "nome": "Noções de Administração",
+      "titulo": [
+        "Noções de Administração"
+      ]
+    },
+    {
+      "nome": "Noções de Contabilidade",
+      "titulo": [
+        "Noções de Contabilidade"
+      ]
+    },
+    {
+      "nome": "Noções de Direito Constitucional",
+      "titulo": [
+        "Noções de Direito Constitucional"
+      ]
+    },
+    {
+      "nome": "Direito Penal, Processual Penal e Legislação Extravagante",
+      "titulo": [
+        "Noções de Direito Penal, Processual",
+        "Penal e Legislação Extravagante"
+      ]
+    },
+    {
+      "nome": "Noções de Direito Administrativo",
+      "titulo": [
+        "Noções de Direito Administrativo"
+      ]
+    }
+  ],
+  "fonte": {
+    "md": "prova-tipo1.md",
+    "origemObservacao": "Cópia do caderno oficial distribuída por terceiro (marca d'água pciconcursos); conferir com o PDF original da FGV.",
+    "prova": {
+      "pdf": "prova-tipo1.pdf",
+      "sha256": "48cdce6306df1757a84258e9e6226f0751e6833b5c1ac65ed107609686b0ff85"
+    },
+    "gabarito": {
+      "pdf": "gabarito-definitivo.pdf",
+      "sha256": "b19ef8ace5e3dec6c8c04ce254dc907b08f9f91663e30ddb1bef4ec9bc7f851a",
+      "cabecalho": "Investigador de Polícia - 4ª Classe – Tipo 1"
+    }
+  }
+}

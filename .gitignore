@@ -20,3 +20,4 @@ conteudo/provas/*/01-md/*
 !conteudo/provas/*/01-md/.gitkeep
 conteudo/provas/*/02-json/questoes.json
 conteudo/provas/*/02-json/gabarito.json
+conteudo/provas/*/02-json/discursiva.md

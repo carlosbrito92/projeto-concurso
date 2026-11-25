@@ -1,0 +1,82 @@
+{
+  "slug": "pc-ma-fgv-2012-investigador-t1",
+  "codigoProva": 3,
+  "concursoSlug": "pc-ma-fgv-2012",
+  "totalQuestoes": 70,
+  "dataAplicacao": null,
+  "numeracao": "inline",
+  "vigenciaSuspeita": true,
+  "marcadorFim": "Redação",
+  "concurso": {
+    "carreira": "Polícia Civil",
+    "orgao": "PCMA",
+    "banca": "FGV",
+    "ano": 2012,
+    "cargo": "Investigador de Polícia"
+  },
+  "caderno": {
+    "tipo": 1,
+    "cor": "Branca",
+    "rotulo": "Tipo 1 - Branca"
+  },
+  "disciplinas": [
+    {
+      "nome": "Língua Portuguesa",
+      "titulo": [
+        "Língua Portuguesa"
+      ]
+    },
+    {
+      "nome": "Legislação Específica",
+      "titulo": [
+        "Legislação Específica"
+      ]
+    },
+    {
+      "nome": "Raciocínio Lógico-Matemático",
+      "titulo": [
+        "Raciocínio Lógico-matemático"
+      ]
+    },
+    {
+      "nome": "Noções de Informática",
+      "titulo": [
+        "Noções de Informática"
+      ]
+    },
+    {
+      "nome": "Noções de Direito Constitucional",
+      "titulo": [
+        "Noções de Direito Constitucional"
+      ]
+    },
+    {
+      "nome": "Noções de Direito Administrativo",
+      "titulo": [
+        "Noções de Direito Administrativo"
+      ]
+    },
+    {
+      "nome": "Noções de Direito Penal e Processual Penal",
+      "titulo": [
+        "Noções de Direito Penal e",
+        "Processual Penal"
+      ]
+    }
+  ],
+  "fonte": {
+    "md": "prova-tipo1.md",
+    "origemObservacao": "Cópia do caderno oficial distribuída por terceiro (marca d'água pciconcursos); conferir com o PDF original da FGV.",
+    "prova": {
+      "pdf": "prova-tipo1.pdf",
+      "sha256": "3681b4e0ed0d1d47489960b48a73897df807a8e0714671ffd5ed5198db97e535"
+    },
+    "gabarito": {
+      "pdf": "gabarito-preliminar.pdf",
+      "sha256": "5f0507e40663f3727b4b8268638f2536b25fc8849dbec3d46cc0c0c20ad8535b",
+      "formato": "pares",
+      "pagina": 13,
+      "situacao": "preliminar"
+    }
+  }
+}

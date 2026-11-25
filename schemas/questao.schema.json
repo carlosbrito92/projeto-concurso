@@ -358,7 +358,9 @@
             "formatacao",
             "tabela",
             "classificar_assunto",
-            "revisar_texto"
+            "revisar_texto",
+            "gabarito_preliminar",
+            "verificar_vigencia"
           ]
         },
         "description": "O que exige olhar humano antes de a questão ser ativada"

@@ -12,13 +12,18 @@ Feito no piloto:
 - `01-md/edital-04-2024.md`: edital completo em Markdown, com `<!-- p.N -->` por página (N = página do PDF).
 - `02-json/edital.json`: estrutura do Anexo I (12 disciplinas, 339 itens, pesos pelo nº de questões), validada por `schemas/edital.schema.json`.
 
-- `conteudo/provas/pc-mg-fgv-2024-investigador-t1/`: prova real PCMG (Tipo 1) extraída para `questoes.json` (70 questões, gabarito definitivo conferido, Q59 anulada). **Texto das questões fica fora do Git** (ver regra abaixo); o repo versiona só código, `meta.json` e `relatorio.md`.
+- `conteudo/provas/`: três provas reais da FGV extraídas para `questoes.json` (schema v3), todas com gabarito conferido contra o PDF:
+  - `pc-mg-fgv-2024-investigador-t1`: 70 questões, gabarito definitivo, Q59 anulada.
+  - `pc-am-fgv-2021-investigador-t1`: 80 questões objetivas (+ 1 discursiva fora do banco), gabarito definitivo, Q24 anulada. Sem `edital.json`: contagem por disciplina não conferida.
+  - `pc-ma-fgv-2012-investigador-t1`: 70 questões, **gabarito PRELIMINAR** (pode ter mudado após recursos) e prova de 2012: toda questão jurídica exige `verificar_vigencia`. Sem `edital.json`.
+  O texto das questões fica **fora do Git** (regra abaixo); o repo versiona só código, `meta.json` e `relatorio.md`.
 
 Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. Próximas fontes: texto das leis citadas no Anexo I, provas anteriores da FGV/PCMG e perfil da banca.
 
 Comandos (a partir da raiz):
 ```bash
-# prova de 2 colunas + gabarito (conteudo/provas/<slug>/, com meta.json)
+# prova de 2 colunas + gabarito (conteudo/provas/<slug>/, com meta.json: disciplinas, títulos, cabeçalho/página do gabarito)
+# opções: --inicio "texto da 1ª pág. de questões" --topo N --rodape N (faixa de cabeçalho/rodapé a descartar)
 python3 -I pipeline/prova_para_md.py conteudo/provas/<slug>/00-origem/<prova>.pdf conteudo/provas/<slug>/01-md/<prova>.md
 python3 -I pipeline/prova_para_json.py conteudo/provas/<slug>
 # edital
