@@ -12,10 +12,16 @@ Feito no piloto:
 - `01-md/edital-04-2024.md`: edital completo em Markdown, com `<!-- p.N -->` por página (N = página do PDF).
 - `02-json/edital.json`: estrutura do Anexo I (12 disciplinas, 339 itens, pesos pelo nº de questões), validada por `schemas/edital.schema.json`.
 
+- `conteudo/provas/pc-mg-fgv-2024-investigador-t1/`: prova real PCMG (Tipo 1) extraída para `questoes.json` (70 questões, gabarito definitivo conferido, Q59 anulada). **Texto das questões fica fora do Git** (ver regra abaixo); o repo versiona só código, `meta.json` e `relatorio.md`.
+
 Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. Próximas fontes: texto das leis citadas no Anexo I, provas anteriores da FGV/PCMG e perfil da banca.
 
 Comandos (a partir da raiz):
 ```bash
+# prova de 2 colunas + gabarito (conteudo/provas/<slug>/, com meta.json)
+python3 -I pipeline/prova_para_md.py conteudo/provas/<slug>/00-origem/<prova>.pdf conteudo/provas/<slug>/01-md/<prova>.md
+python3 -I pipeline/prova_para_json.py conteudo/provas/<slug>
+# edital
 python3 -I pipeline/pdf_para_md.py conteudo/concursos/<slug>/00-origem/<edital>.pdf conteudo/concursos/<slug>/01-md/<edital>.md
 python3 -I pipeline/edital_para_json.py conteudo/concursos/<slug>
 ```
@@ -62,6 +68,8 @@ Regras do pipeline:
 | `autoral_ia` | Gerada por IA a partir de conhecimentos do edital | Nasce `revisao.status = "automatico"`. Só vai ao aluno após validação (abaixo). |
 
 Questão de IA só é publicada se: tem `fundamentacao` com fonte real e vigente; o gabarito foi conferido contra a fonte; um humano revisou (`revisao.status = "revisado"`). **A IA não pode ser a única verificadora do gabarito.**
+
+**Repositório e direito autoral:** enquanto o repositório for **público**, nenhum texto de questão de prova real (`01-md/` e `questoes.json` de `conteudo/provas/`) vai para o Git (está no `.gitignore`). Só passa a ser versionado com o repo privado, e continua sem ir ao aluno até `direitos.status = "liberada"`.
 
 Questão anulada ou com gabarito alterado: `anulada: true`, fora da geração de provas e fora das estatísticas.
 

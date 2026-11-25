@@ -9,3 +9,14 @@ __pycache__/
 # PDFs de origem (direito autoral): só o sha256 vai para o manifest
 conteudo/concursos/*/00-origem/*
 !conteudo/concursos/*/00-origem/.gitkeep
+
+# PDFs de provas (direito autoral)
+conteudo/provas/*/00-origem/*
+!conteudo/provas/*/00-origem/.gitkeep
+
+# Texto de questões de provas reais: só entra no Git com o repositório PRIVADO
+# e direitos.status liberado/aceito (ver CLAUDE.md). Hoje o repo é público.
+conteudo/provas/*/01-md/*
+!conteudo/provas/*/01-md/.gitkeep
+conteudo/provas/*/02-json/questoes.json
+conteudo/provas/*/02-json/gabarito.json

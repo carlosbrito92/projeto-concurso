@@ -1,0 +1,30 @@
+{
+  "slug": "pc-mg-fgv-2024-investigador-t1",
+  "codigoProva": 1,
+  "concursoSlug": "pc-mg-fgv-2024",
+  "totalQuestoes": 70,
+  "dataAplicacao": "2025-01-26",
+  "concurso": {
+    "carreira": "Polícia Civil",
+    "orgao": "PCMG",
+    "banca": "FGV",
+    "ano": 2024,
+    "cargo": "Investigador de Polícia I"
+  },
+  "caderno": {
+    "tipo": 1,
+    "cor": "Branca",
+    "rotulo": "Tipo 1 - Branca"
+  },
+  "fonte": {
+    "md": "prova-tipo1.md",
+    "prova": {
+      "pdf": "prova-tipo1.pdf",
+      "sha256": "637c50bf3e64b09c6ef5dba405be25e856fe7b4f9b4c0dad5cb498f57705a42f"
+    },
+    "gabarito": {
+      "pdf": "gabarito-definitivo.pdf",
+      "sha256": "5cf0a40ee1ee588132ce44ebf31ad9ae92dfdbf8ec6b72c1e41166b62315f444"
+    }
+  }
+}

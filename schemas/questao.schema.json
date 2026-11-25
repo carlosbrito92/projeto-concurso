@@ -4,30 +4,98 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["id", "schemaVersion", "tipo", "enunciado", "classificacao", "origem", "direitos", "revisao", "status"],
+    "required": [
+      "id",
+      "schemaVersion",
+      "tipo",
+      "enunciado",
+      "classificacao",
+      "origem",
+      "direitos",
+      "revisao",
+      "status"
+    ],
     "additionalProperties": false,
     "properties": {
-      "id": { "type": "string", "pattern": "^Q[0-9]{6}$" },
-      "schemaVersion": { "const": "3.0" },
-      "tipo": { "enum": ["MultiplaEscolha", "CertoErrado", "AfirmacoesCombinadas", "VerdadeiroFalso"] },
-      "estiloBanca": { "type": "string" },
-      "dificuldade": { "enum": ["Baixa", "Media", "Alta"] },
-      "dificuldadeStatus": { "enum": ["Estimada", "Calibrada"] },
-      "peso": { "type": "integer", "minimum": 1, "maximum": 5, "default": 1 },
-      "textoApoio": { "type": ["string", "null"] },
-      "enunciado": { "type": "string", "minLength": 1 },
+      "id": {
+        "type": "string",
+        "pattern": "^Q[0-9]{6}$"
+      },
+      "schemaVersion": {
+        "const": "3.0"
+      },
+      "tipo": {
+        "enum": [
+          "MultiplaEscolha",
+          "CertoErrado",
+          "AfirmacoesCombinadas",
+          "VerdadeiroFalso"
+        ]
+      },
+      "estiloBanca": {
+        "type": "string"
+      },
+      "dificuldade": {
+        "enum": [
+          "Baixa",
+          "Media",
+          "Alta"
+        ]
+      },
+      "dificuldadeStatus": {
+        "enum": [
+          "Estimada",
+          "Calibrada"
+        ]
+      },
+      "peso": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 5,
+        "default": 1
+      },
+      "textoApoio": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "enunciado": {
+        "type": "string",
+        "minLength": 1
+      },
       "afirmacoes": {
         "type": "array",
         "minItems": 2,
         "items": {
           "type": "object",
-          "required": ["id", "texto", "verdadeira"],
+          "required": [
+            "id",
+            "texto",
+            "verdadeira"
+          ],
           "additionalProperties": false,
           "properties": {
-            "id": { "enum": ["I", "II", "III", "IV", "V", "VI"] },
-            "texto": { "type": "string" },
-            "verdadeira": { "type": "boolean" },
-            "conhecimentoId": { "type": "string", "pattern": "^K[0-9]{6}$" }
+            "id": {
+              "enum": [
+                "I",
+                "II",
+                "III",
+                "IV",
+                "V",
+                "VI"
+              ]
+            },
+            "texto": {
+              "type": "string"
+            },
+            "verdadeira": {
+              "type": "boolean"
+            },
+            "conhecimentoId": {
+              "type": "string",
+              "pattern": "^K[0-9]{6}$"
+            }
           }
         }
       },
@@ -35,98 +103,409 @@
         "type": "array",
         "minItems": 2,
         "maxItems": 5,
-        "items": { "type": "string" }
+        "items": {
+          "type": "string"
+        }
       },
-      "correta": { "type": "integer", "minimum": 0, "description": "Índice base 0 da alternativa correta" },
-      "gabaritoCertoErrado": { "type": "boolean" },
+      "correta": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Índice base 0 da alternativa correta"
+      },
+      "gabaritoCertoErrado": {
+        "type": "boolean"
+      },
       "classificacao": {
         "type": "object",
-        "required": ["disciplina", "assunto"],
+        "required": [
+          "disciplina",
+          "assunto"
+        ],
         "additionalProperties": false,
         "properties": {
-          "disciplina": { "type": "string" },
-          "assunto": { "type": "string" },
-          "editalItem": { "type": ["string", "null"], "description": "Numeração do item no edital" },
-          "conhecimentoId": { "type": "string", "pattern": "^K[0-9]{6}$" }
+          "disciplina": {
+            "type": "string"
+          },
+          "assunto": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "null enquanto a questão não foi classificada em um item do edital"
+          },
+          "editalItem": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Numeração do item no edital"
+          },
+          "conhecimentoId": {
+            "type": "string",
+            "pattern": "^K[0-9]{6}$"
+          },
+          "disciplinaId": {
+            "type": "string",
+            "pattern": "^D[0-9]{2}$",
+            "description": "Id da disciplina em edital.json do concurso"
+          }
         }
       },
       "concurso": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "carreira": { "type": "string" },
-          "orgao": { "type": "string" },
-          "banca": { "type": "string" },
-          "ano": { "type": "integer" },
-          "cargo": { "type": "string" }
+          "carreira": {
+            "type": "string"
+          },
+          "orgao": {
+            "type": "string"
+          },
+          "banca": {
+            "type": "string"
+          },
+          "ano": {
+            "type": "integer"
+          },
+          "cargo": {
+            "type": "string"
+          }
         }
       },
       "fundamentacao": {
-        "type": ["object", "null"],
-        "required": ["fonte"],
+        "type": [
+          "object",
+          "null"
+        ],
+        "required": [
+          "fonte"
+        ],
         "additionalProperties": false,
         "properties": {
-          "fonte": { "type": "string", "description": "Ex.: CP, art. 121, §2º" },
-          "trechoLiteral": { "type": ["string", "null"] },
-          "url": { "type": ["string", "null"] },
-          "vigenteEm": { "type": ["string", "null"], "description": "AAAA-MM" }
+          "fonte": {
+            "type": "string",
+            "description": "Ex.: CP, art. 121, §2º"
+          },
+          "trechoLiteral": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "vigenteEm": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "AAAA-MM"
+          }
         }
       },
-      "comentario": { "type": ["string", "null"], "description": "Explicação exibida após responder" },
+      "comentario": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "Explicação exibida após responder"
+      },
       "origem": {
         "type": "object",
-        "required": ["tipo"],
+        "required": [
+          "tipo"
+        ],
         "additionalProperties": false,
         "properties": {
-          "tipo": { "enum": ["prova_real", "autoral_ia"] },
-          "pdfSha256": { "type": ["string", "null"] },
-          "pagina": { "type": ["integer", "null"] },
-          "questaoNumero": { "type": ["integer", "null"] },
-          "modelo": { "type": ["string", "null"], "description": "Modelo de IA que gerou (se autoral_ia)" },
-          "promptVersao": { "type": ["string", "null"] },
-          "baseadaEm": { "type": "array", "items": { "type": "string", "pattern": "^K[0-9]{6}$" } }
+          "tipo": {
+            "enum": [
+              "prova_real",
+              "autoral_ia"
+            ]
+          },
+          "pdfSha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pagina": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "questaoNumero": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "modelo": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Modelo de IA que gerou (se autoral_ia)"
+          },
+          "promptVersao": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "baseadaEm": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^K[0-9]{6}$"
+            }
+          },
+          "provaSlug": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Pasta em conteudo/provas/"
+          },
+          "caderno": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Ex.: Tipo 1 - Branca"
+          }
         }
       },
       "direitos": {
         "type": "object",
-        "required": ["status"],
+        "required": [
+          "status"
+        ],
         "additionalProperties": false,
         "properties": {
-          "status": { "enum": ["pendente_juridico", "liberada", "nao_aplicavel"] },
-          "nota": { "type": ["string", "null"] }
+          "status": {
+            "enum": [
+              "pendente_juridico",
+              "liberada",
+              "nao_aplicavel"
+            ]
+          },
+          "nota": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         }
       },
       "revisao": {
         "type": "object",
-        "required": ["status"],
+        "required": [
+          "status"
+        ],
         "additionalProperties": false,
         "properties": {
-          "status": { "enum": ["automatico", "revisado", "rejeitado"] },
-          "por": { "type": ["string", "null"] },
-          "em": { "type": ["string", "null"] }
+          "status": {
+            "enum": [
+              "automatico",
+              "revisado",
+              "rejeitado"
+            ]
+          },
+          "por": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "em": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         }
       },
-      "anulada": { "type": "boolean", "default": false },
-      "gabaritoOficial": { "type": "boolean", "default": false },
-      "grupoEquivalencia": { "type": "string" },
-      "status": { "enum": ["rascunho", "ativa", "inativa", "em_revisao"] }
+      "anulada": {
+        "type": "boolean",
+        "default": false
+      },
+      "gabaritoOficial": {
+        "type": "boolean",
+        "default": false
+      },
+      "grupoEquivalencia": {
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "rascunho",
+          "ativa",
+          "inativa",
+          "em_revisao"
+        ]
+      },
+      "pendencias": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "imagem",
+            "formatacao",
+            "tabela",
+            "classificar_assunto",
+            "revisar_texto"
+          ]
+        },
+        "description": "O que exige olhar humano antes de a questão ser ativada"
+      },
+      "imagens": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "pagina",
+            "bbox"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "pagina": {
+              "type": "integer"
+            },
+            "coluna": {
+              "enum": [
+                "E",
+                "D"
+              ]
+            },
+            "bbox": {
+              "type": "string"
+            }
+          }
+        }
+      }
     },
     "allOf": [
       {
-        "if": { "properties": { "tipo": { "const": "CertoErrado" } } },
-        "then": { "required": ["gabaritoCertoErrado"] }
+        "if": {
+          "properties": {
+            "tipo": {
+              "const": "CertoErrado"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "gabaritoCertoErrado"
+          ]
+        }
       },
       {
-        "if": { "properties": { "tipo": { "enum": ["MultiplaEscolha", "AfirmacoesCombinadas"] } } },
-        "then": { "required": ["alternativas", "correta"] }
+        "if": {
+          "allOf": [
+            {
+              "properties": {
+                "tipo": {
+                  "enum": [
+                    "MultiplaEscolha",
+                    "AfirmacoesCombinadas"
+                  ]
+                }
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "anulada"
+                ],
+                "properties": {
+                  "anulada": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "then": {
+          "required": [
+            "alternativas"
+          ]
+        }
       },
       {
-        "if": { "properties": { "tipo": { "const": "AfirmacoesCombinadas" } } },
-        "then": { "required": ["afirmacoes"] }
+        "if": {
+          "properties": {
+            "tipo": {
+              "const": "AfirmacoesCombinadas"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "afirmacoes"
+          ]
+        }
       },
       {
-        "if": { "properties": { "origem": { "properties": { "tipo": { "const": "autoral_ia" } } } } },
-        "then": { "required": ["fundamentacao"], "properties": { "fundamentacao": { "type": "object" } } }
+        "if": {
+          "properties": {
+            "origem": {
+              "properties": {
+                "tipo": {
+                  "const": "autoral_ia"
+                }
+              }
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "fundamentacao"
+          ],
+          "properties": {
+            "fundamentacao": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "allOf": [
+            {
+              "properties": {
+                "tipo": {
+                  "enum": [
+                    "MultiplaEscolha",
+                    "AfirmacoesCombinadas"
+                  ]
+                }
+              }
+            },
+            {
+              "not": {
+                "required": [
+                  "anulada"
+                ],
+                "properties": {
+                  "anulada": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "then": {
+          "required": [
+            "correta"
+          ]
+        }
       }
     ]
   }
