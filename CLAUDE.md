@@ -21,7 +21,7 @@ Feito no piloto:
   O texto das questões fica **fora do Git** (regra abaixo); o repo versiona só código, `meta.json`, `relatorio.md` e os editais.
 
 Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. `packages/engine` (TypeScript, 38 testes): seleção por peso do edital e rodízio de assuntos, simulado com snapshot, correção, relatório (disciplina, assunto com agregação hierárquica, foco, caderno de erros, acumulado entre simulados) e avisos de vigência. Ver `packages/engine/README.md`.
-- `supabase/migrations`: esquema do banco (conteúdo + dados do aluno) com RLS; `supabase/tests/test_rls.py` (27 testes de segurança, validados por mutação); `pipeline/seed_banco.py` (carga idempotente com trava de host). Ver `supabase/README.md`. **Ainda não aplicado em projeto Supabase real.**
+- `supabase/migrations`: esquema do banco (conteúdo + dados do aluno) com RLS; `supabase/tests/test_rls.py` (27 testes de segurança, validados por mutação); `pipeline/seed_banco.py` (carga idempotente com trava de host). Ver `supabase/README.md`. **Aplicado** num projeto Supabase real (`concurso-engine`, `sa-east-1`, plano gratuito; 3 migrações; advisors sem alerta de risco; esquema idêntico ao do banco de teste, conferido por `supabase/tests/fingerprint.sql`). **Sem conteúdo carregado ainda**; o identificador do projeto não fica no repositório (variáveis de ambiente).
 - Perfis de banca gerados (`conteudo/bancas/fgv.json`, `fumarc.json`). Próximas fontes: texto das leis citadas nos Anexos I (ver `ctresb/leis`, a avaliar), mais provas por banca e classificação de cada questão em um item do edital.
 
 Comandos (a partir da raiz):

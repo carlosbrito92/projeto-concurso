@@ -1,11 +1,11 @@
 # Banco (Supabase / Postgres)
 
-Duas migrações, aplicadas em ordem:
+Três migrações, aplicadas em ordem (os números de versão são os que o Supabase gravou no projeto, para a CLI não tentar reaplicá-las):
 
 | Arquivo | O que cria |
 |---|---|
-| `20261125120000_conteudo.sql` | `concurso`, `disciplina`, `grupo_edital`, `item_edital`, `banca_perfil`, `prova`, `questao`, `questao_gabarito` |
-| `20261125120100_aluno.sql` | `usuario_concurso`, `simulado`, `simulado_item`, `simulado_gabarito`, `resposta`, `relatorio_simulado`, `reporte_questao`, `usuario_atual()`, `apagar_dados_usuario()` |
+| `20261125145251_conteudo.sql` | `concurso`, `disciplina`, `grupo_edital`, `item_edital`, `banca_perfil`, `prova`, `questao`, `questao_gabarito` |
+| `20261125145326_aluno.sql` | `usuario_concurso`, `simulado`, `simulado_item`, `simulado_gabarito`, `resposta`, `relatorio_simulado`, `reporte_questao`, `usuario_atual()`, `apagar_dados_usuario()` |
 
 ## Modelo de acesso (o que o navegador pode e não pode)
 
@@ -43,6 +43,15 @@ TEST_DATABASE_URL=postgresql://postgres@127.0.0.1:5432/postgres python3 supabase
 ```
 Cria e apaga um banco temporário (**nunca aponte para um banco real**), reproduz os papéis e o `auth.jwt()` do Supabase, aplica as migrações e tenta ataques de aluno (ler gabarito, ler dado de outro, escrever `acertou`, responder após finalizar, forjar reporte, chamar a função de LGPD...). 27 testes. Foi validado também por **mutação**: sabotar a migração (abrir `questao_gabarito`, tirar a checagem de status, liberar `acertou`, abrir a função de LGPD, remover o filtro de usuário) faz o teste falhar.
 
+## Projeto Supabase
+Criado em `sa-east-1` (São Paulo), plano gratuito, nome `concurso-engine`. As três migrações foram aplicadas e os *advisors* rodados:
+- **Segurança:** 4 avisos informativos "RLS sem política" em `prova`, `questao`, `questao_gabarito` e `simulado_gabarito` — **intencionais** (tabelas só do servidor). Nada além disso.
+- **Performance:** 6 chaves estrangeiras sem índice, corrigidas na 3ª migração. "Índices não usados" é efeito do banco vazio.
+- **Conferência de deriva:** `supabase/tests/fingerprint.sql` gera uma impressão digital do esquema (colunas, restrições, índices, políticas, funções, gatilhos, RLS, privilégios). Rode no banco local (onde os 27 testes passam) e no projeto: os nove hashes devem ser iguais. Estavam.
+- Variáveis de ambiente do app (nunca commitar): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SERVICE_ROLE_KEY` (só servidor; pegar no painel), e as do Clerk. O identificador do projeto não fica no repositório.
+
 ## Pendente
-- Aplicar as migrações num projeto Supabase real e rodar os *advisors* de segurança/performance.
+- Integrar o Clerk (third-party auth) no painel do Supabase e do Clerk (passos acima).
+- Carregar o conteúdo (`seed_banco.py`): **decisão do autor**, pois leva texto de prova real (`pendente_juridico`) para um banco hospedado.
+- CI para rodar estes testes (ver "Pendências do autor" no `CLAUDE.md`).
 - CI para rodar estes testes (ver "Pendências do autor" no `CLAUDE.md`).
