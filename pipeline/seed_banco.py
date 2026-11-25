@@ -16,6 +16,7 @@ Regras (CLAUDE.md):
 import argparse
 import json
 import sys
+import urllib.error
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -29,22 +30,26 @@ def ler(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-def upsert(tabela: str, pk: list[str], linha: dict) -> tuple[str, list]:
+JSONB = {"amostra", "medidas", "alternativas", "imagens", "fundamentacao"}  # colunas jsonb (no psycopg vão como texto JSON)
+
+
+def sql_upsert(tabela: str, pk: list[str], linha: dict) -> tuple[str, dict]:
     cols = list(linha)
     marcas = ", ".join(f"%({c})s" for c in cols)
     sets = ", ".join(f"{c} = excluded.{c}" for c in cols if c not in pk)
     sql = f"insert into public.{tabela} ({', '.join(cols)}) values ({marcas}) on conflict ({', '.join(pk)}) do " + (f"update set {sets}" if sets else "nothing")
-    return sql, [linha]
+    params = {c: (json.dumps(v, ensure_ascii=False) if c in JSONB and isinstance(v, (dict, list)) else v) for c, v in linha.items()}
+    return sql, params
 
 
-def montar() -> tuple[list[tuple[str, list]], dict, list[str]]:
-    """Devolve (comandos em ordem, contagens, avisos). Cada comando é (sql, [parametros])."""
-    cmds: list[tuple[str, list]] = []
+def montar() -> tuple[list[dict], dict, list[str]]:
+    """Devolve (operações em ordem, contagens, avisos). Operação: {"t","pk","linha"} (upsert) ou {"status","id"}."""
+    cmds: list[dict] = []
     cont: dict[str, int] = {}
     avisos: list[str] = []
 
     def add(tabela, pk, linha):
-        cmds.append(upsert(tabela, pk, linha))
+        cmds.append({"t": tabela, "pk": pk, "linha": linha})
         cont[tabela] = cont.get(tabela, 0) + 1
 
     # 1) concursos e editais
@@ -73,7 +78,7 @@ def montar() -> tuple[list[tuple[str, list]], dict, list[str]]:
     # 2) perfis de banca (só estatísticas)
     for bp in sorted(BANCAS.glob("*.json")):
         b = ler(bp)
-        add("banca_perfil", ["banca"], {"banca": b["banca"], "amostra": json.dumps(b["amostra"], ensure_ascii=False), "medidas": json.dumps(b["medidas"], ensure_ascii=False)})
+        add("banca_perfil", ["banca"], {"banca": b["banca"], "amostra": b["amostra"], "medidas": b["medidas"]})
 
     # 3) provas e questões (questões só onde o JSON existe localmente)
     for mp in sorted(PROVAS.glob("*/meta.json")):
@@ -99,27 +104,70 @@ def montar() -> tuple[list[tuple[str, list]], dict, list[str]]:
             alvo = q["status"]
             linha = {"id": q["id"], "schema_version": q["schemaVersion"], "prova_slug": m["slug"], "concurso_slug": m["concursoSlug"],
                      "numero_na_prova": q["origem"].get("questaoNumero"), "tipo": q["tipo"], "enunciado": q["enunciado"], "texto_apoio": q.get("textoApoio"),
-                     "alternativas": json.dumps(q["alternativas"], ensure_ascii=False), "anulada": q["anulada"], "peso": q.get("peso", 1),
+                     "alternativas": q["alternativas"], "anulada": q["anulada"], "peso": q.get("peso", 1),
                      "grupo_equivalencia": q.get("grupoEquivalencia"), "disciplina_ids": ids, "disciplina_nome": c["disciplina"],
                      "edital_item_id": item, "edital_item_trilha": c.get("editalItemTrilha", []), "assunto": c.get("assunto"),
                      "classificacao_status": c.get("classificacaoStatus"), "classificacao_metodo": c.get("classificacaoMetodo"), "classificacao_score": c.get("classificacaoScore"),
                      "origem_tipo": q["origem"]["tipo"], "banca": q.get("concurso", {}).get("banca"), "ano": q.get("concurso", {}).get("ano"),
                      "direitos_status": q["direitos"]["status"], "revisao_status": q["revisao"]["status"], "revisao_por": q["revisao"].get("por"),
                      "pendencias": q.get("pendencias", []), "gabarito_oficial": q.get("gabaritoOficial", False),
-                     "imagens": json.dumps(q["imagens"], ensure_ascii=False) if q.get("imagens") else None,
+                     "imagens": q["imagens"] if q.get("imagens") else None,
                      "status": "rascunho"}  # sobe como rascunho; o status final só vale depois de o gabarito existir (gatilho do banco)
             add("questao", ["id"], linha)
             add("questao_gabarito", ["questao_id"], {"questao_id": q["id"], "correta": q.get("correta"), "comentario": q.get("comentario"),
-                                                    "fundamentacao": json.dumps(q["fundamentacao"], ensure_ascii=False) if q.get("fundamentacao") else None})
+                                                    "fundamentacao": q["fundamentacao"] if q.get("fundamentacao") else None})
             if alvo != "rascunho":
-                cmds.append(("update public.questao set status = %(s)s where id = %(id)s", [{"s": alvo, "id": q["id"]}]))
+                cmds.append({"status": alvo, "id": q["id"]})
     return cmds, cont, avisos
+
+
+def aplicar_rest(cmds: list[dict], base: str, chave: str) -> None:
+    """Grava via PostgREST (chave secreta ignora RLS). Não é transacional: é idempotente, então basta rodar de novo."""
+    import urllib.request
+
+    def req(metodo: str, caminho: str, corpo, extra: dict | None = None):
+        h = {"apikey": chave, "Content-Type": "application/json", **(extra or {})}
+        r = urllib.request.Request(f"{base}/rest/v1/{caminho}", data=json.dumps(corpo, ensure_ascii=False).encode("utf-8"), method=metodo, headers=h)
+        try:
+            with urllib.request.urlopen(r, timeout=120) as resp:
+                resp.read()
+        except urllib.error.HTTPError as e:
+            raise SystemExit(f"ERRO {e.code} em {metodo} {caminho}: {e.read().decode('utf-8', 'replace')[:500]}")
+
+    # agrupa linhas consecutivas da mesma tabela (a ordem de dependência já vem de montar())
+    lote: list[dict] = []
+    tab, pk = None, None
+
+    def descarrega():
+        nonlocal lote
+        for k in range(0, len(lote), 100):
+            req("POST", f"{tab}?on_conflict={','.join(pk)}", lote[k:k + 100], {"Prefer": "resolution=merge-duplicates,return=minimal"})
+        if lote:
+            print(f"  {tab}: {len(lote)}")
+        lote = []
+
+    status: dict[str, list[str]] = {}
+    for c in cmds:
+        if "status" in c:
+            status.setdefault(c["status"], []).append(c["id"])
+            continue
+        if c["t"] != tab:
+            descarrega()
+            tab, pk = c["t"], c["pk"]
+        lote.append(c["linha"])
+    descarrega()
+    for alvo, ids in status.items():  # só depois de os gabaritos existirem (gatilho do banco)
+        for k in range(0, len(ids), 50):
+            parte = ",".join(f'"{i}"' for i in ids[k:k + 50])
+            req("PATCH", f"questao?id=in.({parte})", {"status": alvo}, {"Prefer": "return=minimal"})
+        print(f"  questao -> status {alvo}: {len(ids)}")
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--apply", action="store_true", help="grava no banco (DATABASE_URL)")
-    ap.add_argument("--confirmar-host", help="host esperado do DATABASE_URL; obrigatório com --apply")
+    ap.add_argument("--rest", action="store_true", help="com --apply: grava pela API REST (SUPABASE_URL + SUPABASE_SECRET_KEY) em vez de psycopg")
+    ap.add_argument("--confirmar-host", help="host esperado do DATABASE_URL/SUPABASE_URL; obrigatório com --apply")
     a = ap.parse_args()
     cmds, cont, avisos = montar()
     print("A carregar:", ", ".join(f"{t}={n}" for t, n in cont.items()))
@@ -129,6 +177,20 @@ def main() -> int:
         print("(simulação: nada foi gravado; use --apply para gravar)")
         return 0
     import os
+
+    if a.rest:
+        base = (os.environ.get("SUPABASE_URL") or "").rstrip("/")
+        chave = os.environ.get("SUPABASE_SECRET_KEY")
+        if not base or not chave:
+            print("ERRO: defina SUPABASE_URL e SUPABASE_SECRET_KEY")
+            return 2
+        host = urlsplit(base).hostname
+        if a.confirmar_host != host:
+            print(f"ERRO: --confirmar-host deve ser exatamente '{host}' (host do SUPABASE_URL). Nada foi gravado.")
+            return 2
+        aplicar_rest(cmds, base, chave)
+        print(f"OK: {len(cmds)} operações aplicadas em {host} (REST; idempotente, repita se algo falhar).")
+        return 0
 
     url = os.environ.get("DATABASE_URL")
     if not url:
@@ -142,8 +204,12 @@ def main() -> int:
 
     with psycopg.connect(url) as conn:
         with conn.transaction():
-            for sql, params in cmds:
-                conn.execute(sql, params[0])
+            for c in cmds:
+                if "status" in c:
+                    conn.execute("update public.questao set status = %(s)s where id = %(id)s", {"s": c["status"], "id": c["id"]})
+                else:
+                    sql, params = sql_upsert(c["t"], c["pk"], c["linha"])
+                    conn.execute(sql, params)
     print(f"OK: {len(cmds)} comandos aplicados em {host} (transação única).")
     return 0
 
