@@ -19,6 +19,7 @@ Veja `.env.example`. Valores nunca vão para o Git.
 | `POLITICA_QUESTOES=desenvolvimento` | só `teste` | libera questões ainda `pendente_juridico` para um tester num deploy privado; proibida em produção (o app falha ao subir) |
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | navegador e servidor | públicas por desenho |
 | `SUPABASE_SECRET_KEY` | **só servidor** | chave `sb_secret_...` rotacionável; usada para criar simulado, corrigir e ler o banco de questões |
+| `ADMIN_USER_IDS` | servidor | IDs do Clerk (`user_...`, separados por vírgula) com acesso a `/admin`. Vazio = ninguém; quem não é admin recebe 404. Mudar o valor exige novo deploy |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY` | | integração Clerk + Supabase (third-party auth) já feita pelo autor |
 
 ## Como os dados fluem
@@ -41,8 +42,12 @@ e2e/fluxo-demo.cjs      teste de navegador (Playwright) do fluxo completo em mod
 ```bash
 npm run typecheck && npm test            # tipos e testes do serviço
 DEMO=1 APP_ENV=dev npm run dev & node e2e/fluxo-demo.cjs ./capturas   # navegador
+node e2e/reportes-demo.cjs ./capturas <pasta-com-axe-core>              # reportes do aluno + /admin (claro e escuro, axe)
 ```
 Auditoria de acessibilidade (axe, WCAG A/AA + boas práticas) nas 6 telas × 2 temas: 0 violações de contraste ou rótulo.
+
+## Reportes e administração
+O aluno reporta problema na questão durante a prova. `/admin` (só `ADMIN_USER_IDS`) mostra a fila de reportes, o banco de questões (com gabarito, somente leitura) e os resolvidos. Cada reporte é **justificado** (questão mantida) ou leva à **retirada** da questão (`inativa`, sai dos novos simulados; o histórico dos alunos não muda). A função `resolver_reporte` roda só com a chave de servidor.
 
 ## O que NÃO foi testado de ponta a ponta
 O caminho de produção (`repo/supabase.ts` com token real do Clerk e `SUPABASE_SECRET_KEY`) compila com os tipos reais do esquema, mas só foi exercitado contra o projeto real pelo tester. O mesmo contrato é coberto pelo repositório em memória nos testes.
