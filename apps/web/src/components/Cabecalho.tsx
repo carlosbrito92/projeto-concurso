@@ -21,6 +21,7 @@ export async function Cabecalho() {
           <Marca />
           <nav className="nav" aria-label="Principal">
             <NavLink href="/painel">Painel</NavLink>
+            <NavLink href="/novidades">Novidades</NavLink>
             {admin && <NavLink href="/admin">Admin</NavLink>}
             {demo ? (
               <small>usuário: demo</small>

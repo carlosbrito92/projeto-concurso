@@ -53,7 +53,8 @@ python3 -I pipeline/edital_para_json.py conteudo/concursos/<slug>
 - `/admin` (só IDs em `ADMIN_USER_IDS`; 404 para os demais; guarda em `exigirAdmin()` em toda página e ação): fila de reportes, banco de questões (leitura, com gabarito) e resolvidos. O admin **não edita o texto** da questão: ou mantém com justificativa, ou **retira** (`status = 'inativa'`, fecha os outros reportes abertos dela). Correção de texto segue pelo pipeline/Git.
 - Resolver é a função `resolver_reporte` (só `service_role`). O aluno vê que o reporte foi tratado, mas não a justificativa.
 - ID de questão nunca é apagado nem renumerado: o histórico dos simulados é snapshot.
-- Próximos (combinados): registro de alterações somente leitura para o aluno; `conhecimento` (`KNOW###`) com fonte e vigência para explicar o gabarito.
+- **Registro de alterações** (`registro_alteracao`, página `/novidades`): somente leitura para o aluno; só o servidor inclui; imutável (gatilho barra UPDATE/DELETE/TRUNCATE). O aluno lê só `id, criado_em, tipo, titulo, resumo, concurso_slug` (nunca autor nem questão). O admin publica em `/admin/registro` (`novidade`, `conteudo`, `correcao`); `questao_retirada` é automático (gerado por `resolver_reporte`, sem a justificativa interna). Texto de aluno: nunca enunciado, gabarito nem justificativa.
+- Próximo (combinado): `conhecimento` (`KNOW###`) com fonte e vigência para explicar o gabarito.
 
 ## Stack
 

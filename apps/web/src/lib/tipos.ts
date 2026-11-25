@@ -116,6 +116,24 @@ export interface FiltroQuestoesAdmin {
 }
 export const TAMANHO_PAGINA_ADMIN = 25;
 
+export const TIPOS_REGISTRO = ["novidade", "conteudo", "correcao", "questao_retirada"] as const;
+export type TipoRegistro = (typeof TIPOS_REGISTRO)[number];
+export const ROTULO_TIPO_REGISTRO: Record<TipoRegistro, string> = { novidade: "Novidade", conteudo: "Conteúdo", correcao: "Correção", questao_retirada: "Questão retirada" };
+/** "questao_retirada" é sempre automático (gerado ao retirar uma questão); o administrador publica os demais. */
+export const TIPOS_PUBLICAVEIS = ["novidade", "conteudo", "correcao"] as const;
+export const LIMITE_REGISTRO_TITULO = 120;
+export const LIMITE_REGISTRO_RESUMO = 1000;
+
+/** Entrada do registro de alterações: texto voltado ao aluno, somente leitura e imutável depois de publicada. */
+export interface RegistroAlteracao {
+  id: number;
+  criadoEm: string;
+  tipo: TipoRegistro;
+  titulo: string;
+  resumo: string | null;
+  concursoSlug: string | null;
+}
+
 /** Operações do administrador. Só chamar depois de `exigirAdmin()` (ver lib/admin.ts). */
 export interface RepositorioAdmin {
   listarReportes(estado: "abertos" | "resolvidos"): Promise<ReporteAdmin[]>;
@@ -123,6 +141,10 @@ export interface RepositorioAdmin {
   /** Devolve quantos reportes foram fechados (0 = já estava resolvido). Retirar a questão fecha todos os reportes abertos dela. */
   resolverReporte(id: number, adminId: string, resolucao: ResolucaoReporte, justificativa: string): Promise<number>;
   contagemReportesAbertos(): Promise<number>;
+  /** Registro de alterações (mais recentes primeiro). O aluno lê o mesmo registro, pela política de leitura. */
+  listarRegistro(limite: number): Promise<RegistroAlteracao[]>;
+  /** Só inclusão: entradas nunca são editadas nem apagadas. */
+  publicarRegistro(adminId: string, tipo: TipoRegistro, titulo: string, resumo: string | null): Promise<void>;
 }
 
 /**

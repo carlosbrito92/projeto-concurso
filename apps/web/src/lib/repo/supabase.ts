@@ -5,7 +5,7 @@ import { letraCorreta, paraCliente } from "@concurso/engine";
 import type { Edital, ItemCliente, ItemSimulado, Letra, Questao, Relatorio, Resposta, Sessao, Simulado } from "@concurso/engine";
 import { exigir } from "../ambiente.ts";
 import { LIMITE_REPORTES_DIA, TAMANHO_PAGINA_ADMIN } from "../tipos.ts";
-import type { ConcursoResumo, MotivoReporte, QuestaoAdmin, Repositorio, ReporteAdmin, ResolucaoReporte, RespostaEntrada, RespostaSalva, ResultadoGravacao, SimuladoCompleto, SimuladoParaProva, SimuladoResumo, StatusSimulado } from "../tipos.ts";
+import type { ConcursoResumo, MotivoReporte, RegistroAlteracao, TipoRegistro, QuestaoAdmin, Repositorio, ReporteAdmin, ResolucaoReporte, RespostaEntrada, RespostaSalva, ResultadoGravacao, SimuladoCompleto, SimuladoParaProva, SimuladoResumo, StatusSimulado } from "../tipos.ts";
 import type { Database, Json } from "./db-tipos.ts";
 
 type Cliente = SupabaseClient<Database>;
@@ -313,6 +313,16 @@ export function criarRepoSupabase(getToken: () => Promise<string | null>): Repos
       const r = await a().rpc("resolver_reporte", { p_id: id, p_resolucao: resolucao, p_justificativa: justificativa, p_admin: adminId });
       if (r.error) throw new Error(`Supabase (resolver reporte): ${r.error.message}`);
       return r.data ?? 0;
+    },
+
+    async listarRegistro(limite): Promise<RegistroAlteracao[]> {
+      // Cliente do aluno: a política de leitura e as colunas liberadas (sem questao_id/autor) valem também aqui.
+      const r = ok(await u().from("registro_alteracao").select("id,criado_em,tipo,titulo,resumo,concurso_slug").order("id", { ascending: false }).limit(Math.max(1, limite)), "registro de alterações") ?? [];
+      return r.map((x) => ({ id: x.id, criadoEm: x.criado_em, tipo: x.tipo as TipoRegistro, titulo: x.titulo, resumo: x.resumo, concursoSlug: x.concurso_slug }));
+    },
+
+    async publicarRegistro(adminId, tipo, titulo, resumo) {
+      ok(await a().from("registro_alteracao").insert({ tipo, titulo, resumo, autor: adminId }).select("id"), "publicar no registro");
     },
   };
 }

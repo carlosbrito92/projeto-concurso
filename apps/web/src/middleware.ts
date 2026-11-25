@@ -2,7 +2,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import type { NextFetchEvent, NextRequest } from "next/server";
 
-const privada = createRouteMatcher(["/painel(.*)", "/simulado(.*)", "/admin(.*)"]);
+const privada = createRouteMatcher(["/painel(.*)", "/simulado(.*)", "/admin(.*)", "/novidades(.*)"]);
 const clerk = clerkMiddleware(async (auth, req) => {
   if (privada(req)) await auth.protect();
 });

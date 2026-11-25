@@ -346,6 +346,81 @@ class ResolucaoDeReportes(Base):
             self.admin.execute("update reporte_questao set resolvido_em = now() where id = %s", (rid,))
 
 
+class RegistroDeAlteracoes(Base):
+    def _n(self):
+        return self.admin.execute("select count(*) from registro_alteracao").fetchone()[0]
+
+    def test_anon_nao_le(self):
+        with self.como("anon") as c:
+            with self.assertRaises(E.InsufficientPrivilege):
+                c.execute("select * from public.registro_alteracao")
+
+    def test_aluno_le_so_colunas_publicas(self):
+        with self.como("authenticated", "user_A") as c:
+            linhas = c.execute("select id, criado_em, tipo, titulo, resumo, concurso_slug from registro_alteracao").fetchall()
+            self.assertGreaterEqual(len(linhas), 4, "histórico inicial da migração")
+        for coluna in ("questao_id", "autor"):
+            with self.subTest(coluna=coluna), self.como("authenticated", "user_A") as c:
+                with self.assertRaises(E.InsufficientPrivilege):
+                    c.execute(f"select {coluna} from registro_alteracao")
+        with self.como("authenticated", "user_A") as c:
+            with self.assertRaises(E.InsufficientPrivilege):
+                c.execute("select * from registro_alteracao")
+
+    def test_aluno_nao_escreve(self):
+        for sql in ("insert into registro_alteracao (tipo, titulo) values ('novidade', 'Forjado pelo aluno')",
+                    "update registro_alteracao set titulo = 'Adulterado'", "delete from registro_alteracao", "truncate registro_alteracao"):
+            with self.subTest(sql=sql), self.como("authenticated", "user_A") as c:
+                with self.assertRaises(E.InsufficientPrivilege):
+                    c.execute(sql)
+
+    def test_servidor_inclui_mas_ninguem_altera_nem_apaga(self):
+        antes = self._n()
+        with self.como("service_role") as c:
+            c.execute("insert into registro_alteracao (tipo, titulo, resumo, autor) values ('conteudo', 'Nova prova carregada', 'ok', 'admin_1')")
+            self.assertEqual(c.execute("select count(*) from registro_alteracao").fetchone()[0], antes + 1)
+        for sql in ("update registro_alteracao set titulo = 'Reescrito'", "delete from registro_alteracao", "truncate registro_alteracao"):
+            with self.subTest(sql=sql):
+                for papel in ("service_role", None):
+                    if papel:
+                        with self.como(papel) as c:
+                            with self.assertRaises(E.RaiseException):
+                                c.execute(sql)
+                    else:  # até o dono do banco é barrado pelo gatilho
+                        with self.assertRaises(E.RaiseException):
+                            self.admin.execute(sql)
+        self.assertGreaterEqual(self._n(), 4)
+
+    def test_validacoes_do_registro(self):
+        for tipo, titulo, resumo in (("invalido", "Título válido", None), ("novidade", "ab", None), ("novidade", "x" * 121, None), ("novidade", "   ", None), ("novidade", "Título válido", "r" * 1001)):
+            with self.subTest(tipo=tipo, titulo=titulo[:10]), self.como("service_role") as c:
+                with self.assertRaises(E.CheckViolation):
+                    c.execute("insert into registro_alteracao (tipo, titulo, resumo) values (%s,%s,%s)", (tipo, titulo, resumo))
+
+    def test_retirar_questao_publica_entrada_generica_sem_a_justificativa(self):
+        rid = self.admin.execute("insert into reporte_questao (usuario_id, questao_id, motivo, texto) values ('user_A','Q000001','gabarito','x') returning id").fetchone()[0]
+        antes = self._n()
+        with self.como("service_role") as c:
+            c.execute("select public.resolver_reporte(%s,'questao_retirada','SEGREDO-INTERNO justificativa','admin_1')", (rid,))
+            self.assertEqual(c.execute("select count(*) from registro_alteracao").fetchone()[0], antes + 1)
+            t, titulo, resumo, slug, q, autor = c.execute("select tipo, titulo, resumo, concurso_slug, questao_id, autor from registro_alteracao order by id desc limit 1").fetchone()
+        self.assertEqual((t, slug, q, autor), ("questao_retirada", "c1", "Q000001", "admin_1"))
+        self.assertIn("retirada", resumo)
+        self.assertNotIn("SEGREDO", titulo + resumo, "a justificativa é interna")
+        self.assertNotIn("Enunciado sintetico", titulo + resumo, "nunca o texto da questão")
+        # resolver de novo não duplica a entrada
+        with self.como("service_role") as c:
+            c.execute("select public.resolver_reporte(%s,'questao_retirada','de novo','admin_1')", (rid,))
+            self.assertEqual(c.execute("select count(*) from registro_alteracao").fetchone()[0], antes + 1)
+
+    def test_justificar_nao_publica_nada(self):
+        rid = self.admin.execute("insert into reporte_questao (usuario_id, questao_id, motivo) values ('user_B','Q000002','enunciado') returning id").fetchone()[0]
+        antes = self._n()
+        with self.como("service_role") as c:
+            c.execute("select public.resolver_reporte(%s,'justificado','Conferido na fonte.','admin_1')", (rid,))
+            self.assertEqual(c.execute("select count(*) from registro_alteracao").fetchone()[0], antes)
+
+
 class Lgpd(Base):
     def test_aluno_nao_chama_apagar_dados(self):
         with self.como("authenticated", "user_A") as c:

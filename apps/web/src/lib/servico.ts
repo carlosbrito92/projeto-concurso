@@ -1,7 +1,7 @@
 import { chaveDisciplina, corrigir, gerarRelatorio, gerarRelatorioAcumulado, montarSimulado, pesosDoEdital, selecionar } from "@concurso/engine";
 import type { PoliticaElegibilidade, Relatorio } from "@concurso/engine";
-import { ErroDeNegocio, LIMITE_REPORTE_TEXTO, MOTIVOS_REPORTE } from "./tipos.ts";
-import type { MotivoReporte, Repositorio, RepositorioAdmin, ResolucaoReporte, RespostaEntrada, ResultadoGravacao, ResultadoReporte, SimuladoParaProva } from "./tipos.ts";
+import { ErroDeNegocio, LIMITE_REGISTRO_RESUMO, LIMITE_REGISTRO_TITULO, LIMITE_REPORTE_TEXTO, MOTIVOS_REPORTE, TIPOS_PUBLICAVEIS } from "./tipos.ts";
+import type { MotivoReporte, TipoRegistro, Repositorio, RepositorioAdmin, ResolucaoReporte, RespostaEntrada, ResultadoGravacao, ResultadoReporte, SimuladoParaProva } from "./tipos.ts";
 
 export const TAMANHOS_PERMITIDOS = [5, 10, 20, 30, 50] as const;
 
@@ -128,4 +128,15 @@ export async function resolverReporte(repo: RepositorioAdmin, adminId: string, i
   if (j.length > LIMITE_REPORTE_TEXTO) throw new ErroDeNegocio(`A justificativa pode ter até ${LIMITE_REPORTE_TEXTO} caracteres.`);
   if (!Number.isInteger(id) || id < 1) throw new ErroDeNegocio("Reporte inválido.");
   return repo.resolverReporte(id, adminId, resolucao as ResolucaoReporte, j);
+}
+
+/** Publica no registro de alterações (só administrador). Texto para o aluno: não colar enunciado, gabarito nem justificativas internas. */
+export async function publicarRegistro(repo: RepositorioAdmin, adminId: string, tipo: string, titulo: string, resumo: string): Promise<void> {
+  if (!(TIPOS_PUBLICAVEIS as readonly string[]).includes(tipo)) throw new ErroDeNegocio("Escolha o tipo da entrada: novidade, conteúdo ou correção.");
+  const t = titulo.trim();
+  const r = resumo.trim();
+  if (t.length < 3) throw new ErroDeNegocio("Escreva um título com pelo menos 3 caracteres.");
+  if (t.length > LIMITE_REGISTRO_TITULO) throw new ErroDeNegocio(`O título pode ter até ${LIMITE_REGISTRO_TITULO} caracteres.`);
+  if (r.length > LIMITE_REGISTRO_RESUMO) throw new ErroDeNegocio(`O resumo pode ter até ${LIMITE_REGISTRO_RESUMO} caracteres.`);
+  await repo.publicarRegistro(adminId, tipo as TipoRegistro, t, r === "" ? null : r);
 }

@@ -1,6 +1,6 @@
 import type { Correcao, Edital, Letra, Questao, Relatorio, Resposta, Sessao, Simulado } from "@concurso/engine";
 import { LIMITE_REPORTES_DIA } from "../tipos.ts";
-import type { ConcursoResumo, FiltroQuestoesAdmin, MotivoReporte, QuestaoAdmin, Repositorio, ReporteAdmin, ResolucaoReporte, RespostaEntrada, RespostaSalva, ResultadoGravacao, SimuladoCompleto, SimuladoParaProva, SimuladoResumo, StatusSimulado } from "../tipos.ts";
+import type { ConcursoResumo, FiltroQuestoesAdmin, RegistroAlteracao, TipoRegistro, MotivoReporte, QuestaoAdmin, Repositorio, ReporteAdmin, ResolucaoReporte, RespostaEntrada, RespostaSalva, ResultadoGravacao, SimuladoCompleto, SimuladoParaProva, SimuladoResumo, StatusSimulado } from "../tipos.ts";
 import { TAMANHO_PAGINA_ADMIN } from "../tipos.ts";
 import { paraCliente } from "@concurso/engine";
 
@@ -44,6 +44,11 @@ export function criarRepoMemoria(dados: DadosMemoria, agora: () => Date = () => 
   };
   const achar = (slug: string) => dados.concursos.find((c) => c.resumo.slug === slug);
   const reportes: RegReporte[] = [];
+  const registro: RegistroAlteracao[] = [];
+  let proximoRegistro = 1;
+  const incluirRegistro = (tipo: TipoRegistro, titulo: string, resumo: string | null, concursoSlug: string | null) => {
+    registro.push({ id: proximoRegistro++, criadoEm: agora().toISOString(), tipo, titulo, resumo, concursoSlug });
+  };
   let proximoReporte = 1;
   const questaoPorId = (id: string) => {
     for (const c of dados.concursos) {
@@ -189,10 +194,23 @@ export function criarRepoMemoria(dados: DadosMemoria, agora: () => Date = () => 
       const fechar = resolucao === "questao_retirada" ? reportes.filter((x) => x.questaoId === alvo.questaoId && x.resolvidoEm === null) : [alvo];
       if (resolucao === "questao_retirada") {
         const f = questaoPorId(alvo.questaoId);
-        if (f) f.q.status = "inativa";
+        if (f) {
+          f.q.status = "inativa";
+          const prova = [f.q.concurso?.banca, f.q.concurso?.ano].filter(Boolean).join(" ");
+          const num = f.q.origem.questaoNumero ? ` (nº ${f.q.origem.questaoNumero})` : "";
+          incluirRegistro("questao_retirada", "Questão retirada após revisão", `Uma questão ${prova ? `da prova ${prova}` : "de prova anterior"}${num} foi retirada dos novos simulados depois de um reporte. Simulados já feitos não mudam.`, f.slug);
+        }
       }
       for (const x of fechar) Object.assign(x, { resolvidoEm: agora().toISOString(), resolucao, justificativa, resolvidoPor: adminId });
       return fechar.length;
+    },
+
+    async listarRegistro(limite) {
+      return [...registro].sort((a, b) => b.id - a.id).slice(0, Math.max(1, limite));
+    },
+
+    async publicarRegistro(_adminId, tipo, titulo, resumo) {
+      incluirRegistro(tipo, titulo, resumo, null);
     },
   };
 }
