@@ -7,6 +7,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: { default: `${NOME_PRODUTO}: simulados de concurso com relatório por assunto`, template: `%s | ${NOME_PRODUTO}` },
   description: "Simulados baseados no edital do seu concurso, com correção e relatório que aponta os assuntos em que você mais perde pontos.",
+  // Fora de produção (dev/teste) o site não deve aparecer em buscadores.
+  robots: process.env.APP_ENV === "producao" ? undefined : { index: false, follow: false },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, colorScheme: "light dark" };
 
