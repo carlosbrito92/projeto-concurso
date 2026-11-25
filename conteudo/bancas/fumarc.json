@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "1.0",
+  "banca": "FUMARC",
+  "amostra": {
+    "provas": [
+      {
+        "slug": "pc-mg-fumarc-2014-investigador-ca",
+        "orgao": "PCMG",
+        "ano": 2014,
+        "cargo": "Investigador de Polícia I",
+        "questoes": 60,
+        "alternativas": 4,
+        "gabarito": "oficial"
+      }
+    ],
+    "totalQuestoes": 60,
+    "confianca": "baixa",
+    "aviso": "Amostra de 1 prova(s), todas de cargos policiais; use as medidas como tendência, não como regra. Gabaritos preliminares/não confirmados podem ter mudado após recursos."
+  },
+  "medidas": {
+    "questoes": {
+      "total": 60,
+      "anuladas": 0,
+      "taxaAnuladas": 0.0,
+      "alternativasPorQuestao": {
+        "4": 60
+      }
+    },
+    "gabarito": {
+      "baseadoEm": 60,
+      "distribuicao": {
+        "A": 15,
+        "B": 15,
+        "C": 15,
+        "D": 15
+      },
+      "proporcao": {
+        "A": 0.25,
+        "B": 0.25,
+        "C": 0.25,
+        "D": 0.25
+      },
+      "porProva": {
+        "pc-mg-fumarc-2014-investigador-ca": {
+          "A": 15,
+          "B": 15,
+          "C": 15,
+          "D": 15
+        }
+      },
+      "acaso": 0.25
+    },
+    "enunciado": {
+      "caracteres": {
+        "n": 60,
+        "media": 166.8,
+        "mediana": 117.0,
+        "p10": 63.8,
+        "p90": 291.3,
+        "min": 35,
+        "max": 647
+      },
+      "palavras": {
+        "n": 60,
+        "media": 26.4,
+        "mediana": 18.0,
+        "p10": 10.9,
+        "p90": 45.3,
+        "min": 7,
+        "max": 95
+      },
+      "comTextoCompartilhado": 0.1667,
+      "nota": "textoApoio só é separado quando o caderno declara texto compartilhado; nas demais questões o texto está dentro do enunciado"
+    },
+    "alternativas": {
+      "caracteres": {
+        "n": 236,
+        "media": 53.4,
+        "mediana": 38.0,
+        "p10": 8.0,
+        "p90": 113.5,
+        "min": 2,
+        "max": 426
+      },
+      "mediaPorQuestao": {
+        "n": 59,
+        "media": 53.4,
+        "mediana": 41,
+        "p10": 8.0,
+        "p90": 115.2,
+        "min": 3,
+        "max": 277.5
+      },
+      "corretaEhMaisLonga": {
+        "proporcao": 0.2203,
+        "empateNoMaior": 0.0847,
+        "baseadoEm": 59,
+        "acaso": 0.25
+      },
+      "comAlternativaEmImagem": 0.0167
+    },
+    "comando": {
+      "pedeIncorretaOuExceto": 0.3833,
+      "assertivasNumeradas": 0.0167,
+      "alternativasDeCombinacao": 0.0333,
+      "relacioneOuSequencia": 0.0,
+      "terminaEmPergunta": 0.0,
+      "terminaEmDoisPontos": 0.5667,
+      "terminaEmPonto": 0.0,
+      "terminaSemPontuacaoCompletarFrase": 0.4167,
+      "citaNormaOuArtigo": 0.1833,
+      "alternativaTodasOuNenhuma": 0.0,
+      "dependeDeImagem": 0.05
+    },
+    "disciplinas": {
+      "questoesPorDisciplina": {
+        "Língua Portuguesa": 20,
+        "Noções de Direito": 10,
+        "Direitos Humanos": 10,
+        "Noções de Medicina Legal": 10,
+        "Noções de Informática": 10
+      },
+      "porProva": {
+        "pc-mg-fumarc-2014-investigador-ca": {
+          "Língua Portuguesa": 20,
+          "Noções de Direito": 10,
+          "Direitos Humanos": 10,
+          "Noções de Medicina Legal": 10,
+          "Noções de Informática": 10
+        }
+      },
+      "tamanhoMedioEnunciado": {
+        "Língua Portuguesa": 145.7,
+        "Noções de Direito": 118.2,
+        "Direitos Humanos": 208.3,
+        "Noções de Medicina Legal": 198.8,
+        "Noções de Informática": 183.8
+      }
+    }
+  },
+  "origem": "calculado por pipeline/perfil_banca.py a partir de conteudo/provas/*/02-json/questoes.json; nenhum trecho de questão é copiado"
+}

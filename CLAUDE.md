@@ -20,7 +20,7 @@ Feito no piloto:
   - `pc-mg-fumarc-2014-investigador-ca`: 60 questões, 4 alternativas, banca **FUMARC** (não entra no perfil da FGV), "gabarito oficial" não confirmado como definitivo, prova de 2014.
   O texto das questões fica **fora do Git** (regra abaixo); o repo versiona só código, `meta.json`, `relatorio.md` e os editais.
 
-Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. Próximas fontes: texto das leis citadas no Anexo I, provas anteriores da FGV/PCMG e perfil da banca.
+Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. Perfis de banca gerados (`conteudo/bancas/fgv.json`, `fumarc.json`). Próximas fontes: texto das leis citadas nos Anexos I (ver `ctresb/leis`, a avaliar), mais provas por banca e classificação de cada questão em um item do edital.
 
 Comandos (a partir da raiz):
 ```bash
@@ -88,9 +88,15 @@ Lei muda; prova antiga pode cobrar texto já alterado ou revogado. O **aluno dev
 - O aviso só some quando um humano revisa a questão contra a fonte vigente (`revisao.status = "revisado"` e `fundamentacao.vigenteEm` preenchido).
 - Questões geradas por IA citam a norma e a data de vigência conferida (`fundamentacao.vigenteEm`).
 
-## Estilo da banca (FGV)
+## Estilo da banca
 
-Cada banca tem um **perfil** em `conteudo/bancas/<banca>.json` (estatísticas só da própria banca: FGV e FUMARC não se misturam) (formato, nº de alternativas, penalização, tempo médio, estilos de enunciado). FGV: múltipla escolha A–E, enunciados longos e situacionais, assertivas "I, II, III" combinadas, forte uso de texto de lei e jurisprudência. A geração por IA deve imitar o **estilo**, jamais copiar enunciados reais.
+Cada banca tem um **perfil medido** em `conteudo/bancas/<banca>.json`, gerado por `python3 -I pipeline/perfil_banca.py` a partir das provas reais extraídas (só estatísticas; nenhum trecho de questão). Bancas **não se misturam** (FGV e FUMARC têm arquivos próprios). Não descreva o estilo de uma banca de memória: leia o perfil, e regenere-o quando entrar prova nova.
+
+Resumo do que foi medido (amostras pequenas; `amostra.confianca` diz o quanto confiar):
+- **FGV** (220 questões, 3 provas policiais, A–E): enunciado mediano ~335 caracteres (p10 87, p90 729); ~47% terminam sem pontuação (completar frase) e ~39% em ponto; ~9% usam assertivas numeradas "I, II, III" com alternativas de combinação; ~8% pedem a incorreta/EXCETO; ~30% citam norma/artigo; gabarito sem posição dominante.
+- **FUMARC** (60 questões, 1 prova, A–D): enunciado mediano ~117 caracteres, bem mais curto; ~38% pedem incorreta/EXCETO (contra ~8% da FGV); ~57% terminam em dois pontos. Amostra de uma prova só: confiança baixa.
+
+A geração por IA deve imitar o **estilo medido** da banca-alvo, jamais copiar enunciados reais, e **sortear a posição do gabarito de forma uniforme** (não replicar os desvios da amostra).
 
 ## Modelo de dados (resumo)
 

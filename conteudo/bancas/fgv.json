@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "1.0",
+  "banca": "FGV",
+  "amostra": {
+    "provas": [
+      {
+        "slug": "pc-am-fgv-2021-investigador-t1",
+        "orgao": "PCAM",
+        "ano": 2021,
+        "cargo": "Investigador de Polícia – 4ª Classe",
+        "questoes": 80,
+        "alternativas": 5,
+        "gabarito": "definitivo"
+      },
+      {
+        "slug": "pc-ma-fgv-2012-investigador-t1",
+        "orgao": "PCMA",
+        "ano": 2012,
+        "cargo": "Investigador de Polícia",
+        "questoes": 70,
+        "alternativas": 5,
+        "gabarito": "preliminar"
+      },
+      {
+        "slug": "pc-mg-fgv-2024-investigador-t1",
+        "orgao": "PCMG",
+        "ano": 2024,
+        "cargo": "Investigador de Polícia I",
+        "questoes": 70,
+        "alternativas": 5,
+        "gabarito": "definitivo"
+      }
+    ],
+    "totalQuestoes": 220,
+    "confianca": "media",
+    "aviso": "Amostra de 3 prova(s), todas de cargos policiais; use as medidas como tendência, não como regra. Gabaritos preliminares/não confirmados podem ter mudado após recursos."
+  },
+  "medidas": {
+    "questoes": {
+      "total": 220,
+      "anuladas": 2,
+      "taxaAnuladas": 0.0091,
+      "alternativasPorQuestao": {
+        "5": 220
+      }
+    },
+    "gabarito": {
+      "baseadoEm": 218,
+      "distribuicao": {
+        "A": 38,
+        "B": 42,
+        "C": 42,
+        "D": 47,
+        "E": 49
+      },
+      "proporcao": {
+        "A": 0.1743,
+        "B": 0.1927,
+        "C": 0.1927,
+        "D": 0.2156,
+        "E": 0.2248
+      },
+      "porProva": {
+        "pc-am-fgv-2021-investigador-t1": {
+          "A": 13,
+          "B": 14,
+          "C": 14,
+          "D": 19,
+          "E": 19
+        },
+        "pc-ma-fgv-2012-investigador-t1": {
+          "A": 13,
+          "B": 11,
+          "C": 13,
+          "D": 16,
+          "E": 17
+        },
+        "pc-mg-fgv-2024-investigador-t1": {
+          "A": 12,
+          "B": 17,
+          "C": 15,
+          "D": 12,
+          "E": 13
+        }
+      },
+      "acaso": 0.2
+    },
+    "enunciado": {
+      "caracteres": {
+        "n": 220,
+        "media": 389.6,
+        "mediana": 334.5,
+        "p10": 86.5,
+        "p90": 729.1,
+        "min": 43,
+        "max": 1297
+      },
+      "palavras": {
+        "n": 220,
+        "media": 61.1,
+        "mediana": 51.0,
+        "p10": 13.0,
+        "p90": 116.1,
+        "min": 6,
+        "max": 210
+      },
+      "comTextoCompartilhado": 0.05,
+      "nota": "textoApoio só é separado quando o caderno declara texto compartilhado; nas demais questões o texto está dentro do enunciado"
+    },
+    "alternativas": {
+      "caracteres": {
+        "n": 1085,
+        "media": 68.5,
+        "mediana": 53,
+        "p10": 9.0,
+        "p90": 155.0,
+        "min": 2,
+        "max": 343
+      },
+      "mediaPorQuestao": {
+        "n": 217,
+        "media": 68.5,
+        "mediana": 53.4,
+        "p10": 10.0,
+        "p90": 148.7,
+        "min": 2,
+        "max": 208.6
+      },
+      "corretaEhMaisLonga": {
+        "proporcao": 0.1889,
+        "empateNoMaior": 0.1659,
+        "baseadoEm": 217,
+        "acaso": 0.2
+      },
+      "comAlternativaEmImagem": 0.0045
+    },
+    "comando": {
+      "pedeIncorretaOuExceto": 0.0818,
+      "assertivasNumeradas": 0.0955,
+      "alternativasDeCombinacao": 0.0909,
+      "relacioneOuSequencia": 0.0091,
+      "terminaEmPergunta": 0.0,
+      "terminaEmDoisPontos": 0.0909,
+      "terminaEmPonto": 0.3909,
+      "terminaSemPontuacaoCompletarFrase": 0.4727,
+      "citaNormaOuArtigo": 0.2955,
+      "alternativaTodasOuNenhuma": 0.0,
+      "dependeDeImagem": 0.0591
+    },
+    "disciplinas": {
+      "questoesPorDisciplina": {
+        "Língua Portuguesa": 35,
+        "Raciocínio Lógico-Matemático": 21,
+        "História do Amazonas": 5,
+        "Noções de Informática": 15,
+        "Noções de Administração": 10,
+        "Noções de Contabilidade": 10,
+        "Noções de Direito Constitucional": 23,
+        "Direito Penal, Processual Penal e Legislação Extravagante": 15,
+        "Noções de Direito Administrativo": 24,
+        "Legislação Específica": 5,
+        "Noções de Direito Penal e Processual Penal": 15,
+        "Informática Básica": 8,
+        "Lei Orgânica da PCMG": 6,
+        "Noções de Direito Penal": 5,
+        "Noções de Direito Processual Penal": 5,
+        "Legislação Penal e Processual Extravagante": 4,
+        "Noções de Direitos Humanos": 4,
+        "Noções de Medicina Legal": 5,
+        "Noções de Criminologia": 5
+      },
+      "porProva": {
+        "pc-am-fgv-2021-investigador-t1": {
+          "Língua Portuguesa": 10,
+          "Raciocínio Lógico-Matemático": 5,
+          "História do Amazonas": 5,
+          "Noções de Informática": 5,
+          "Noções de Administração": 10,
+          "Noções de Contabilidade": 10,
+          "Noções de Direito Constitucional": 10,
+          "Direito Penal, Processual Penal e Legislação Extravagante": 15,
+          "Noções de Direito Administrativo": 10
+        },
+        "pc-ma-fgv-2012-investigador-t1": {
+          "Língua Portuguesa": 15,
+          "Legislação Específica": 5,
+          "Raciocínio Lógico-Matemático": 10,
+          "Noções de Informática": 10,
+          "Noções de Direito Constitucional": 7,
+          "Noções de Direito Administrativo": 8,
+          "Noções de Direito Penal e Processual Penal": 15
+        },
+        "pc-mg-fgv-2024-investigador-t1": {
+          "Língua Portuguesa": 10,
+          "Raciocínio Lógico-Matemático": 6,
+          "Informática Básica": 8,
+          "Lei Orgânica da PCMG": 6,
+          "Noções de Direito Administrativo": 6,
+          "Noções de Direito Constitucional": 6,
+          "Noções de Direito Penal": 5,
+          "Noções de Direito Processual Penal": 5,
+          "Legislação Penal e Processual Extravagante": 4,
+          "Noções de Direitos Humanos": 4,
+          "Noções de Medicina Legal": 5,
+          "Noções de Criminologia": 5
+        }
+      },
+      "tamanhoMedioEnunciado": {
+        "Língua Portuguesa": 190.4,
+        "Raciocínio Lógico-Matemático": 388.4,
+        "História do Amazonas": 653.2,
+        "Noções de Informática": 261.1,
+        "Noções de Administração": 302,
+        "Noções de Contabilidade": 450.6,
+        "Noções de Direito Constitucional": 367.9,
+        "Direito Penal, Processual Penal e Legislação Extravagante": 576.4,
+        "Noções de Direito Administrativo": 497.1,
+        "Legislação Específica": 156.2,
+        "Noções de Direito Penal e Processual Penal": 270.2,
+        "Informática Básica": 455,
+        "Lei Orgânica da PCMG": 723.7,
+        "Noções de Direito Penal": 585.2,
+        "Noções de Direito Processual Penal": 797.8,
+        "Legislação Penal e Processual Extravagante": 798.8,
+        "Noções de Direitos Humanos": 329.8,
+        "Noções de Medicina Legal": 257.6,
+        "Noções de Criminologia": 319.6
+      }
+    }
+  },
+  "origem": "calculado por pipeline/perfil_banca.py a partir de conteudo/provas/*/02-json/questoes.json; nenhum trecho de questão é copiado"
+}
