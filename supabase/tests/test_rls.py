@@ -250,6 +250,102 @@ class ReportesEPerfil(Base):
                 c.execute("insert into usuario_concurso (usuario_id, concurso_slug) values ('user_B','c1')")
 
 
+class ResolucaoDeReportes(Base):
+    def _reporte(self, usuario, questao="Q000001", motivo="gabarito"):
+        return self.admin.execute("insert into reporte_questao (usuario_id, questao_id, motivo, texto) values (%s,%s,%s,'x') returning id",
+                                  (usuario, questao, motivo)).fetchone()[0]
+
+    def tearDown(self):
+        self.admin.execute("delete from reporte_questao")
+        self.admin.execute("update questao set status = 'ativa' where id = 'Q000001'")
+
+    def test_aluno_ve_o_proprio_reporte_mas_nao_a_justificativa(self):
+        rid = self._reporte("user_A")
+        self.admin.execute("select public.resolver_reporte(%s,'justificado','Gabarito conferido na fonte.','admin_1')", (rid,))
+        with self.como("authenticated", "user_A") as c:
+            self.assertIsNotNone(c.execute("select resolvido_em from reporte_questao").fetchone()[0], "vê que foi tratado")
+        for coluna in ("justificativa", "resolvido_por", "resolucao"):
+            with self.subTest(coluna=coluna), self.como("authenticated", "user_A") as c:
+                with self.assertRaises(E.InsufficientPrivilege):
+                    c.execute(f"select {coluna} from reporte_questao")
+        with self.como("authenticated", "user_A") as c:
+            with self.assertRaises(E.InsufficientPrivilege):
+                c.execute("select * from reporte_questao")
+
+    def test_aluno_nao_resolve_nem_edita_reporte(self):
+        rid = self._reporte("user_A")
+        with self.como("authenticated", "user_A") as c:
+            with self.assertRaises(E.InsufficientPrivilege):
+                c.execute("update reporte_questao set resolvido_em = now(), resolucao = 'justificado', justificativa = 'ok', resolvido_por = 'user_A' where id = %s", (rid,))
+        with self.como("authenticated", "user_A") as c:
+            with self.assertRaises(E.InsufficientPrivilege):
+                c.execute("insert into reporte_questao (questao_id, motivo, resolucao) values ('Q000001','outro','justificado')")
+        with self.como("authenticated", "user_A") as c:
+            with self.assertRaises(E.InsufficientPrivilege):
+                c.execute("delete from reporte_questao where id = %s", (rid,))
+
+    def test_aluno_nao_chama_resolver_reporte(self):
+        rid = self._reporte("user_A")
+        for papel, usuario in (("authenticated", "user_A"), ("anon", None)):
+            with self.subTest(papel=papel), self.como(papel, usuario) as c:
+                with self.assertRaises(E.InsufficientPrivilege):
+                    c.execute("select public.resolver_reporte(%s,'questao_retirada','tentativa','user_A')", (rid,))
+
+    def test_reporte_aberto_duplicado_e_barrado_mas_outro_motivo_ou_aluno_passa(self):
+        self._reporte("user_A")
+        with self.assertRaises(E.UniqueViolation):
+            self._reporte("user_A")
+        self._reporte("user_A", motivo="enunciado")
+        self._reporte("user_B")
+
+    def test_depois_de_resolvido_pode_reportar_de_novo(self):
+        rid = self._reporte("user_A")
+        self.admin.execute("select public.resolver_reporte(%s,'justificado','Conferido.','admin_1')", (rid,))
+        self._reporte("user_A")
+
+    def test_justificar_fecha_so_aquele_reporte(self):
+        a, b = self._reporte("user_A"), self._reporte("user_B")
+        with self.como("service_role") as c:
+            self.assertEqual(c.execute("select public.resolver_reporte(%s,'justificado','  Conferido na fonte vigente.  ','admin_1')", (a,)).fetchone()[0], 1)
+            linha = c.execute("select resolucao, justificativa, resolvido_por, resolvido_em is not null from reporte_questao where id = %s", (a,)).fetchone()
+            self.assertEqual(linha, ("justificado", "Conferido na fonte vigente.", "admin_1", True))
+            self.assertIsNone(c.execute("select resolvido_em from reporte_questao where id = %s", (b,)).fetchone()[0])
+            self.assertEqual(c.execute("select status from questao where id = 'Q000001'").fetchone()[0], "ativa")
+
+    def test_retirar_inativa_a_questao_e_fecha_os_reportes_dela(self):
+        a, b = self._reporte("user_A"), self._reporte("user_B", motivo="enunciado")
+        outro = self._reporte("user_A", questao="Q000002")
+        with self.como("service_role") as c:
+            self.assertEqual(c.execute("select public.resolver_reporte(%s,'questao_retirada','Enunciado ambíguo.','admin_1')", (a,)).fetchone()[0], 2)
+            self.assertEqual(c.execute("select status from questao where id = 'Q000001'").fetchone()[0], "inativa")
+            self.assertEqual(c.execute("select count(*) from reporte_questao where questao_id = 'Q000001' and resolucao = 'questao_retirada'").fetchone()[0], 2)
+            self.assertIsNone(c.execute("select resolvido_em from reporte_questao where id = %s", (outro,)).fetchone()[0], "outra questão intocada")
+            self.assertEqual(c.execute("select status from questao where id = 'Q000002'").fetchone()[0], "rascunho")
+
+    def test_resolver_duas_vezes_nao_faz_nada(self):
+        rid = self._reporte("user_A")
+        with self.como("service_role") as c:
+            self.assertEqual(c.execute("select public.resolver_reporte(%s,'justificado','Conferido.','admin_1')", (rid,)).fetchone()[0], 1)
+            self.assertEqual(c.execute("select public.resolver_reporte(%s,'questao_retirada','De novo.','admin_2')", (rid,)).fetchone()[0], 0)
+            self.assertEqual(c.execute("select status from questao where id = 'Q000001'").fetchone()[0], "ativa")
+            self.assertEqual(c.execute("select resolvido_por from reporte_questao where id = %s", (rid,)).fetchone()[0], "admin_1")
+            self.assertEqual(c.execute("select public.resolver_reporte(999999,'justificado','Conferido.','admin_1')").fetchone()[0], 0)
+
+    def test_entradas_invalidas_sao_recusadas(self):
+        rid = self._reporte("user_A")
+        for args in (("apagar", "Conferido.", "admin_1"), ("justificado", "  ", "admin_1"), ("justificado", "ok", "admin_1"),
+                     ("justificado", "x" * 2001, "admin_1"), ("justificado", "Conferido.", ""), (None, "Conferido.", "admin_1")):
+            with self.subTest(args=args), self.como("service_role") as c:
+                with self.assertRaises(E.RaiseException):
+                    c.execute("select public.resolver_reporte(%s,%s,%s,%s)", (rid, *args))
+        self.assertIsNone(self.admin.execute("select resolvido_em from reporte_questao where id = %s", (rid,)).fetchone()[0])
+
+    def test_estado_de_resolucao_incoerente_e_barrado_pelo_banco(self):
+        rid = self._reporte("user_A")
+        with self.assertRaises(E.CheckViolation):
+            self.admin.execute("update reporte_questao set resolvido_em = now() where id = %s", (rid,))
+
+
 class Lgpd(Base):
     def test_aluno_nao_chama_apagar_dados(self):
         with self.como("authenticated", "user_A") as c:

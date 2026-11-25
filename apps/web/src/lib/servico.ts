@@ -1,7 +1,7 @@
 import { chaveDisciplina, corrigir, gerarRelatorio, gerarRelatorioAcumulado, montarSimulado, pesosDoEdital, selecionar } from "@concurso/engine";
 import type { PoliticaElegibilidade, Relatorio } from "@concurso/engine";
-import { ErroDeNegocio } from "./tipos.ts";
-import type { Repositorio, RespostaEntrada, ResultadoGravacao, SimuladoParaProva } from "./tipos.ts";
+import { ErroDeNegocio, LIMITE_REPORTE_TEXTO, MOTIVOS_REPORTE } from "./tipos.ts";
+import type { MotivoReporte, Repositorio, RepositorioAdmin, ResolucaoReporte, RespostaEntrada, ResultadoGravacao, ResultadoReporte, SimuladoParaProva } from "./tipos.ts";
 
 export const TAMANHOS_PERMITIDOS = [5, 10, 20, 30, 50] as const;
 
@@ -108,4 +108,24 @@ export async function panorama(repo: Repositorio, usuarioId: string, slug: strin
   if (sessoes.length === 0) return null;
   const edital = await repo.obterEdital(slug);
   return gerarRelatorioAcumulado(sessoes, edital ? { edital } : {});
+}
+
+/** Reporte do aluno: valida a entrada e grava. A questão é derivada do próprio simulado (o cliente só diz a posição). */
+export async function reportarQuestao(repo: Repositorio, usuarioId: string, simuladoId: string, posicao: number, motivo: string, texto: string): Promise<ResultadoReporte> {
+  if (!(MOTIVOS_REPORTE as readonly string[]).includes(motivo)) throw new ErroDeNegocio("Escolha o motivo do reporte.");
+  const limpo = texto.trim();
+  if (limpo.length > LIMITE_REPORTE_TEXTO) throw new ErroDeNegocio(`Descreva em até ${LIMITE_REPORTE_TEXTO} caracteres.`);
+  if (motivo === "outro" && limpo.length < 5) throw new ErroDeNegocio("Em \"Outro problema\", conte em poucas palavras o que você viu.");
+  if (!Number.isInteger(posicao) || posicao < 1) return "posicao_invalida";
+  return repo.reportarQuestao(usuarioId, simuladoId, posicao, motivo as MotivoReporte, limpo === "" ? null : limpo);
+}
+
+/** Resolução pelo administrador. A justificativa é obrigatória nos dois casos (fica registrada). */
+export async function resolverReporte(repo: RepositorioAdmin, adminId: string, id: number, resolucao: string, justificativa: string): Promise<number> {
+  if (resolucao !== "justificado" && resolucao !== "questao_retirada") throw new ErroDeNegocio("Escolha: manter a questão com justificativa ou retirá-la.");
+  const j = justificativa.trim();
+  if (j.length < 3) throw new ErroDeNegocio("Escreva a justificativa (pelo menos algumas palavras).");
+  if (j.length > LIMITE_REPORTE_TEXTO) throw new ErroDeNegocio(`A justificativa pode ter até ${LIMITE_REPORTE_TEXTO} caracteres.`);
+  if (!Number.isInteger(id) || id < 1) throw new ErroDeNegocio("Reporte inválido.");
+  return repo.resolverReporte(id, adminId, resolucao as ResolucaoReporte, j);
 }

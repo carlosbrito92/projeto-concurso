@@ -4,7 +4,8 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { letraCorreta, paraCliente } from "@concurso/engine";
 import type { Edital, ItemCliente, ItemSimulado, Letra, Questao, Relatorio, Resposta, Sessao, Simulado } from "@concurso/engine";
 import { exigir } from "../ambiente.ts";
-import type { ConcursoResumo, Repositorio, RespostaEntrada, RespostaSalva, ResultadoGravacao, SimuladoCompleto, SimuladoParaProva, SimuladoResumo, StatusSimulado } from "../tipos.ts";
+import { LIMITE_REPORTES_DIA, TAMANHO_PAGINA_ADMIN } from "../tipos.ts";
+import type { ConcursoResumo, MotivoReporte, QuestaoAdmin, Repositorio, ReporteAdmin, ResolucaoReporte, RespostaEntrada, RespostaSalva, ResultadoGravacao, SimuladoCompleto, SimuladoParaProva, SimuladoResumo, StatusSimulado } from "../tipos.ts";
 import type { Database, Json } from "./db-tipos.ts";
 
 type Cliente = SupabaseClient<Database>;
@@ -227,6 +228,91 @@ export function criarRepoSupabase(getToken: () => Promise<string | null>): Repos
         if (c) out.push({ simulado: c.simulado, respostas: c.respostas });
       }
       return out;
+    },
+
+    async reportarQuestao(_usuarioId, simuladoId, posicao, motivo, texto) {
+      const cli = u(); // RLS: só enxerga o próprio simulado; a questão vem do item dele, nunca do cliente
+      const sim = ok(await cli.from("simulado").select("id").eq("id", simuladoId).maybeSingle(), "simulado");
+      if (!sim) return "inexistente";
+      const item = ok(await cli.from("simulado_item").select("questao_id").eq("simulado_id", simuladoId).eq("posicao", posicao).maybeSingle(), "item");
+      if (!item) return "posicao_invalida";
+      const desde = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
+      const rec = await cli.from("reporte_questao").select("id", { count: "exact", head: true }).gte("criado_em", desde);
+      if (rec.error) throw new Error(`Supabase (limite de reportes): ${rec.error.message}`);
+      if ((rec.count ?? 0) >= LIMITE_REPORTES_DIA) return "limite";
+      const ins = await cli.from("reporte_questao").insert({ questao_id: item.questao_id, motivo: motivo satisfies MotivoReporte, texto });
+      if (ins.error) {
+        if ((ins.error as { code?: string }).code === "23505") return "ja_reportado"; // índice único: já há reporte aberto igual
+        throw new Error(`Supabase (reportar questão): ${ins.error.message}`);
+      }
+      return "ok";
+    },
+
+    // ---- Administrador (chave secreta; chamar só depois de exigirAdmin) ----
+    async listarReportes(estado): Promise<ReporteAdmin[]> {
+      const adm = a();
+      let q = adm.from("reporte_questao").select("id,questao_id,motivo,texto,criado_em,resolvido_em,resolucao,justificativa,resolvido_por");
+      q = estado === "abertos" ? q.is("resolvido_em", null).order("criado_em", { ascending: true }) : q.not("resolvido_em", "is", null).order("resolvido_em", { ascending: false }).limit(200);
+      const rs = ok(await q, "reportes") ?? [];
+      const ids = [...new Set(rs.map((r) => r.questao_id))];
+      const qs = ids.length ? ok(await adm.from("questao").select("id,concurso_slug,numero_na_prova,banca,ano,disciplina_nome,status,enunciado").in("id", ids), "questões dos reportes") ?? [] : [];
+      const porId = new Map(qs.map((x) => [x.id, x]));
+      return rs.map((r) => {
+        const x = porId.get(r.questao_id);
+        return {
+          id: r.id, questaoId: r.questao_id, motivo: r.motivo as MotivoReporte, texto: r.texto, criadoEm: r.criado_em, resolvidoEm: r.resolvido_em,
+          resolucao: r.resolucao as ResolucaoReporte | null, justificativa: r.justificativa, resolvidoPor: r.resolvido_por,
+          questao: x ? { concursoSlug: x.concurso_slug, numeroNaProva: x.numero_na_prova, banca: x.banca, ano: x.ano, disciplina: x.disciplina_nome, status: x.status, enunciado: x.enunciado } : null,
+        };
+      });
+    },
+
+    async contagemReportesAbertos() {
+      const r = await a().from("reporte_questao").select("id", { count: "exact", head: true }).is("resolvido_em", null);
+      if (r.error) throw new Error(`Supabase (contagem de reportes): ${r.error.message}`);
+      return r.count ?? 0;
+    },
+
+    async listarQuestoesAdmin(f) {
+      const adm = a();
+      const rep = ok(await adm.from("reporte_questao").select("questao_id,resolvido_em"), "contagem de reportes") ?? [];
+      const abertos = new Map<string, number>();
+      const totais = new Map<string, number>();
+      for (const r of rep) {
+        totais.set(r.questao_id, (totais.get(r.questao_id) ?? 0) + 1);
+        if (r.resolvido_em === null) abertos.set(r.questao_id, (abertos.get(r.questao_id) ?? 0) + 1);
+      }
+      let q = adm.from("questao").select("id,concurso_slug,numero_na_prova,banca,ano,disciplina_nome,assunto,status,direitos_status,revisao_status,anulada,enunciado,alternativas", { count: "exact" });
+      if (f.concurso) q = q.eq("concurso_slug", f.concurso);
+      if (f.status) q = q.eq("status", f.status);
+      if (f.soComReporteAberto) {
+        if (abertos.size === 0) return { itens: [], total: 0 };
+        q = q.in("id", [...abertos.keys()]);
+      }
+      const busca = (f.busca ?? "").replace(/[^\p{L}\p{N} ._-]/gu, " ").trim().slice(0, 80);
+      if (busca) q = q.or(`id.ilike.%${busca}%,enunciado.ilike.%${busca}%`);
+      const de = Math.max(0, f.pagina - 1) * TAMANHO_PAGINA_ADMIN;
+      const r = await q.order("id").range(de, de + TAMANHO_PAGINA_ADMIN - 1);
+      if (r.error) throw new Error(`Supabase (questões do admin): ${r.error.message}`);
+      const linhas = r.data ?? [];
+      const gs = linhas.length ? ok(await adm.from("questao_gabarito").select("questao_id,correta").in("questao_id", linhas.map((x) => x.id)), "gabaritos") ?? [] : [];
+      const gab = new Map(gs.map((g) => [g.questao_id, g.correta]));
+      const itens = linhas.map<QuestaoAdmin>((x) => {
+        const c = gab.get(x.id);
+        return {
+          id: x.id, concursoSlug: x.concurso_slug, numeroNaProva: x.numero_na_prova, banca: x.banca, ano: x.ano, disciplina: x.disciplina_nome, assunto: x.assunto,
+          status: x.status, direitos: x.direitos_status, revisao: x.revisao_status, anulada: x.anulada, enunciado: x.enunciado, alternativas: x.alternativas as string[],
+          correta: c === null || c === undefined ? null : (("ABCDE"[c] as Letra | undefined) ?? null),
+          reportesAbertos: abertos.get(x.id) ?? 0, reportesTotal: totais.get(x.id) ?? 0,
+        };
+      });
+      return { itens, total: r.count ?? itens.length };
+    },
+
+    async resolverReporte(id, adminId, resolucao, justificativa) {
+      const r = await a().rpc("resolver_reporte", { p_id: id, p_resolucao: resolucao, p_justificativa: justificativa, p_admin: adminId });
+      if (r.error) throw new Error(`Supabase (resolver reporte): ${r.error.message}`);
+      return r.data ?? 0;
     },
   };
 }

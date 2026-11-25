@@ -47,6 +47,14 @@ python3 -I pipeline/edital_para_json.py conteudo/concursos/<slug>
 - [x] **Deploy privado na Vercel** (projeto `concurso-engine`, raiz `apps/web`, `APP_ENV=teste` + `POLITICA_QUESTOES=desenvolvimento`, `noindex`). Conteúdo carregado no Supabase com `seed_banco.py --apply --rest` (280 questões como `rascunho`/`pendente_juridico`). **Falta:** restringir o cadastro no Clerk (`sign_up_mode: restricted`) quando o email do tester for conhecido; decidir sobre a proteção "Vercel Authentication" (hoje ligada, o tester precisaria de conta Vercel); revogar/rotacionar `SUPABASE_SECRET_KEY` e `CLERK_SECRET_KEY` ao fim dos testes. Deploys só disparam com mudança dentro de `apps/web` (commit vazio é cancelado).
 - [ ] CI deve incluir também `apps/web`: `npm run typecheck`, `npm test` e `npm run build`.
 
+## Reportes e administração
+
+- O aluno reporta problema numa questão durante a prova (`reporte_questao`; a questão é derivada do simulado dele, nunca enviada pelo cliente). Limite de 20 por dia e um reporte aberto por (aluno, questão, motivo).
+- `/admin` (só IDs em `ADMIN_USER_IDS`; 404 para os demais; guarda em `exigirAdmin()` em toda página e ação): fila de reportes, banco de questões (leitura, com gabarito) e resolvidos. O admin **não edita o texto** da questão: ou mantém com justificativa, ou **retira** (`status = 'inativa'`, fecha os outros reportes abertos dela). Correção de texto segue pelo pipeline/Git.
+- Resolver é a função `resolver_reporte` (só `service_role`). O aluno vê que o reporte foi tratado, mas não a justificativa.
+- ID de questão nunca é apagado nem renumerado: o histórico dos simulados é snapshot.
+- Próximos (combinados): registro de alterações somente leitura para o aluno; `conhecimento` (`KNOW###`) com fonte e vigência para explicar o gabarito.
+
 ## Stack
 
 | Camada | Escolha | Observação |

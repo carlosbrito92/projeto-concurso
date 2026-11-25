@@ -24,7 +24,7 @@ export interface Database {
       }, "prova_slug" | "numero_na_prova" | "texto_apoio" | "anulada" | "peso" | "grupo_equivalencia" | "edital_item_id" | "edital_item_trilha" | "assunto" | "classificacao_status" | "classificacao_metodo" | "classificacao_score" | "banca" | "ano" | "direitos_status" | "revisao_status" | "revisao_por" | "revisao_em" | "status" | "pendencias" | "gabarito_oficial" | "imagens" | "atualizado_em">;
       questao_gabarito: Tab<{ questao_id: string; correta: number | null; comentario: string | null; fundamentacao: Json | null }, "correta" | "comentario" | "fundamentacao">;
       relatorio_simulado: Tab<{ simulado_id: string; gerado_em: string; conteudo: Json }, "gerado_em">;
-      reporte_questao: Tab<{ id: number; usuario_id: string; questao_id: string; motivo: string; texto: string | null; criado_em: string; resolvido_em: string | null }, "id" | "usuario_id" | "texto" | "criado_em" | "resolvido_em">;
+      reporte_questao: Tab<{ id: number; usuario_id: string; questao_id: string; motivo: string; texto: string | null; criado_em: string; resolvido_em: string | null; resolucao: string | null; justificativa: string | null; resolvido_por: string | null }, "id" | "usuario_id" | "texto" | "criado_em" | "resolvido_em" | "resolucao" | "justificativa" | "resolvido_por">;
       resposta: Tab<{ simulado_id: string; posicao: number; letra: string | null; tempo_ms: number | null; chute: boolean; respondida_em: string; acertou: boolean | null; pontos: number | null }, "letra" | "tempo_ms" | "chute" | "respondida_em" | "acertou" | "pontos">;
       simulado: Tab<{ id: string; usuario_id: string; concurso_slug: string; seed: string; modo: string; status: string; config: Json; criado_em: string; finalizado_em: string | null }, "id" | "modo" | "status" | "config" | "criado_em" | "finalizado_em">;
       simulado_gabarito: Tab<{ simulado_id: string; posicao: number; letra_correta: string; snapshot: Json }>;
@@ -32,7 +32,7 @@ export interface Database {
       usuario_concurso: Tab<{ usuario_id: string; concurso_slug: string; criado_em: string }, "usuario_id" | "criado_em">;
     };
     Views: { [k: string]: never };
-    Functions: { apagar_dados_usuario: { Args: { p_usuario: string }; Returns: undefined }; usuario_atual: { Args: Record<string, never>; Returns: string } };
+    Functions: { apagar_dados_usuario: { Args: { p_usuario: string }; Returns: undefined }; resolver_reporte: { Args: { p_id: number; p_resolucao: string; p_justificativa: string; p_admin: string }; Returns: number }; usuario_atual: { Args: Record<string, never>; Returns: string } };
     Enums: { [k: string]: never };
     CompositeTypes: { [k: string]: never };
   };

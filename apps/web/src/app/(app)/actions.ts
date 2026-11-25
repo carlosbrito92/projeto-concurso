@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { politicaQuestoes } from "@/lib/ambiente";
 import { usuarioAtualId } from "@/lib/auth";
 import { repoAtual } from "@/lib/repo/index";
-import { criarSimulado, finalizarSimulado, registrarResposta } from "@/lib/servico";
+import { criarSimulado, finalizarSimulado, registrarResposta, reportarQuestao } from "@/lib/servico";
 import { ErroDeNegocio } from "@/lib/tipos";
 import type { RespostaEntrada, ResultadoGravacao } from "@/lib/tipos";
 
@@ -54,4 +54,27 @@ export async function finalizarAction(id: string): Promise<void> {
     redirect(`/simulado/${id}?erro=finalizar`);
   }
   redirect(`/simulado/${id}/resultado`);
+}
+
+export type EstadoReporte = { ok: true; mensagem: string } | { ok: false; erro: string };
+
+const MENSAGEM_REPORTE: Record<string, string> = {
+  ok: "Reporte enviado. Obrigado: a questão entra na fila de revisão.",
+  ja_reportado: "Você já reportou esse problema nesta questão. Ele continua na fila de revisão.",
+};
+
+export async function reportarQuestaoAction(simuladoId: string, posicao: number, motivo: string, texto: string): Promise<EstadoReporte> {
+  if (!ID_VALIDO.test(simuladoId)) return { ok: false, erro: "Não encontrei esse simulado. Recarregue a página." };
+  const usuario = await usuarioAtualId();
+  try {
+    const r = await reportarQuestao(repoAtual(), usuario, simuladoId, posicao, motivo, texto);
+    const msg = MENSAGEM_REPORTE[r];
+    if (msg) return { ok: true, mensagem: msg };
+    if (r === "limite") return { ok: false, erro: "Você já enviou muitos reportes hoje. Tente de novo amanhã; os que já enviou serão revisados." };
+    return { ok: false, erro: "Não encontrei essa questão no seu simulado. Recarregue a página e tente de novo." };
+  } catch (e) {
+    if (e instanceof ErroDeNegocio) return { ok: false, erro: e.message };
+    console.error("reportarQuestaoAction", e);
+    return { ok: false, erro: "Não consegui enviar o reporte agora. Seu simulado não foi afetado: tente de novo em instantes." };
+  }
 }

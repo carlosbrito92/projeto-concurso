@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { Show, UserButton } from "@clerk/nextjs";
 import { modoDemo } from "@/lib/ambiente";
+import { ehAdminAtual } from "@/lib/admin";
 import { Marca } from "./Marca";
 import { NavLink } from "./NavLink";
 
-export function Cabecalho() {
+export async function Cabecalho() {
   const demo = modoDemo();
+  const admin = await ehAdminAtual();
   return (
     <>
       <a className="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -19,6 +21,7 @@ export function Cabecalho() {
           <Marca />
           <nav className="nav" aria-label="Principal">
             <NavLink href="/painel">Painel</NavLink>
+            {admin && <NavLink href="/admin">Admin</NavLink>}
             {demo ? (
               <small>usuário: demo</small>
             ) : (

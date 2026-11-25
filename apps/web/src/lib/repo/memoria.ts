@@ -1,5 +1,7 @@
 import type { Correcao, Edital, Letra, Questao, Relatorio, Resposta, Sessao, Simulado } from "@concurso/engine";
-import type { ConcursoResumo, Repositorio, RespostaEntrada, RespostaSalva, ResultadoGravacao, SimuladoCompleto, SimuladoParaProva, SimuladoResumo, StatusSimulado } from "../tipos.ts";
+import { LIMITE_REPORTES_DIA } from "../tipos.ts";
+import type { ConcursoResumo, FiltroQuestoesAdmin, MotivoReporte, QuestaoAdmin, Repositorio, ReporteAdmin, ResolucaoReporte, RespostaEntrada, RespostaSalva, ResultadoGravacao, SimuladoCompleto, SimuladoParaProva, SimuladoResumo, StatusSimulado } from "../tipos.ts";
+import { TAMANHO_PAGINA_ADMIN } from "../tipos.ts";
 import { paraCliente } from "@concurso/engine";
 
 interface Reg {
@@ -15,6 +17,20 @@ interface Reg {
   correcao: Correcao | null;
 }
 
+interface RegReporte {
+  id: number;
+  usuarioId: string;
+  questaoId: string;
+  concursoSlug: string;
+  motivo: MotivoReporte;
+  texto: string | null;
+  criadoEm: string;
+  resolvidoEm: string | null;
+  resolucao: ResolucaoReporte | null;
+  justificativa: string | null;
+  resolvidoPor: string | null;
+}
+
 export interface DadosMemoria {
   concursos: Array<{ resumo: ConcursoResumo; edital: Edital; pool: Questao[] }>;
 }
@@ -27,6 +43,20 @@ export function criarRepoMemoria(dados: DadosMemoria, agora: () => Date = () => 
     return r && r.usuarioId === usuarioId ? r : null;
   };
   const achar = (slug: string) => dados.concursos.find((c) => c.resumo.slug === slug);
+  const reportes: RegReporte[] = [];
+  let proximoReporte = 1;
+  const questaoPorId = (id: string) => {
+    for (const c of dados.concursos) {
+      const q = c.pool.find((x) => x.id === id);
+      if (q) return { q, slug: c.resumo.slug };
+    }
+    return null;
+  };
+  const resumoQuestao = (id: string): ReporteAdmin["questao"] => {
+    const f = questaoPorId(id);
+    if (!f) return null;
+    return { concursoSlug: f.slug, numeroNaProva: f.q.origem.questaoNumero ?? null, banca: f.q.concurso?.banca ?? null, ano: f.q.concurso?.ano ?? null, disciplina: f.q.classificacao.disciplina, status: f.q.status, enunciado: f.q.enunciado };
+  };
 
   return {
     async listarConcursos() {
@@ -108,6 +138,61 @@ export function criarRepoMemoria(dados: DadosMemoria, agora: () => Date = () => 
         if (c) out.push({ simulado: c.simulado, respostas: c.respostas });
       }
       return out;
+    },
+
+    async reportarQuestao(usuarioId, simuladoId, posicao, motivo, texto) {
+      const r = dono(usuarioId, simuladoId);
+      if (!r) return "inexistente";
+      const item = r.simulado.itens[posicao - 1];
+      if (!Number.isInteger(posicao) || !item) return "posicao_invalida";
+      const desde = agora().getTime() - 24 * 3600 * 1000;
+      if (reportes.filter((x) => x.usuarioId === usuarioId && Date.parse(x.criadoEm) >= desde).length >= LIMITE_REPORTES_DIA) return "limite";
+      if (reportes.some((x) => x.usuarioId === usuarioId && x.questaoId === item.questaoId && x.motivo === motivo && x.resolvidoEm === null)) return "ja_reportado";
+      reportes.push({ id: proximoReporte++, usuarioId, questaoId: item.questaoId, concursoSlug: r.concursoSlug, motivo, texto, criadoEm: agora().toISOString(), resolvidoEm: null, resolucao: null, justificativa: null, resolvidoPor: null });
+      return "ok";
+    },
+
+    async listarReportes(estado) {
+      return reportes
+        .filter((x) => (estado === "abertos") === (x.resolvidoEm === null))
+        .map<ReporteAdmin>((x) => ({ id: x.id, questaoId: x.questaoId, motivo: x.motivo, texto: x.texto, criadoEm: x.criadoEm, resolvidoEm: x.resolvidoEm, resolucao: x.resolucao, justificativa: x.justificativa, resolvidoPor: x.resolvidoPor, questao: resumoQuestao(x.questaoId) }))
+        .sort((a, b) => (estado === "abertos" ? (a.criadoEm < b.criadoEm ? -1 : 1) : (a.resolvidoEm ?? "") < (b.resolvidoEm ?? "") ? 1 : -1));
+    },
+
+    async contagemReportesAbertos() {
+      return reportes.filter((x) => x.resolvidoEm === null).length;
+    },
+
+    async listarQuestoesAdmin(f: FiltroQuestoesAdmin) {
+      const busca = f.busca?.trim().toLowerCase();
+      const todas = dados.concursos
+        .filter((c) => !f.concurso || c.resumo.slug === f.concurso)
+        .flatMap((c) => c.pool.map((q) => ({ q, slug: c.resumo.slug })))
+        .filter(({ q }) => !f.status || q.status === f.status)
+        .filter(({ q }) => !busca || q.id.toLowerCase().includes(busca) || q.enunciado.toLowerCase().includes(busca))
+        .map<QuestaoAdmin>(({ q, slug }) => ({
+          id: q.id, concursoSlug: slug, numeroNaProva: q.origem.questaoNumero ?? null, banca: q.concurso?.banca ?? null, ano: q.concurso?.ano ?? null,
+          disciplina: q.classificacao.disciplina, assunto: q.classificacao.assunto ?? null, status: q.status, direitos: q.direitos.status, revisao: q.revisao.status,
+          anulada: q.anulada, enunciado: q.enunciado, alternativas: q.alternativas, correta: q.correta === undefined ? null : (("ABCDE"[q.correta] as Letra | undefined) ?? null),
+          reportesAbertos: reportes.filter((x) => x.questaoId === q.id && x.resolvidoEm === null).length,
+          reportesTotal: reportes.filter((x) => x.questaoId === q.id).length,
+        }))
+        .filter((x) => !f.soComReporteAberto || x.reportesAbertos > 0)
+        .sort((a, b) => (a.id < b.id ? -1 : 1));
+      const de = Math.max(0, f.pagina - 1) * TAMANHO_PAGINA_ADMIN;
+      return { itens: todas.slice(de, de + TAMANHO_PAGINA_ADMIN), total: todas.length };
+    },
+
+    async resolverReporte(id, adminId, resolucao, justificativa) {
+      const alvo = reportes.find((x) => x.id === id && x.resolvidoEm === null);
+      if (!alvo) return 0;
+      const fechar = resolucao === "questao_retirada" ? reportes.filter((x) => x.questaoId === alvo.questaoId && x.resolvidoEm === null) : [alvo];
+      if (resolucao === "questao_retirada") {
+        const f = questaoPorId(alvo.questaoId);
+        if (f) f.q.status = "inativa";
+      }
+      for (const x of fechar) Object.assign(x, { resolvidoEm: agora().toISOString(), resolucao, justificativa, resolvidoPor: adminId });
+      return fechar.length;
     },
   };
 }

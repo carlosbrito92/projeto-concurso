@@ -6,6 +6,7 @@ import { finalizarAction, registrarRespostaAction } from "@/app/(app)/actions";
 import type { SimuladoParaProva } from "@/lib/tipos";
 import { Aviso } from "./Aviso";
 import { Barra } from "./Barra";
+import { ReportarProblema } from "./ReportarProblema";
 import { Spinner } from "./Spinner";
 import { Toast } from "./Toast";
 
@@ -189,6 +190,7 @@ export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaPro
             <button type="button" className="btn" onClick={() => irPara(idx + 1)} disabled={idx === total - 1} aria-disabled={idx === total - 1}>Próxima</button>
           </div>
           <small className="suave">Atalhos: teclas A a E marcam a alternativa; setas esquerda e direita trocam de questão.</small>
+          <ReportarProblema key={item.questaoId} simuladoId={simulado.id} posicao={posicao} />
         </article>
 
         <aside className="navegador painel pilha-p" aria-label="Navegação entre questões">
