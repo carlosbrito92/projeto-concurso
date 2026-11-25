@@ -44,7 +44,7 @@ python3 -I pipeline/edital_para_json.py conteudo/concursos/<slug>
 - [ ] **Nome do produto** (hoje provisório, em `components/Marca.tsx`).
 - [ ] **Decisão sobre as questões do tester**: com a política padrão nenhuma questão real é servida (todas `pendente_juridico`). Para um tester num deploy privado: `APP_ENV=teste` + `POLITICA_QUESTOES=desenvolvimento` e carregar o conteúdo com `seed_banco.py`. Em produção só com questões liberadas.
 - [ ] **Webhook do Clerk `user.deleted` → `apagar_dados_usuario`** (LGPD): a função existe no banco; falta a rota que a chama.
-- [ ] **Deploy na Vercel** com as variáveis do `apps/web/.env.example` (a `SUPABASE_SECRET_KEY` deve ser uma chave `sb_secret_...` rotacionável, revogada ao fim dos testes).
+- [x] **Deploy privado na Vercel** (projeto `concurso-engine`, raiz `apps/web`, `APP_ENV=teste` + `POLITICA_QUESTOES=desenvolvimento`, `noindex`). Conteúdo carregado no Supabase com `seed_banco.py --apply --rest` (280 questões como `rascunho`/`pendente_juridico`). **Falta:** restringir o cadastro no Clerk (`sign_up_mode: restricted`) quando o email do tester for conhecido; decidir sobre a proteção "Vercel Authentication" (hoje ligada, o tester precisaria de conta Vercel); revogar/rotacionar `SUPABASE_SECRET_KEY` e `CLERK_SECRET_KEY` ao fim dos testes. Deploys só disparam com mudança dentro de `apps/web` (commit vazio é cancelado).
 - [ ] CI deve incluir também `apps/web`: `npm run typecheck`, `npm test` e `npm run build`.
 
 ## Stack
