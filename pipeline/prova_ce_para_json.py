@@ -91,7 +91,7 @@ def tem_colunas(l) -> bool:
     return any(ps[i + 1][0] - ps[i][1] > 40 for i in range(len(ps) - 1))
 
 
-def ler_prova(pdf: Path, total: int):
+def ler_prova(pdf: Path, total: int, margens=(MARGEM_ESQ, MARGEM_DIR)):
     """Percorre as páginas e devolve (itens, bases, avisos)."""
     paginas = paginas_bbox(pdf)
     itens, bases, avisos = {}, [], []
@@ -109,12 +109,17 @@ def ler_prova(pdf: Path, total: int):
     for pagina, brutas in paginas:
         uteis = [l for l in brutas if CABECALHO_RODAPE_Y[0] <= l["y0"] <= CABECALHO_RODAPE_Y[1] and not texto_da(l).startswith("pcimarkpci")]
         uteis = [l for l in uteis if not RASCUNHO.match(texto_da(l))]
+        # marca-d'água diagonal: fragmento curto cuja caixa é larguíssima (texto girado)
+        uteis = [l for l in uteis if (l["x1"] - l["x0"]) <= 20 * max(len(texto_da(l)), 1) or len(texto_da(l)) > 12]
         # zona de texto-base de largura total (página do texto): entre "Texto para os itens de A a B" e a primeira régua larga
         cab = next((l for l in uteis if BASE_TEXTO.match(texto_da(l))), None)
         zona = []
         if cab is not None:
-            regua = next((l for l in sorted(uteis, key=lambda r: r["y0"]) if l["y0"] > cab["y0"] and REGRA.match(texto_da(l)) and l["x1"] - l["x0"] > 400), None)
-            y_fim = regua["y0"] if regua else 10**6
+            ordem = sorted(uteis, key=lambda r: r["y0"])
+            regua = next((l for l in ordem if l["y0"] > cab["y0"] and REGRA.match(texto_da(l)) and l["x1"] - l["x0"] > 400), None)
+            if regua is None:  # sem régua (ex.: Quadrix 2025): o texto-base termina no comando "..., julgue os itens a seguir."
+                regua = next((l for l in ordem if l["y0"] > cab["y0"] + 20 and l["x0"] < 60 and re.search(r"julgue", texto_da(l), re.I)), None)
+            y_fim = regua["y0"] - (2.0 if not REGRA.match(texto_da(regua)) else 0) if regua else 10**6  # comando e item da outra coluna podem estar na mesma altura
             zona = [l for l in uteis if cab["y0"] < l["y0"] < y_fim]
             uteis = [l for l in uteis if l not in zona]
             m = BASE_TEXTO.match(texto_da(cab))
@@ -126,7 +131,7 @@ def ler_prova(pdf: Path, total: int):
             uteis = [l for l in uteis if l is not cab]
         esq = fundir_mesma_linha([l for l in uteis if l["x1"] <= 300])
         dire = fundir_mesma_linha([l for l in uteis if l["x0"] >= 300])
-        for coluna, margem in ((esq, MARGEM_ESQ), (dire, MARGEM_DIR)):
+        for coluna, margem in ((esq, margens[0]), (dire, margens[1])):
             for l in coluna:
                 tx = texto_da(l)
                 if not tx or REGRA.match(tx):
@@ -195,7 +200,7 @@ def main() -> int:
         erros.append("gabarito com valor fora de C/E")
     definitivo = gab.get("situacao") == "definitivo"
 
-    itens, bases, _ = ler_prova(pdf, total)
+    itens, bases, _ = ler_prova(pdf, total, tuple(meta.get("margens", (MARGEM_ESQ, MARGEM_DIR))))
     faltam = [n for n in range(1, total + 1) if n not in itens]
     if faltam:
         erros.append(f"itens não encontrados: {faltam[:10]}{'...' if len(faltam) > 10 else ''}")
@@ -212,6 +217,8 @@ def main() -> int:
         erros.append(f"itens sem faixa de disciplina: {sem_faixa[:10]}")
     edital = json.loads((RAIZ / "conteudo" / "concursos" / meta["concursoSlug"] / "02-json" / "edital.json").read_text(encoding="utf-8"))
     disc = {d["id"]: d for d in edital["disciplinas"]}
+    edital_prova = edital.get("prova") or {}
+    sem_intervalo = []
     for f in meta["faixas"]:
         if f["disciplina"] not in disc:
             erros.append(f"faixa {f['de']}-{f['ate']}: disciplina {f['disciplina']} não existe no edital")
@@ -272,7 +279,7 @@ def main() -> int:
         if cits and not any(a <= n <= b for a, b in cits) and not any(a <= n <= b for a, b, _ in bases):
             avisos.append(f"item {n}: o comando do grupo não cita este item ({cits})")
         if not cits and not any(a <= n <= b for a, b, _ in bases):
-            avisos.append(f"item {n}: grupo sem comando 'julgue os itens de A a B'")
+            sem_intervalo.append(n)  # provas que só dizem "julgue os itens a seguir" (sem A a B): o agrupamento não se confere por número
         c = resp.get(n)
         d_ = disc.get(f["disciplina"]) if f else None
         classif = {"disciplina": d_["nome"] if d_ else "?", "assunto": None}
@@ -332,6 +339,8 @@ def main() -> int:
     (pasta / "01-md" / meta["fonte"]["md"]).write_text("\n".join(md) + "\n", encoding="utf-8")
     (pasta / "02-json" / "questoes.json").write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     dist = {"C": sum(1 for v in resp.values() if v == "C"), "E": sum(1 for v in resp.values() if v == "E")}
+    if sem_intervalo:
+        avisos.append(f"{len(sem_intervalo)} itens em grupos cujo comando não traz 'itens de A a B' (agrupamento conferido só pela posição): {sem_intervalo[0]}..{sem_intervalo[-1]}")
     por_disc = {}
     for f in meta["faixas"]:
         por_disc[f["disciplina"]] = por_disc.get(f["disciplina"], 0) + (f["ate"] - f["de"] + 1)
@@ -339,9 +348,11 @@ def main() -> int:
            f"- Itens: {len(out)} (Certo/Errado) | gabarito: {gab.get('situacao')} | distribuição C={dist['C']} E={dist['E']}",
            f"- Pendências para revisão humana: {pend_total}",
            f"- Itens por módulo (conferido contra o edital): {por_modulo}",
-           "- Pontuação: +1 acerto, −1 erro, 0 em branco (edital 10.6.2); gabarito lido de imagem (ver gabarito.json)"]
+           f"- Pontuação: +1 acerto, −1 erro, 0 em branco (edital {edital_prova.get('fonteItem') or '?'}); gabarito: {gab.get('leitura', {}).get('metodo', 'ver gabarito.json')}"]
     if meta.get("vigenciaSuspeita"):
-        rel.append("- AVISO: prova antiga; conferir a vigência da legislação antes de ativar qualquer item jurídico/normativo")
+        rel.append("- AVISO: a legislação pode ter mudado desde a prova; conferir a vigência antes de ativar qualquer item jurídico/normativo")
+    if not definitivo:
+        rel.append("- AVISO: gabarito PRELIMINAR; pode mudar após os recursos (itens anulados/alterados). Conferir o definitivo antes de liberar")
     rel += [f"- AVISO: {a}" for a in avisos]
     rel += ["", "## Por disciplina (faixas do meta.json)", ""] + [f"- {did} {disc[did]['nome']}: {q} itens" for did, q in por_disc.items()]
     (pasta / "02-json" / "relatorio.md").write_text("\n".join(rel) + "\n", encoding="utf-8")

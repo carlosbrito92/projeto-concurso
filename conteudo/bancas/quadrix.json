@@ -11,55 +11,68 @@
         "questoes": 120,
         "alternativas": 2,
         "gabarito": "definitivo"
+      },
+      {
+        "slug": "crc-sp-quadrix-2025-analista-contabil",
+        "orgao": "CRCSP",
+        "ano": 2025,
+        "cargo": "Analista Contábil",
+        "questoes": 120,
+        "alternativas": 2,
+        "gabarito": "preliminar"
       }
     ],
-    "totalQuestoes": 120,
+    "totalQuestoes": 240,
     "confianca": "baixa",
-    "aviso": "Amostra de 1 prova(s), todas de cargos policiais; use as medidas como tendência, não como regra. Gabaritos preliminares/não confirmados podem ter mudado após recursos."
+    "aviso": "Amostra de 2 prova(s), todas de cargos policiais; use as medidas como tendência, não como regra. Gabaritos preliminares/não confirmados podem ter mudado após recursos."
   },
   "medidas": {
     "questoes": {
-      "total": 120,
+      "total": 240,
       "anuladas": 0,
       "taxaAnuladas": 0.0,
       "alternativasPorQuestao": {
-        "2": 120
+        "2": 240
       }
     },
     "gabarito": {
-      "baseadoEm": 120,
+      "baseadoEm": 240,
       "distribuicao": {
-        "A": 59,
-        "B": 61
+        "A": 119,
+        "B": 121
       },
       "proporcao": {
-        "A": 0.4917,
-        "B": 0.5083
+        "A": 0.4958,
+        "B": 0.5042
       },
       "porProva": {
         "crc-pr-quadrix-2022-analista-contabil": {
           "A": 59,
           "B": 61
+        },
+        "crc-sp-quadrix-2025-analista-contabil": {
+          "A": 60,
+          "B": 60
         }
       },
       "acaso": 0.5
     },
     "enunciado": {
       "caracteres": {
-        "n": 120,
-        "media": 175.9,
-        "mediana": 162.5,
-        "p10": 81.6,
-        "p90": 284.4,
+        "n": 240,
+        "media": 168.8,
+        "mediana": 160.5,
+        "p10": 90.7,
+        "p90": 256.3,
         "min": 13,
         "max": 583
       },
       "palavras": {
-        "n": 120,
-        "media": 27.4,
-        "mediana": 25.0,
-        "p10": 14.0,
-        "p90": 44.0,
+        "n": 240,
+        "media": 26.1,
+        "mediana": 24.0,
+        "p10": 15.0,
+        "p90": 39.0,
         "min": 5,
         "max": 91
       },
@@ -68,7 +81,7 @@
     },
     "alternativas": {
       "caracteres": {
-        "n": 240,
+        "n": 480,
         "media": 5.5,
         "mediana": 5.5,
         "p10": 5.0,
@@ -77,7 +90,7 @@
         "max": 6
       },
       "mediaPorQuestao": {
-        "n": 120,
+        "n": 240,
         "media": 5.5,
         "mediana": 5.5,
         "p10": 5.5,
@@ -86,15 +99,15 @@
         "max": 5.5
       },
       "corretaEhMaisLonga": {
-        "proporcao": 0.5083,
+        "proporcao": 0.5042,
         "empateNoMaior": 0.0,
-        "baseadoEm": 120,
+        "baseadoEm": 240,
         "acaso": 0.5
       },
       "comAlternativaEmImagem": 0.0
     },
     "comando": {
-      "pedeIncorretaOuExceto": 0.0167,
+      "pedeIncorretaOuExceto": 0.0125,
       "assertivasNumeradas": 0.0,
       "alternativasDeCombinacao": 0.0,
       "relacioneOuSequencia": 0.0,
@@ -102,23 +115,26 @@
       "terminaEmDoisPontos": 0.0,
       "terminaEmPonto": 1.0,
       "terminaSemPontuacaoCompletarFrase": 0.0,
-      "citaNormaOuArtigo": 0.0833,
+      "citaNormaOuArtigo": 0.0875,
       "alternativaTodasOuNenhuma": 0.0,
-      "dependeDeImagem": 0.0083
+      "dependeDeImagem": 0.0042
     },
     "disciplinas": {
       "questoesPorDisciplina": {
-        "Língua Portuguesa": 20,
-        "Noções de Informática": 10,
-        "Raciocínio Lógico e Matemática": 10,
-        "Legislação e Ética na Administração Pública": 15,
+        "Língua Portuguesa": 40,
+        "Noções de Informática": 20,
+        "Raciocínio Lógico e Matemática": 20,
+        "Legislação e Ética na Administração Pública": 30,
         "Atualidades": 15,
-        "Contabilidade Geral": 12,
+        "Contabilidade Geral": 26,
         "Contabilidade Pública": 14,
         "Legislação Aplicável à Contratação de Bens e Serviços": 5,
         "Legislação Tributária Aplicada às Contratações Públicas": 2,
         "Matemática Financeira": 2,
-        "Legislação Específica": 15
+        "Legislação Específica": 30,
+        "Legislação (Analista Contábil)": 15,
+        "Auditoria": 12,
+        "Orçamento e Contabilidade Pública": 9
       },
       "porProva": {
         "crc-pr-quadrix-2022-analista-contabil": {
@@ -133,20 +149,34 @@
           "Legislação Tributária Aplicada às Contratações Públicas": 2,
           "Matemática Financeira": 2,
           "Legislação Específica": 15
+        },
+        "crc-sp-quadrix-2025-analista-contabil": {
+          "Língua Portuguesa": 20,
+          "Raciocínio Lógico e Matemática": 10,
+          "Noções de Informática": 10,
+          "Legislação e Ética na Administração Pública": 15,
+          "Legislação Específica": 15,
+          "Legislação (Analista Contábil)": 15,
+          "Auditoria": 12,
+          "Contabilidade Geral": 14,
+          "Orçamento e Contabilidade Pública": 9
         }
       },
       "tamanhoMedioEnunciado": {
-        "Língua Portuguesa": 165.7,
-        "Noções de Informática": 138.4,
-        "Raciocínio Lógico e Matemática": 67.2,
-        "Legislação e Ética na Administração Pública": 158.3,
+        "Língua Portuguesa": 171.6,
+        "Noções de Informática": 139.7,
+        "Raciocínio Lógico e Matemática": 100.8,
+        "Legislação e Ética na Administração Pública": 174.6,
         "Atualidades": 177.8,
-        "Contabilidade Geral": 222,
+        "Contabilidade Geral": 184.0,
         "Contabilidade Pública": 200.2,
         "Legislação Aplicável à Contratação de Bens e Serviços": 207.6,
         "Legislação Tributária Aplicada às Contratações Públicas": 415,
         "Matemática Financeira": 178,
-        "Legislação Específica": 200.7
+        "Legislação Específica": 174.0,
+        "Legislação (Analista Contábil)": 162.7,
+        "Auditoria": 192.4,
+        "Orçamento e Contabilidade Pública": 129.3
       }
     }
   },

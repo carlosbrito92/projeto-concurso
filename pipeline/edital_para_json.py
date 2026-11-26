@@ -210,6 +210,8 @@ def main_cfg(pasta: Path, meta: dict) -> int:
     disciplinas, ids = [], {}
     for pos, (ini, k) in enumerate(starts):
         d = cfg["disciplinas"][k]
+        if d.get("ignorar"):  # bloco que não é do cargo (ex.: Língua Inglesa): só serve de fronteira entre disciplinas
+            continue
         fim = starts[pos + 1][0] if pos + 1 < len(starts) else len(corpo)
         if d.get("ate"):
             f2 = [i for i in range(ini + 1, fim) if limpo(corpo[i][1]).startswith(d["ate"])]
@@ -230,7 +232,7 @@ def main_cfg(pasta: Path, meta: dict) -> int:
                 break
         modo = d.get("modo", "auto")
         if modo != "hierarquico":  # parêntese de título ("(COM EXCEÇÃO DOS CARGOS DE LEGISTA)") não é item do programa
-            texto = re.sub(r"^\([^)]*\)\s*", "", texto.lstrip())
+            texto = re.sub(r"^\([^)]*\)\s*:?\s*", "", texto.lstrip())
         num = d.get("numero", k + 1)
         if modo == "hierarquico":
             its, numeracao = itens_hier(texto, num), "edital"
@@ -243,7 +245,7 @@ def main_cfg(pasta: Path, meta: dict) -> int:
             numeracao = "edital"
             if its is None:
                 its, numeracao = itens_sentencas(texto), "sintetica"
-        did = f"D{k + 1:02d}"
+        did = f"D{len(disciplinas) + 1:02d}"
         ids[d["nome"]] = did
         itens, vistos = [], set()
         for n_item, tx, off in its:

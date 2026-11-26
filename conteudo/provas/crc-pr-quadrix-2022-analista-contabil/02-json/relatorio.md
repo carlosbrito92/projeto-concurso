@@ -3,8 +3,8 @@
 - Itens: 120 (Certo/Errado) | gabarito: definitivo | distribuição C=59 E=61
 - Pendências para revisão humana: {'verificar_vigencia': 120, 'confirmar_assunto': 120, 'formatacao': 5, 'imagem': 1, 'tabela': 6}
 - Itens por módulo (conferido contra o edital): {'basicos': 40, 'complementares': 30, 'especificos': 50}
-- Pontuação: +1 acerto, −1 erro, 0 em branco (edital 10.6.2); gabarito lido de imagem (ver gabarito.json)
-- AVISO: prova antiga; conferir a vigência da legislação antes de ativar qualquer item jurídico/normativo
+- Pontuação: +1 acerto, −1 erro, 0 em branco (edital 9 e 10.6); gabarito: imagem: glifos C/E classificados por forma (barra do meio) com checagem de largura; conferir contra o PDF
+- AVISO: a legislação pode ter mudado desde a prova; conferir a vigência antes de ativar qualquer item jurídico/normativo
 
 ## Por disciplina (faixas do meta.json)
 

@@ -4,9 +4,9 @@ import { criarRepoMemoria } from "./memoria.ts";
 
 export const CONCURSO_DEMO = "pc-mg-fgv-2024";
 /** Os demais editais REAIS já carregados no projeto (conteúdo público); as questões de todos continuam fictícias. */
-const CONCURSOS_REAIS = [CONCURSO_DEMO, "pc-mg-fumarc-2014", "pc-ma-fgv-2012", "pc-am-fgv-2021", "crc-pr-quadrix-2022"];
+const CONCURSOS_REAIS = [CONCURSO_DEMO, "pc-mg-fumarc-2014", "pc-ma-fgv-2012", "pc-am-fgv-2021", "crc-pr-quadrix-2022", "crc-sp-quadrix-2025"];
 /** Concursos de itens Certo/Errado (nota com desconto por erro): a demonstração gera itens fictícios nesse formato. */
-const CERTO_ERRADO = new Set(["crc-pr-quadrix-2022"]);
+const CERTO_ERRADO = new Set(["crc-pr-quadrix-2022", "crc-sp-quadrix-2025"]);
 
 /**
  * Entradas FICTÍCIAS só para a demonstração exercitar o seletor com várias áreas (usam a estrutura de edital do piloto).

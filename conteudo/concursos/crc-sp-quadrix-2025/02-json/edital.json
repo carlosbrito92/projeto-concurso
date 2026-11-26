@@ -1,0 +1,1694 @@
+{
+  "schemaVersion": "1.2",
+  "concurso": {
+    "slug": "crc-sp-quadrix-2025",
+    "orgao": "Conselho Regional de Contabilidade do Estado de São Paulo (CRC-SP)",
+    "uf": "SP",
+    "area": "conselhos",
+    "banca": "Quadrix",
+    "cargo": "Analista Contábil",
+    "edital": "01/2025",
+    "ano": 2025,
+    "vagas": null
+  },
+  "prova": {
+    "totalQuestoes": 120,
+    "alternativas": 2,
+    "pontosPorQuestao": 1,
+    "notaMinimaObjetiva": 34,
+    "duracaoMinimaHoras": null,
+    "duracaoMaximaHoras": 3,
+    "dataProvavel": "2025-06-22",
+    "fonteItem": "11 e 12.5",
+    "pontosPorErro": -1,
+    "notaMinimaPorModulo": {
+      "basicos": 10,
+      "complementares": 8,
+      "especificos": 12
+    }
+  },
+  "fonte": {
+    "arquivo": "edital-01-2025.pdf",
+    "sha256": "ae200c6b027749e1f1334e922893eaa425b9ef7af6a678d93d9f25b9d3e040cd",
+    "paginasAnexoConteudo": [
+      29,
+      30,
+      32,
+      33
+    ]
+  },
+  "disciplinas": [
+    {
+      "id": "D01",
+      "modulo": "basicos",
+      "numero": 1,
+      "tituloLiteral": "1.1 LÍNGUA PORTUGUESA:",
+      "nome": "Língua Portuguesa",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D01:1",
+          "numero": "1",
+          "texto": "Compreensão e Interpretação de Textos:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D01:1.1",
+          "numero": "1.1",
+          "texto": "Compreensão e interpretação de textos de gêneros variados.",
+          "pai": "D01:1",
+          "pagina": 29
+        },
+        {
+          "id": "D01:1.2",
+          "numero": "1.2",
+          "texto": "Reconhecimento de tipos e gêneros textuais.",
+          "pai": "D01:1",
+          "pagina": 29
+        },
+        {
+          "id": "D01:1.3",
+          "numero": "1.3",
+          "texto": "Funções e figuras de linguagem.",
+          "pai": "D01:1",
+          "pagina": 29
+        },
+        {
+          "id": "D01:1.4",
+          "numero": "1.4",
+          "texto": "Denotação e conotação.",
+          "pai": "D01:1",
+          "pagina": 29
+        },
+        {
+          "id": "D01:2",
+          "numero": "2",
+          "texto": "Análise Linguística e Semântica:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D01:2.1",
+          "numero": "2.1",
+          "texto": "Domínio da ortografia oficial.",
+          "pai": "D01:2",
+          "pagina": 29
+        },
+        {
+          "id": "D01:2.2",
+          "numero": "2.2",
+          "texto": "Significação das palavras: sinonímia, antonímia, paronímia, homonímia e polissemia.",
+          "pai": "D01:2",
+          "pagina": 29
+        },
+        {
+          "id": "D01:2.3",
+          "numero": "2.3",
+          "texto": "Emprego das classes de palavras.",
+          "pai": "D01:2",
+          "pagina": 29
+        },
+        {
+          "id": "D01:2.4",
+          "numero": "2.4",
+          "texto": "Colocação dos pronomes átonos e tônicos.",
+          "pai": "D01:2",
+          "pagina": 29
+        },
+        {
+          "id": "D01:3",
+          "numero": "3",
+          "texto": "Estruturação Textual:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D01:3.1",
+          "numero": "3.1",
+          "texto": "Domínio dos mecanismos de coesão textual.",
+          "pai": "D01:3",
+          "pagina": 29
+        },
+        {
+          "id": "D01:3.2",
+          "numero": "3.2",
+          "texto": "Emprego de elementos de referenciação, substituição e repetição, de conectores e de outros elementos de sequenciação textual.",
+          "pai": "D01:3",
+          "pagina": 29
+        },
+        {
+          "id": "D01:3.3",
+          "numero": "3.3",
+          "texto": "Emprego de tempos e modos verbais.",
+          "pai": "D01:3",
+          "pagina": 29
+        },
+        {
+          "id": "D01:4",
+          "numero": "4",
+          "texto": "Sintaxe:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D01:4.1",
+          "numero": "4.1",
+          "texto": "Domínio da estrutura morfossintática do período.",
+          "pai": "D01:4",
+          "pagina": 29
+        },
+        {
+          "id": "D01:4.2",
+          "numero": "4.2",
+          "texto": "Relações de coordenação entre orações e entre termos da oração.",
+          "pai": "D01:4",
+          "pagina": 29
+        },
+        {
+          "id": "D01:4.3",
+          "numero": "4.3",
+          "texto": "Relações de subordinação entre orações e entre termos da oração.",
+          "pai": "D01:4",
+          "pagina": 29
+        },
+        {
+          "id": "D01:4.4",
+          "numero": "4.4",
+          "texto": "Concordância verbal e nominal.",
+          "pai": "D01:4",
+          "pagina": 29
+        },
+        {
+          "id": "D01:4.5",
+          "numero": "4.5",
+          "texto": "Regência verbal e nominal.",
+          "pai": "D01:4",
+          "pagina": 29
+        },
+        {
+          "id": "D01:4.6",
+          "numero": "4.6",
+          "texto": "Emprego do sinal indicativo de crase.",
+          "pai": "D01:4",
+          "pagina": 29
+        },
+        {
+          "id": "D01:5",
+          "numero": "5",
+          "texto": "Pontuação:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D01:5.1",
+          "numero": "5.1",
+          "texto": "Emprego dos sinais de pontuação.",
+          "pai": "D01:5",
+          "pagina": 29
+        },
+        {
+          "id": "D01:6",
+          "numero": "6",
+          "texto": "Reescrita e Produção Textual:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D01:6.1",
+          "numero": "6.1",
+          "texto": "Reescrita de frases e parágrafos do texto.",
+          "pai": "D01:6",
+          "pagina": 29
+        },
+        {
+          "id": "D01:6.2",
+          "numero": "6.2",
+          "texto": "Substituição de palavras ou de trechos de texto.",
+          "pai": "D01:6",
+          "pagina": 29
+        },
+        {
+          "id": "D01:6.3",
+          "numero": "6.3",
+          "texto": "Reorganização da estrutura de orações e de períodos do texto.",
+          "pai": "D01:6",
+          "pagina": 29
+        },
+        {
+          "id": "D01:6.4",
+          "numero": "6.4",
+          "texto": "Reescrita de textos de diferentes gêneros e níveis de formalidade.",
+          "pai": "D01:6",
+          "pagina": 29
+        },
+        {
+          "id": "D01:7",
+          "numero": "7",
+          "texto": "Redação Oficial:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D01:7.1",
+          "numero": "7.1",
+          "texto": "Aspectos gerais da redação oficial.",
+          "pai": "D01:7",
+          "pagina": 29
+        },
+        {
+          "id": "D01:7.2",
+          "numero": "7.2",
+          "texto": "Características fundamentais da redação oficial.",
+          "pai": "D01:7",
+          "pagina": 29
+        },
+        {
+          "id": "D01:7.3",
+          "numero": "7.3",
+          "texto": "Padrões de redação oficial.",
+          "pai": "D01:7",
+          "pagina": 29
+        },
+        {
+          "id": "D01:7.4",
+          "numero": "7.4",
+          "texto": "Emprego e concordância dos pronomes de tratamento.",
+          "pai": "D01:7",
+          "pagina": 29
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "modulo": "basicos",
+      "numero": 2,
+      "tituloLiteral": "1.2 RACIOCÍNIO LÓGICO E MATEMÁTICA:",
+      "nome": "Raciocínio Lógico e Matemática",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D02:1",
+          "numero": "1",
+          "texto": "Matemática Básica e Operações:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D02:1.1",
+          "numero": "1.1",
+          "texto": "Conjuntos numéricos (números naturais, inteiros, racionais e reais) e operações com conjuntos.",
+          "pai": "D02:1",
+          "pagina": 29
+        },
+        {
+          "id": "D02:1.2",
+          "numero": "1.2",
+          "texto": "Razões e proporções.",
+          "pai": "D02:1",
+          "pagina": 29
+        },
+        {
+          "id": "D02:1.3",
+          "numero": "1.3",
+          "texto": "Porcentagem.",
+          "pai": "D02:1",
+          "pagina": 29
+        },
+        {
+          "id": "D02:1.4",
+          "numero": "1.4",
+          "texto": "Regras de três simples e compostas.",
+          "pai": "D02:1",
+          "pagina": 29
+        },
+        {
+          "id": "D02:1.5",
+          "numero": "1.5",
+          "texto": "Funções e equações de 1º e 2º graus.",
+          "pai": "D02:1",
+          "pagina": 29
+        },
+        {
+          "id": "D02:1.6",
+          "numero": "1.6",
+          "texto": "Progressões aritméticas e geométricas.",
+          "pai": "D02:1",
+          "pagina": 29
+        },
+        {
+          "id": "D02:2",
+          "numero": "2",
+          "texto": "Análise Combinatória e Probabilidade:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D02:2.1",
+          "numero": "2.1",
+          "texto": "Princípios de contagem.",
+          "pai": "D02:2",
+          "pagina": 29
+        },
+        {
+          "id": "D02:2.2",
+          "numero": "2.2",
+          "texto": "Arranjos e permutações.",
+          "pai": "D02:2",
+          "pagina": 29
+        },
+        {
+          "id": "D02:2.3",
+          "numero": "2.3",
+          "texto": "Combinações.",
+          "pai": "D02:2",
+          "pagina": 29
+        },
+        {
+          "id": "D02:2.4",
+          "numero": "2.4",
+          "texto": "Noções de probabilidade.",
+          "pai": "D02:2",
+          "pagina": 29
+        },
+        {
+          "id": "D02:3",
+          "numero": "3",
+          "texto": "Raciocínio Lógico:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D02:3.1",
+          "numero": "3.1",
+          "texto": "Compreensão de estruturas lógicas.",
+          "pai": "D02:3",
+          "pagina": 29
+        },
+        {
+          "id": "D02:3.2",
+          "numero": "3.2",
+          "texto": "Lógica de argumentação (analogias, inferências, deduções e conclusões).",
+          "pai": "D02:3",
+          "pagina": 29
+        },
+        {
+          "id": "D02:3.3",
+          "numero": "3.3",
+          "texto": "Diagramas lógicos.",
+          "pai": "D02:3",
+          "pagina": 29
+        },
+        {
+          "id": "D02:3.4",
+          "numero": "3.4",
+          "texto": "Compreensão e análise da lógica de uma situação.",
+          "pai": "D02:3",
+          "pagina": 29
+        },
+        {
+          "id": "D02:4",
+          "numero": "4",
+          "texto": "Raciocínio Analítico e Espacial:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D02:4.1",
+          "numero": "4.1",
+          "texto": "Raciocínio verbal.",
+          "pai": "D02:4",
+          "pagina": 29
+        },
+        {
+          "id": "D02:4.2",
+          "numero": "4.2",
+          "texto": "Raciocínio matemático.",
+          "pai": "D02:4",
+          "pagina": 29
+        },
+        {
+          "id": "D02:4.3",
+          "numero": "4.3",
+          "texto": "Raciocínio sequencial.",
+          "pai": "D02:4",
+          "pagina": 29
+        },
+        {
+          "id": "D02:4.4",
+          "numero": "4.4",
+          "texto": "Orientação espacial e temporal.",
+          "pai": "D02:4",
+          "pagina": 29
+        },
+        {
+          "id": "D02:4.5",
+          "numero": "4.5",
+          "texto": "Formação de conceitos e discriminação de elementos.",
+          "pai": "D02:4",
+          "pagina": 29
+        },
+        {
+          "id": "D02:5",
+          "numero": "5",
+          "texto": "Estatística e Análise de Dados:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D02:5.1",
+          "numero": "5.1",
+          "texto": "Estatística básica (média, moda, mediana, desvio padrão).",
+          "pai": "D02:5",
+          "pagina": 29
+        },
+        {
+          "id": "D02:5.2",
+          "numero": "5.2",
+          "texto": "Análise e interpretação de gráficos e tabelas.",
+          "pai": "D02:5",
+          "pagina": 29
+        },
+        {
+          "id": "D02:6",
+          "numero": "6",
+          "texto": "Noções de Matemática Financeira:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D02:6.1",
+          "numero": "6.1",
+          "texto": "Juros simples e compostos.",
+          "pai": "D02:6",
+          "pagina": 29
+        },
+        {
+          "id": "D02:6.2",
+          "numero": "6.2",
+          "texto": "Desconto.",
+          "pai": "D02:6",
+          "pagina": 29
+        },
+        {
+          "id": "D02:6.3",
+          "numero": "6.3",
+          "texto": "Taxas.",
+          "pai": "D02:6",
+          "pagina": 29
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "modulo": "basicos",
+      "numero": 3,
+      "tituloLiteral": "1.3 NOÇÕES DE INFORMÁTICA",
+      "nome": "Noções de Informática",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D03:1",
+          "numero": "1",
+          "texto": "Conceitos fundamentais de informática:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:1.1",
+          "numero": "1.1",
+          "texto": "Tipos de computadores.",
+          "pai": "D03:1",
+          "pagina": 29
+        },
+        {
+          "id": "D03:1.2",
+          "numero": "1.2",
+          "texto": "Conceitos de hardware e software.",
+          "pai": "D03:1",
+          "pagina": 29
+        },
+        {
+          "id": "D03:1.3",
+          "numero": "1.3",
+          "texto": "Instalação de periféricos.",
+          "pai": "D03:1",
+          "pagina": 29
+        },
+        {
+          "id": "D03:2",
+          "numero": "2",
+          "texto": "Aplicativos de escritório:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:2.1",
+          "numero": "2.1",
+          "texto": "Edição de textos, planilhas e apresentações no ambiente Microsoft Office 365.",
+          "pai": "D03:2",
+          "pagina": 29
+        },
+        {
+          "id": "D03:2.2",
+          "numero": "2.2",
+          "texto": "Utilização de ferramentas modernas como Microsoft Teams e Google Meet.",
+          "pai": "D03:2",
+          "pagina": 29
+        },
+        {
+          "id": "D03:3",
+          "numero": "3",
+          "texto": "Sistemas Operacionais:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:3.1",
+          "numero": "3.1",
+          "texto": "Noções de sistema operacional (ambiente Windows 10 e Windows 11).",
+          "pai": "D03:3",
+          "pagina": 29
+        },
+        {
+          "id": "D03:4",
+          "numero": "4",
+          "texto": "Redes de Computadores:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:4.1",
+          "numero": "4.1",
+          "texto": "Conceitos básicos de redes.",
+          "pai": "D03:4",
+          "pagina": 29
+        },
+        {
+          "id": "D03:4.2",
+          "numero": "4.2",
+          "texto": "Ferramentas e aplicativos de Internet e intranet.",
+          "pai": "D03:4",
+          "pagina": 29
+        },
+        {
+          "id": "D03:5",
+          "numero": "5",
+          "texto": "Navegadores e programas de navegação:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:5.1",
+          "numero": "5.1",
+          "texto": "Mozilla, Firefox e Google Chrome.",
+          "pai": "D03:5",
+          "pagina": 29
+        },
+        {
+          "id": "D03:6",
+          "numero": "6",
+          "texto": "Correio eletrônico:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:6.1",
+          "numero": "6.1",
+          "texto": "Uso do programa MS Outlook.",
+          "pai": "D03:6",
+          "pagina": 29
+        },
+        {
+          "id": "D03:7",
+          "numero": "7",
+          "texto": "Pesquisa na Internet:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:7.1",
+          "numero": "7.1",
+          "texto": "Sítios de busca e pesquisa na Internet.",
+          "pai": "D03:7",
+          "pagina": 29
+        },
+        {
+          "id": "D03:8",
+          "numero": "8",
+          "texto": "Organização e Gerenciamento de informações:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:8.1",
+          "numero": "8.1",
+          "texto": "Gerenciamento de arquivos, pastas e programas.",
+          "pai": "D03:8",
+          "pagina": 29
+        },
+        {
+          "id": "D03:9",
+          "numero": "9",
+          "texto": "Segurança da informação:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:9.1",
+          "numero": "9.1",
+          "texto": "Procedimentos de segurança.",
+          "pai": "D03:9",
+          "pagina": 29
+        },
+        {
+          "id": "D03:9.2",
+          "numero": "9.2",
+          "texto": "Noções de vírus, worms e pragas virtuais.",
+          "pai": "D03:9",
+          "pagina": 29
+        },
+        {
+          "id": "D03:9.3",
+          "numero": "9.3",
+          "texto": "Aplicativos para segurança (antivírus, firewall, antispyware).",
+          "pai": "D03:9",
+          "pagina": 29
+        },
+        {
+          "id": "D03:10",
+          "numero": "10",
+          "texto": "Procedimentos de backup:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D03:10.1",
+          "numero": "10.1",
+          "texto": "Noções de backup de dados e arquivos.",
+          "pai": "D03:10",
+          "pagina": 29
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "modulo": "complementares",
+      "numero": 5,
+      "tituloLiteral": "2.1 LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA:",
+      "nome": "Legislação e Ética na Administração Pública",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D04:1",
+          "numero": "1",
+          "texto": "Ética no Setor Público:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D04:1.1",
+          "numero": "1.1",
+          "texto": "Ética e função pública.",
+          "pai": "D04:1",
+          "pagina": 29
+        },
+        {
+          "id": "D04:1.2",
+          "numero": "1.2",
+          "texto": "Ética no setor público.",
+          "pai": "D04:1",
+          "pagina": 29
+        },
+        {
+          "id": "D04:1.3",
+          "numero": "1.3",
+          "texto": "Código de Ética Profissional do Servidor Público Civil do Poder Executivo Federal (Decreto nº 1.171/1994).",
+          "pai": "D04:1",
+          "pagina": 29
+        },
+        {
+          "id": "D04:1.4",
+          "numero": "1.4",
+          "texto": "Princípios da Administração Pública.",
+          "pai": "D04:1",
+          "pagina": 29
+        },
+        {
+          "id": "D04:2",
+          "numero": "2",
+          "texto": "Improbidade Administrativa:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D04:2.1",
+          "numero": "2.1",
+          "texto": "Lei nº 8.429/1992 e suas alterações.",
+          "pai": "D04:2",
+          "pagina": 29
+        },
+        {
+          "id": "D04:2.2",
+          "numero": "2.2",
+          "texto": "Medidas contra atos de improbidade administrativa.",
+          "pai": "D04:2",
+          "pagina": 29
+        },
+        {
+          "id": "D04:2.3",
+          "numero": "2.3",
+          "texto": "Tipos de improbidade administrativa.",
+          "pai": "D04:2",
+          "pagina": 29
+        },
+        {
+          "id": "D04:2.4",
+          "numero": "2.4",
+          "texto": "Sanções aplicáveis aos agentes públicos.",
+          "pai": "D04:2",
+          "pagina": 29
+        },
+        {
+          "id": "D04:3",
+          "numero": "3",
+          "texto": "Processo Administrativo:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D04:3.1",
+          "numero": "3.1",
+          "texto": "Lei nº 9.784/1999 e suas alterações.",
+          "pai": "D04:3",
+          "pagina": 29
+        },
+        {
+          "id": "D04:3.2",
+          "numero": "3.2",
+          "texto": "Princípios e fases do processo administrativo.",
+          "pai": "D04:3",
+          "pagina": 29
+        },
+        {
+          "id": "D04:3.3",
+          "numero": "3.3",
+          "texto": "Direitos e deveres dos administrados.",
+          "pai": "D04:3",
+          "pagina": 29
+        },
+        {
+          "id": "D04:4",
+          "numero": "4",
+          "texto": "Transparência e Acesso à Informação:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D04:4.1",
+          "numero": "4.1",
+          "texto": "Lei nº 12.527/2011 (Lei de Acesso à Informação - LAI).",
+          "pai": "D04:4",
+          "pagina": 29
+        },
+        {
+          "id": "D04:4.2",
+          "numero": "4.2",
+          "texto": "Decreto nº 7.724/2012 (Regulamenta a LAI).",
+          "pai": "D04:4",
+          "pagina": 29
+        },
+        {
+          "id": "D04:4.3",
+          "numero": "4.3",
+          "texto": "Classificação de informações.",
+          "pai": "D04:4",
+          "pagina": 29
+        },
+        {
+          "id": "D04:4.4",
+          "numero": "4.4",
+          "texto": "Procedimentos de acesso à informação.",
+          "pai": "D04:4",
+          "pagina": 29
+        },
+        {
+          "id": "D04:5",
+          "numero": "5",
+          "texto": "Proteção de Dados Pessoais:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D04:5.1",
+          "numero": "5.1",
+          "texto": "Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais - LGPD).",
+          "pai": "D04:5",
+          "pagina": 29
+        },
+        {
+          "id": "D04:5.2",
+          "numero": "5.2",
+          "texto": "Princípios e direitos do titular de dados.",
+          "pai": "D04:5",
+          "pagina": 29
+        },
+        {
+          "id": "D04:5.3",
+          "numero": "5.3",
+          "texto": "Tratamento de dados pessoais pelo Poder Público.",
+          "pai": "D04:5",
+          "pagina": 29
+        },
+        {
+          "id": "D04:5.4",
+          "numero": "5.4",
+          "texto": "Responsabilidades e sanções administrativas.",
+          "pai": "D04:5",
+          "pagina": 29
+        },
+        {
+          "id": "D04:6",
+          "numero": "6",
+          "texto": "Legislação Anticorrupção:",
+          "pai": null,
+          "pagina": 29
+        },
+        {
+          "id": "D04:6.1",
+          "numero": "6.1",
+          "texto": "Lei nº 12.846/2013 (Lei Anticorrupção).",
+          "pai": "D04:6",
+          "pagina": 29
+        },
+        {
+          "id": "D04:6.2",
+          "numero": "6.2",
+          "texto": "Responsabilização administrativa e civil de pessoas jurídicas.",
+          "pai": "D04:6",
+          "pagina": 29
+        },
+        {
+          "id": "D04:6.3",
+          "numero": "6.3",
+          "texto": "Acordos de leniência.",
+          "pai": "D04:6",
+          "pagina": 29
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "modulo": "complementares",
+      "numero": 6,
+      "tituloLiteral": "2.2 LEGISLAÇÃO ESPECÍFICA:",
+      "nome": "Legislação Específica",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D05:1",
+          "numero": "1",
+          "texto": "Lei nº 12.249/2010 (altera o Decreto-lei nº 9.295/1946).",
+          "pai": null,
+          "pagina": 30
+        },
+        {
+          "id": "D05:2",
+          "numero": "2",
+          "texto": "Decreto-lei nº 9.295/1946 (criação do Conselho Federal de Contabilidade e prerrogativas dos CRCs, Exame de Suficiência).",
+          "pai": null,
+          "pagina": 30
+        },
+        {
+          "id": "D05:3",
+          "numero": "3",
+          "texto": "Resolução CFC nº 1.523/2017 (Código de Conduta Conselheiros, Colaboradores e Funcionários).",
+          "pai": null,
+          "pagina": 30
+        },
+        {
+          "id": "D05:4",
+          "numero": "4",
+          "texto": "Resolução CRC-SP nº 1.093/2011 (Regimento Interno do CRC-SP).",
+          "pai": null,
+          "pagina": 30
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "modulo": "especificos",
+      "numero": 1,
+      "tituloLiteral": "3.4 ANALISTA CONTÁBIL (CÓDIGO 402): 1 Legislação:",
+      "nome": "Legislação (Analista Contábil)",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D06:1.1",
+          "numero": "1.1",
+          "texto": "Constituição Federal de 1988 (Título I; Título II - Capítulo I; Título III - Capítulo VII; Título IV - Capítulo I - Seção IX).",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D06:1.2",
+          "numero": "1.2",
+          "texto": "Lei nº 10.303/2001.",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D06:1.3",
+          "numero": "1.3",
+          "texto": "Lei Complementar nº 123/2006.",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D06:1.4",
+          "numero": "1.4",
+          "texto": "Lei nº 14.133/2021.",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D06:1.5",
+          "numero": "1.5",
+          "texto": "Lei nº 4.320/1964.",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D06:1.6",
+          "numero": "1.6",
+          "texto": "Lei Complementar nº 101/2000.",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D06:1.7",
+          "numero": "1.7",
+          "texto": "Lei nº 11.941/2009.",
+          "pai": null,
+          "pagina": 32
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "modulo": "especificos",
+      "numero": 2,
+      "tituloLiteral": "2 Orçamento e Contabilidade Pública:",
+      "nome": "Orçamento e Contabilidade Pública",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D07:2.1",
+          "numero": "2.1",
+          "texto": "Orçamento público:",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.1.1",
+          "numero": "2.1.1",
+          "texto": "Disposições constitucionais.",
+          "pai": "D07:2.1",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.1.2",
+          "numero": "2.1.2",
+          "texto": "Plano Plurianual.",
+          "pai": "D07:2.1",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.1.3",
+          "numero": "2.1.3",
+          "texto": "Lei de Diretrizes Orçamentárias.",
+          "pai": "D07:2.1",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.1.4",
+          "numero": "2.1.4",
+          "texto": "Lei Orçamentária Anual.",
+          "pai": "D07:2.1",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.1.5",
+          "numero": "2.1.5",
+          "texto": "Princípios orçamentários.",
+          "pai": "D07:2.1",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.1.6",
+          "numero": "2.1.6",
+          "texto": "Processo orçamentário.",
+          "pai": "D07:2.1",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.1.7",
+          "numero": "2.1.7",
+          "texto": "Estrutura do orçamento público.",
+          "pai": "D07:2.1",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.1.8",
+          "numero": "2.1.8",
+          "texto": "Classificação funcional programática.",
+          "pai": "D07:2.1",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.2",
+          "numero": "2.2",
+          "texto": "Receita e despesa pública:",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.2.1",
+          "numero": "2.2.1",
+          "texto": "Disposições constitucionais.",
+          "pai": "D07:2.2",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.2.2",
+          "numero": "2.2.2",
+          "texto": "Classificação.",
+          "pai": "D07:2.2",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.2.3",
+          "numero": "2.2.3",
+          "texto": "Estágios.",
+          "pai": "D07:2.2",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.3",
+          "numero": "2.3",
+          "texto": "Programação e execução orçamentária e financeira:",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.3.1",
+          "numero": "2.3.1",
+          "texto": "Exercício financeiro.",
+          "pai": "D07:2.3",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.3.2",
+          "numero": "2.3.2",
+          "texto": "Créditos adicionais.",
+          "pai": "D07:2.3",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.3.3",
+          "numero": "2.3.3",
+          "texto": "Restos a pagar.",
+          "pai": "D07:2.3",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.3.4",
+          "numero": "2.3.4",
+          "texto": "Despesas de exercícios anteriores.",
+          "pai": "D07:2.3",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.3.5",
+          "numero": "2.3.5",
+          "texto": "Descentralização de créditos.",
+          "pai": "D07:2.3",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.3.6",
+          "numero": "2.3.6",
+          "texto": "Suprimento de fundos.",
+          "pai": "D07:2.3",
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.4",
+          "numero": "2.4",
+          "texto": "A qualidade da informação da Contabilidade Pública no Brasil.",
+          "pai": null,
+          "pagina": 32
+        },
+        {
+          "id": "D07:2.5",
+          "numero": "2.5",
+          "texto": "Características peculiares do sistema brasileiro.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.6",
+          "numero": "2.6",
+          "texto": "O patrimônio público.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.7",
+          "numero": "2.7",
+          "texto": "Sistema orçamentário, financeiro, patrimonial e de compensação.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.8",
+          "numero": "2.8",
+          "texto": "A natureza da receita e da despesa públicas no modelo contábil brasileiro e seus estágios.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.9",
+          "numero": "2.9",
+          "texto": "Regimes Contábeis.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.10",
+          "numero": "2.10",
+          "texto": "Programação e execução orçamentária.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.11",
+          "numero": "2.11",
+          "texto": "Contingenciamentos.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.12",
+          "numero": "2.12",
+          "texto": "Balanços orçamentário, financeiro e patrimonial e demonstração das variações patrimoniais.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.13",
+          "numero": "2.13",
+          "texto": "Relatórios e demais controles estabelecidos pela Lei de Responsabilidade Fiscal.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.14",
+          "numero": "2.14",
+          "texto": "Manual de Contabilidade Aplicada ao Setor Público (MCASP).",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D07:2.15",
+          "numero": "2.15",
+          "texto": "Plano de Contas Aplicado ao Setor Público (PCASP).",
+          "pai": null,
+          "pagina": 33
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "modulo": "especificos",
+      "numero": 3,
+      "tituloLiteral": "3 Contabilidade Geral:",
+      "nome": "Contabilidade Geral",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D08:3.1",
+          "numero": "3.1",
+          "texto": "Campo de Atuação. Objeto da Contabilidade.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.2",
+          "numero": "3.2",
+          "texto": "O patrimônio: estrutura e variação.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.3",
+          "numero": "3.3",
+          "texto": "Registros contábeis.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.4",
+          "numero": "3.4",
+          "texto": "Despesas e receitas.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.5",
+          "numero": "3.5",
+          "texto": "Plano de contas.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.6",
+          "numero": "3.6",
+          "texto": "Operações com mercadorias e controle de estoques.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.7",
+          "numero": "3.7",
+          "texto": "Demonstrações Contábeis:",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.7.1",
+          "numero": "3.7.1",
+          "texto": "Balanço Patrimonial.",
+          "pai": "D08:3.7",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.7.2",
+          "numero": "3.7.2",
+          "texto": "Demonstração de resultados do exercício.",
+          "pai": "D08:3.7",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.7.3",
+          "numero": "3.7.3",
+          "texto": "Demonstração dos fluxos de caixa.",
+          "pai": "D08:3.7",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.7.4",
+          "numero": "3.7.4",
+          "texto": "Demonstração das Mutações do Patrimônio Líquido.",
+          "pai": "D08:3.7",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.7.5",
+          "numero": "3.7.5",
+          "texto": "Demonstração do Valor Adicionado.",
+          "pai": "D08:3.7",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8",
+          "numero": "3.8",
+          "texto": "Análise de Demonstrações Financeiras:",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.1",
+          "numero": "3.8.1",
+          "texto": "Conceitos e objetivos da análise de demonstrações financeiras.",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.2",
+          "numero": "3.8.2",
+          "texto": "Análise vertical e horizontal.",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.3",
+          "numero": "3.8.3",
+          "texto": "Análise por meio de índices:",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.3.1",
+          "numero": "3.8.3.1",
+          "texto": "Índices de liquidez.",
+          "pai": "D08:3.8.3",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.3.2",
+          "numero": "3.8.3.2",
+          "texto": "Índices de endividamento.",
+          "pai": "D08:3.8.3",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.3.3",
+          "numero": "3.8.3.3",
+          "texto": "Índices de rentabilidade.",
+          "pai": "D08:3.8.3",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.3.4",
+          "numero": "3.8.3.4",
+          "texto": "Índices de atividade.",
+          "pai": "D08:3.8.3",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.4",
+          "numero": "3.8.4",
+          "texto": "Análise do capital de giro.",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.5",
+          "numero": "3.8.5",
+          "texto": "Alavancagem financeira e operacional.",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.6",
+          "numero": "3.8.6",
+          "texto": "Análise do ponto de equilíbrio.",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.7",
+          "numero": "3.8.7",
+          "texto": "Análise do EBITDA e EBIT.",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.8",
+          "numero": "3.8.8",
+          "texto": "Análise da Demonstração do Valor Adicionado (DVA).",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.9",
+          "numero": "3.8.9",
+          "texto": "Análise da Demonstração dos Fluxos de Caixa.",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.8.10",
+          "numero": "3.8.10",
+          "texto": "Técnicas avançadas de análise financeira.",
+          "pai": "D08:3.8",
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.9",
+          "numero": "3.9",
+          "texto": "Indicadores econômicos e financeiros.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.10",
+          "numero": "3.10",
+          "texto": "Adequação às IFRS.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D08:3.11",
+          "numero": "3.11",
+          "texto": "Pronunciamentos do CPC.",
+          "pai": null,
+          "pagina": 33
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "modulo": "especificos",
+      "numero": 4,
+      "tituloLiteral": "4 Auditoria:",
+      "nome": "Auditoria",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D09:4.1",
+          "numero": "4.1",
+          "texto": "Conceitos, princípios, origens e classificações.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.2",
+          "numero": "4.2",
+          "texto": "Papéis de trabalho:",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.2.1",
+          "numero": "4.2.1",
+          "texto": "Conceito.",
+          "pai": "D09:4.2",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.2.2",
+          "numero": "4.2.2",
+          "texto": "Pontos essenciais dos papéis de trabalho.",
+          "pai": "D09:4.2",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.2.3",
+          "numero": "4.2.3",
+          "texto": "Técnicas de elaboração e arquivamento dos papéis de trabalho.",
+          "pai": "D09:4.2",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.2.4",
+          "numero": "4.2.4",
+          "texto": "Revisão dos papéis de trabalho.",
+          "pai": "D09:4.2",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.2.5",
+          "numero": "4.2.5",
+          "texto": "Programa de trabalho.",
+          "pai": "D09:4.2",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.2.6",
+          "numero": "4.2.6",
+          "texto": "Responsabilidade profissional pela guarda dos papéis de trabalho.",
+          "pai": "D09:4.2",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.3",
+          "numero": "4.3",
+          "texto": "Testes e procedimentos de auditoria: conceito, modalidades e execução.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.4",
+          "numero": "4.4",
+          "texto": "Revisão analítica: conceito e modalidades.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.5",
+          "numero": "4.5",
+          "texto": "Amostragem estatística: conceitos, tipos, processos de seleção e testes, níveis de representatividade.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.6",
+          "numero": "4.6",
+          "texto": "Tipos de auditoria.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.7",
+          "numero": "4.7",
+          "texto": "Auditoria operacional: avaliação dos controles gerenciais, revisão e validação dos ciclos operacionais, verificação de normas e procedimentos agregados à operação.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.8",
+          "numero": "4.8",
+          "texto": "Técnicas de auditoria analítica: estudo de casos de aplicação do método de fluxogramação adaptado à auditoria analítica.",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.9",
+          "numero": "4.9",
+          "texto": "Normas Brasileiras para o Exercício da Auditoria Interna (CFC).",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.10",
+          "numero": "4.10",
+          "texto": "Normas Internacionais para o Exercício Profissional da Auditoria Interna (The IIA/Instituto dos Auditores Internos do Brasil – IIA Brasil):",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.10.1",
+          "numero": "4.10.1",
+          "texto": "Definição de auditoria interna.",
+          "pai": "D09:4.10",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.10.2",
+          "numero": "4.10.2",
+          "texto": "Normas de atributo.",
+          "pai": "D09:4.10",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.10.3",
+          "numero": "4.10.3",
+          "texto": "Normas de desempenho.",
+          "pai": "D09:4.10",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.10.4",
+          "numero": "4.10.4",
+          "texto": "Glossário.",
+          "pai": "D09:4.10",
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.11",
+          "numero": "4.11",
+          "texto": "Normas técnicas para o exercício da atividade de auditoria interna governamental. .12 Auditoria interna: conceitos, objetivos, riscos e controles internos",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.13",
+          "numero": "4.13",
+          "texto": "Planejamento de auditoria",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.14",
+          "numero": "4.14",
+          "texto": "Técnicas e procedimentos de auditoria",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.15",
+          "numero": "4.15",
+          "texto": "Evidências de auditoria",
+          "pai": null,
+          "pagina": 33
+        },
+        {
+          "id": "D09:4.16",
+          "numero": "4.16",
+          "texto": "Relatórios de auditoria.",
+          "pai": null,
+          "pagina": 33
+        }
+      ]
+    }
+  ],
+  "avisos": [],
+  "grupos": [
+    {
+      "nome": "Conhecimentos Básicos",
+      "questoes": 40,
+      "disciplinas": [
+        "D01",
+        "D02",
+        "D03"
+      ]
+    },
+    {
+      "nome": "Conhecimentos Complementares",
+      "questoes": 30,
+      "disciplinas": [
+        "D04",
+        "D05"
+      ]
+    },
+    {
+      "nome": "Conhecimentos Específicos",
+      "questoes": 50,
+      "disciplinas": [
+        "D06",
+        "D07",
+        "D08",
+        "D09"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "concurso": {
+    "slug": "crc-sp-quadrix-2025",
+    "orgao": "Conselho Regional de Contabilidade do Estado de São Paulo (CRC-SP)",
+    "uf": "SP",
+    "area": "conselhos",
+    "banca": "Quadrix",
+    "cargo": "Analista Contábil",
+    "edital": "01/2025",
+    "ano": 2025,
+    "vagas": null
+  },
+  "prova": {
+    "totalQuestoes": 120,
+    "alternativas": 2,
+    "pontosPorQuestao": 1,
+    "pontosPorErro": -1,
+    "notaMinimaObjetiva": 34,
+    "notaMinimaPorModulo": {
+      "basicos": 10,
+      "complementares": 8,
+      "especificos": 12
+    },
+    "duracaoMinimaHoras": null,
+    "duracaoMaximaHoras": 3,
+    "dataProvavel": "2025-06-22",
+    "fonteItem": "11 e 12.5"
+  },
+  "fonte": {
+    "pdf": "edital-01-2025.pdf",
+    "md": "edital-01-2025.md",
+    "sha256": "ae200c6b027749e1f1334e922893eaa425b9ef7af6a678d93d9f25b9d3e040cd"
+  },
+  "anexo": {
+    "regioes": [
+      {
+        "de": "1.1 LÍNGUA PORTUGUESA",
+        "ate": "3 CONHECIMENTOS ESPECÍFICOS"
+      },
+      {
+        "de": "3.4 ANALISTA CONTÁBIL",
+        "ate": "3.5 ANALISTA DE DESENVOLVIMENTO"
+      }
+    ],
+    "ignorarLinhas": [
+      "1 CONHECIMENTOS BÁSICOS",
+      "2 CONHECIMENTOS COMPLEMENTARES"
+    ],
+    "quebrarAntes": [
+      "2 Orçamento e Contabilidade Pública:",
+      "3 Contabilidade Geral:",
+      "4 Auditoria:"
+    ],
+    "disciplinas": [
+      {
+        "nome": "Língua Portuguesa",
+        "inicio": "1.1 LÍNGUA PORTUGUESA:",
+        "questoes": null,
+        "modulo": "basicos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Raciocínio Lógico e Matemática",
+        "inicio": "1.2 RACIOCÍNIO LÓGICO E MATEMÁTICA:",
+        "questoes": null,
+        "modulo": "basicos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Noções de Informática",
+        "inicio": "1.3 NOÇÕES DE INFORMÁTICA",
+        "questoes": null,
+        "modulo": "basicos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Língua Inglesa (outros cargos)",
+        "inicio": "1.4 LÍNGUA INGLESA",
+        "questoes": null,
+        "modulo": "basicos",
+        "ignorar": true
+      },
+      {
+        "nome": "Legislação e Ética na Administração Pública",
+        "inicio": "2.1 LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA:",
+        "questoes": null,
+        "modulo": "complementares",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Legislação Específica",
+        "inicio": "2.2 LEGISLAÇÃO ESPECÍFICA:",
+        "questoes": null,
+        "modulo": "complementares",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Legislação (Analista Contábil)",
+        "inicio": "3.4 ANALISTA CONTÁBIL (CÓDIGO 402): 1 Legislação:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "hierarquico",
+        "numero": 1
+      },
+      {
+        "nome": "Orçamento e Contabilidade Pública",
+        "inicio": "2 Orçamento e Contabilidade Pública:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "hierarquico",
+        "numero": 2
+      },
+      {
+        "nome": "Contabilidade Geral",
+        "inicio": "3 Contabilidade Geral:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "hierarquico",
+        "numero": 3
+      },
+      {
+        "nome": "Auditoria",
+        "inicio": "4 Auditoria:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "hierarquico",
+        "numero": 4
+      }
+    ],
+    "grupos": [
+      {
+        "nome": "Conhecimentos Básicos",
+        "questoes": 40,
+        "disciplinas": [
+          "Língua Portuguesa",
+          "Raciocínio Lógico e Matemática",
+          "Noções de Informática"
+        ]
+      },
+      {
+        "nome": "Conhecimentos Complementares",
+        "questoes": 30,
+        "disciplinas": [
+          "Legislação e Ética na Administração Pública",
+          "Legislação Específica"
+        ]
+      },
+      {
+        "nome": "Conhecimentos Específicos",
+        "questoes": 50,
+        "disciplinas": [
+          "Legislação (Analista Contábil)",
+          "Orçamento e Contabilidade Pública",
+          "Contabilidade Geral",
+          "Auditoria"
+        ]
+      }
+    ]
+  }
+}
