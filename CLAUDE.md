@@ -12,12 +12,13 @@ Feito no piloto:
 - `01-md/edital-04-2024.md`: edital completo em Markdown, com `<!-- p.N -->` por página (N = página do PDF).
 - `02-json/edital.json`: estrutura do Anexo I (12 disciplinas, 339 itens, pesos pelo nº de questões), validada por `schemas/edital.schema.json`.
 
-- `conteudo/concursos/<slug>/`: edital → `edital.json` para os 4 concursos: `pc-mg-fgv-2024`, `pc-mg-fumarc-2014`, `pc-ma-fgv-2012`, `pc-am-fgv-2021` (só o cargo de Investigador). Formatos variam: hierárquico (MG), numeração corrida (MA) e parágrafos sem numeração (AM; itens `sintetica`). O parser é guiado pelo bloco `anexo` do `meta.json` do concurso.
-- `conteudo/provas/`: quatro provas reais extraídas para `questoes.json` (schema v3), todas com gabarito conferido contra o PDF **e contagem por disciplina conferida contra o edital** (por disciplina e por grupo):
+- `conteudo/concursos/<slug>/`: edital → `edital.json` (schema v1.2) para 5 concursos: `pc-mg-fgv-2024`, `pc-mg-fumarc-2014`, `pc-ma-fgv-2012`, `pc-am-fgv-2021` (só o cargo de Investigador) e `crc-pr-quadrix-2022` (CRC-PR, **Analista Contábil**, banca Quadrix, área `conselhos`). Formatos variam: hierárquico (MG), numeração corrida (MA) e parágrafos sem numeração (AM; itens `sintetica`). O parser é guiado pelo bloco `anexo` do `meta.json` do concurso.
+- `conteudo/provas/`: cinco provas reais extraídas para `questoes.json` (schema v3), todas com gabarito conferido contra o PDF **e contagem por disciplina conferida contra o edital** (por disciplina e por grupo):
   - `pc-mg-fgv-2024-investigador-t1`: 70 questões, gabarito definitivo, Q59 anulada.
   - `pc-am-fgv-2021-investigador-t1`: 80 questões objetivas (+ 1 discursiva fora do banco), definitivo, Q24 anulada.
   - `pc-ma-fgv-2012-investigador-t1`: 70 questões, **gabarito PRELIMINAR**, prova de 2012.
   - `pc-mg-fumarc-2014-investigador-ca`: 60 questões, 4 alternativas, banca **FUMARC** (não entra no perfil da FGV), "gabarito oficial" não confirmado como definitivo, prova de 2014.
+  - `crc-pr-quadrix-2022-analista-contabil`: **120 itens Certo/Errado** (Conhecimentos Básicos 40, Complementares 30, Específicos 50), gabarito **definitivo** lido de imagem (`gabarito_imagem.py`, conferido por duas leituras e pelos itens 1–70 comuns aos cargos de nível superior), prova de 2022. Itens de tabela (86–91), fórmula (34–36), `dam³` (31) e símbolo ausente (24) levam pendência `tabela`/`formatacao`/`imagem`.
   O texto das questões fica **fora do Git** (regra abaixo); o repo versiona só código, `meta.json`, `relatorio.md` e os editais.
 
 Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam de revisão manual no MD. `packages/engine` (TypeScript, 38 testes): seleção por peso do edital e rodízio de assuntos, simulado com snapshot, correção, relatório (disciplina, assunto com agregação hierárquica, foco, caderno de erros, acumulado entre simulados) e avisos de vigência. Ver `packages/engine/README.md`.
@@ -27,6 +28,9 @@ Pendente: páginas com possível tabela (29, 30, 53, 55, 56, 57) ainda precisam 
 
 Comandos (a partir da raiz):
 ```bash
+# prova Certo/Errado (Quadrix/Cebraspe): gabarito em imagem e depois a prova
+python3 -I pipeline/gabarito_imagem.py <gabarito.pdf> --pagina N --tabela K --cargo "..." --saida conteudo/provas/<slug>/02-json/gabarito.json [--comparar P:T ... --itens-comuns 70]
+python3 -I pipeline/prova_ce_para_json.py conteudo/provas/<slug>   # meta.json com `faixas` (item -> disciplina)
 # prova de 2 colunas + gabarito (conteudo/provas/<slug>/, com meta.json: disciplinas, títulos, cabeçalho/página do gabarito)
 # opções: --inicio "texto da 1ª pág. de questões" --topo N --rodape N (faixa de cabeçalho/rodapé a descartar)
 python3 -I pipeline/prova_para_md.py conteudo/provas/<slug>/00-origem/<prova>.pdf conteudo/provas/<slug>/01-md/<prova>.md
@@ -106,6 +110,13 @@ Cada questão aponta para um item do edital do seu concurso (`classificacao.edit
 - **Granularidade:** depende do edital. Amazonas (itens por frase) e Maranhão (Informática com 3 itens) classificam grosso; MG-2024 e MG-2014 (hierárquicos) classificam fino.
 - O `revisao-classificacao.csv` (ignorado pelo Git, contém texto) existe só para a revisão humana.
 
+## Formato Certo/Errado e nota com desconto
+
+- Item `CertoErrado` = `alternativas ["Certo","Errado"]`, `correta` 0 (Certo) ou 1 (Errado), sempre sem embaralhar. A tela mostra C/E (teclas C e E) e **"Deixar em branco"**.
+- O edital pode descontar o erro: `prova.pontosPorErro` (ex.: −1 na Quadrix); `concurso.pontos_por_erro` no banco. Com desconto o relatório mostra **Nota** (acertos − erros), o ponto de equilíbrio do chute (50% para ±1) e a prova avisa o desconto. Em branco vale 0.
+- `notaMinimaObjetiva` e `notaMinimaPorModulo` (básicos/complementares/específicos) estão no edital e no banco, mas **ainda não** são exibidos ao aluno.
+- O peso de um módulo cujo edital só informa o total (ex.: 40/30/50 de 120) é dividido entre as disciplinas **que têm questão no banco** (`pesosDoEdital(edital, disponiveis)`).
+
 ## Dois tipos de questão
 
 | `origem.tipo` | O que é | Cuidado |
@@ -144,6 +155,8 @@ Cada banca tem um **perfil medido** em `conteudo/bancas/<banca>.json`, gerado po
 Resumo do que foi medido (amostras pequenas; `amostra.confianca` diz o quanto confiar):
 - **FGV** (220 questões, 3 provas policiais, A–E): enunciado mediano ~335 caracteres (p10 87, p90 729); ~47% terminam sem pontuação (completar frase) e ~39% em ponto; ~9% usam assertivas numeradas "I, II, III" com alternativas de combinação; ~8% pedem a incorreta/EXCETO; ~30% citam norma/artigo; gabarito sem posição dominante.
 - **FUMARC** (60 questões, 1 prova, A–D): enunciado mediano ~117 caracteres, bem mais curto; ~38% pedem incorreta/EXCETO (contra ~8% da FGV); ~57% terminam em dois pontos. Amostra de uma prova só: confiança baixa.
+
+- **QUADRIX** (120 itens C/E, 1 prova): perfil em `conteudo/bancas/quadrix.json`; amostra de uma prova, confiança baixa. Estilo Certo/Errado: não comparar com FGV/FUMARC.
 
 A geração por IA deve imitar o **estilo medido** da banca-alvo, jamais copiar enunciados reais, e **sortear a posição do gabarito de forma uniforme** (não replicar os desvios da amostra).
 

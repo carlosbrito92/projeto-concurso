@@ -229,6 +229,18 @@ def main() -> int:
     if por_modulo != esperado_mod:
         erros.append(f"itens por módulo {por_modulo} != edital {esperado_mod}")
 
+    # classificação por assunto (gerada por classificar_questoes.py; o manual tem prioridade lá dentro)
+    cj = pasta / "02-json" / "classificacao.json"
+    cls = json.loads(cj.read_text(encoding="utf-8"))["questoes"] if cj.exists() else {}
+    itens_ed = {i["id"]: i for d in edital["disciplinas"] for i in d["itens"]}
+
+    def trilha(iid):
+        t, atual = [], iid
+        while atual and len(t) < 12:
+            t.insert(0, atual)
+            atual = itens_ed[atual]["pai"]
+        return t
+
     out, md = [], [f"<!-- {meta['slug']} | texto fiel da prova (não vai ao Git) -->", ""]
     pend_total, sem_texto = {}, []
     for n in range(1, total + 1):
@@ -267,6 +279,22 @@ def main() -> int:
         if d_:
             classif["disciplinaId"] = d_["id"]
         rid = f"Q{meta['codigoProva']:02d}{n:04d}"
+        cl_q = cls.get(rid)
+        if cl_q:
+            classif["classificacaoStatus"] = cl_q["status"]
+            classif["classificacaoMetodo"] = cl_q.get("metodo")
+            classif["classificacaoScore"] = cl_q.get("score")
+            if cl_q.get("editalItemId") in itens_ed:
+                it_ = itens_ed[cl_q["editalItemId"]]
+                classif["editalItemId"] = it_["id"]
+                classif["editalItem"] = it_["numero"]
+                classif["assunto"] = it_["texto"].strip().rstrip(".;:").strip()
+                classif["editalItemTrilha"] = trilha(it_["id"])
+            pend = [x for x in pend if x != "classificar_assunto"]
+            if cl_q["status"] == "sugerida":
+                pend.append("confirmar_assunto")
+            elif cl_q["status"] == "indeterminada":
+                pend.append("classificar_assunto")
         reg = {
             "id": rid, "schemaVersion": "3.0", "tipo": "CertoErrado", "enunciado": enun,
             "alternativas": ["Certo", "Errado"],

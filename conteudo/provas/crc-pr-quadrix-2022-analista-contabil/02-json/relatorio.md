@@ -1,7 +1,7 @@
 # Relatório de extração — crc-pr-quadrix-2022-analista-contabil
 
 - Itens: 120 (Certo/Errado) | gabarito: definitivo | distribuição C=59 E=61
-- Pendências para revisão humana: {'classificar_assunto': 120, 'verificar_vigencia': 120, 'formatacao': 5, 'imagem': 1, 'tabela': 6}
+- Pendências para revisão humana: {'verificar_vigencia': 120, 'confirmar_assunto': 120, 'formatacao': 5, 'imagem': 1, 'tabela': 6}
 - Itens por módulo (conferido contra o edital): {'basicos': 40, 'complementares': 30, 'especificos': 50}
 - Pontuação: +1 acerto, −1 erro, 0 em branco (edital 10.6.2); gabarito lido de imagem (ver gabarito.json)
 - AVISO: prova antiga; conferir a vigência da legislação antes de ativar qualquer item jurídico/normativo
