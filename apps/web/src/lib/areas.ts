@@ -9,6 +9,7 @@ export const AREAS: ReadonlyArray<{ id: string; nome: string }> = [
   { id: "administrativa", nome: "Administração pública" },
   { id: "controle-financas", nome: "Controle e finanças" },
   { id: "tecnologia", nome: "Tecnologia da informação" },
+  { id: "conselhos", nome: "Conselhos profissionais" },
   { id: "saude", nome: "Saúde" },
   { id: "educacao", nome: "Educação" },
   { id: "outras", nome: "Outras áreas" },

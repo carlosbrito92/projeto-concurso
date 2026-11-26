@@ -12,7 +12,7 @@
   "additionalProperties": false,
   "properties": {
     "schemaVersion": {
-      "const": "1.1"
+      "const": "1.2"
     },
     "concurso": {
       "type": "object",
@@ -112,6 +112,17 @@
         "fonteItem": {
           "type": "string",
           "description": "Item do edital que define a prova, ex.: 4.1.5"
+        },
+        "pontosPorErro": {
+          "type": "number",
+          "description": "Pontos por resposta errada (negativo = desconto, ex.: -1 na Quadrix). Ausente = 0 (sem desconto)."
+        },
+        "notaMinimaPorModulo": {
+          "type": "object",
+          "description": "Nota mínima por módulo (basicos/complementares/especificos), quando o edital exige.",
+          "additionalProperties": {
+            "type": "number"
+          }
         }
       }
     },
@@ -164,6 +175,7 @@
           "modulo": {
             "enum": [
               "basicos",
+              "complementares",
               "especificos",
               null
             ],

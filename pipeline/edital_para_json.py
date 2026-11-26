@@ -21,6 +21,9 @@ MARCA_PAGINA = re.compile(r"<!-- p\.(\d+)(?: col\.[EDU])? -->\n+")
 # Itens do Anexo sempre têm ao menos 2 níveis (1.1, 3.4.3...); aceita qualquer início de texto
 # (maiúscula, minúscula, parêntese), pois há itens como "5.5.2. natureza" e "8.11 (In)visibilidade".
 TOKEN_ITEM = re.compile(r'(?<![\w./,])(\d+(?:\.\d+)+)(?:\.?\s+(?=\S)|\.(?=[A-ZÀ-Ú]))')  # aceita '5.6.1.1.Powerpoint' (ponto colado)
+# Numeração mista do Anexo (itens "1", "2", "4.1", "4.2", ...): o item é aceito só se seguir a sequência do edital
+# (o edital às vezes pula números; aceitamos saltos de até 3) e começar por maiúscula ("de 23 de setembro" não é item).
+TOKEN_NUM = re.compile(r'(?<![\w./,º°\d])(\d{1,2}(?:\.\d{1,2})*)(?:\s+(?=[A-ZÀ-Ú(])|\.(?=[A-ZÀ-Ú]))')
 CABECALHO_DISC = re.compile(r"^(\d{1,2})\.\s+([A-ZÀ-Ú][A-ZÀ-Ú0-9 ,\-–/ÇÃÕ]+)$", re.M)
 # nome normalizado e palavra-chave esperada, na ordem do edital
 NOMES = [
@@ -104,6 +107,31 @@ def itens_plano(texto: str):
     return out
 
 
+def itens_numerados(texto: str, minimo: int = 1):
+    """'1 ... 2 ... 4.1 ... 4.2 ...' (sequência com saltos de até 3). Texto antes do 1º número vira o item '0'. None se nenhum número (cai nas sentenças)."""
+    marcas, pilha = [], []
+    for m in TOKEN_NUM.finditer(texto):
+        comps = [int(x) for x in m.group(1).split(".")]
+        k = len(comps)
+        if comps[:k - 1] != pilha[:k - 1] or len(pilha) < k - 1:
+            continue
+        ultimo = pilha[k - 1] if len(pilha) >= k else 0
+        if not (ultimo < comps[-1] <= ultimo + 3):
+            continue
+        pilha = pilha[:k - 1] + [comps[-1]]
+        marcas.append((m.group(1), m.start(), m.end()))
+    if len(marcas) < minimo:
+        return None
+    out = []
+    prefacio = texto[:marcas[0][1]].strip()
+    if prefacio:
+        out.append(("0", prefacio, 0))
+    for i, (n, ini, fim_tok) in enumerate(marcas):
+        fim = marcas[i + 1][1] if i + 1 < len(marcas) else len(texto)
+        out.append((n, texto[fim_tok:fim].strip(), ini))
+    return out
+
+
 def itens_sentencas(texto: str):
     partes = re.split(r"(?<=[.;])\s+(?=[A-ZÀ-Ú])", texto.strip())
     return [(str(i + 1), p.strip(), 0) for i, p in enumerate(partes) if p.strip()]
@@ -137,17 +165,38 @@ def main_cfg(pasta: Path, meta: dict) -> int:
             return None
         return hits[ocorrencia - 1]
 
-    i_de = achar(cfg["de"], 0, cfg.get("ocorrenciaDe", 1))
-    if i_de is None:
-        erros.append(f"início do anexo não encontrado: {cfg['de']!r}")
-        i_de = 0
-    i_ate = achar(cfg["ate"], i_de + 1) if cfg.get("ate") else len(linhas)
-    if i_ate is None:
-        erros.append(f"fim do anexo não encontrado: {cfg['ate']!r}")
-        i_ate = len(linhas)
     ignorar = tuple(cfg.get("ignorarLinhas", []))
-    corpo = [(p, l) for p, l in linhas[i_de:i_ate]
+    if cfg.get("regioes"):
+        # Mais de um trecho do Anexo (ex.: básicos/complementares e o parágrafo de um cargo); início e fim por PREFIXO da linha.
+        fatias = []
+        for rg in cfg["regioes"]:
+            ini = [i for i in range(len(linhas)) if limpo(linhas[i][1]).startswith(rg["de"])]
+            if not ini:
+                erros.append(f"início da região não encontrado: {rg['de']!r}")
+                continue
+            i0 = ini[rg.get("ocorrenciaDe", 1) - 1]
+            fim = [i for i in range(i0 + 1, len(linhas)) if limpo(linhas[i][1]).startswith(rg["ate"])] if rg.get("ate") else [len(linhas)]
+            if not fim:
+                erros.append(f"fim da região não encontrado: {rg['ate']!r}")
+                continue
+            fatias.append(linhas[i0:fim[0]])
+        trechos = [x for f in fatias for x in f]
+    else:
+        i_de = achar(cfg["de"], 0, cfg.get("ocorrenciaDe", 1))
+        if i_de is None:
+            erros.append(f"início do anexo não encontrado: {cfg['de']!r}")
+            i_de = 0
+        i_ate = achar(cfg["ate"], i_de + 1) if cfg.get("ate") else len(linhas)
+        if i_ate is None:
+            erros.append(f"fim do anexo não encontrado: {cfg['ate']!r}")
+            i_ate = len(linhas)
+        trechos = linhas[i_de:i_ate]
+    corpo = [(p, l) for p, l in trechos
              if not re.fullmatch(r"\d{1,3}", l) and not any(limpo(l).startswith(x) for x in ignorar)]
+    if cfg.get("quebrarAntes"):
+        # Blocos nomeados no meio do parágrafo ("... complementar. Contabilidade pública: 1 ..."): quebra a linha antes do nome.
+        corte = re.compile(r"(?<=[.;:]) (?=(?:" + "|".join(re.escape(m) for m in cfg["quebrarAntes"]) + "))")
+        corpo = [(p, parte) for p, l in corpo for parte in corte.split(l)]
 
     # início de cada disciplina
     starts = []
@@ -185,6 +234,10 @@ def main_cfg(pasta: Path, meta: dict) -> int:
         num = d.get("numero", k + 1)
         if modo == "hierarquico":
             its, numeracao = itens_hier(texto, num), "edital"
+        elif modo == "numerado":
+            its, numeracao = itens_numerados(texto), "edital"
+            if its is None:
+                its, numeracao = itens_sentencas(texto), "sintetica"
         else:
             its = itens_plano(texto) if modo in ("auto", "plano") else None
             numeracao = "edital"
@@ -202,7 +255,7 @@ def main_cfg(pasta: Path, meta: dict) -> int:
             vistos.add(n_item)
             j = max([x for x, o in enumerate(offs) if o <= off] or [0]) if offs else 0
             itens.append({"id": f"{did}:{n_item}", "numero": n_item, "texto": tx, "pai": None, "pagina": pgs[min(j, len(pgs) - 1)] if pgs else bloco[0][0]})
-        if modo == "hierarquico":
+        if modo == "hierarquico" or (modo == "numerado" and numeracao == "edital"):
             nums = {i["numero"] for i in itens}
             for it in itens:
                 partes = it["numero"].split(".")
@@ -234,13 +287,15 @@ def main_cfg(pasta: Path, meta: dict) -> int:
     if sha != meta["fonte"]["sha256"]:
         erros.append("sha256 do PDF difere do meta.json")
     paginas = sorted({p for p, _ in corpo})
-    saida = {"schemaVersion": "1.1", "concurso": meta["concurso"],
+    saida = {"schemaVersion": "1.2", "concurso": meta["concurso"],
              "prova": {"totalQuestoes": total, "alternativas": meta["prova"]["alternativas"],
                        "pontosPorQuestao": meta["prova"]["pontosPorQuestao"],
                        "notaMinimaObjetiva": meta["prova"].get("notaMinimaObjetiva"),
                        "duracaoMinimaHoras": meta["prova"].get("duracaoMinimaHoras"),
                        "duracaoMaximaHoras": meta["prova"].get("duracaoMaximaHoras"),
-                       "dataProvavel": meta["prova"].get("dataProvavel"), "fonteItem": meta["prova"]["fonteItem"]},
+                       "dataProvavel": meta["prova"].get("dataProvavel"), "fonteItem": meta["prova"]["fonteItem"],
+                       **({"pontosPorErro": meta["prova"]["pontosPorErro"]} if "pontosPorErro" in meta["prova"] else {}),
+                       **({"notaMinimaPorModulo": meta["prova"]["notaMinimaPorModulo"]} if "notaMinimaPorModulo" in meta["prova"] else {})},
              "fonte": {"arquivo": meta["fonte"]["pdf"], "sha256": sha, "paginasAnexoConteudo": paginas},
              "disciplinas": disciplinas, "avisos": avisos}
     if grupos:
@@ -375,7 +430,7 @@ def main() -> int:
         erros.append("sha256 do PDF difere do meta.json")
 
     saida = {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.2",
         "concurso": meta["concurso"],
         "prova": {
             "totalQuestoes": total, "alternativas": alts, "pontosPorQuestao": pontos,

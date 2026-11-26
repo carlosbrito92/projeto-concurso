@@ -1,0 +1,176 @@
+{
+  "concurso": {
+    "slug": "crc-pr-quadrix-2022",
+    "orgao": "Conselho Regional de Contabilidade do Paraná (CRCPR)",
+    "uf": "PR",
+    "area": "conselhos",
+    "banca": "Quadrix",
+    "cargo": "Analista Contábil",
+    "edital": "01/2022",
+    "ano": 2022,
+    "vagas": null
+  },
+  "prova": {
+    "totalQuestoes": 120,
+    "alternativas": 2,
+    "pontosPorQuestao": 1,
+    "pontosPorErro": -1,
+    "notaMinimaObjetiva": 30,
+    "notaMinimaPorModulo": {
+      "basicos": 8,
+      "complementares": 6,
+      "especificos": 10
+    },
+    "duracaoMinimaHoras": null,
+    "duracaoMaximaHoras": 4,
+    "dataProvavel": "2022-07-03",
+    "fonteItem": "9 e 10.6"
+  },
+  "fonte": {
+    "pdf": "edital-01-2022.pdf",
+    "md": "edital-01-2022.md",
+    "sha256": "3f1b2d75869909ee609a05c3aa4768b170bc46fa746f0d3c5e92febc12198654"
+  },
+  "anexo": {
+    "regioes": [
+      {
+        "de": "1.1 LÍNGUA PORTUGUESA",
+        "ate": "3 CONHECIMENTOS ESPECÍFICOS"
+      },
+      {
+        "de": "3.3.2 ANALISTA CONTÁBIL",
+        "ate": "3.3.3 ANALISTA DE INFORMÁTICA"
+      }
+    ],
+    "ignorarLinhas": [
+      "1 CONHECIMENTOS BÁSICOS",
+      "2 CONHECIMENTOS COMPLEMENTARES"
+    ],
+    "quebrarAntes": [
+      "Contabilidade pública:",
+      "Controladoria:",
+      "Legislação aplicável à contratação de bens e serviços:",
+      "Legislação tributária aplicada às contratações públicas:",
+      "Matemática financeira:",
+      "Legislação Específica:"
+    ],
+    "disciplinas": [
+      {
+        "nome": "Língua Portuguesa",
+        "inicio": "1.1 LÍNGUA PORTUGUESA:",
+        "questoes": null,
+        "modulo": "basicos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Noções de Informática",
+        "inicio": "1.2 NOÇÕES DE INFORMÁTICA:",
+        "questoes": null,
+        "modulo": "basicos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Raciocínio Lógico e Matemática",
+        "inicio": "1.3 RACIOCÍNIO LÓGICO E MATEMÁTICA:",
+        "questoes": null,
+        "modulo": "basicos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Legislação e Ética na Administração Pública",
+        "inicio": "2.1 LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA:",
+        "questoes": null,
+        "modulo": "complementares",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Atualidades",
+        "inicio": "2.2 ATUALIDADES:",
+        "questoes": null,
+        "modulo": "complementares",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Contabilidade Geral",
+        "inicio": "3.3.2 ANALISTA CONTÁBIL: Contabilidade geral:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Contabilidade Pública",
+        "inicio": "Contabilidade pública:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Controladoria",
+        "inicio": "Controladoria:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Legislação Aplicável à Contratação de Bens e Serviços",
+        "inicio": "Legislação aplicável à contratação de bens e serviços:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Legislação Tributária Aplicada às Contratações Públicas",
+        "inicio": "Legislação tributária aplicada às contratações públicas:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Matemática Financeira",
+        "inicio": "Matemática financeira:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "numerado"
+      },
+      {
+        "nome": "Legislação Específica",
+        "inicio": "Legislação Específica:",
+        "questoes": null,
+        "modulo": "especificos",
+        "modo": "numerado"
+      }
+    ],
+    "grupos": [
+      {
+        "nome": "Conhecimentos Básicos",
+        "questoes": 40,
+        "disciplinas": [
+          "Língua Portuguesa",
+          "Noções de Informática",
+          "Raciocínio Lógico e Matemática"
+        ]
+      },
+      {
+        "nome": "Conhecimentos Complementares",
+        "questoes": 30,
+        "disciplinas": [
+          "Legislação e Ética na Administração Pública",
+          "Atualidades"
+        ]
+      },
+      {
+        "nome": "Conhecimentos Específicos",
+        "questoes": 50,
+        "disciplinas": [
+          "Contabilidade Geral",
+          "Contabilidade Pública",
+          "Controladoria",
+          "Legislação Aplicável à Contratação de Bens e Serviços",
+          "Legislação Tributária Aplicada às Contratações Públicas",
+          "Matemática Financeira",
+          "Legislação Específica"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1520 @@
+{
+  "schemaVersion": "1.2",
+  "concurso": {
+    "slug": "crc-pr-quadrix-2022",
+    "orgao": "Conselho Regional de Contabilidade do Paraná (CRCPR)",
+    "uf": "PR",
+    "area": "conselhos",
+    "banca": "Quadrix",
+    "cargo": "Analista Contábil",
+    "edital": "01/2022",
+    "ano": 2022,
+    "vagas": null
+  },
+  "prova": {
+    "totalQuestoes": 120,
+    "alternativas": 2,
+    "pontosPorQuestao": 1,
+    "notaMinimaObjetiva": 30,
+    "duracaoMinimaHoras": null,
+    "duracaoMaximaHoras": 4,
+    "dataProvavel": "2022-07-03",
+    "fonteItem": "9 e 10.6",
+    "pontosPorErro": -1,
+    "notaMinimaPorModulo": {
+      "basicos": 8,
+      "complementares": 6,
+      "especificos": 10
+    }
+  },
+  "fonte": {
+    "arquivo": "edital-01-2022.pdf",
+    "sha256": "3f1b2d75869909ee609a05c3aa4768b170bc46fa746f0d3c5e92febc12198654",
+    "paginasAnexoConteudo": [
+      19,
+      22
+    ]
+  },
+  "disciplinas": [
+    {
+      "id": "D01",
+      "modulo": "basicos",
+      "numero": 1,
+      "tituloLiteral": "1.1 LÍNGUA PORTUGUESA:",
+      "nome": "Língua Portuguesa",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D01:1",
+          "numero": "1",
+          "texto": "Compreensão e interpretação de textos de gêneros variados.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D01:2",
+          "numero": "2",
+          "texto": "Reconhecimento de tipos e gêneros textuais.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D01:3",
+          "numero": "3",
+          "texto": "Domínio da ortografia oficial.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D01:4",
+          "numero": "4",
+          "texto": "Domínio dos mecanismos de coesão textual.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D01:4.1",
+          "numero": "4.1",
+          "texto": "Emprego de elementos de referenciação, substituição e repetição, de conectores e de outros elementos de sequenciação textual.",
+          "pai": "D01:4",
+          "pagina": 19
+        },
+        {
+          "id": "D01:4.2",
+          "numero": "4.2",
+          "texto": "Emprego de tempos e modos verbais.",
+          "pai": "D01:4",
+          "pagina": 19
+        },
+        {
+          "id": "D01:5",
+          "numero": "5",
+          "texto": "Domínio da estrutura morfossintática do período.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D01:5.1",
+          "numero": "5.1",
+          "texto": "Emprego das classes de palavras.",
+          "pai": "D01:5",
+          "pagina": 19
+        },
+        {
+          "id": "D01:5.2",
+          "numero": "5.2",
+          "texto": "Relações de coordenação entre orações e entre termos da oração.",
+          "pai": "D01:5",
+          "pagina": 19
+        },
+        {
+          "id": "D01:5.3",
+          "numero": "5.3",
+          "texto": "Relações de subordinação entre orações e entre termos da oração.",
+          "pai": "D01:5",
+          "pagina": 19
+        },
+        {
+          "id": "D01:5.4",
+          "numero": "5.4",
+          "texto": "Emprego dos sinais de pontuação.",
+          "pai": "D01:5",
+          "pagina": 19
+        },
+        {
+          "id": "D01:5.5",
+          "numero": "5.5",
+          "texto": "Concordância verbal e nominal.",
+          "pai": "D01:5",
+          "pagina": 19
+        },
+        {
+          "id": "D01:5.6",
+          "numero": "5.6",
+          "texto": "Regência verbal e nominal.",
+          "pai": "D01:5",
+          "pagina": 19
+        },
+        {
+          "id": "D01:5.7",
+          "numero": "5.7",
+          "texto": "Emprego do sinal indicativo de crase.",
+          "pai": "D01:5",
+          "pagina": 19
+        },
+        {
+          "id": "D01:5.8",
+          "numero": "5.8",
+          "texto": "Colocação dos pronomes átonos.",
+          "pai": "D01:5",
+          "pagina": 19
+        },
+        {
+          "id": "D01:6",
+          "numero": "6",
+          "texto": "Reescrita de frases e parágrafos do texto.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D01:6.1",
+          "numero": "6.1",
+          "texto": "Significação das palavras.",
+          "pai": "D01:6",
+          "pagina": 19
+        },
+        {
+          "id": "D01:6.2",
+          "numero": "6.2",
+          "texto": "Substituição de palavras ou de trechos de texto.",
+          "pai": "D01:6",
+          "pagina": 19
+        },
+        {
+          "id": "D01:6.3",
+          "numero": "6.3",
+          "texto": "Reorganização da estrutura de orações e de períodos do texto.",
+          "pai": "D01:6",
+          "pagina": 19
+        },
+        {
+          "id": "D01:6.4",
+          "numero": "6.4",
+          "texto": "Reescrita de textos de diferentes gêneros e níveis de formalidade.",
+          "pai": "D01:6",
+          "pagina": 19
+        },
+        {
+          "id": "D01:7",
+          "numero": "7",
+          "texto": "Correspondência oficial (conforme Manual de Redação da Presidência da República).",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D01:7.1",
+          "numero": "7.1",
+          "texto": "Aspectos gerais da redação oficial.",
+          "pai": "D01:7",
+          "pagina": 19
+        },
+        {
+          "id": "D01:7.2",
+          "numero": "7.2",
+          "texto": "Finalidade dos expedientes oficiais.",
+          "pai": "D01:7",
+          "pagina": 19
+        },
+        {
+          "id": "D01:7.3",
+          "numero": "7.3",
+          "texto": "Adequação da linguagem ao tipo de documento.",
+          "pai": "D01:7",
+          "pagina": 19
+        },
+        {
+          "id": "D01:7.4",
+          "numero": "7.4",
+          "texto": "Adequação do formato do texto ao gênero.",
+          "pai": "D01:7",
+          "pagina": 19
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "modulo": "basicos",
+      "numero": 2,
+      "tituloLiteral": "1.2 NOÇÕES DE INFORMÁTICA:",
+      "nome": "Noções de Informática",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D02:1",
+          "numero": "1",
+          "texto": "Conceitos básicos e modos de utilização de tecnologias, ferramentas, aplicativos e procedimentos de informática: tipos de computadores, conceitos de hardware e de software, instalação de periféricos.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:2",
+          "numero": "2",
+          "texto": "Edição de textos, planilhas e apresentações (ambiente Microsoft Office, versões 2010, 2013 e 365).",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:3",
+          "numero": "3",
+          "texto": "Noções de sistema operacional (ambiente Windows, versões 7, 8 e 10).",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:4",
+          "numero": "4",
+          "texto": "Redes de computadores: conceitos básicos, ferramentas, aplicativos e procedimentos de Internet e intranet.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:5",
+          "numero": "5",
+          "texto": "Programas de navegação: Mozilla Firefox e Google Chrome.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:6",
+          "numero": "6",
+          "texto": "Programa de correio eletrônico: MS Outlook.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:7",
+          "numero": "7",
+          "texto": "Sítios de busca e pesquisa na Internet.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:8",
+          "numero": "8",
+          "texto": "Conceitos de organização e de gerenciamento de informações, arquivos, pastas e programas.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:9",
+          "numero": "9",
+          "texto": "Segurança da informação: procedimentos de segurança.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:10",
+          "numero": "10",
+          "texto": "Noções de vírus, worms e pragas virtuais.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:11",
+          "numero": "11",
+          "texto": "Aplicativos para segurança (antivírus, firewall, antispyware etc.).",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D02:12",
+          "numero": "12",
+          "texto": "Procedimentos de backup.",
+          "pai": null,
+          "pagina": 19
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "modulo": "basicos",
+      "numero": 3,
+      "tituloLiteral": "1.3 RACIOCÍNIO LÓGICO E MATEMÁTICA:",
+      "nome": "Raciocínio Lógico e Matemática",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D03:1",
+          "numero": "1",
+          "texto": "Operações, propriedades e aplicações (soma, subtração, multiplicação, divisão, potenciação e radiciação).",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:2",
+          "numero": "2",
+          "texto": "Princípios de contagem e probabilidade.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:3",
+          "numero": "3",
+          "texto": "Arranjos e permutações.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:4",
+          "numero": "4",
+          "texto": "Combinações.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:5",
+          "numero": "5",
+          "texto": "Conjuntos numéricos (números naturais, inteiros, racionais e reais) e operações com conjuntos.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:6",
+          "numero": "6",
+          "texto": "Razões e proporções (grandezas diretamente proporcionais, grandezas inversamente proporcionais, porcentagem, regras de três simples e compostas).",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:7",
+          "numero": "7",
+          "texto": "Equações e inequações.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:8",
+          "numero": "8",
+          "texto": "Sistemas de medidas.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:9",
+          "numero": "9",
+          "texto": "Volumes.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:10",
+          "numero": "10",
+          "texto": "Compreensão de estruturas lógicas.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:11",
+          "numero": "11",
+          "texto": "Lógica de argumentação (analogias, inferências, deduções e conclusões).",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D03:12",
+          "numero": "12",
+          "texto": "Diagramas lógicos.",
+          "pai": null,
+          "pagina": 19
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "modulo": "complementares",
+      "numero": 4,
+      "tituloLiteral": "2.1 LEGISLAÇÃO E ÉTICA NA ADMINISTRAÇÃO PÚBLICA:",
+      "nome": "Legislação e Ética na Administração Pública",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D04:1",
+          "numero": "1",
+          "texto": "Ética e função pública.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D04:2",
+          "numero": "2",
+          "texto": "Ética no Setor Público.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D04:3",
+          "numero": "3",
+          "texto": "Lei nº 8.429/1992 e suas alterações.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D04:4",
+          "numero": "4",
+          "texto": "Lei nº 9.784/1999 e suas alterações (processo administrativo).",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D04:5",
+          "numero": "5",
+          "texto": "Acesso à informação: Lei nº 12.527/2011; e Decreto nº 7.724/2012.",
+          "pai": null,
+          "pagina": 19
+        },
+        {
+          "id": "D04:6",
+          "numero": "6",
+          "texto": "Decreto nº 9.830/2019.",
+          "pai": null,
+          "pagina": 19
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "modulo": "complementares",
+      "numero": 5,
+      "tituloLiteral": "2.2 ATUALIDADES:",
+      "nome": "Atualidades",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D05:1",
+          "numero": "1",
+          "texto": "Tópicos atuais e relevantes de diversas áreas, tais como segurança, transportes, política, economia, sociedade, educação, saúde, cultura, tecnologia, energia, relações internacionais, desenvolvimento sustentável e ecologia.",
+          "pai": null,
+          "pagina": 19
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "modulo": "especificos",
+      "numero": 6,
+      "tituloLiteral": "3.3.2 ANALISTA CONTÁBIL: Contabilidade geral:",
+      "nome": "Contabilidade Geral",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D06:1",
+          "numero": "1",
+          "texto": "Lei nº 6.404/1976, suas alterações e legislação complementar.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:2",
+          "numero": "2",
+          "texto": "Lei nº 11.638/2007 suas alterações e legislação complementar.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:3",
+          "numero": "3",
+          "texto": "Lei nº 11.941/2009 suas alterações e legislação complementar.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:4",
+          "numero": "4",
+          "texto": "NBC TSP ESTRUTURA CONCEITUAL, de 23 de setembro de 2016.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:5",
+          "numero": "5",
+          "texto": "Elaboração de demonstrações contábeis pela legislação societária e Normas Brasileiras de Contabilidade.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:5.1",
+          "numero": "5.1",
+          "texto": "Demonstração dos fluxos de caixa (métodos direto e indireto).",
+          "pai": "D06:5",
+          "pagina": 22
+        },
+        {
+          "id": "D06:5.2",
+          "numero": "5.2",
+          "texto": "Balanço patrimonial.",
+          "pai": "D06:5",
+          "pagina": 22
+        },
+        {
+          "id": "D06:5.3",
+          "numero": "5.3",
+          "texto": "Demonstração do resultado do período.",
+          "pai": "D06:5",
+          "pagina": 22
+        },
+        {
+          "id": "D06:5.4",
+          "numero": "5.4",
+          "texto": "Demonstração do valor adicionado.",
+          "pai": "D06:5",
+          "pagina": 22
+        },
+        {
+          "id": "D06:5.5",
+          "numero": "5.5",
+          "texto": "Demonstração das Mutações do Patrimônio Líquido.",
+          "pai": "D06:5",
+          "pagina": 22
+        },
+        {
+          "id": "D06:5.6",
+          "numero": "5.6",
+          "texto": "Demonstração de Lucros ou Prejuízos Acumulados.",
+          "pai": "D06:5",
+          "pagina": 22
+        },
+        {
+          "id": "D06:5.7",
+          "numero": "5.7",
+          "texto": "Demonstração do Resultado Abrangente.",
+          "pai": "D06:5",
+          "pagina": 22
+        },
+        {
+          "id": "D06:5.8",
+          "numero": "5.8",
+          "texto": "Notas Explicativas.",
+          "pai": "D06:5",
+          "pagina": 22
+        },
+        {
+          "id": "D06:6",
+          "numero": "6",
+          "texto": "Caixa e equivalentes de caixa: conteúdo, classificação e critérios de avaliação.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:7",
+          "numero": "7",
+          "texto": "Contas a receber: conceito, conteúdo e critérios contábeis.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:8",
+          "numero": "8",
+          "texto": "Estoques: conceito e classificação.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:8.1",
+          "numero": "8.1",
+          "texto": "Critérios de avaliação de estoques.",
+          "pai": "D06:8",
+          "pagina": 22
+        },
+        {
+          "id": "D06:9",
+          "numero": "9",
+          "texto": "Não circulante: conceito e classificação.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:9.1",
+          "numero": "9.1",
+          "texto": "Ajuste a valor presente: cálculo e contabilização de contas ativas e passivas.",
+          "pai": "D06:9",
+          "pagina": 22
+        },
+        {
+          "id": "D06:10",
+          "numero": "10",
+          "texto": "Instrumentos financeiros: reconhecimento, mensuração e evidenciação.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:10.1",
+          "numero": "10.1",
+          "texto": "Recuperabilidade.",
+          "pai": "D06:10",
+          "pagina": 22
+        },
+        {
+          "id": "D06:11",
+          "numero": "11",
+          "texto": "Mensuração do valor justo.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:11.1",
+          "numero": "11.1",
+          "texto": "Definição do valor justo.",
+          "pai": "D06:11",
+          "pagina": 22
+        },
+        {
+          "id": "D06:11.2",
+          "numero": "11.2",
+          "texto": "Valor justo: aplicação para ativos, passivos e instrumentos patrimoniais.",
+          "pai": "D06:11",
+          "pagina": 22
+        },
+        {
+          "id": "D06:11.3",
+          "numero": "11.3",
+          "texto": "Técnicas para avaliação do valor justo.",
+          "pai": "D06:11",
+          "pagina": 22
+        },
+        {
+          "id": "D06:12",
+          "numero": "12",
+          "texto": "Contabilização de investimentos em coligadas e controladas.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:12.1",
+          "numero": "12.1",
+          "texto": "Goodwill.",
+          "pai": "D06:12",
+          "pagina": 22
+        },
+        {
+          "id": "D06:13",
+          "numero": "13",
+          "texto": "Ativo Imobilizado: conceituação, classificação e conteúdo das contas.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:13.1",
+          "numero": "13.1",
+          "texto": "Critérios de avaliação e mensuração do ativo imobilizado.",
+          "pai": "D06:13",
+          "pagina": 22
+        },
+        {
+          "id": "D06:13.2",
+          "numero": "13.2",
+          "texto": "Redução ao valor recuperável (impairment).",
+          "pai": "D06:13",
+          "pagina": 22
+        },
+        {
+          "id": "D06:13.3",
+          "numero": "13.3",
+          "texto": "Depreciação, exaustão e amortização.",
+          "pai": "D06:13",
+          "pagina": 22
+        },
+        {
+          "id": "D06:14",
+          "numero": "14",
+          "texto": "Ativos intangíveis: definição, reconhecimento e mensuração.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:14.1",
+          "numero": "14.1",
+          "texto": "Impairment test: intangíveis com vida útil definida, indefinida e goodwill.",
+          "pai": "D06:14",
+          "pagina": 22
+        },
+        {
+          "id": "D06:15",
+          "numero": "15",
+          "texto": "Passivo exigível: conceitos gerais, avaliação e conteúdo do passivo.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:16",
+          "numero": "16",
+          "texto": "Fornecedores, obrigações fiscais e outras obrigações.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:17",
+          "numero": "17",
+          "texto": "Empréstimos e financiamentos, debêntures e outros títulos de dívida.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:18",
+          "numero": "18",
+          "texto": "Provisões, passivos contingentes e ativos contingentes.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:19",
+          "numero": "19",
+          "texto": "Patrimônio Líquido.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:19.1",
+          "numero": "19.1",
+          "texto": "Reservas de capital.",
+          "pai": "D06:19",
+          "pagina": 22
+        },
+        {
+          "id": "D06:19.2",
+          "numero": "19.2",
+          "texto": "Ajustes de avaliação patrimonial.",
+          "pai": "D06:19",
+          "pagina": 22
+        },
+        {
+          "id": "D06:19.3",
+          "numero": "19.3",
+          "texto": "Reservas de lucros.",
+          "pai": "D06:19",
+          "pagina": 22
+        },
+        {
+          "id": "D06:19.4",
+          "numero": "19.4",
+          "texto": "Ações em tesouraria.",
+          "pai": "D06:19",
+          "pagina": 22
+        },
+        {
+          "id": "D06:19.5",
+          "numero": "19.5",
+          "texto": "Prejuízos acumulados.",
+          "pai": "D06:19",
+          "pagina": 22
+        },
+        {
+          "id": "D06:20",
+          "numero": "20",
+          "texto": "Análise econômico-financeira.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D06:20.1",
+          "numero": "20.1",
+          "texto": "Indicadores de liquidez.",
+          "pai": "D06:20",
+          "pagina": 22
+        },
+        {
+          "id": "D06:20.2",
+          "numero": "20.2",
+          "texto": "Indicadores de rentabilidade.",
+          "pai": "D06:20",
+          "pagina": 22
+        },
+        {
+          "id": "D06:20.3",
+          "numero": "20.3",
+          "texto": "Indicadores de lucratividade.",
+          "pai": "D06:20",
+          "pagina": 22
+        },
+        {
+          "id": "D06:20.4",
+          "numero": "20.4",
+          "texto": "Indicadores de endividamento.",
+          "pai": "D06:20",
+          "pagina": 22
+        },
+        {
+          "id": "D06:20.5",
+          "numero": "20.5",
+          "texto": "Análise vertical e horizontal.",
+          "pai": "D06:20",
+          "pagina": 22
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "modulo": "especificos",
+      "numero": 7,
+      "tituloLiteral": "Contabilidade pública:",
+      "nome": "Contabilidade Pública",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D07:1",
+          "numero": "1",
+          "texto": "Normas de contabilidade sob a perspectiva do setor público.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:2",
+          "numero": "2",
+          "texto": "Sistema de Contabilidade Federal.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:3",
+          "numero": "3",
+          "texto": "Conceituação, objeto e campo de aplicação.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:4",
+          "numero": "4",
+          "texto": "Composição do Patrimônio Público.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:4.1",
+          "numero": "4.1",
+          "texto": "Patrimônio Público.",
+          "pai": "D07:4",
+          "pagina": 22
+        },
+        {
+          "id": "D07:4.2",
+          "numero": "4.2",
+          "texto": "Ativo.",
+          "pai": "D07:4",
+          "pagina": 22
+        },
+        {
+          "id": "D07:4.3",
+          "numero": "4.3",
+          "texto": "Passivo.",
+          "pai": "D07:4",
+          "pagina": 22
+        },
+        {
+          "id": "D07:4.4",
+          "numero": "4.4",
+          "texto": "Saldo Patrimonial.",
+          "pai": "D07:4",
+          "pagina": 22
+        },
+        {
+          "id": "D07:5",
+          "numero": "5",
+          "texto": "Variações Patrimoniais.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:5.1",
+          "numero": "5.1",
+          "texto": "Qualitativas.",
+          "pai": "D07:5",
+          "pagina": 22
+        },
+        {
+          "id": "D07:5.2",
+          "numero": "5.2",
+          "texto": "Quantitativas: receita e despesa sob o enfoque patrimonial.",
+          "pai": "D07:5",
+          "pagina": 22
+        },
+        {
+          "id": "D07:5.3",
+          "numero": "5.3",
+          "texto": "Realização da variação patrimonial.",
+          "pai": "D07:5",
+          "pagina": 22
+        },
+        {
+          "id": "D07:5.4",
+          "numero": "5.4",
+          "texto": "Resultado patrimonial.",
+          "pai": "D07:5",
+          "pagina": 22
+        },
+        {
+          "id": "D07:6",
+          "numero": "6",
+          "texto": "Mensuração de ativos.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:6.1",
+          "numero": "6.1",
+          "texto": "Ativo Imobilizado.",
+          "pai": "D07:6",
+          "pagina": 22
+        },
+        {
+          "id": "D07:6.2",
+          "numero": "6.2",
+          "texto": "Ativo Intangível.",
+          "pai": "D07:6",
+          "pagina": 22
+        },
+        {
+          "id": "D07:6.3",
+          "numero": "6.3",
+          "texto": "Reavaliação e redução ao valor recuperável.",
+          "pai": "D07:6",
+          "pagina": 22
+        },
+        {
+          "id": "D07:6.4",
+          "numero": "6.4",
+          "texto": "Depreciação, amortização e exaustão.",
+          "pai": "D07:6",
+          "pagina": 22
+        },
+        {
+          "id": "D07:7",
+          "numero": "7",
+          "texto": "Mensuração de passivos.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:7.1",
+          "numero": "7.1",
+          "texto": "Provisões.",
+          "pai": "D07:7",
+          "pagina": 22
+        },
+        {
+          "id": "D07:7.2",
+          "numero": "7.2",
+          "texto": "Passivos Contingentes.",
+          "pai": "D07:7",
+          "pagina": 22
+        },
+        {
+          "id": "D07:10",
+          "numero": "10",
+          "texto": "Plano de contas aplicado ao setor público.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:11",
+          "numero": "11",
+          "texto": "Demonstrações contábeis aplicadas ao setor público.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:11.1",
+          "numero": "11.1",
+          "texto": "Balanço orçamentário.",
+          "pai": "D07:11",
+          "pagina": 22
+        },
+        {
+          "id": "D07:11.2",
+          "numero": "11.2",
+          "texto": "Balanço Financeiro.",
+          "pai": "D07:11",
+          "pagina": 22
+        },
+        {
+          "id": "D07:11.3",
+          "numero": "11.3",
+          "texto": "Demonstração das variações patrimoniais.",
+          "pai": "D07:11",
+          "pagina": 22
+        },
+        {
+          "id": "D07:11.4",
+          "numero": "11.4",
+          "texto": "Balanço patrimonial.",
+          "pai": "D07:11",
+          "pagina": 22
+        },
+        {
+          "id": "D07:11.5",
+          "numero": "11.5",
+          "texto": "Demonstração dos fluxos de caixa.",
+          "pai": "D07:11",
+          "pagina": 22
+        },
+        {
+          "id": "D07:11.6",
+          "numero": "11.6",
+          "texto": "Demonstração das Mutações do Patrimônio Líquido.",
+          "pai": "D07:11",
+          "pagina": 22
+        },
+        {
+          "id": "D07:11.7",
+          "numero": "11.7",
+          "texto": "Notas explicativas às demonstrações contábeis.",
+          "pai": "D07:11",
+          "pagina": 22
+        },
+        {
+          "id": "D07:11.8",
+          "numero": "11.8",
+          "texto": "Consolidação das demonstrações contábeis.",
+          "pai": "D07:11",
+          "pagina": 22
+        },
+        {
+          "id": "D07:12",
+          "numero": "12",
+          "texto": "Transações no setor público.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:13",
+          "numero": "13",
+          "texto": "Despesa pública: conceito, etapas, estágios e categorias econômicas.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:14",
+          "numero": "14",
+          "texto": "Receita pública: conceito, etapas, estágios e categorias econômicas.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:15",
+          "numero": "15",
+          "texto": "Execução orçamentária e financeira.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:18",
+          "numero": "18",
+          "texto": "Suprimento de Fundos.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:19",
+          "numero": "19",
+          "texto": "Lei nº 4.320/1964.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D07:20",
+          "numero": "20",
+          "texto": "Regime contábil.",
+          "pai": null,
+          "pagina": 22
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "modulo": "especificos",
+      "numero": 8,
+      "tituloLiteral": "Controladoria:",
+      "nome": "Controladoria",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D08:0",
+          "numero": "0",
+          "texto": "Teoria dos sistemas aplicada às organizações.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D08:1",
+          "numero": "1",
+          "texto": "Definição e funções da controladoria numa organização.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D08:2",
+          "numero": "2",
+          "texto": "Aplicabilidade do conceito de controladoria à gestão pública.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D08:3",
+          "numero": "3",
+          "texto": "Metodologia de Trabalho do Sistema de Controle Interno – SCI.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D08:4",
+          "numero": "4",
+          "texto": "Objetivos e abrangência de atuação do SCI.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D08:5",
+          "numero": "5",
+          "texto": "Técnicas de controle, formas e tipos.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D08:6",
+          "numero": "6",
+          "texto": "Planejamento das ações de controle interno.",
+          "pai": null,
+          "pagina": 22
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "modulo": "especificos",
+      "numero": 9,
+      "tituloLiteral": "Legislação aplicável à contratação de bens e serviços:",
+      "nome": "Legislação Aplicável à Contratação de Bens e Serviços",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D09:1",
+          "numero": "1",
+          "texto": "Leis nºs 8.666/1993, 10.520/2002 e 14.133/2021.",
+          "pai": null,
+          "pagina": 22
+        }
+      ]
+    },
+    {
+      "id": "D10",
+      "modulo": "especificos",
+      "numero": 10,
+      "tituloLiteral": "Legislação tributária aplicada às contratações públicas:",
+      "nome": "Legislação Tributária Aplicada às Contratações Públicas",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D10:1",
+          "numero": "1",
+          "texto": "Noções básicas sobre tributos.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D10:1.1",
+          "numero": "1.1",
+          "texto": "Impostos, taxas e contribuições.",
+          "pai": "D10:1",
+          "pagina": 22
+        },
+        {
+          "id": "D10:2",
+          "numero": "2",
+          "texto": "Tratamento contábil aplicável aos impostos e contribuições.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D10:3",
+          "numero": "3",
+          "texto": "Retenções na fonte realizadas pela Administração Pública Federal.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D10:3.1",
+          "numero": "3.1",
+          "texto": "Imposto de Renda Pessoa Jurídica (IRPJ).",
+          "pai": "D10:3",
+          "pagina": 22
+        },
+        {
+          "id": "D10:3.2",
+          "numero": "3.2",
+          "texto": "Contribuição Social Sobre o Lucro Líquido (CSLL).",
+          "pai": "D10:3",
+          "pagina": 22
+        },
+        {
+          "id": "D10:3.3",
+          "numero": "3.3",
+          "texto": "Programa de Integração Social (PIS).",
+          "pai": "D10:3",
+          "pagina": 22
+        },
+        {
+          "id": "D10:3.4",
+          "numero": "3.4",
+          "texto": "Contribuição para o Financiamento da Seguridade Social (COFINS).",
+          "pai": "D10:3",
+          "pagina": 22
+        },
+        {
+          "id": "D10:3.5",
+          "numero": "3.5",
+          "texto": "Imposto Sobre Serviços (ISS).",
+          "pai": "D10:3",
+          "pagina": 22
+        },
+        {
+          "id": "D10:3.6",
+          "numero": "3.6",
+          "texto": "Contribuição previdenciária (INSS).",
+          "pai": "D10:3",
+          "pagina": 22
+        },
+        {
+          "id": "D10:4",
+          "numero": "4",
+          "texto": "Legislação básica e suas atualizações",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D10:4.1",
+          "numero": "4.1",
+          "texto": "Instrução Normativa da Receita Federal do Brasil nº 971/2009.",
+          "pai": "D10:4",
+          "pagina": 22
+        },
+        {
+          "id": "D10:4.2",
+          "numero": "4.2",
+          "texto": "Instrução Normativa da Receita Federal do Brasil nº 1.234/2012.",
+          "pai": "D10:4",
+          "pagina": 22
+        },
+        {
+          "id": "D10:4.3",
+          "numero": "4.3",
+          "texto": "Lei Complementar nº 116/2003.",
+          "pai": "D10:4",
+          "pagina": 22
+        }
+      ]
+    },
+    {
+      "id": "D11",
+      "modulo": "especificos",
+      "numero": 11,
+      "tituloLiteral": "Matemática financeira:",
+      "nome": "Matemática Financeira",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "edital",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D11:1",
+          "numero": "1",
+          "texto": "Regra de três simples e composta, proporcionalidades e porcentagens.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D11:2",
+          "numero": "2",
+          "texto": "Juros simples e compostos.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D11:3",
+          "numero": "3",
+          "texto": "Capitalização e desconto.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D11:4",
+          "numero": "4",
+          "texto": "Taxas de juros nominal, efetiva, equivalente, real e aparente.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D11:5",
+          "numero": "5",
+          "texto": "Rendas uniformes e variáveis.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D11:6",
+          "numero": "6",
+          "texto": "Planos de amortização de empréstimos e financiamentos.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D11:6.1",
+          "numero": "6.1",
+          "texto": "Sistema francês (tabela Price).",
+          "pai": "D11:6",
+          "pagina": 22
+        },
+        {
+          "id": "D11:6.2",
+          "numero": "6.2",
+          "texto": "Sistema de amortização constante (SAC).",
+          "pai": "D11:6",
+          "pagina": 22
+        },
+        {
+          "id": "D11:6.3",
+          "numero": "6.3",
+          "texto": "Sistema de amortização misto (SAM).",
+          "pai": "D11:6",
+          "pagina": 22
+        },
+        {
+          "id": "D11:7",
+          "numero": "7",
+          "texto": "Cálculo financeiro.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D11:7.1",
+          "numero": "7.1",
+          "texto": "Custo real e efetivo das operações de financiamento, empréstimo e investimento.",
+          "pai": "D11:7",
+          "pagina": 22
+        },
+        {
+          "id": "D11:8",
+          "numero": "8",
+          "texto": "Avaliação de alternativas de investimento em economia estável e em ambiente inflacionário.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D11:9",
+          "numero": "9",
+          "texto": "Avaliação econômica de projetos.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D11:10",
+          "numero": "10",
+          "texto": "Taxas de retorno e taxas internas de retorno.",
+          "pai": null,
+          "pagina": 22
+        }
+      ]
+    },
+    {
+      "id": "D12",
+      "modulo": "especificos",
+      "numero": 12,
+      "tituloLiteral": "Legislação Específica:",
+      "nome": "Legislação Específica",
+      "questoes": null,
+      "peso": null,
+      "numeracaoItens": "sintetica",
+      "bibliografiaBruta": null,
+      "itens": [
+        {
+          "id": "D12:1",
+          "numero": "1",
+          "texto": "Decreto-Lei nº 9.295/1946, alterado pela Lei nº 12.249/2010 nos arts. 76 e 77.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D12:2",
+          "numero": "2",
+          "texto": "Decreto-Lei nº 1.040/1969.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D12:3",
+          "numero": "3",
+          "texto": "Resolução CFC nº 1.554/2018.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D12:4",
+          "numero": "4",
+          "texto": "Resolução CFC nº 1.555/2018.",
+          "pai": null,
+          "pagina": 22
+        },
+        {
+          "id": "D12:5",
+          "numero": "5",
+          "texto": "Resolução CFC nº 1.612/2021.",
+          "pai": null,
+          "pagina": 22
+        }
+      ]
+    }
+  ],
+  "avisos": [
+    "D09: o edital não numera os itens; numeração sintética por frase (granularidade limitada)",
+    "D12: o edital não numera os itens; numeração sintética por frase (granularidade limitada)"
+  ],
+  "grupos": [
+    {
+      "nome": "Conhecimentos Básicos",
+      "questoes": 40,
+      "disciplinas": [
+        "D01",
+        "D02",
+        "D03"
+      ]
+    },
+    {
+      "nome": "Conhecimentos Complementares",
+      "questoes": 30,
+      "disciplinas": [
+        "D04",
+        "D05"
+      ]
+    },
+    {
+      "nome": "Conhecimentos Específicos",
+      "questoes": 50,
+      "disciplinas": [
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12"
+      ]
+    }
+  ]
+}

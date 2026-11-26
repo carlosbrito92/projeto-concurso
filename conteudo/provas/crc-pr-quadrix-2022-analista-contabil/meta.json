@@ -1,0 +1,94 @@
+{
+  "slug": "crc-pr-quadrix-2022-analista-contabil",
+  "codigoProva": 5,
+  "concursoSlug": "crc-pr-quadrix-2022",
+  "totalQuestoes": 120,
+  "dataAplicacao": "2022-07-03",
+  "alternativas": 2,
+  "formato": "certo_errado",
+  "numeracao": "item",
+  "vigenciaSuspeita": true,
+  "concurso": {
+    "carreira": "Conselhos profissionais",
+    "orgao": "CRCPR",
+    "banca": "Quadrix",
+    "ano": 2022,
+    "cargo": "Analista Contábil"
+  },
+  "caderno": {
+    "tipo": "único",
+    "cor": null,
+    "rotulo": "Analista Contábil (cód. 401)"
+  },
+  "fonte": {
+    "md": "prova-analista-contabil.md",
+    "prova": {
+      "pdf": "prova-analista-contabil.pdf",
+      "sha256": "db7a6c5af1978920a4ce16457780bce9ef39ee1dc7b0d9de834ad3ff0bfff821"
+    },
+    "gabarito": {
+      "pdf": "gabarito-definitivo.pdf",
+      "sha256": "5cca3b0f3c4c32953a7b6c05150e38c55fc4bb91405481d3e4b85c0210737b6f",
+      "situacao": "definitivo",
+      "cabecalho": "ANALISTA CONTÁBIL (CÓDIGO 401)",
+      "pagina": 2
+    }
+  },
+  "faixas": [
+    {
+      "de": 1,
+      "ate": 20,
+      "disciplina": "D01"
+    },
+    {
+      "de": 21,
+      "ate": 30,
+      "disciplina": "D02"
+    },
+    {
+      "de": 31,
+      "ate": 40,
+      "disciplina": "D03"
+    },
+    {
+      "de": 41,
+      "ate": 55,
+      "disciplina": "D04"
+    },
+    {
+      "de": 56,
+      "ate": 70,
+      "disciplina": "D05"
+    },
+    {
+      "de": 71,
+      "ate": 82,
+      "disciplina": "D06"
+    },
+    {
+      "de": 83,
+      "ate": 96,
+      "disciplina": "D07"
+    },
+    {
+      "de": 97,
+      "ate": 101,
+      "disciplina": "D09"
+    },
+    {
+      "de": 102,
+      "ate": 103,
+      "disciplina": "D10"
+    },
+    {
+      "de": 104,
+      "ate": 105,
+      "disciplina": "D11"
+    },
+    {
+      "de": 106,
+      "ate": 120,
+      "disciplina": "D12"
+    }
+  ]
+}
