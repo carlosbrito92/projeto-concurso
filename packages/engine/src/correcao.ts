@@ -18,6 +18,11 @@ export interface Pontuacao {
 /** FGV e FUMARC: 1 ponto por acerto, sem desconto. Bancas com penalização usam outra configuração. */
 export const PONTUACAO_PADRAO: Pontuacao = { acerto: 1, erro: 0, branco: 0 };
 
+/** Pontuação de um edital: acerto vale `pontosPorQuestao` (1), erro `pontosPorErro` (0 = sem desconto; -1 = Quadrix/Cebraspe), branco 0. */
+export function pontuacaoDoEdital(prova?: { pontosPorQuestao?: number; pontosPorErro?: number }): Pontuacao {
+  return { acerto: prova?.pontosPorQuestao ?? PONTUACAO_PADRAO.acerto, erro: prova?.pontosPorErro ?? PONTUACAO_PADRAO.erro, branco: 0 };
+}
+
 export interface ItemCorrigido {
   questaoId: string;
   posicao: number;

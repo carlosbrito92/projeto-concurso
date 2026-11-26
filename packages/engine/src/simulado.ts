@@ -59,6 +59,8 @@ export function montarSimulado(questoes: readonly Questao[], opc: OpcoesSimulado
 export interface ItemCliente {
   posicao: number;
   questaoId: string;
+  /** Formato do item: a tela de Certo/Errado é diferente da de múltipla escolha. */
+  tipo: Questao["tipo"];
   disciplina: string;
   enunciado: string;
   textoApoio?: string;
@@ -76,6 +78,7 @@ export function paraCliente(s: Simulado): { id: string; itens: ItemCliente[] } {
       const item: ItemCliente = {
         posicao: i + 1,
         questaoId: q.id,
+        tipo: q.tipo,
         disciplina: q.classificacao.disciplina,
         enunciado: q.enunciado,
         alternativas: it.ordem.map((orig, pos) => ({ letra: LETRAS[pos] as Letra, texto: q.alternativas[orig] as string })),

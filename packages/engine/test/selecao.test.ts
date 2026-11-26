@@ -117,3 +117,23 @@ test("prefere assuntos com questão ainda não vista: não repete enquanto houve
   const todasVistas = Object.fromEntries(p.filter((q) => q.classificacao.disciplinaId === "D01").map((q) => [q.id, 1]));
   assert.equal(selecionar(p, { n: 4, seed: "nv", cotas: { D01: 4 }, vistas: todasVistas }).questoes.length, 4, "se não há nova, repete em vez de faltar");
 });
+
+test("pesosDoEdital: o peso do módulo é dividido só entre as disciplinas que existem no banco", () => {
+  const disc = (id: string) => ({ id, nome: id, questoes: null, peso: null, itens: [] });
+  const edital = {
+    concurso: { slug: "x", banca: "B", ano: 2022, cargo: "C" },
+    prova: { totalQuestoes: 120 },
+    disciplinas: [disc("D01"), disc("D02"), disc("D03"), disc("D04"), disc("D05")],
+    grupos: [{ nome: "Básicos", questoes: 40, disciplinas: ["D01", "D02"] }, { nome: "Específicos", questoes: 80, disciplinas: ["D03", "D04", "D05"] }],
+  };
+  const todos = pesosDoEdital(edital);
+  assert.ok(Math.abs((todos["D03"] as number) - 80 / 120 / 3) < 1e-9, "sem informação de banco, divide entre todas");
+  const sem = pesosDoEdital(edital, new Set(["D01", "D02", "D03", "D04"])); // D05 não tem questão
+  assert.equal(sem["D05"], 0);
+  assert.ok(Math.abs((sem["D03"] as number) - 80 / 120 / 2) < 1e-9, "as presentes ficam com o peso todo do módulo");
+  assert.ok(Math.abs(((sem["D03"] as number) + (sem["D04"] as number)) - 80 / 120) < 1e-9, "o módulo mantém 2/3 da prova");
+  assert.ok(Math.abs(((sem["D01"] as number) + (sem["D02"] as number)) - 40 / 120) < 1e-9);
+  // nenhuma disciplina do grupo no banco: não zera o módulo inteiro
+  const nenhuma = pesosDoEdital(edital, new Set(["D01"]));
+  assert.ok((nenhuma["D03"] as number) > 0);
+});

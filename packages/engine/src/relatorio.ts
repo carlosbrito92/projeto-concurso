@@ -75,6 +75,8 @@ export interface Relatorio {
     percentual: number;
     pontos: number;
     pontosMax: number;
+    /** Pontos por erro (negativo = desconto). 0 quando o edital não desconta. */
+    penalidade: number;
     tempoMedioMs: number | null;
     chutes: { total: number; acertos: number };
   };
@@ -103,6 +105,7 @@ function nivelDe(n: number, taxaS: number, l: Limiares): Nivel {
   return "critico";
 }
 const pct = (x: number) => `${Math.round(x * 100)}%`;
+const fmt = (x: number) => (Number.isInteger(x) ? String(x) : x.toFixed(1).replace(".", ","));
 
 export interface OpcoesRelatorio {
   edital?: Edital;
@@ -274,7 +277,16 @@ export function gerarRelatorioAcumulado(sessoes: readonly Sessao[], opc: OpcoesR
   const focos = candidatosFoco.sort((x, y) => y.prioridade - x.prioridade).slice(0, opc.maxFocos ?? 5);
 
   const insights: string[] = [];
-  insights.push(`Você acertou ${cor.acertos} de ${geralN} (${pct(cor.percentual)})${cor.brancos ? `, com ${cor.brancos} em branco` : ""}.`);
+  const pont = opc.pontuacao ?? PONTUACAO_PADRAO;
+  const penalidade = pont.erro < 0 ? pont.erro : 0;
+  if (penalidade < 0) {
+    // Com desconto, a nota é acertos menos erros: a porcentagem de acertos esconde o custo de errar.
+    insights.push(`Nota: ${fmt(cor.pontos)} de ${fmt(cor.pontosMax)} pontos (${cor.acertos} ${cor.acertos === 1 ? "acerto" : "acertos"}, ${cor.erros} ${cor.erros === 1 ? "erro" : "erros"}, ${cor.brancos} em branco).`);
+    const compensa = Math.round((Math.abs(penalidade) / (pont.acerto + Math.abs(penalidade))) * 100);
+    insights.push(`Neste concurso cada erro desconta ${fmt(Math.abs(penalidade))} ponto(s) e o item em branco não pontua: só vale arriscar quando você acha que a chance de acertar passa de ${compensa}%.`);
+  } else {
+    insights.push(`Você acertou ${cor.acertos} de ${geralN} (${pct(cor.percentual)})${cor.brancos ? `, com ${cor.brancos} em branco` : ""}.`);
+  }
   const avaliadas = porDisciplina.filter((l) => l.nivel !== "indefinido");
   for (const f of focos.slice(0, 3)) insights.push(`Prioridade: ${f.rotulo}: ${f.motivo}`);
   if (focos.length === 0 && cor.acertos < geralN) {
@@ -286,7 +298,14 @@ export function gerarRelatorioAcumulado(sessoes: readonly Sessao[], opc: OpcoesR
   const melhor = avaliadas.filter((l) => l.nivel === "forte").at(-1);
   if (melhor) insights.push(`Ponto forte: ${melhor.nome} (${melhor.acertos}/${melhor.n}).`);
   const chutes = cor.itens.filter((i) => i.chute);
-  if (chutes.length) insights.push(`Você chutou ${chutes.length} questão(ões) e acertou ${chutes.filter((i) => i.acertou).length}: acerto por sorte não indica domínio.`);
+  if (chutes.length) {
+    const ok = chutes.filter((i) => i.acertou).length;
+    insights.push(
+      penalidade < 0
+        ? `Você chutou ${chutes.length} item(ns): ${ok} certo(s) e ${chutes.length - ok} errado(s), saldo de ${fmt(ok * pont.acerto + (chutes.length - ok) * penalidade)} ponto(s); acerto por sorte não indica domínio.`
+        : `Você chutou ${chutes.length} questão(ões) e acertou ${ok}: acerto por sorte não indica domínio.`,
+    );
+  }
   if (porDisciplina.some((l) => l.nivel === "indefinido")) {
     insights.push(`Há disciplinas com menos de ${lim.minimoParaAvaliar} questões neste simulado: o resultado delas é só indicativo.`);
   }
@@ -303,6 +322,7 @@ export function gerarRelatorioAcumulado(sessoes: readonly Sessao[], opc: OpcoesR
       percentual: cor.percentual,
       pontos: cor.pontos,
       pontosMax: cor.pontosMax,
+      penalidade,
       tempoMedioMs: tempos.length ? tempos.reduce((s, x) => s + x, 0) / tempos.length : null,
       chutes: { total: chutes.length, acertos: chutes.filter((i) => i.acertou).length },
     },

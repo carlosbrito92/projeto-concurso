@@ -32,9 +32,9 @@ const confere = (ok, msg) => { console.log((ok ? 'ok   ' : 'FALHA') + ' ' + msg)
     await p.goto(U + '/painel', { waitUntil: 'networkidle' });
     confere(await p.locator('details.catalogo').evaluate(e => e.open), `${esquema} sem escolha prévia o catálogo já vem aberto`);
     const titulos = (await p.locator('.catalogo h3').allInnerTexts()).map(t => t.replace(/\s*\(\d+\)\s*$/, '').trim());
-    confere(JSON.stringify(titulos) === JSON.stringify(['Segurança pública', 'Tribunais e Justiça', 'Fiscal e tributária', 'Administração pública', 'Tecnologia da informação', 'Saúde']), `${esquema} áreas agrupadas na ordem da taxonomia: ${titulos.join(' | ')}`);
-    confere((await p.locator('.catalogo-item').count()) === 9, `${esquema} 9 concursos listados`);
-    confere(/9 concursos em 6 áreas/.test(await status()), `${esquema} resumo: ${await status()}`);
+    confere(JSON.stringify(titulos) === JSON.stringify(['Segurança pública', 'Tribunais e Justiça', 'Fiscal e tributária', 'Administração pública', 'Tecnologia da informação', 'Conselhos profissionais', 'Saúde']), `${esquema} áreas agrupadas na ordem da taxonomia: ${titulos.join(' | ')}`);
+    confere((await p.locator('.catalogo-item').count()) === 10, `${esquema} 10 concursos listados`);
+    confere(/10 concursos em 7 áreas/.test(await status()), `${esquema} resumo: ${await status()}`);
     confere((await p.getByRole('search', { name: 'Filtrar concursos' }).count()) === 1, `${esquema} acima de 8 concursos aparecem busca e filtros`);
     confere(/\(x\)/.test(await p.locator('.catalogo-item[aria-current=page]').innerText()), `${esquema} o selecionado vem marcado (x)`);
     await axe('painel com catálogo aberto');
@@ -42,7 +42,7 @@ const confere = (ok, msg) => { console.log((ok ? 'ok   ' : 'FALHA') + ' ' + msg)
 
     // busca e filtros
     await p.getByLabel('Buscar (órgão, cargo, banca, ano)').fill('policia fgv');
-    confere((await p.locator('.catalogo-item').count()) === 3 && /3 de 9/.test(await status()), `${esquema} busca "policia fgv" (sem acento) acha 3: ${await status()}`);
+    confere((await p.locator('.catalogo-item').count()) === 3 && /3 de 10/.test(await status()), `${esquema} busca "policia fgv" (sem acento) acha 3: ${await status()}`);
     await p.getByLabel('Buscar (órgão, cargo, banca, ano)').fill('');
     await p.getByLabel('Área', { exact: true }).selectOption('justica');
     confere((await p.locator('.catalogo-item').count()) === 1, `${esquema} filtro de área = Tribunais e Justiça`);
@@ -53,7 +53,14 @@ const confere = (ok, msg) => { console.log((ok ? 'ok   ' : 'FALHA') + ' ' + msg)
     confere((await p.getByText('Nenhum concurso com esses filtros').count()) === 1, `${esquema} combinação sem resultado mostra estado vazio com ação`);
     await axe('catálogo sem resultado');
     await p.getByRole('button', { name: 'Limpar filtros' }).click();
-    confere((await p.locator('.catalogo-item').count()) === 9, `${esquema} limpar filtros volta aos 9`);
+    confere((await p.locator('.catalogo-item').count()) === 10, `${esquema} limpar filtros volta aos 10`);
+
+    await p.getByLabel('UF', { exact: true }).selectOption('PR');
+    confere((await p.locator('.catalogo-item').count()) === 1 && /Analista Contábil/.test(await p.locator('.catalogo-item').first().innerText()), `${esquema} filtro de UF = PR acha o concurso do CRC`);
+    await p.getByLabel('UF', { exact: true }).selectOption('');
+    await p.getByLabel('Banca', { exact: true }).selectOption('Quadrix');
+    confere((await p.locator('.catalogo-item').count()) === 1, `${esquema} filtro de banca = Quadrix`);
+    await p.getByLabel('Banca', { exact: true }).selectOption('');
 
     // trocar para outra área e criar simulado lá
     await p.getByRole('link', { name: /Analista Judiciário \(demonstração\)/ }).click();

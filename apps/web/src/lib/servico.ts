@@ -1,7 +1,7 @@
-import { chaveDisciplina, corrigir, gerarRelatorio, gerarRelatorioAcumulado, montarSimulado, pesosDoEdital, selecionar } from "@concurso/engine";
+import { chaveDisciplina, corrigir, gerarRelatorio, gerarRelatorioAcumulado, montarSimulado, pesosDoEdital, pontuacaoDoEdital, selecionar } from "@concurso/engine";
 import type { PoliticaElegibilidade, Relatorio } from "@concurso/engine";
 import { ErroDeNegocio, LIMITE_REGISTRO_RESUMO, LIMITE_REGISTRO_TITULO, LIMITE_REPORTE_TEXTO, MOTIVOS_REPORTE, TIPOS_PUBLICAVEIS } from "./tipos.ts";
-import type { MotivoReporte, TipoRegistro, Repositorio, RepositorioAdmin, ResolucaoReporte, RespostaEntrada, ResultadoGravacao, ResultadoReporte, SimuladoParaProva } from "./tipos.ts";
+import type { MotivoReporte, TipoRegistro, Repositorio, RepositorioAdmin, ResolucaoReporte, RespostaEntrada, ResultadoGravacao, ResultadoReporte, SimuladoParaTela } from "./tipos.ts";
 
 export const TAMANHOS_PERMITIDOS = [5, 10, 20, 30, 50] as const;
 
@@ -48,7 +48,7 @@ export async function criarSimulado(
     n: pedido.n,
     seed,
     politica,
-    pesos: pesosDoEdital(edital),
+    pesos: pesosDoEdital(edital, new Set(pool.flatMap((q) => q.classificacao.disciplinaIds ?? (q.classificacao.disciplinaId ? [q.classificacao.disciplinaId] : [])))),
     vistas,
     ...(foco ? { foco } : {}),
     ...(chaves ? { disciplinas: chaves } : {}),
@@ -72,8 +72,11 @@ export async function criarSimulado(
   return simulado.id;
 }
 
-export async function simuladoParaProva(repo: Repositorio, usuarioId: string, id: string): Promise<SimuladoParaProva | null> {
-  return repo.obterSimuladoParaProva(usuarioId, id);
+export async function simuladoParaProva(repo: Repositorio, usuarioId: string, id: string): Promise<SimuladoParaTela | null> {
+  const sim = await repo.obterSimuladoParaProva(usuarioId, id);
+  if (!sim) return null;
+  const p = pontuacaoDoEdital((await repo.obterEdital(sim.concursoSlug))?.prova);
+  return { ...sim, pontuacao: { acerto: p.acerto, erro: p.erro } };
 }
 
 export async function registrarResposta(repo: Repositorio, usuarioId: string, id: string, r: RespostaEntrada): Promise<ResultadoGravacao> {
@@ -92,8 +95,9 @@ export async function finalizarSimulado(repo: Repositorio, usuarioId: string, id
   if (!completo) throw new ErroDeNegocio("Simulado não encontrado.");
   const edital = await repo.obterEdital(completo.concursoSlug);
   const opc = edital ? { edital } : {};
-  const correcao = corrigir(completo.simulado, completo.respostas);
-  const relatorio = gerarRelatorio(completo.simulado, completo.respostas, opc);
+  const pontuacao = pontuacaoDoEdital(edital?.prova);
+  const correcao = corrigir(completo.simulado, completo.respostas, pontuacao);
+  const relatorio = gerarRelatorio(completo.simulado, completo.respostas, { ...opc, pontuacao });
   await repo.finalizar(usuarioId, id, correcao, relatorio);
   return relatorio;
 }
@@ -107,7 +111,7 @@ export async function panorama(repo: Repositorio, usuarioId: string, slug: strin
   const sessoes = await repo.sessoesFinalizadas(usuarioId, slug);
   if (sessoes.length === 0) return null;
   const edital = await repo.obterEdital(slug);
-  return gerarRelatorioAcumulado(sessoes, edital ? { edital } : {});
+  return gerarRelatorioAcumulado(sessoes, edital ? { edital, pontuacao: pontuacaoDoEdital(edital.prova) } : {});
 }
 
 /** Reporte do aluno: valida a entrada e grava. A questão é derivada do próprio simulado (o cliente só diz a posição). */

@@ -39,7 +39,7 @@ test("paraCliente NÃO vaza gabarito, comentário nem assunto", () => {
   const json = JSON.stringify(cliente);
   assert.ok(!json.includes("SEGREDO"));
   assert.ok(!/"correta"|"gabarito"/i.test(json));
-  assert.deepEqual(Object.keys(cliente.itens[0] as object).sort(), ["alternativas", "avisos", "disciplina", "enunciado", "peso", "posicao", "questaoId", "temImagem"]);
+  assert.deepEqual(Object.keys(cliente.itens[0] as object).sort(), ["alternativas", "avisos", "disciplina", "enunciado", "peso", "posicao", "questaoId", "temImagem", "tipo"]);
   assert.equal(cliente.itens[0]?.alternativas.length, 5);
 });
 

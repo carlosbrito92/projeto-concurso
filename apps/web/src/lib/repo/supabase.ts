@@ -105,7 +105,7 @@ export function criarRepoSupabase(getToken: () => Promise<string | null>): Repos
 
     async obterEdital(slug): Promise<Edital | null> {
       const cli = u();
-      const c = ok(await cli.from("concurso").select("slug,banca,ano,cargo,total_questoes").eq("slug", slug).maybeSingle(), "concurso");
+      const c = ok(await cli.from("concurso").select("slug,banca,ano,cargo,total_questoes,pontos_por_questao,pontos_por_erro,nota_minima,nota_minima_por_modulo").eq("slug", slug).maybeSingle(), "concurso");
       if (!c) return null;
       const [disc, grupos, itens] = await Promise.all([
         cli.from("disciplina").select("id,nome,questoes,peso,numero").eq("concurso_slug", slug).order("numero"),
@@ -115,7 +115,13 @@ export function criarRepoSupabase(getToken: () => Promise<string | null>): Repos
       const ds = ok(disc, "disciplinas") ?? [];
       return {
         concurso: { slug: c.slug, banca: c.banca, ano: c.ano, cargo: c.cargo },
-        prova: { totalQuestoes: c.total_questoes },
+        prova: {
+          totalQuestoes: c.total_questoes,
+          pontosPorQuestao: Number(c.pontos_por_questao),
+          pontosPorErro: Number(c.pontos_por_erro),
+          notaMinimaObjetiva: c.nota_minima === null ? null : Number(c.nota_minima),
+          ...(c.nota_minima_por_modulo ? { notaMinimaPorModulo: c.nota_minima_por_modulo as Record<string, number> } : {}),
+        },
         disciplinas: ds.map((d) => ({
           id: d.id, nome: d.nome, questoes: d.questoes, peso: d.peso,
           itens: itens.filter((i) => i.disciplina_id === d.id).map((i) => ({ id: i.id, numero: i.numero, texto: i.texto, pai: i.pai })),

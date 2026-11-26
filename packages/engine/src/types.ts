@@ -60,7 +60,16 @@ export interface DisciplinaEdital {
 
 export interface Edital {
   concurso: { slug: string; banca: string; ano: number; cargo: string };
-  prova: { totalQuestoes: number };
+  prova: {
+    totalQuestoes: number;
+    /** Pontos por acerto (padrão 1). */
+    pontosPorQuestao?: number;
+    /** Pontos por erro: negativo = desconto (ex.: -1 na Quadrix). Ausente = 0 (erro não desconta). */
+    pontosPorErro?: number;
+    notaMinimaObjetiva?: number | null;
+    /** Nota mínima por módulo (basicos, complementares, especificos), quando o edital exige. */
+    notaMinimaPorModulo?: Record<string, number>;
+  };
   disciplinas: DisciplinaEdital[];
   grupos?: Array<{ nome: string; questoes: number; disciplinas: string[] }>;
 }

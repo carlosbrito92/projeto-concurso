@@ -30,7 +30,7 @@ def ler(p: Path):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-JSONB = {"amostra", "medidas", "alternativas", "imagens", "fundamentacao"}  # colunas jsonb (no psycopg vão como texto JSON)
+JSONB = {"amostra", "medidas", "alternativas", "imagens", "fundamentacao", "nota_minima_por_modulo"}  # colunas jsonb (no psycopg vão como texto JSON)
 
 
 def sql_upsert(tabela: str, pk: list[str], linha: dict) -> tuple[str, dict]:
@@ -63,7 +63,8 @@ def montar() -> tuple[list[dict], dict, list[str]]:
         concursos[slug] = ed
         add("concurso", ["slug"], {"slug": slug, "orgao": c["orgao"], "uf": c["uf"], "area": c.get("area", "outras"), "banca": c["banca"], "cargo": c["cargo"], "edital": c["edital"], "ano": c["ano"],
                                    "vagas": c.get("vagas"), "total_questoes": pv["totalQuestoes"], "alternativas": pv["alternativas"],
-                                   "pontos_por_questao": pv["pontosPorQuestao"], "nota_minima": pv.get("notaMinimaObjetiva"), "data_provavel": pv.get("dataProvavel")})
+                                   "pontos_por_questao": pv["pontosPorQuestao"], "pontos_por_erro": pv.get("pontosPorErro", 0), "nota_minima": pv.get("notaMinimaObjetiva"),
+                                   "nota_minima_por_modulo": pv.get("notaMinimaPorModulo"), "data_provavel": pv.get("dataProvavel")})
         for d in ed["disciplinas"]:
             add("disciplina", ["concurso_slug", "id"], {"concurso_slug": slug, "id": d["id"], "modulo": d["modulo"], "numero": d["numero"], "titulo_literal": d["tituloLiteral"],
                                                        "nome": d["nome"], "questoes": d["questoes"], "peso": d["peso"], "numeracao_itens": d.get("numeracaoItens"),

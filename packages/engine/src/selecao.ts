@@ -47,12 +47,19 @@ export function chaveDisciplina(q: Questao): string {
 }
 
 /** Peso de cada chave de disciplina segundo o edital (nº de questões; grupos divididos igualmente). */
-export function pesosDoEdital(edital: Edital): Record<string, number> {
+/**
+ * Peso de cada disciplina do edital. Quando o edital só informa o total de um módulo/grupo, o peso dele é dividido entre as
+ * disciplinas do grupo; com `disponiveis` (ids que têm questão no banco), a divisão ignora as ausentes, para o módulo
+ * manter o peso que tem na prova mesmo quando alguma disciplina dele ainda não tem questão.
+ */
+export function pesosDoEdital(edital: Edital, disponiveis?: ReadonlySet<string>): Record<string, number> {
   const total = edital.prova.totalQuestoes || 1;
   const porId: Record<string, number> = {};
   for (const d of edital.disciplinas) if (d.questoes !== null) porId[d.id] = d.questoes / total;
   for (const g of edital.grupos ?? []) {
-    for (const id of g.disciplinas) porId[id] = g.questoes / total / g.disciplinas.length;
+    const presentes = disponiveis ? g.disciplinas.filter((id) => disponiveis.has(id)) : g.disciplinas;
+    const base = presentes.length > 0 ? presentes : g.disciplinas;
+    for (const id of g.disciplinas) porId[id] = base.includes(id) ? g.questoes / total / base.length : 0;
   }
   return porId;
 }

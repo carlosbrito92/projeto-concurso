@@ -4,7 +4,9 @@ import { criarRepoMemoria } from "./memoria.ts";
 
 export const CONCURSO_DEMO = "pc-mg-fgv-2024";
 /** Os demais editais REAIS já carregados no projeto (conteúdo público); as questões de todos continuam fictícias. */
-const CONCURSOS_REAIS = [CONCURSO_DEMO, "pc-mg-fumarc-2014", "pc-ma-fgv-2012", "pc-am-fgv-2021"];
+const CONCURSOS_REAIS = [CONCURSO_DEMO, "pc-mg-fumarc-2014", "pc-ma-fgv-2012", "pc-am-fgv-2021", "crc-pr-quadrix-2022"];
+/** Concursos de itens Certo/Errado (nota com desconto por erro): a demonstração gera itens fictícios nesse formato. */
+const CERTO_ERRADO = new Set(["crc-pr-quadrix-2022"]);
 
 /**
  * Entradas FICTÍCIAS só para a demonstração exercitar o seletor com várias áreas (usam a estrutura de edital do piloto).
@@ -25,7 +27,7 @@ export function criarRepoDemo(): Repositorio {
     return {
       resumo: { slug, area, uf, orgao, banca: edital.concurso.banca, cargo: edital.concurso.cargo, ano: edital.concurso.ano, edital: editalNome, totalQuestoes: edital.prova.totalQuestoes },
       edital,
-      pool: gerarQuestoesDemo(edital, 8, i),
+      pool: gerarQuestoesDemo(edital, 8, i, CERTO_ERRADO.has(slug) ? "certo_errado" : "multipla"),
     };
   });
   const base = carregarEditalDoRepo(CONCURSO_DEMO).edital;

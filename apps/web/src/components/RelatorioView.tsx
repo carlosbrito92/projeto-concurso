@@ -3,20 +3,30 @@ import { duracao, pct, rotuloNivel } from "@/lib/formatar";
 import { Aviso } from "./Aviso";
 import { Barra } from "./Barra";
 
+const numero = (x: number) => x.toLocaleString("pt-BR", { maximumFractionDigits: 1 });
+
 function Nivel({ nivel }: { nivel: string }) {
   return <span className={`nivel nivel-${nivel}`}>{rotuloNivel[nivel] ?? nivel}</span>;
 }
 
 export function RelatorioView({ r, titulo = "Resultado", mostrarErros = true }: { r: Relatorio; titulo?: string; mostrarErros?: boolean }) {
   const { resumo } = r;
+  const comDesconto = (resumo.penalidade ?? 0) < 0; // relatórios antigos não têm o campo
   const assuntosFracos = r.porAssunto.filter((a) => a.nivel === "critico" || a.nivel === "atencao").slice(0, 12);
   return (
     <div className="pilha">
       <section aria-labelledby="rel-resumo" className="painel">
         <h2 id="rel-resumo" className="titulo-sec">{titulo}</h2>
         <dl className="grade" style={{ margin: 0 }}>
+          {comDesconto && (
+            <div className="col-4"><dt className="rotulo">Nota</dt><dd style={{ margin: 0 }}><span className="num-grande">{numero(resumo.pontos)}</span> de {numero(resumo.pontosMax)} pontos</dd></div>
+          )}
           <div className="col-4"><dt className="rotulo">Acertos</dt><dd style={{ margin: 0 }}><span className="num-grande">{resumo.acertos}</span> de {resumo.total}</dd></div>
-          <div className="col-4"><dt className="rotulo">Aproveitamento</dt><dd style={{ margin: 0 }}><span className="num-grande">{pct(resumo.percentual)}</span></dd></div>
+          {comDesconto ? (
+            <div className="col-4"><dt className="rotulo">Erros (desconto de {numero(Math.abs(resumo.penalidade ?? 0))} cada)</dt><dd style={{ margin: 0 }}><span className="num-grande">{resumo.erros}</span></dd></div>
+          ) : (
+            <div className="col-4"><dt className="rotulo">Aproveitamento</dt><dd style={{ margin: 0 }}><span className="num-grande">{pct(resumo.percentual)}</span></dd></div>
+          )}
           <div className="col-4"><dt className="rotulo">Em branco</dt><dd style={{ margin: 0 }}><span className="num-grande">{resumo.brancos}</span></dd></div>
           <div className="col-4"><dt className="rotulo">Tempo médio por questão</dt><dd style={{ margin: 0 }}><span className="num-grande" style={{ fontSize: "var(--t-xl)" }}>{duracao(resumo.tempoMedioMs)}</span></dd></div>
         </dl>

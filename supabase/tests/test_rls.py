@@ -441,6 +441,35 @@ class AreaDoConcurso(Base):
                 c.execute("select area from concurso")
 
 
+class PontuacaoDoConcurso(Base):
+    def test_padrao_sem_desconto_e_validacoes(self):
+        self.assertEqual(self.admin.execute("select pontos_por_erro, nota_minima_por_modulo from concurso where slug = 'c1'").fetchone(), (0, None))
+        with self.assertRaises(E.CheckViolation):
+            self.admin.execute("update concurso set pontos_por_erro = 1 where slug = 'c1'")  # erro não pode somar ponto
+        with self.assertRaises(E.CheckViolation):
+            self.admin.execute("update concurso set nota_minima_por_modulo = '[1,2]'::jsonb where slug = 'c1'")  # tem de ser objeto
+        self.admin.execute("update concurso set pontos_por_erro = -1, nota_minima_por_modulo = '{\"basicos\": 8}'::jsonb where slug = 'c1'")
+        self.admin.execute("update concurso set pontos_por_erro = 0, nota_minima_por_modulo = null where slug = 'c1'")
+
+    def test_modulo_complementares_aceito_e_invalido_recusado(self):
+        x = self.admin.execute
+        for m in ("basicos", "complementares", "especificos"):
+            x("insert into disciplina (concurso_slug, id, nome, numero, titulo_literal, modulo) values ('c1', 'D91', 'Teste', 91, 'T', %s)", (m,))
+            x("delete from disciplina where concurso_slug = 'c1' and id = 'D91'")
+        with self.assertRaises(E.CheckViolation):
+            x("insert into disciplina (concurso_slug, id, nome, numero, titulo_literal, modulo) values ('c1', 'D91', 'Teste', 91, 'T', 'outro')")
+
+    def test_aluno_le_a_pontuacao_mas_nao_altera(self):
+        with self.como("authenticated", "user_A") as c:
+            self.assertEqual(c.execute("select pontos_por_erro from concurso where slug = 'c1'").fetchone()[0], 0)
+        self.negado("authenticated", "user_A", "update concurso set pontos_por_erro = -5 where slug = 'c1'")
+
+    def test_item_certo_errado_com_duas_alternativas_e_aceito(self):
+        self.admin.execute("insert into questao (id, schema_version, concurso_slug, tipo, enunciado, alternativas, disciplina_ids, disciplina_nome, origem_tipo) values ('Q059901','3.0','c1','CertoErrado','Item de teste',%s::jsonb,'{D01}','d','prova_real')", (json.dumps(["Certo", "Errado"]),))
+        self.admin.execute("insert into questao_gabarito (questao_id, correta) values ('Q059901', 1)")
+        self.admin.execute("delete from questao where id = 'Q059901'")
+
+
 class Lgpd(Base):
     def test_aluno_nao_chama_apagar_dados(self):
         with self.como("authenticated", "user_A") as c:

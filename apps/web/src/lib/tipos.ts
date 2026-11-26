@@ -41,6 +41,11 @@ export interface SimuladoParaProva {
   respostas: Record<number, RespostaSalva>;
 }
 
+/** O que a tela da prova usa: o simulado (sem gabarito) + a regra de pontuação do concurso (para avisar do desconto por erro). */
+export interface SimuladoParaTela extends SimuladoParaProva {
+  pontuacao: { acerto: number; erro: number };
+}
+
 export interface RespostaEntrada {
   posicao: number;
   letra: Letra | null;

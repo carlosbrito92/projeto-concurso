@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from
 import { useRouter } from "next/navigation";
 import type { Letra } from "@concurso/engine";
 import { finalizarAction, registrarRespostaAction } from "@/app/(app)/actions";
-import type { SimuladoParaProva } from "@/lib/tipos";
+import type { SimuladoParaTela } from "@/lib/tipos";
 import { Aviso } from "./Aviso";
 import { Barra } from "./Barra";
 import { ReportarProblema } from "./ReportarProblema";
@@ -15,7 +15,7 @@ interface Estado {
   chute: boolean;
 }
 
-export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaProva; erroAoFinalizar: boolean }) {
+export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaTela; erroAoFinalizar: boolean }) {
   const router = useRouter();
   const total = simulado.itens.length;
   const [idx, setIdx] = useState(0);
@@ -35,6 +35,9 @@ export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaPro
 
   const posicao = idx + 1;
   const item = simulado.itens[idx];
+  const ehCE = item?.tipo === "CertoErrado"; // Certo/Errado: A = Certo (tecla C), B = Errado (tecla E)
+  const comDesconto = simulado.pontuacao.erro < 0;
+  const rotulo = (letra: Letra) => (ehCE ? (letra === "A" ? "C" : "E") : letra);
 
   const tempoDe = useCallback((pos: number, corrente: boolean) => {
     const base = acumulado.current[pos] ?? 0;
@@ -94,6 +97,14 @@ export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaPro
     [posicao, respostas, salvar, tempoDe],
   );
 
+  /** Deixar em branco: com desconto por erro, não responder é uma decisão (vale 0, errar vale menos). */
+  const limpar = useCallback(() => {
+    const novo: Estado = { letra: null, chute: false };
+    setRespostas((r) => ({ ...r, [posicao]: novo }));
+    setAviso(null);
+    void salvar(posicao, novo, tempoDe(posicao, true));
+  }, [posicao, salvar, tempoDe]);
+
   const alternarChute = useCallback(
     (v: boolean) => {
       const atual = respostas[posicao] ?? { letra: null, chute: false };
@@ -111,7 +122,10 @@ export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaPro
       if (alvo && (alvo.tagName === "SELECT" || alvo.tagName === "TEXTAREA" || (alvo.tagName === "INPUT" && (alvo as HTMLInputElement).type === "text"))) return;
       if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
       const k = ev.key.toUpperCase();
-      if (item && k.length === 1 && "ABCDE".includes(k) && "ABCDE".indexOf(k) < item.alternativas.length) {
+      if (item && item.tipo === "CertoErrado" && (k === "C" || k === "E")) {
+        ev.preventDefault();
+        marcar(k === "C" ? "A" : "B");
+      } else if (item && item.tipo !== "CertoErrado" && k.length === 1 && "ABCDE".includes(k) && "ABCDE".indexOf(k) < item.alternativas.length) {
         ev.preventDefault();
         marcar(k as Letra);
       } else if (ev.key === "ArrowRight") irPara(idx + 1);
@@ -149,6 +163,10 @@ export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaPro
         </div>
       </div>
 
+      {comDesconto && (
+        <Aviso aviso={{ nivel: "info", texto: `Neste concurso cada erro desconta ${Math.abs(simulado.pontuacao.erro)} ponto(s) e o item em branco não pontua nem desconta. Se não souber, deixe em branco.` }} />
+      )}
+
       <div className="prova-layout">
         <article className="pilha" aria-labelledby="enunciado-q" key={item.questaoId}>
           <small className="suave">{item.disciplina}</small>
@@ -162,20 +180,27 @@ export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaPro
           <p id="enunciado-q" className="enunciado" style={{ marginBottom: 0 }}>{item.enunciado}</p>
 
           <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
-            <legend className="so-leitor">Alternativas da questão {posicao}</legend>
+            <legend className="so-leitor">{ehCE ? `Julgamento do item ${posicao}: certo ou errado` : `Alternativas da questão ${posicao}`}</legend>
             <ul className="alternativas">
               {item.alternativas.map((alt) => (
                 <li key={alt.letra}>
                   <label className="alt">
                     <input type="radio" name={`q${posicao}`} value={alt.letra} checked={atual?.letra === alt.letra} onChange={() => marcar(alt.letra)} />
                     <span className="marca-alt" aria-hidden="true" />
-                    <span className="so-leitor">Alternativa {alt.letra}: </span>
-                    <span className="texto-alt"><strong aria-hidden="true">{alt.letra}) </strong>{alt.texto}</span>
+                    <span className="so-leitor">{ehCE ? "Julgar como " : `Alternativa ${alt.letra}: `}</span>
+                    <span className="texto-alt"><strong aria-hidden="true">{rotulo(alt.letra)}) </strong>{alt.texto}</span>
                   </label>
                 </li>
               ))}
             </ul>
           </fieldset>
+
+          {(ehCE || comDesconto) && (
+            <div className="linha">
+              <button type="button" className="btn btn-fantasma" onClick={limpar} disabled={!atual?.letra} aria-disabled={!atual?.letra}>Deixar em branco</button>
+              <small className="suave">Limpa a sua resposta deste item.</small>
+            </div>
+          )}
 
           <div className="marcador">
             <input type="checkbox" id="chute" checked={atual?.chute ?? false} onChange={(e) => alternarChute(e.target.checked)} />
@@ -189,7 +214,7 @@ export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaPro
             <button type="button" className="btn" onClick={() => irPara(idx - 1)} disabled={idx === 0} aria-disabled={idx === 0}>Anterior</button>
             <button type="button" className="btn" onClick={() => irPara(idx + 1)} disabled={idx === total - 1} aria-disabled={idx === total - 1}>Próxima</button>
           </div>
-          <small className="suave">Atalhos: teclas A a E marcam a alternativa; setas esquerda e direita trocam de questão.</small>
+          <small className="suave">{ehCE ? "Atalhos: tecla C marca Certo, tecla E marca Errado;" : "Atalhos: teclas A a E marcam a alternativa;"} setas esquerda e direita trocam de questão.</small>
           <ReportarProblema key={item.questaoId} simuladoId={simulado.id} posicao={posicao} />
         </article>
 
@@ -215,7 +240,7 @@ export function Prova({ simulado, erroAoFinalizar }: { simulado: SimuladoParaPro
             <div className="pilha-p" role="alertdialog" aria-labelledby="conf-titulo">
               <strong id="conf-titulo">Finalizar agora?</strong>
               <p style={{ marginBottom: 0 }}>
-                {respondidas === total ? "Todas as questões foram respondidas." : `Você deixou ${total - respondidas} questão(ões) em branco. Elas contam como erro.`} Depois de finalizar não dá para alterar as respostas.
+                {respondidas === total ? "Todas as questões foram respondidas." : `Você deixou ${total - respondidas} questão(ões) em branco. ${comDesconto ? "Em branco não pontua nem desconta." : "Elas contam como erro."}`} Depois de finalizar não dá para alterar as respostas.
               </p>
               <button type="button" className="btn btn-primario" onClick={finalizar} disabled={finalizando} aria-disabled={finalizando} data-carregando={finalizando}>
                 {finalizando ? (<><Spinner /> Corrigindo...</>) : "Confirmar e ver resultado"}
